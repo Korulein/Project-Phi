@@ -2,8 +2,10 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Chip
+  - Fan
   layers:
   - Default
   - TransparentFX
@@ -41,3 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Locked
+    uniqueID: 4231228031
+    locked: 0
+  - name: Component
+    uniqueID: 2472510097
+    locked: 0
+  - name: Dragged
+    uniqueID: 1910689003
+    locked: 0
+  m_RenderingLayers:
+  - Default
