@@ -733,7 +733,8 @@ MonoBehaviour:
   confirmButton: {fileID: 1503761889}
   targetSortingLayer: Component
   lockedSortingLayer: Locked
-  popupPrefab: {fileID: 2307519958831522072, guid: b02e7cd9023faf94e82dbf8faa2f9bfd, type: 3}
+  successPopup: {fileID: 2307519958831522072, guid: b02e7cd9023faf94e82dbf8faa2f9bfd, type: 3}
+  warningPopup: {fileID: 8945071726091411691, guid: ccc2610430927d8448065fafe5cc1dca, type: 3}
 --- !u!4 &514876584
 Transform:
   m_ObjectHideFlags: 0
@@ -1727,7 +1728,8 @@ MonoBehaviour:
   confirmButton: {fileID: 0}
   targetSortingLayer: component
   lockedSortingLayer: locked
-  popupPrefab: {fileID: 0}
+  successPopup: {fileID: 0}
+  warningPopup: {fileID: 0}
 --- !u!1 &1548907003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +1972,8 @@ MonoBehaviour:
   confirmButton: {fileID: 0}
   targetSortingLayer: component
   lockedSortingLayer: locked
-  popupPrefab: {fileID: 0}
+  successPopup: {fileID: 0}
+  warningPopup: {fileID: 0}
 --- !u!114 &1945484530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1986,7 +1989,8 @@ MonoBehaviour:
   confirmButton: {fileID: 0}
   targetSortingLayer: component
   lockedSortingLayer: locked
-  popupPrefab: {fileID: 0}
+  successPopup: {fileID: 0}
+  warningPopup: {fileID: 0}
 --- !u!1 &1991369863
 GameObject:
   m_ObjectHideFlags: 0
