@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2949684537250074eb390142759172e7
+guid: 27f4f0bc19c490947ab5ec698cec01d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8702977958770196269
-    second: blueprint_0
+      213: -4847900942624948120
+    second: Blank_Tablet 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blueprint_0
+      name: Blank_Tablet 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 164
+        y: 414
+        width: 700
+        height: 408
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2f3d88d75037c870800000000000000
-      internalID: 8702977958770196269
+      spriteID: 8600f8827cbc8bcb0800000000000000
+      internalID: -4847900942624948120
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      blueprint_0: 8702977958770196269
+      Blank_Tablet 1_0: -4847900942624948120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
