@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cde0d9725bbae2447ac3094bc8a52983
+guid: 2949684537250074eb390142759172e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3626170018067094600
-    second: StickyNote_0
+      213: 8702977958770196269
+    second: blueprint_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StickyNote_0
+      name: blueprint_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 79
-        width: 354
-        height: 368
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84c9f0e4b6eb25230800000000000000
-      internalID: 3626170018067094600
+      spriteID: d2f3d88d75037c870800000000000000
+      internalID: 8702977958770196269
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      StickyNote_0: 3626170018067094600
+      blueprint_0: 8702977958770196269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
