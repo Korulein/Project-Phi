@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 36b18d1611f3ddc40a159c5ab431114b
+guid: 8096d8c74aeca504d8561925e67bf81b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8872250314447964866
-    second: Bin_0
-  - first:
-      213: 6755464523114585211
-    second: Bin_1
+      213: -3108229404718017684
+    second: MechanicalPart-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,39 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bin_0
+      name: MechanicalPart-1_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 201
-        width: 144
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e353bf0a85f6fd480800000000000000
-      internalID: -8872250314447964866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bin_1
-      rect:
-        serializedVersion: 2
-        x: 53
+        x: 41
         y: 41
-        width: 144
-        height: 146
+        width: 168
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7c9ff8113b30cd50800000000000000
-      internalID: 6755464523114585211
+      spriteID: c63db5313d95dd4d0800000000000000
+      internalID: -3108229404718017684
       vertices: []
       indices: 
       edges: []
@@ -159,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MechanicalPart-1_0: -3108229404718017684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
