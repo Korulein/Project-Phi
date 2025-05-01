@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class BlueprintManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static BlueprintManager instance { get; private set; }
+
+    [Header("Grid")]
+    private int gridWidth;
+    private int gridHeight;
+    private ComponentData[,] grid;
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        grid = new ComponentData[gridWidth, gridHeight];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
