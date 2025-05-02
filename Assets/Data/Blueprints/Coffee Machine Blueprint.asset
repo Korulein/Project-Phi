@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0ef02f3b175b54ba7985f117b4806f, type: 3}
+  m_Name: Coffee Machine Blueprint
+  m_EditorClassIdentifier: 
+  blueprintName: Coffee_Machine_Blueprint_01
+  blueprintImage: {fileID: 21300000, guid: c3642c73d0cdf894eb61d2316e40981b, type: 3}
+  gridWidth: 6
+  gridHeight: 6
+  cellSize: 50
+  validCells:
+  - x: 2
+    y: 0
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 0
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 1
+    y: 1
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 1
+    y: 2
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 1
+    y: 3
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 1
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 2
+    y: 0
+    type: 1
+    size: 4
+    width: 1
+    height: 3
+  - x: 2
+    y: 1
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 2
+    y: 2
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 2
+    y: 3
+    type: 1
+    size: 1
+    width: 1
+    height: 1
+  - x: 2
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 2
+    y: 5
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 1
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 2
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 3
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 3
+    y: 5
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 4
+    y: 1
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 4
+    y: 2
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 4
+    y: 3
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 4
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 4
+    y: 5
+    type: 1
+    size: 1
+    width: 1
+    height: 1
+  - x: 5
+    y: 1
+    type: 0
+    size: 1
+    width: 1
+    height: 1
+  - x: 5
+    y: 2
+    type: 1
+    size: 4
+    width: 2
+    height: 1
+  - x: 5
+    y: 4
+    type: 0
+    size: 1
+    width: 1
+    height: 1

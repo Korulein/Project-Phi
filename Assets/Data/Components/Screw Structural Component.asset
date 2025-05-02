@@ -19,7 +19,7 @@ MonoBehaviour:
   componentID: 3
   prefab: {fileID: 210547370447629217, guid: b972c683f02e05c4cb8c290e475fff04, type: 3}
   materialType: 5
-  slotType: 0
+  slotSize: 1
   weight: 0.01
   requiresPowerInput: 0
   reliabilityRating: 0

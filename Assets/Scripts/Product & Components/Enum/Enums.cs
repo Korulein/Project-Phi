@@ -4,11 +4,12 @@ public class Enums : MonoBehaviour
 {
 
 }
-public enum SlotType
+public enum SlotSize
 {
-    Small,
-    Medium,
-    Large
+    Small = 1,
+    Medium = 2,
+    Large = 3,
+    Custom = 4
 }
 public enum SensorTypes
 {

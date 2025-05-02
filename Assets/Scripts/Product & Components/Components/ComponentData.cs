@@ -10,7 +10,7 @@ public class ComponentData : ScriptableObject
 
     [Header("Component Specifics")]
     public MaterialTypes materialType;
-    public SlotType slotType;
+    public SlotSize slotSize;
     public string weight;
     public bool requiresPowerInput;
 
