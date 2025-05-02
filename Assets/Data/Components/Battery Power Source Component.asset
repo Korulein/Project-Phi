@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de85ca2df16b02c4287c434e5b99c9ab, type: 3}
+  m_Name: Battery Power Source Component
+  m_EditorClassIdentifier: 
+  componentName: Basic Battery
+  componentSprite: {fileID: -3017979480325208809, guid: 009e3703217493f4fafe8a58f4ff7401, type: 3}
+  componentDescription: A simple 9V battery.
+  componentID: 1
+  prefab: {fileID: 6193808487357242632, guid: 7a7ce531fbe8a6a4ea3c31a79279a241, type: 3}
+  materialType: 4
+  slotType: 0
+  weight: 0.34
+  requiresPowerInput: 0
+  reliabilityRating: 20
+  availabilityRating: 60
+  safetyRating: 90
+  maintainabilityRating: 70
+  energyType: 0
+  maxPowerOutput: 5.49

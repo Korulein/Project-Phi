@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class PowerSourceComponent : MonoBehaviour
+[CreateAssetMenu(fileName = "New Power Source Component", menuName = "Blueprint/Component/Power Source Component")]
+public class PowerSourceComponent : ComponentData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Power Source Component Data")]
+    public EnergyTypes energyType;
+    public float maxPowerOutput; // In Watts
 }

@@ -16,14 +16,15 @@ MonoBehaviour:
   componentSprite: {fileID: 21300000, guid: b86c542143de7e6499760a35d6080708, type: 3}
   componentDescription: The most basic cooling source on offer.
   componentID: 0
+  prefab: {fileID: 2923705535811556310, guid: 265c62a62c6d0334e84366ee8fc1bb43, type: 3}
   materialType: 0
   slotType: 0
   weight: 0.14
   requiresPowerInput: 1
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  maxCoolingCapacity: 0
+  reliabilityRating: 30
+  availabilityRating: 70
+  safetyRating: 20
+  maintainabilityRating: 50
+  requiredPower: 0
   coolantType: 0
   operationalTemperature: 0

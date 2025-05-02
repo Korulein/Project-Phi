@@ -4,7 +4,7 @@ using UnityEngine;
 public class CoolingComponent : ComponentData
 {
     [Header("Cooling Component Data")]
-    public float maxCoolingCapacity;
+    public float requiredPower;
     public CoolantTypes coolantType;
     public float operationalTemperature;
 }

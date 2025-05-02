@@ -23,7 +23,11 @@ public enum MaterialTypes
     Plastic,
     Silicone,
     Titanium,
-    CarbonFiber
+    CarbonFiber,
+    Aluminum,
+    Steel,
+    Copper,
+    Brass
 }
 public enum CoolantTypes
 {

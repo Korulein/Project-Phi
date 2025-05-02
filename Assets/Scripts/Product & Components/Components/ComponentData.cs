@@ -6,6 +6,7 @@ public class ComponentData : ScriptableObject
     public Sprite componentSprite;
     [TextArea] public string componentDescription;
     public int componentID;
+    public GameObject prefab;
 
     [Header("Component Specifics")]
     public MaterialTypes materialType;

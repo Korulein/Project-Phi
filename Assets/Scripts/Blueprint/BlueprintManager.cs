@@ -7,6 +7,8 @@ public class BlueprintManager : MonoBehaviour
     [Header("Grid")]
     private int gridWidth;
     private int gridHeight;
+    private float cellSize;
+    private Vector2 gridOrigin;
     private ComponentData[,] grid;
 
     private void Awake()
@@ -22,5 +24,4 @@ public class BlueprintManager : MonoBehaviour
         }
         grid = new ComponentData[gridWidth, gridHeight];
     }
-
 }
