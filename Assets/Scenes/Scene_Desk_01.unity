@@ -193,7 +193,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &139380205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,7 +2132,6 @@ MonoBehaviour:
   requiredCell: {fileID: 6945278685938391530, guid: 79ee751019b1cd749b55eda6ba7a7520, type: 3}
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
-  cellSizePixels: 90
 --- !u!4 &1544329546
 Transform:
   m_ObjectHideFlags: 0

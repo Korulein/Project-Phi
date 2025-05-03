@@ -14,10 +14,13 @@ public class BlueprintManager : MonoBehaviour
     [SerializeField] private GameObject requiredCell;
     [SerializeField] private GameObject specialCell;
     [SerializeField] private GameObject emptyCell;
-    [SerializeField] private int cellSizePixels; //in pixels
+    private const int CELL_PIXEL_SIZE = 90; //in pixels
     private float offsetX;
     private float offsetY;
     private BlueprintCellData[,] grid;
+
+    [Header("Mouse Setup")]
+    private Vector2Int tileGridPosition = new Vector2Int();
     private void Awake()
     {
         if (instance == null)
@@ -38,6 +41,10 @@ public class BlueprintManager : MonoBehaviour
     {
         LoadBlueprint(1);
     }
+    private void Update()
+    {
+        Debug.Log(GetTileGridPosition(Input.mousePosition));
+    }
     public BlueprintData GetBlueprintByID(int id)
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
@@ -54,7 +61,6 @@ public class BlueprintManager : MonoBehaviour
         }
 
         BlueprintData currentBlueprint = GetBlueprintByID(blueprintID);
-
         grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
 
         //loading background
@@ -62,8 +68,8 @@ public class BlueprintManager : MonoBehaviour
         backgroundImage.sprite = currentBlueprint.blueprintImage;
 
         //offset calculation for centering
-        float totalWidth = currentBlueprint.gridWidth * cellSizePixels;
-        float totalHeight = currentBlueprint.gridHeight * cellSizePixels;
+        float totalWidth = currentBlueprint.gridWidth * CELL_PIXEL_SIZE;
+        float totalHeight = currentBlueprint.gridHeight * CELL_PIXEL_SIZE;
 
         offsetX = (gridContainer.rect.width - totalWidth) / 2f;
         offsetY = (gridContainer.rect.height - totalHeight) / 2f;
@@ -100,16 +106,34 @@ public class BlueprintManager : MonoBehaviour
                 cellRect.anchorMin = new Vector2(0, 1);
                 cellRect.anchorMax = new Vector2(0, 1);
                 cellRect.pivot = new Vector2(0, 1); // Top Left Pivot
-                cellRect.sizeDelta = new Vector2(cellSizePixels, cellSizePixels);
+                cellRect.sizeDelta = new Vector2(CELL_PIXEL_SIZE, CELL_PIXEL_SIZE);
 
                 //positioning
-                float posX = offsetX + (i * cellSizePixels);
-                float posY = -offsetY - (j * cellSizePixels);
+                float posX = offsetX + (i * CELL_PIXEL_SIZE);
+                float posY = -offsetY - (j * CELL_PIXEL_SIZE);
                 cellRect.anchoredPosition = new Vector2(posX, posY);
 
                 cellCounter++;
             }
         }
+
+    }
+    public Vector2Int GetTileGridPosition(Vector2 mousePosition)
+    {
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            gridContainer,
+            mousePosition,
+            null,
+            out localPoint
+        );
+        localPoint.x -= offsetX;
+        localPoint.y += offsetY;
+
+        tileGridPosition.x = Mathf.FloorToInt(localPoint.x / CELL_PIXEL_SIZE);
+        tileGridPosition.y = Mathf.FloorToInt(-localPoint.y / CELL_PIXEL_SIZE);
+
+        return tileGridPosition;
     }
     public bool AttemptToPlaceComponent(UIComponentItem componentItem, Vector3 mousePosition)
     {
