@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0ef02f3b175b54ba7985f117b4806f, type: 3}
+  m_Name: Basic Blueprint
+  m_EditorClassIdentifier: 
+  blueprintName: Basic_Blueprint_01
+  blueprintImage: {fileID: 21300000, guid: 83632b905d6664b45bc4d0d259ade890, type: 3}
+  blueprintID: 0
+  gridWidth: 6
+  gridHeight: 6
+  allCells:
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
