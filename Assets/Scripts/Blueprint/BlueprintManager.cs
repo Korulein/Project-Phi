@@ -1,16 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using static BlueprintData;
+using UnityEngine.UI;
 
 public class BlueprintManager : MonoBehaviour
 {
     public static BlueprintManager instance { get; private set; }
 
     [Header("Blueprint Setup")]
-    //[SerializeField] private Image blueprintImage;
     [SerializeField] private RectTransform gridContainer;
-    [SerializeField] private BlueprintData currentBlueprint; // change later for multuple blueprints
-
-    private ComponentData[,] grid;
+    [SerializeField] public List<BlueprintData> blueprints;
+    [SerializeField] private GameObject standardCell;
+    [SerializeField] private GameObject requiredCell;
+    [SerializeField] private GameObject specialCell;
+    [SerializeField] private GameObject emptyCell;
+    [SerializeField] private int cellSizePixels; //in pixels
+    private float offsetX;
+    private float offsetY;
+    private BlueprintCellData[,] grid;
     private void Awake()
     {
         if (instance == null)
@@ -22,17 +29,22 @@ public class BlueprintManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        for (int i = 0; i < blueprints.Count; i++)
+        {
+            blueprints[i].blueprintID = i;
+        }
     }
     private void Start()
     {
-        LoadBlueprint(currentBlueprint);
+        LoadBlueprint(1);
     }
-    public void LoadBlueprint(BlueprintData blueprintData)
+    public BlueprintData GetBlueprintByID(int id)
     {
-        currentBlueprint = blueprintData;
-        grid = new ComponentData[blueprintData.gridWidth, blueprintData.gridHeight];
-        //blueprintImage.sprite = blueprintData.blueprintImage;
-
+        return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
+    }
+    public void LoadBlueprint(int blueprintID)
+    {
+        //clears grid when loading
         foreach (Transform child in gridContainer)
         {
             if (child.GetComponent<UIComponentItem>() != null)
@@ -40,9 +52,68 @@ public class BlueprintManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+
+        BlueprintData currentBlueprint = GetBlueprintByID(blueprintID);
+
+        grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
+
+        //loading background
+        Image backgroundImage = gridContainer.GetComponent<Image>();
+        backgroundImage.sprite = currentBlueprint.blueprintImage;
+
+        //offset calculation for centering
+        float totalWidth = currentBlueprint.gridWidth * cellSizePixels;
+        float totalHeight = currentBlueprint.gridHeight * cellSizePixels;
+
+        offsetX = (gridContainer.rect.width - totalWidth) / 2f;
+        offsetY = (gridContainer.rect.height - totalHeight) / 2f;
+
+        //instantiates grid
+        int cellCounter = 0;
+        for (int j = 0; j < currentBlueprint.gridHeight; j++)
+        {
+            for (int i = 0; i < currentBlueprint.gridWidth; i++)
+            {
+                if (cellCounter >= currentBlueprint.allCells.Count)
+                    return;
+
+                BlueprintCellData currentCell = currentBlueprint.allCells[cellCounter];
+                grid[i, j] = currentCell;
+
+                //instantiating cells
+                GameObject prefabToInstantiate;
+                GameObject newCell;
+                if (!currentCell.isUseable)
+                {
+                    prefabToInstantiate = emptyCell;
+                }
+                else
+                {
+                    prefabToInstantiate = currentCell.type == BlueprintCellData.CellType.Required ? requiredCell : standardCell;
+                }
+
+                newCell = Instantiate(prefabToInstantiate, gridContainer);
+                newCell.name = $"Cell {j} {i}";
+
+                //anchoring
+                RectTransform cellRect = newCell.GetComponent<RectTransform>();
+                cellRect.anchorMin = new Vector2(0, 1);
+                cellRect.anchorMax = new Vector2(0, 1);
+                cellRect.pivot = new Vector2(0, 1); // Top Left Pivot
+                cellRect.sizeDelta = new Vector2(cellSizePixels, cellSizePixels);
+
+                //positioning
+                float posX = offsetX + (i * cellSizePixels);
+                float posY = -offsetY - (j * cellSizePixels);
+                cellRect.anchoredPosition = new Vector2(posX, posY);
+
+                cellCounter++;
+            }
+        }
     }
     public bool AttemptToPlaceComponent(UIComponentItem componentItem, Vector3 mousePosition)
     {
+        /*
         if (currentBlueprint == null)
             return false;
         ComponentData component = componentItem.GetComponentData();
@@ -56,6 +127,7 @@ public class BlueprintManager : MonoBehaviour
 
         int gridX = Mathf.FloorToInt(normalizedX * currentBlueprint.gridWidth);
         int gridY = Mathf.FloorToInt(normalizedY * currentBlueprint.gridHeight);
+        
         if (currentBlueprint.TryToGetCell(gridX, gridY, out BlueprintData.Cell cell))
         {
             int originX = cell.x;
@@ -71,8 +143,6 @@ public class BlueprintManager : MonoBehaviour
                 width = (int)cell.size;
                 height = (int)cell.size;
             }
-            Debug.Log("Component slot size:" + (int)component.slotSize);
-            Debug.Log("Cell Size" + (int)cell.size);
             if ((int)component.slotSize == (int)cell.size || ((int)component.slotSize == (int)BlueprintData.CellSize.Custom))
             {
                 bool isEmpty = true;
@@ -121,19 +191,10 @@ public class BlueprintManager : MonoBehaviour
             {
                 Debug.Log($"Component size {component.slotSize} doesn't match cell size {cell.size}");
             }
-        }
+        }*/
         return false;
     }
-    private Vector2 GetCellCenter(int x, int y, int width = 1, int height = 1)
-    {
-        float cellWidth = gridContainer.rect.width / currentBlueprint.gridWidth;
-        float cellHeight = gridContainer.rect.height / currentBlueprint.gridHeight;
-
-        return new Vector2(
-            (x + width + 0.5f) * cellWidth - gridContainer.rect.width * 0.5f,
-            (y + height + 0.5f) * cellHeight - gridContainer.rect.height * 0.5f
-        );
-    }
+    /*RemoveComponent method
     public void RemoveComponent(int x, int y)
     {
         if (currentBlueprint != null &&
@@ -143,4 +204,5 @@ public class BlueprintManager : MonoBehaviour
             grid[x, y] = null;
         }
     }
+    */
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//start here if you mess up
 public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("UI Element Setup")]
@@ -15,8 +16,7 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private bool isPlacedOnGrid = false;
     private int gridX = -1;
     private int gridY = -1;
-    private BlueprintData.CellType cellType;
-    private BlueprintData.CellSize cellSize;
+    private BlueprintCellData.CellType cellType;
 
     public void InitializeComponent(ComponentData componentData)
     {
@@ -33,6 +33,7 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
     }
+    /*
     public void SetGridPosition(int x, int y, BlueprintData.CellType type, BlueprintData.CellSize size, int width, int height)
     {
         gridX = x;
@@ -41,7 +42,7 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         cellSize = size;
         isPlacedOnGrid = true;
     }
-
+    */
     // code to drag and drop
     // subject to change and optimisation
     public void OnBeginDrag(PointerEventData eventData)
@@ -52,7 +53,7 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (isPlacedOnGrid && gridX >= 0 && gridY >= 0)
         {
-            BlueprintManager.instance.RemoveComponent(gridX, gridY);
+            //BlueprintManager.instance.RemoveComponent(gridX, gridY);
             isPlacedOnGrid = false;
             gridX = gridY = -1;
         }
