@@ -10,6 +10,7 @@ public class BlueprintManager : MonoBehaviour
     [Header("Blueprint Setup")]
     [SerializeField] private RectTransform gridContainer;
     [SerializeField] public List<BlueprintData> blueprints;
+    [HideInInspector] public BlueprintData blueprintInUse;
     [SerializeField] private GameObject standardCell;
     [SerializeField] private GameObject requiredCell;
     [SerializeField] private GameObject specialCell;
@@ -43,11 +44,15 @@ public class BlueprintManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(GetTileGridPosition(Input.mousePosition));
+        //Debug.Log(GetTileGridPosition(Input.mousePosition));
     }
     public BlueprintData GetBlueprintByID(int id)
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
+    }
+    public BlueprintCellData[,] GetBlueprintGrid()
+    {
+        return grid;
     }
     public void LoadBlueprint(int blueprintID)
     {
@@ -61,6 +66,7 @@ public class BlueprintManager : MonoBehaviour
         }
 
         BlueprintData currentBlueprint = GetBlueprintByID(blueprintID);
+        blueprintInUse = currentBlueprint;
         grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
 
         //loading background
@@ -218,6 +224,7 @@ public class BlueprintManager : MonoBehaviour
         }*/
         return false;
     }
+
     /*RemoveComponent method
     public void RemoveComponent(int x, int y)
     {

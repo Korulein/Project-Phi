@@ -33,16 +33,6 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
     }
-    /*
-    public void SetGridPosition(int x, int y, BlueprintData.CellType type, BlueprintData.CellSize size, int width, int height)
-    {
-        gridX = x;
-        gridY = y;
-        cellType = type;
-        cellSize = size;
-        isPlacedOnGrid = true;
-    }
-    */
     // code to drag and drop
     // subject to change and optimisation
     public void OnBeginDrag(PointerEventData eventData)
@@ -75,5 +65,6 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             rectTransform.localPosition = Vector3.zero;
         }
     }
+
 
 }
