@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Screw Structural Component
   m_EditorClassIdentifier: 
   componentName: Basic Screw
-  componentSprite: {fileID: 2531822210571077860, guid: e939bb56287ad2c4c9d82b26b7c0fd6e, type: 3}
+  componentSprite: {fileID: 21300000, guid: e939bb56287ad2c4c9d82b26b7c0fd6e, type: 3}
   componentDescription: A basic screw. Provides a slight reliability modifier, if
     used correctly.
   componentID: 3

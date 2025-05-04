@@ -3,17 +3,23 @@ using UnityEngine.EventSystems;
 
 public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("Blueprint cells")]
+    [Header("Blueprint cell")]
     private BlueprintCellData selectedBlueprintCell;
 
-    [Header("Blueprint References")]
+    [Header("References")]
     private BlueprintData currentBlueprint;
     private BlueprintCellData[,] grid;
+    private UIComponentItem selectedComponent;
+    private RectTransform componentRectTransform;
 
     [Header("Flags")]
     private bool isPointerInside;
     private void Update()
     {
+        if (selectedComponent != null)
+        {
+            componentRectTransform.position = Input.mousePosition;
+        }
         if (!isPointerInside)
             return;
 
@@ -25,7 +31,21 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             selectedBlueprintCell = GetUseableCell(cell);
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log($"Hovering over useable cell at [{cell.y}], [{cell.x}].");
+                BlueprintCellData[,] tempGrid = BlueprintManager.instance.GetBlueprintGrid();
+
+                if (selectedComponent == null)
+                {
+                    selectedComponent = BlueprintManager.instance.PickUpComponent(cell.x, cell.y);
+                    if (selectedComponent != null)
+                    {
+                        componentRectTransform = selectedComponent.GetComponent<RectTransform>();
+                    }
+                }
+                else
+                {
+                    BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
+                    selectedComponent = null;
+                }
             }
         }
     }

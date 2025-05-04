@@ -17,11 +17,26 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private int gridX = -1;
     private int gridY = -1;
     private BlueprintCellData.CellType cellType;
-
     public void InitializeComponent(ComponentData componentData)
     {
         component = componentData;
         iconImage.sprite = componentData.componentSprite;
+        AdjustComponentSize(component);
+    }
+    public void AdjustComponentSize(ComponentData componentData)
+    {
+        int pixelSize;
+        switch (componentData.slotSize)
+        {
+            case SlotSize.Small:
+                pixelSize = 90;
+                rectTransform.sizeDelta = new Vector2(pixelSize, pixelSize);
+                break;
+            case SlotSize.Medium:
+                break;
+            case SlotSize.Large:
+                break;
+        }
     }
     public ComponentData GetComponentData()
     {
@@ -53,8 +68,8 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         rectTransform.position = Input.mousePosition;
     }
     public void OnEndDrag(PointerEventData eventData)
-    {
-        if (BlueprintManager.instance.AttemptToPlaceComponent(this, Input.mousePosition))
+    {/*
+        if (BlueprintManager.instance.PlaceComponent(this, Input.mousePosition))
         {
             canvasGroup.blocksRaycasts = true;
         }
@@ -64,7 +79,6 @@ public class UIComponentItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             canvasGroup.blocksRaycasts = true;
             rectTransform.localPosition = Vector3.zero;
         }
+        */
     }
-
-
 }

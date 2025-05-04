@@ -10,8 +10,8 @@ public class BlueprintCellData
         Special, //red
     }
     [Header("Cell Data")]
-    public ComponentData occupiedBy;
-    public bool isOccupied => occupiedBy != null;
+    public UIComponentItem occupiedBy;
+    public bool isOccupied;
     public bool isUseable;
     public CellType type;
     public int width = 1;

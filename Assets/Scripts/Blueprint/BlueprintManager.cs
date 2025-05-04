@@ -20,6 +20,8 @@ public class BlueprintManager : MonoBehaviour
     private float offsetY;
     private BlueprintCellData[,] grid;
 
+    public GameObject testPrefab;
+
     [Header("Mouse Setup")]
     private Vector2Int tileGridPosition = new Vector2Int();
     private void Awake()
@@ -41,6 +43,8 @@ public class BlueprintManager : MonoBehaviour
     private void Start()
     {
         LoadBlueprint(1);
+        UIComponentItem testItem = Instantiate(testPrefab).GetComponent<UIComponentItem>();
+        PlaceComponent(testItem, 2, 2);
     }
     private void Update()
     {
@@ -141,88 +145,29 @@ public class BlueprintManager : MonoBehaviour
 
         return tileGridPosition;
     }
-    public bool AttemptToPlaceComponent(UIComponentItem componentItem, Vector3 mousePosition)
+    public Vector2 GetCellCenterPosition(int posX, int posY)
     {
-        /*
-        if (currentBlueprint == null)
-            return false;
-        ComponentData component = componentItem.GetComponentData();
+        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE / 2);
+        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE / 2));
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            gridContainer, mousePosition, null, out Vector2 localPoint);
+        return new Vector2(centerX, centerY);
+    }
+    public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
+    {
+        RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
+        componentTransform.SetParent(gridContainer, false);
+        grid[posX, posY].occupiedBy = componentItem;
+        grid[posX, posY].isOccupied = true;
 
-
-        float normalizedX = (localPoint.x / gridContainer.rect.width) + 0.5f;
-        float normalizedY = (localPoint.y / gridContainer.rect.height) + 0.5f;
-
-        int gridX = Mathf.FloorToInt(normalizedX * currentBlueprint.gridWidth);
-        int gridY = Mathf.FloorToInt(normalizedY * currentBlueprint.gridHeight);
-        
-        if (currentBlueprint.TryToGetCell(gridX, gridY, out BlueprintData.Cell cell))
-        {
-            int originX = cell.x;
-            int originY = cell.y;
-            int width, height;
-            if (cell.size == CellSize.Custom)
-            {
-                width = cell.width;
-                height = cell.height;
-            }
-            else
-            {
-                width = (int)cell.size;
-                height = (int)cell.size;
-            }
-            if ((int)component.slotSize == (int)cell.size || ((int)component.slotSize == (int)BlueprintData.CellSize.Custom))
-            {
-                bool isEmpty = true;
-                for (int x = originX; x < originX + width; x++)
-                {
-                    for (int y = originY; y < originY + height; y++)
-                    {
-                        if (x >= 0 && x < currentBlueprint.gridWidth && y >= 0 && y < currentBlueprint.gridHeight)
-                        {
-                            if (grid[x, y] != null)
-                            {
-                                isEmpty = false;
-                                break;
-                            }
-                        }
-                    }
-                    if (!isEmpty)
-                        break;
-                }
-                if (isEmpty)
-                {
-                    for (int x = originX; x < originX + width; x++)
-                    {
-                        for (int y = originY; y < originY + height; y++)
-                        {
-                            if (x >= 0 && x < currentBlueprint.gridWidth && y >= 0 && y < currentBlueprint.gridHeight)
-                            {
-                                grid[x, y] = componentItem.GetComponentData();
-                            }
-                        }
-                    }
-                }
-                Vector2 cellCenter = GetCellCenter(originX, originY, width, height);
-                componentItem.transform.SetParent(gridContainer);
-                componentItem.GetComponent<RectTransform>().anchoredPosition = cellCenter;
-                RectTransform rectTransform = componentItem.GetComponent<RectTransform>();
-                float cellWidth = gridContainer.rect.width / currentBlueprint.gridWidth;
-                float cellHeight = gridContainer.rect.height / currentBlueprint.gridHeight;
-                rectTransform.sizeDelta = new Vector2(cellWidth * width, cellHeight * height);
-
-                componentItem.SetGridPosition(originX, originY, cell.type, cell.size, width, height);
-
-                return true;
-            }
-            else
-            {
-                Debug.Log($"Component size {component.slotSize} doesn't match cell size {cell.size}");
-            }
-        }*/
-        return false;
+        Vector2 cellCenter = GetCellCenterPosition(posX, posY);
+        componentTransform.anchoredPosition = cellCenter;
+    }
+    public UIComponentItem PickUpComponent(int posX, int posY)
+    {
+        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
+        grid[posX, posY].occupiedBy = null;
+        grid[posX, posY].isOccupied = false;
+        return componentToReturn;
     }
 
     /*RemoveComponent method
