@@ -1,22 +1,39 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //start here if you mess up
-public class UIComponentItem : MonoBehaviour
+public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 {
     [Header("UI Element Setup")]
     private Image iconImage;
     private CanvasGroup canvasGroup;
     private RectTransform rectTransform;
     private Transform originalParent;
+    private GameObject placeholderCopy;
     private ComponentData component;
-
-    private BlueprintCellData.CellType cellType;
+    private Vector2 startPosition;
+    private bool isPickedUp = false;
+    [SerializeField] private float ghostAlpha = 0.5f;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
+    }
+    private void Update()
+    {
+        if (!isPickedUp)
+            return;
+        transform.position = Input.mousePosition;
+        if (Input.GetMouseButtonDown(0))
+        {
+            TryToPlaceInBlueprint();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+        {
+            ReturnToStartPosition();
+        }
     }
     public void InitializeComponent(ComponentData componentData)
     {
@@ -26,21 +43,73 @@ public class UIComponentItem : MonoBehaviour
     }
     public void AdjustComponentSize(ComponentData componentData)
     {
-        int pixelSize;
+        int pixelSize = 90;
         switch (componentData.slotSize)
         {
             case SlotSize.Small:
-                pixelSize = 90;
                 rectTransform.sizeDelta = new Vector2(pixelSize, pixelSize);
                 break;
             case SlotSize.Medium:
+                rectTransform.sizeDelta = new Vector2(pixelSize * 2, pixelSize * 2);
                 break;
             case SlotSize.Large:
+                rectTransform.sizeDelta = new Vector2(pixelSize * 3, pixelSize * 3);
+                break;
+            case SlotSize.Custom:
+                rectTransform.sizeDelta = new Vector2(pixelSize * componentData.width, pixelSize * componentData.height);
                 break;
         }
     }
-    public ComponentData GetComponentData()
+    private void TryToPlaceInBlueprint()
     {
-        return component;
+        Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
+        if (BlueprintManager.instance.IsCellUseable(gridPos))
+        {
+            BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
+            isPickedUp = false;
+            canvasGroup.blocksRaycasts = false;
+        }
+        else
+        {
+            ReturnToStartPosition();
+        }
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!isPickedUp)
+        {
+            PickUp();
+        }
+    }
+    private void PickUp()
+    {
+        originalParent = transform.parent;
+        startPosition = transform.position;
+        transform.SetParent(DeskUIManager.instance.dragLayer);
+
+        CreatePlaceHolder();
+
+        isPickedUp = true;
+        canvasGroup.blocksRaycasts = false;
+    }
+    private void CreatePlaceHolder()
+    {
+        placeholderCopy = Instantiate(gameObject, startPosition, Quaternion.identity, originalParent);
+        CanvasGroup copyCanvasGroup = placeholderCopy.GetComponent<CanvasGroup>();
+
+        copyCanvasGroup.alpha = ghostAlpha;
+        copyCanvasGroup.blocksRaycasts = false;
+
+        UIComponentItem componentItem = placeholderCopy.GetComponent<UIComponentItem>();
+    }
+    public void ReturnToStartPosition()
+    {
+        transform.SetParent(originalParent);
+        rectTransform.position = startPosition;
+
+        isPickedUp = false;
+        canvasGroup.blocksRaycasts = true;
+
+        Destroy(placeholderCopy);
     }
 }

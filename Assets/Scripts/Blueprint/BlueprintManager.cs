@@ -8,7 +8,6 @@ public class BlueprintManager : MonoBehaviour
     public static BlueprintManager instance { get; private set; }
 
     [Header("Blueprint Setup")]
-    [SerializeField] private RectTransform gridContainer;
     [SerializeField] public List<BlueprintData> blueprints;
     [HideInInspector] public BlueprintData blueprintInUse;
     [SerializeField] private GameObject standardCell;
@@ -42,13 +41,10 @@ public class BlueprintManager : MonoBehaviour
     }
     private void Start()
     {
-        LoadBlueprint(1);
-        UIComponentItem testingComponent = Instantiate(blueprintPrefab).GetComponent<UIComponentItem>();
-        PlaceComponent(testingComponent, 3, 3);
+        LoadBlueprint(0);
     }
     private void Update()
     {
-
     }
     public BlueprintData GetBlueprintByID(int id)
     {
@@ -61,7 +57,7 @@ public class BlueprintManager : MonoBehaviour
     public void LoadBlueprint(int blueprintID)
     {
         //clears grid when loading
-        foreach (Transform child in gridContainer)
+        foreach (Transform child in DeskUIManager.instance.blueprintGridContainer)
         {
             if (child.GetComponent<UIComponentItem>() != null)
             {
@@ -74,15 +70,15 @@ public class BlueprintManager : MonoBehaviour
         grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
 
         //loading background
-        Image backgroundImage = gridContainer.GetComponent<Image>();
+        Image backgroundImage = DeskUIManager.instance.blueprintGridContainer.GetComponent<Image>();
         backgroundImage.sprite = currentBlueprint.blueprintImage;
 
         //offset calculation for centering
         float totalWidth = currentBlueprint.gridWidth * CELL_PIXEL_SIZE;
         float totalHeight = currentBlueprint.gridHeight * CELL_PIXEL_SIZE;
 
-        offsetX = (gridContainer.rect.width - totalWidth) / 2f;
-        offsetY = (gridContainer.rect.height - totalHeight) / 2f;
+        offsetX = (DeskUIManager.instance.blueprintGridContainer.rect.width - totalWidth) / 2f;
+        offsetY = (DeskUIManager.instance.blueprintGridContainer.rect.height - totalHeight) / 2f;
 
         //instantiates grid
         int cellCounter = 0;
@@ -108,7 +104,7 @@ public class BlueprintManager : MonoBehaviour
                     prefabToInstantiate = currentCell.type == BlueprintCellData.CellType.Required ? requiredCell : standardCell;
                 }
 
-                newCell = Instantiate(prefabToInstantiate, gridContainer);
+                newCell = Instantiate(prefabToInstantiate, DeskUIManager.instance.blueprintGridContainer);
                 newCell.name = $"Cell {j} {i}";
 
                 //anchoring
@@ -132,7 +128,7 @@ public class BlueprintManager : MonoBehaviour
     {
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            gridContainer,
+            DeskUIManager.instance.blueprintGridContainer,
             mousePosition,
             null,
             out localPoint
@@ -156,13 +152,21 @@ public class BlueprintManager : MonoBehaviour
     {
         // IMPORTANT
         // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
+
         RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
-        componentTransform.SetParent(gridContainer, false);
+        componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
         grid[posX, posY].occupiedBy = componentItem;
         grid[posX, posY].isOccupied = true;
 
         Vector2 cellCenter = GetCellCenterPosition(posX, posY);
         componentTransform.anchoredPosition = cellCenter;
+    }
+    public bool IsCellUseable(Vector2Int cell)
+    {
+        return cell.x >= 0 && cell.y >= 0 &&
+               cell.x < blueprintInUse.gridWidth &&
+               cell.y < blueprintInUse.gridHeight &&
+               grid[cell.x, cell.y].isUseable;
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {

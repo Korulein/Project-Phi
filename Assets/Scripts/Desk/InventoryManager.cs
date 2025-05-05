@@ -4,10 +4,13 @@ public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Setup")]
     [SerializeField] private Transform inventoryContainer; // horizontal layout group
-
     private void Start()
     {
         PopulateInventory();
+    }
+    private void Update()
+    {
+        Vector2 mousePos = Input.mousePosition;
     }
     private void PopulateInventory()
     {

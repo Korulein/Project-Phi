@@ -1377,6 +1377,50 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1050764167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050764168}
+  - component: {fileID: 1050764169}
+  m_Layer: 5
+  m_Name: Drag Layer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1050764168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050764167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1142194639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1050764169
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050764167}
+  m_CullTransparentMesh: 1
 --- !u!1 &1051603170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1557,7 @@ RectTransform:
   - {fileID: 1051603171}
   - {fileID: 1748240369}
   - {fileID: 1425456687}
+  - {fileID: 1050764168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1536,9 +1581,9 @@ MonoBehaviour:
   - {fileID: 764684516}
   - {fileID: 674848590}
   - {fileID: 1282554018}
-  emailButton: {fileID: 1321412478}
-  supplierButton: {fileID: 435407077}
-  partsInventoryButton: {fileID: 791656227}
+  dragLayer: {fileID: 1050764168}
+  blueprintGridContainer: {fileID: 139380204}
+  inventoryContainer: {fileID: 1282554021}
 --- !u!1 &1185371144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,7 +2182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c434bf114443a47a41acb4b3ff04a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridContainer: {fileID: 139380204}
   blueprints:
   - {fileID: 11400000, guid: 8e156de38e777a349b074a631c705c3e, type: 2}
   - {fileID: 11400000, guid: 64351f610c72fc647aece906a3204473, type: 2}

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DeskUIManager : MonoBehaviour
 {
@@ -8,13 +7,9 @@ public class DeskUIManager : MonoBehaviour
 
     [Header("Tablet Screens")]
     [SerializeField] public List<GameObject> tabletScreens = new List<GameObject>();
-
-    [Header("Tablet Buttons")]
-    [SerializeField] Button emailButton;
-    [SerializeField] Button supplierButton;
-    [SerializeField] Button partsInventoryButton;
-
-    //[Header("Pop Ups")]
+    [SerializeField] public Transform dragLayer;
+    [SerializeField] public RectTransform blueprintGridContainer;
+    [SerializeField] public RectTransform inventoryContainer;
     private void Awake()
     {
         if (instance == null)
@@ -35,5 +30,13 @@ public class DeskUIManager : MonoBehaviour
                 tabletScreens[i].SetActive(false);
         }
         tabletScreens[screenIndex].SetActive(true);
+    }
+    public bool IsCursorOverBlueprint(Vector2 mousePosition)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(blueprintGridContainer, mousePosition);
+    }
+    public bool IsCursorOverInventory(Vector2 mousePosition)
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(inventoryContainer, mousePosition);
     }
 }

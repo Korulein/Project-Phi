@@ -1,26 +1,32 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BlueprintInteract : ComponentInteractionHandler, IPointerEnterHandler, IPointerExitHandler
+public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("References")]
-    private BlueprintData currentBlueprint;
-    private BlueprintCellData[,] grid;
+    private UIComponentItem selectedComponent;
+    private RectTransform componentRectTransform;
+    private Vector2 mousePos;
 
     [Header("Flags")]
     private bool isPointerInside;
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
+        ComponentIconDrag();
         if (!isPointerInside)
             return;
 
-        Vector2 mousePos = Input.mousePosition;
+        mousePos = Input.mousePosition;
+
         Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
 
-        if (IsCellUseable(cell) && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            LeftMouseButtonPress(cell);
+            if (BlueprintManager.instance.IsCellUseable(cell))
+            {
+                LeftMouseButtonPress(cell);
+            }
+
         }
     }
     private void LeftMouseButtonPress(Vector2Int cell)
@@ -32,7 +38,8 @@ public class BlueprintInteract : ComponentInteractionHandler, IPointerEnterHandl
         else
         {
             PlaceComponent(cell);
-            EndDrag();
+            selectedComponent = null;
+            componentRectTransform = null;
         }
     }
     private void PlaceComponent(Vector2Int cell)
@@ -46,15 +53,7 @@ public class BlueprintInteract : ComponentInteractionHandler, IPointerEnterHandl
         {
             componentRectTransform = selectedComponent.GetComponent<RectTransform>();
         }
-    }
-    public bool IsCellUseable(Vector2Int cell)
-    {
-        grid = BlueprintManager.instance.GetBlueprintGrid();
-        currentBlueprint = BlueprintManager.instance.blueprintInUse;
-        return cell.x >= 0 && cell.y >= 0 &&
-               cell.x < currentBlueprint.gridWidth &&
-               cell.y < currentBlueprint.gridHeight &&
-               grid[cell.x, cell.y].isUseable;
+
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -63,5 +62,12 @@ public class BlueprintInteract : ComponentInteractionHandler, IPointerEnterHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         isPointerInside = false;
+    }
+    private void ComponentIconDrag()
+    {
+        if (selectedComponent != null)
+        {
+            componentRectTransform.position = Input.mousePosition;
+        }
     }
 }
