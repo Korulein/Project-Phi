@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour
         // instantiates prefab with associated data
         foreach (var componentData in ComponentManager.instance.components)
         {
-            GameObject component = Instantiate(componentData.prefab, inventoryContainer);
+            GameObject component = Instantiate(componentData.inventoryPrefab, inventoryContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }

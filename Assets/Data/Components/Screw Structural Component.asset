@@ -17,9 +17,12 @@ MonoBehaviour:
   componentDescription: A basic screw. Provides a slight reliability modifier, if
     used correctly.
   componentID: 3
-  prefab: {fileID: 210547370447629217, guid: b972c683f02e05c4cb8c290e475fff04, type: 3}
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   materialType: 5
   slotSize: 1
+  width: 1
+  height: 1
   weight: 0.01
   requiresPowerInput: 0
   reliabilityRating: 0

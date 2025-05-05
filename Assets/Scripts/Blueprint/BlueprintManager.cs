@@ -20,7 +20,7 @@ public class BlueprintManager : MonoBehaviour
     private float offsetY;
     private BlueprintCellData[,] grid;
 
-    public GameObject testPrefab;
+    public GameObject blueprintPrefab;
 
     [Header("Mouse Setup")]
     private Vector2Int tileGridPosition = new Vector2Int();
@@ -43,12 +43,12 @@ public class BlueprintManager : MonoBehaviour
     private void Start()
     {
         LoadBlueprint(1);
-        UIComponentItem testItem = Instantiate(testPrefab).GetComponent<UIComponentItem>();
-        PlaceComponent(testItem, 2, 2);
+        UIComponentItem testingComponent = Instantiate(blueprintPrefab).GetComponent<UIComponentItem>();
+        PlaceComponent(testingComponent, 3, 3);
     }
     private void Update()
     {
-        //Debug.Log(GetTileGridPosition(Input.mousePosition));
+
     }
     public BlueprintData GetBlueprintByID(int id)
     {
@@ -154,6 +154,8 @@ public class BlueprintManager : MonoBehaviour
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
+        // IMPORTANT
+        // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
         RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
         componentTransform.SetParent(gridContainer, false);
         grid[posX, posY].occupiedBy = componentItem;
@@ -169,16 +171,4 @@ public class BlueprintManager : MonoBehaviour
         grid[posX, posY].isOccupied = false;
         return componentToReturn;
     }
-
-    /*RemoveComponent method
-    public void RemoveComponent(int x, int y)
-    {
-        if (currentBlueprint != null &&
-            x >= 0 && x < currentBlueprint.gridWidth &&
-            y >= 0 && y < currentBlueprint.gridHeight)
-        {
-            grid[x, y] = null;
-        }
-    }
-    */
 }

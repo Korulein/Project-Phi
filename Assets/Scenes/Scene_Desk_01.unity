@@ -2146,7 +2146,7 @@ MonoBehaviour:
   requiredCell: {fileID: 6945278685938391530, guid: 79ee751019b1cd749b55eda6ba7a7520, type: 3}
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
-  testPrefab: {fileID: 210547370447629217, guid: b972c683f02e05c4cb8c290e475fff04, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
 --- !u!4 &1544329546
 Transform:
   m_ObjectHideFlags: 0

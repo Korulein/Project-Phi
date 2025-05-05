@@ -17,9 +17,12 @@ MonoBehaviour:
   componentDescription: A basic pipe. Provides a small modifier to reliability, if
     used correctly.
   componentID: 2
-  prefab: {fileID: 4214871526003136093, guid: b0bb726ca7d34e242823bc0f281802f7, type: 3}
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   materialType: 5
-  slotSize: 2
+  slotSize: 4
+  width: 1
+  height: 2
   weight: 1
   requiresPowerInput: 0
   reliabilityRating: 0
