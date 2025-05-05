@@ -34,14 +34,25 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
         else
         {
-            PlaceComponent(cell);
+            AttemptToPlaceComponent(cell);
             selectedComponent = null;
             componentRectTransform = null;
 
         }
     }
-    private void PlaceComponent(Vector2Int cell)
+    private void AttemptToPlaceComponent(Vector2Int cell)
     {
+        /*
+        ComponentData component = selectedComponent.GetComponentData();
+        Debug.Log($"{component.width}, {component.height}");
+        Debug.Log($"[{cell.x}], [{cell.y}]");
+        if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
+        {
+            Debug.Log("Out of bounds!");
+            selectedComponent.ReturnToStartPosition();
+            return;
+        }
+        */
         BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
     }
     private void PickUpComponent(Vector2Int cell)

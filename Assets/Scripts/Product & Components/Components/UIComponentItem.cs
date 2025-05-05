@@ -64,7 +64,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private void TryToPlaceInBlueprint()
     {
         Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
-        if (BlueprintManager.instance.IsCellUseable(gridPos))
+        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
             BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
             isPickedUp = false;
@@ -117,11 +117,37 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         Destroy(placeholderCopy);
     }
-
+    public ComponentData GetComponentData()
+    {
+        return component;
+    }
     private enum ComponentLocation
     {
         Inventory,
         Blueprint,
         DragLayer
+    }
+    public bool BoundaryCheck(int posX, int posY, int width, int height)
+    {
+        if (PositionCheck(posX, posY))
+            return false;
+
+        posX += width;
+        posY += height;
+
+        if (PositionCheck(posX, posY))
+            return false;
+
+        return true;
+    }
+    bool PositionCheck(int posX, int posY)
+    {
+        if (posX < 0 || posY < 0)
+            return true;
+
+        if (posX > BlueprintManager.instance.blueprintInUse.gridWidth || posY > BlueprintManager.instance.blueprintInUse.gridHeight)
+            return true;
+
+        return false;
     }
 }

@@ -17,6 +17,8 @@ public class BlueprintManager : MonoBehaviour
     private const int CELL_PIXEL_SIZE = 90; //in pixels
     private float offsetX;
     private float offsetY;
+    private int onGridPositionX;
+    private int onGridPositionY;
     private BlueprintCellData[,] grid;
 
     public GameObject blueprintPrefab;
@@ -141,10 +143,10 @@ public class BlueprintManager : MonoBehaviour
 
         return tileGridPosition;
     }
-    public Vector2 GetCellCenterPosition(int posX, int posY)
+    public Vector2 GetCellCenterPosition(int posX, int posY, ComponentData component)
     {
-        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE / 2);
-        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE / 2));
+        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.width / 2);
+        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.height / 2));
 
         return new Vector2(centerX, centerY);
     }
@@ -153,19 +155,40 @@ public class BlueprintManager : MonoBehaviour
         // IMPORTANT
         // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
 
+        ComponentData component = componentItem.GetComponentData();
         RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
         componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
-        grid[posX, posY].occupiedBy = componentItem;
-        grid[posX, posY].isOccupied = true;
 
-        Vector2 cellCenter = GetCellCenterPosition(posX, posY);
+        for (int i = 0; i < component.width; i++)
+        {
+            for (int j = 0; j < component.height; j++)
+            {
+                grid[posX + i, posY + j].occupiedBy = componentItem;
+                grid[posX + i, posY + j].isOccupied = true;
+            }
+        }
+        onGridPositionX = posX;
+        onGridPositionY = posY;
+
+        Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
         componentTransform.anchoredPosition = cellCenter;
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
+        if (grid[posX, posY].occupiedBy == false)
+            return null;
+
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
-        grid[posX, posY].occupiedBy = null;
-        grid[posX, posY].isOccupied = false;
+        ComponentData component = componentToReturn.GetComponentData();
+
+        for (int i = 0; i < component.width; i++)
+        {
+            for (int j = 0; j < component.height; j++)
+            {
+                grid[onGridPositionX + i, onGridPositionY + j].occupiedBy = null;
+                grid[onGridPositionX + i, onGridPositionY + j].isOccupied = false;
+            }
+        }
         return componentToReturn;
     }
     public bool IsCellUseable(Vector2Int cell)
@@ -174,10 +197,5 @@ public class BlueprintManager : MonoBehaviour
                cell.x < blueprintInUse.gridWidth &&
                cell.y < blueprintInUse.gridHeight &&
                grid[cell.x, cell.y].isUseable;
-    }
-    public void RemoveComponentFromBlueprint(int posX, int posY)
-    {
-        grid[posX, posY].occupiedBy = null;
-        grid[posX, posY].isOccupied = false;
     }
 }
