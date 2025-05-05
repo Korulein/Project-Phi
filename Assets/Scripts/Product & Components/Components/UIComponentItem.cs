@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
-//start here if you mess up
 public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 {
     [Header("UI Element Setup")]
@@ -14,6 +12,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private ComponentData component;
     private Vector2 startPosition;
     private bool isPickedUp = false;
+    private ComponentLocation currentLocation;
     [SerializeField] private float ghostAlpha = 0.5f;
     private void Awake()
     {
@@ -25,6 +24,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     {
         if (!isPickedUp)
             return;
+
         transform.position = Input.mousePosition;
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,6 +37,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void InitializeComponent(ComponentData componentData)
     {
+        currentLocation = ComponentLocation.Inventory;
         component = componentData;
         iconImage.sprite = componentData.componentSprite;
         AdjustComponentSize(component);
@@ -76,7 +77,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!isPickedUp)
+        if (isPickedUp)
+            return;
+        if (currentLocation == ComponentLocation.Inventory)
         {
             PickUp();
         }
@@ -91,6 +94,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         isPickedUp = true;
         canvasGroup.blocksRaycasts = false;
+        currentLocation = ComponentLocation.DragLayer;
     }
     private void CreatePlaceHolder()
     {
@@ -106,10 +110,18 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     {
         transform.SetParent(originalParent);
         rectTransform.position = startPosition;
+        currentLocation = ComponentLocation.Inventory;
 
         isPickedUp = false;
         canvasGroup.blocksRaycasts = true;
 
         Destroy(placeholderCopy);
+    }
+
+    private enum ComponentLocation
+    {
+        Inventory,
+        Blueprint,
+        DragLayer
     }
 }

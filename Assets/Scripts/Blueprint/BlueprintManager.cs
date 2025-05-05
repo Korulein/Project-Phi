@@ -46,14 +46,6 @@ public class BlueprintManager : MonoBehaviour
     private void Update()
     {
     }
-    public BlueprintData GetBlueprintByID(int id)
-    {
-        return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
-    }
-    public BlueprintCellData[,] GetBlueprintGrid()
-    {
-        return grid;
-    }
     public void LoadBlueprint(int blueprintID)
     {
         //clears grid when loading
@@ -124,6 +116,14 @@ public class BlueprintManager : MonoBehaviour
         }
 
     }
+    public BlueprintData GetBlueprintByID(int id)
+    {
+        return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
+    }
+    public BlueprintCellData[,] GetBlueprintGrid()
+    {
+        return grid;
+    }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         Vector2 localPoint;
@@ -161,6 +161,13 @@ public class BlueprintManager : MonoBehaviour
         Vector2 cellCenter = GetCellCenterPosition(posX, posY);
         componentTransform.anchoredPosition = cellCenter;
     }
+    public UIComponentItem PickUpComponent(int posX, int posY)
+    {
+        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
+        grid[posX, posY].occupiedBy = null;
+        grid[posX, posY].isOccupied = false;
+        return componentToReturn;
+    }
     public bool IsCellUseable(Vector2Int cell)
     {
         return cell.x >= 0 && cell.y >= 0 &&
@@ -168,11 +175,9 @@ public class BlueprintManager : MonoBehaviour
                cell.y < blueprintInUse.gridHeight &&
                grid[cell.x, cell.y].isUseable;
     }
-    public UIComponentItem PickUpComponent(int posX, int posY)
+    public void RemoveComponentFromBlueprint(int posX, int posY)
     {
-        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
         grid[posX, posY].occupiedBy = null;
         grid[posX, posY].isOccupied = false;
-        return componentToReturn;
     }
 }

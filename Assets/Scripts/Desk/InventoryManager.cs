@@ -10,7 +10,6 @@ public class InventoryManager : MonoBehaviour
     }
     private void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
     }
     private void PopulateInventory()
     {

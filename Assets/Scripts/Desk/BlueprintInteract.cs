@@ -17,16 +17,13 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             return;
 
         mousePos = Input.mousePosition;
-
-        Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
-
         if (Input.GetMouseButtonDown(0))
         {
+            Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
             if (BlueprintManager.instance.IsCellUseable(cell))
             {
                 LeftMouseButtonPress(cell);
             }
-
         }
     }
     private void LeftMouseButtonPress(Vector2Int cell)
@@ -40,6 +37,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             PlaceComponent(cell);
             selectedComponent = null;
             componentRectTransform = null;
+
         }
     }
     private void PlaceComponent(Vector2Int cell)
