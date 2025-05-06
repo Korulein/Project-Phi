@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class HeatingComponent : MonoBehaviour
+[CreateAssetMenu(fileName = "New Heating Component", menuName = "Blueprint/Component/Heating Component")]
+public class HeatingComponent : ComponentData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Heating Component Data")]
+    public float requiredPower;
+    public float operationalTemperature;
 }
+

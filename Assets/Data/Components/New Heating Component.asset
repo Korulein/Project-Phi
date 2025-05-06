@@ -9,25 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e249c807adf69fe4b9ea79b35f41941d, type: 3}
-  m_Name: Fan Cooling Component
+  m_Script: {fileID: 11500000, guid: 582b968f46a2a8d449263aa210ea6dff, type: 3}
+  m_Name: New Heating Component
   m_EditorClassIdentifier: 
-  componentName: Basic Fan
-  componentSprite: {fileID: 6147777685625707044, guid: b86c542143de7e6499760a35d6080708, type: 3}
-  componentDescription: The most basic cooling source on offer.
-  componentID: 0
+  componentName: Copper Heating Element
+  componentSprite: {fileID: -8016507746298832895, guid: f9d9e873f6ba0714194c6828f7a9463b, type: 3}
+  componentDescription: Temperature Measured in Kelvin
+  componentID: 3
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 0
+  materialType: 6
   slotSize: 1
   width: 1
   height: 1
-  weight: 0.14
+  weight: 0.2
   requiresPowerInput: 1
-  reliabilityRating: 30
-  availabilityRating: 70
-  safetyRating: 20
+  reliabilityRating: 40
+  availabilityRating: 90
+  safetyRating: 40
   maintainabilityRating: 50
-  requiredPower: 0
-  coolantType: 0
-  operationalTemperature: 0
+  requiredPower: 135
+  operationalTemperature: 573
