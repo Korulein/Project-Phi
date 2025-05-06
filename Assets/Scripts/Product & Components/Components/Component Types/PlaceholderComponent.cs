@@ -5,10 +5,5 @@ public class PlaceholderComponent : ComponentData
 {
     [Header("Placeholder Component Data")]
     public float requiredPower;
-    public MaterialTypes materialType;
     public float operationalTemperature;
-    public float weigt;
-    public float width;
-    public float height;
-    
 }

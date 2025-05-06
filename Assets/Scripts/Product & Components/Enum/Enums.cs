@@ -29,20 +29,20 @@ public enum MaterialTypes
     Steel,
     Copper,
     Brass,
-    Tungsten Carbide, /* Very Hard, Radiation Resistant, Very Heavy, Silver, Earth Material */
-    Lead Titanium Alloy, /* Dark Grey, Toxic, Very Heavy, Very Tough, Radiation Reistant (80-90%), */
+    Tungsten_Carbide, /* Very Hard, Radiation Resistant, Very Heavy, Silver, Earth Material */
+    Lead_Titanium_Alloy, /* Dark Grey, Toxic, Very Heavy, Very Tough, Radiation Resistant (80-90%), */
     Lead, /* Very Toxic, Radiation Immune (90-99%), Very Heavy, Brittle */
-    Silicone Carbide,
+    Silicone_Carbide,
     Ceramic,
-    Nickel Chromium, 
-    Boron Nitride,
-    Self Healing Polymer,
-    Aerogel, 
-    Rubber, 
+    Nickel_Chromium,
+    Boron_Nitride,
+    Self_Healing_Polymer,
+    Aerogel,
+    Rubber,
     Plutonium, /* Fuel, Very Radioactive, Enriched, Silvery Grey, Volatile */
     Uranium, /* Fuel, Radioactive, Silvery Grey */
     Thorium, /* Fuel, Less Radioactive, Silvery, Common, Needs Uranium or Plutonium in conjunction to work properly */
-    Tritium, /* Fuel, Found on Moon, Grey */
+    Tritium /* Fuel, Found on Moon, Grey */
 
 }
 public enum CoolantTypes
