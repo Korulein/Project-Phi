@@ -20,7 +20,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (Input.GetMouseButtonDown(0))
         {
             Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
-            if (BlueprintManager.instance.IsCellUseable(cell))
+            if (BlueprintManager.instance.IsCellUseable(cell) && cell != null)
             {
                 LeftMouseButtonPress(cell);
             }
@@ -42,18 +42,17 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void AttemptToPlaceComponent(Vector2Int cell)
     {
-        /*
+
         ComponentData component = selectedComponent.GetComponentData();
-        Debug.Log($"{component.width}, {component.height}");
-        Debug.Log($"[{cell.x}], [{cell.y}]");
         if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
         {
-            Debug.Log("Out of bounds!");
-            selectedComponent.ReturnToStartPosition();
-            return;
+            BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
         }
-        */
-        BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
+        else
+        {
+            Debug.Log("Component was out of bounds!");
+            selectedComponent.ReturnToStartPosition();
+        }
     }
     private void PickUpComponent(Vector2Int cell)
     {
@@ -62,7 +61,6 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             componentRectTransform = selectedComponent.GetComponent<RectTransform>();
         }
-
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -80,3 +78,4 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
     }
 }
+

@@ -64,7 +64,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private void TryToPlaceInBlueprint()
     {
         Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
-        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
+        if (BlueprintManager.instance.IsCellUseable(gridPos) && gridPos != null && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
             BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
             isPickedUp = false;
@@ -72,6 +72,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            Debug.Log("Component was out of bounds!");
             ReturnToStartPosition();
         }
     }
@@ -129,13 +130,17 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
-        if (PositionCheck(posX, posY))
+        if (!PositionCheck(posX, posY))
+            return false;
+
+
+        if (!BlueprintManager.instance.CheckCell(posX, posY, posX + width, posY + height))
             return false;
 
         posX += width;
         posY += height;
 
-        if (PositionCheck(posX, posY))
+        if (!PositionCheck(posX, posY))
             return false;
 
         return true;
@@ -143,11 +148,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     bool PositionCheck(int posX, int posY)
     {
         if (posX < 0 || posY < 0)
-            return true;
+            return false;
 
         if (posX > BlueprintManager.instance.blueprintInUse.gridWidth || posY > BlueprintManager.instance.blueprintInUse.gridHeight)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 }

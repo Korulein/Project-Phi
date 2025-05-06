@@ -43,7 +43,7 @@ public class BlueprintManager : MonoBehaviour
     }
     private void Start()
     {
-        LoadBlueprint(0);
+        LoadBlueprint(1);
     }
     private void Update()
     {
@@ -197,5 +197,23 @@ public class BlueprintManager : MonoBehaviour
                cell.x < blueprintInUse.gridWidth &&
                cell.y < blueprintInUse.gridHeight &&
                grid[cell.x, cell.y].isUseable;
+    }
+    public bool CheckCell(int posX, int posY, int x, int y)
+    {
+        for (int j = posY; j < y; j++)
+        {
+            if (j >= blueprintInUse.gridHeight)
+                break;
+            if (!grid[posX, j].isUseable)
+                return false;
+        }
+        for (int i = posX; i < x; i++)
+        {
+            if (i >= blueprintInUse.gridWidth)
+                break;
+            if (!grid[i, posY].isUseable)
+                return false;
+        }
+        return true;
     }
 }
