@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentName: Basic Battery
   componentSprite: {fileID: -3017979480325208809, guid: 009e3703217493f4fafe8a58f4ff7401, type: 3}
-  componentDescription: A simple 9V battery.
+  componentDescription: A large 12V battery capable of swift discharge.
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
@@ -29,4 +29,4 @@ MonoBehaviour:
   safetyRating: 90
   maintainabilityRating: 70
   energyType: 0
-  maxPowerOutput: 5.49
+  maxPowerOutput: 50

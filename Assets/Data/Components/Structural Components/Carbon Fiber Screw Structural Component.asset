@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Screw Structural Component
+  m_Name: Carbon Fiber Screw Structural Component
   m_EditorClassIdentifier: 
-  componentName: Basic Screw
-  componentSprite: {fileID: 21300000, guid: e939bb56287ad2c4c9d82b26b7c0fd6e, type: 3}
-  componentDescription: A basic screw. Provides a slight reliability modifier, if
-    used correctly.
-  componentID: 3
+  componentName: CarbonFiber Screw
+  componentSprite: {fileID: -7426845039530544986, guid: 97e030483f29e9b42bc3e1252ed0851a, type: 3}
+  componentDescription: An advanced screw, that is good at everything.
+  componentID: 104
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 5
+  materialType: 3
   slotSize: 1
   width: 1
   height: 1
@@ -29,4 +28,7 @@ MonoBehaviour:
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 1.2
+  reliabilityModifier: 0.9
+  avaliblityModifier: 1.1
+  maintainabilityModifier: 1
+  safteyModifier: 1.1

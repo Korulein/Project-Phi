@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Pipe Structural Component
+  m_Name: Inconel Screw Structural Component
   m_EditorClassIdentifier: 
-  componentName: Basic Pipe
-  componentSprite: {fileID: 1304208510633726333, guid: 3f883da352d93cf40990e30f8789e6fe, type: 3}
-  componentDescription: A basic pipe. Provides a small modifier to reliability, if
-    used correctly.
-  componentID: 2
+  componentName: Inconel Screw
+  componentSprite: {fileID: -8383618866184245018, guid: 68a7acadc96b39744bd4cdd6a307e556, type: 3}
+  componentDescription: An indestructable screw, resilient against anything but once
+    it's broken it's equally difficult to replace as it was to break.
+  componentID: 103
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 5
-  slotSize: 4
+  materialType: 13
+  slotSize: 1
   width: 1
-  height: 3
-  weight: 1
+  height: 1
+  weight: 0.2
   requiresPowerInput: 0
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 1.5
+  reliabilityModifier: 1.6
+  avaliblityModifier: 0.3
+  maintainabilityModifier: 0.5
+  safteyModifier: 1.3

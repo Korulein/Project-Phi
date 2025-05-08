@@ -4,4 +4,7 @@ using UnityEngine;
 public class StructuralComponent : ComponentData
 {
     public float reliabilityModifier;
+    public float avaliblityModifier;
+    public float maintainabilityModifier;
+    public float safteyModifier;
 }

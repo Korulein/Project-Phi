@@ -28,6 +28,6 @@ MonoBehaviour:
   availabilityRating: 70
   safetyRating: 20
   maintainabilityRating: 50
-  requiredPower: 0
+  requiredPower: 4
   coolantType: 0
-  operationalTemperature: 0
+  operationalTemperature: 413

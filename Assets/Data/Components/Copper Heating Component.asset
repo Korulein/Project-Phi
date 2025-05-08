@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentName: Copper Heating Element
   componentSprite: {fileID: -8016507746298832895, guid: f9d9e873f6ba0714194c6828f7a9463b, type: 3}
-  componentDescription: Temperature Measured in Kelvin
+  componentDescription: The most common type of induction heater there is. You can
+    find thousands of these in basically every scrap yard in the world.
   componentID: 3
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
