@@ -21,13 +21,14 @@ public class BlueprintManager : MonoBehaviour
     private int onGridPositionY;
     private BlueprintCellData[,] grid;
 
-    public GameObject blueprintPrefab;
+    [Header("Debug")]
     public bool callMethod = false;
 
     [Header("Mouse Setup")]
     private Vector2Int tileGridPosition = new Vector2Int();
     private void Awake()
     {
+        // Instance and ID setup
         if (instance == null)
         {
             instance = this;
@@ -44,10 +45,12 @@ public class BlueprintManager : MonoBehaviour
     }
     private void Start()
     {
+        //Loads a blueprint, will be changed in development
         LoadBlueprint(1);
     }
     private void Update()
     {
+        // Debugging
         if (callMethod)
         {
             callMethod = false;
@@ -56,7 +59,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public void LoadBlueprint(int blueprintID)
     {
-        //clears grid when loading
+        // Clears grid when loading
         foreach (Transform child in DeskUIManager.instance.blueprintGridContainer)
         {
             if (child.GetComponent<UIComponentItem>() != null)
@@ -65,22 +68,24 @@ public class BlueprintManager : MonoBehaviour
             }
         }
 
+        // Gets blueprint and initializes grid
         BlueprintData currentBlueprint = GetBlueprintByID(blueprintID);
         blueprintInUse = currentBlueprint;
         grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
 
-        //loading background
+        // Loading background
         Image backgroundImage = DeskUIManager.instance.blueprintGridContainer.GetComponent<Image>();
         backgroundImage.sprite = currentBlueprint.blueprintImage;
 
-        //offset calculation for centering
+        // Offset calculation for centering
         float totalWidth = currentBlueprint.gridWidth * CELL_PIXEL_SIZE;
         float totalHeight = currentBlueprint.gridHeight * CELL_PIXEL_SIZE;
 
+        // Offset calculation
         offsetX = (DeskUIManager.instance.blueprintGridContainer.rect.width - totalWidth) / 2f;
         offsetY = (DeskUIManager.instance.blueprintGridContainer.rect.height - totalHeight) / 2f;
 
-        //instantiates grid
+        // Instantiates grid cells
         int cellCounter = 0;
         for (int j = 0; j < currentBlueprint.gridHeight; j++)
         {
@@ -139,6 +144,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
+        // Converts mouse position to grid position
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             DeskUIManager.instance.blueprintGridContainer,
@@ -146,6 +152,7 @@ public class BlueprintManager : MonoBehaviour
             null,
             out localPoint
         );
+        // Adds offset
         localPoint.x -= offsetX;
         localPoint.y += offsetY;
 
@@ -167,10 +174,10 @@ public class BlueprintManager : MonoBehaviour
         // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
 
         ComponentData component = componentItem.GetComponentData();
-
         RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
         componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
+        // Sets the grid cell values to be occupied
         for (int i = 0; i < component.width; i++)
         {
             for (int j = 0; j < component.height; j++)
@@ -182,6 +189,7 @@ public class BlueprintManager : MonoBehaviour
         onGridPositionX = posX;
         onGridPositionY = posY;
 
+        // Fixes position to cell center
         Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
         componentTransform.anchoredPosition = cellCenter;
     }
@@ -193,6 +201,7 @@ public class BlueprintManager : MonoBehaviour
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
         ComponentData component = componentToReturn.GetComponentData();
 
+        // Frees up grid cell values
         for (int i = 0; i < component.width; i++)
         {
             for (int j = 0; j < component.height; j++)
@@ -226,6 +235,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public void ShowOccupiedCells()
     {
+        // Debug method
         bool foundCells = false;
         for (int i = 0; i < blueprintInUse.gridWidth; i++)
         {

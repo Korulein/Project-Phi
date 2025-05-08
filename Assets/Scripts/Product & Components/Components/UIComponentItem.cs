@@ -25,10 +25,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         if (!isPickedUp)
             return;
 
+        // Checks for player input
         transform.position = Input.mousePosition;
         if (Input.GetMouseButtonDown(0))
         {
-            TryToPlaceInBlueprint();
+            AttemptToPlaceInBlueprint();
         }
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
         {
@@ -37,6 +38,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void InitializeComponent(ComponentData componentData)
     {
+        // Initializes component data and adjusts size
         currentLocation = ComponentLocation.Inventory;
         component = componentData;
         iconImage.sprite = componentData.componentSprite;
@@ -61,26 +63,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
                 break;
         }
     }
-    private void TryToPlaceInBlueprint()
+    private void AttemptToPlaceInBlueprint()
     {
         Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
         if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
-            BlueprintCellData[,] occupiedCellGrid = BlueprintManager.instance.GetBlueprintGrid();
-
-            for (int i = 0; i < BlueprintManager.instance.blueprintInUse.gridWidth; i++)
-            {
-                for (int j = 0; j < BlueprintManager.instance.blueprintInUse.gridHeight; j++)
-                {
-                    if (occupiedCellGrid[i, j].isOccupied && gridPos.x == i && gridPos.y == j)
-                    {
-                        Debug.Log("Component overlaps with another component! Try to place again.");
-                        ReturnToStartPosition();
-                        return;
-                    }
-                }
-            }
-
             BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
             isPickedUp = false;
             canvasGroup.blocksRaycasts = false;
@@ -97,11 +84,12 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             return;
         if (currentLocation == ComponentLocation.Inventory)
         {
-            PickUp();
+            PickUpComponent();
         }
     }
-    private void PickUp()
+    private void PickUpComponent()
     {
+        // Picking up component from inventory
         originalParent = transform.parent;
         startPosition = transform.position;
         transform.SetParent(DeskUIManager.instance.dragLayer);
@@ -114,6 +102,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     private void CreatePlaceHolder()
     {
+        // Creates blurred placeholder at initial position
         placeholderCopy = Instantiate(gameObject, startPosition, Quaternion.identity, originalParent);
         CanvasGroup copyCanvasGroup = placeholderCopy.GetComponent<CanvasGroup>();
 
@@ -124,6 +113,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void ReturnToStartPosition()
     {
+        // Returns component to initial position in inventory
         transform.SetParent(originalParent);
         rectTransform.position = startPosition;
         currentLocation = ComponentLocation.Inventory;
@@ -145,16 +135,18 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
+        // Check if the starting position is valid
         if (!PositionCheck(posX, posY))
             return false;
 
-
+        // Check if all cells in the rectangle are valid
         if (!BlueprintManager.instance.CheckCell(posX, posY, posX + width, posY + height))
             return false;
 
         posX += width;
         posY += height;
 
+        // Check if the ending position is valid
         if (!PositionCheck(posX, posY))
             return false;
 

@@ -6,7 +6,6 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [Header("References")]
     private UIComponentItem selectedComponent;
     private RectTransform componentRectTransform;
-    private UIComponentItem overlapComponent;
     private Vector2 mousePos;
 
     [Header("Flags")]
@@ -17,6 +16,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (!isPointerInside)
             return;
 
+        //Checks for player input
         mousePos = Input.mousePosition;
         if (Input.GetMouseButtonDown(0))
         {
@@ -29,6 +29,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
+        //Picks up or places component
         if (selectedComponent == null)
         {
             PickUpComponent(cell);
@@ -43,25 +44,10 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void AttemptToPlaceComponent(Vector2Int cell)
     {
-
+        //Checks if the component can be placed and if so, fills the appropriate cells
         ComponentData component = selectedComponent.GetComponentData();
-
         if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
         {
-            BlueprintCellData[,] occupiedCellGrid = BlueprintManager.instance.GetBlueprintGrid();
-
-            for (int i = 0; i < BlueprintManager.instance.blueprintInUse.gridWidth; i++)
-            {
-                for (int j = 0; j < BlueprintManager.instance.blueprintInUse.gridHeight; j++)
-                {
-                    if (occupiedCellGrid[i, j].isOccupied && cell.x == i && cell.y == j)
-                    {
-                        Debug.Log("Component overlaps with another component! Try to place again.");
-                        selectedComponent.ReturnToStartPosition();
-                        return;
-                    }
-                }
-            }
             BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
         }
         else
@@ -72,6 +58,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void PickUpComponent(Vector2Int cell)
     {
+        //Picks up component and frees up cells
         selectedComponent = BlueprintManager.instance.PickUpComponent(cell.x, cell.y);
         if (selectedComponent != null)
         {
@@ -88,6 +75,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void ComponentIconDrag()
     {
+        //Drags the component icon with the mouse 
         if (selectedComponent != null)
         {
             componentRectTransform.position = Input.mousePosition;
