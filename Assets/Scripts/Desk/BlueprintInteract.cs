@@ -6,6 +6,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [Header("References")]
     private UIComponentItem selectedComponent;
     private RectTransform componentRectTransform;
+    private UIComponentItem overlapComponent;
     private Vector2 mousePos;
 
     [Header("Flags")]
@@ -44,8 +45,24 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
 
         ComponentData component = selectedComponent.GetComponentData();
+
         if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
         {
+            /*
+            overlapComponent = selectedComponent.GetOverlapComponent();
+            bool noOverlap = BlueprintManager.instance.OverlapCheck(
+            cell.x,
+            cell.y,
+            component.width,
+            component.height,
+            ref overlapComponent);
+            if (overlapComponent != null)
+            {
+                Debug.Log("Component overlaps with another component! Try to place again.");
+                selectedComponent.ReturnToStartPosition();
+                return;
+            }
+            */
             BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
         }
         else

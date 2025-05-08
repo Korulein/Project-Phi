@@ -126,6 +126,10 @@ public class BlueprintManager : MonoBehaviour
     {
         return grid;
     }
+    public int GetCellPixelSize()
+    {
+        return CELL_PIXEL_SIZE;
+    }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         Vector2 localPoint;
@@ -156,6 +160,7 @@ public class BlueprintManager : MonoBehaviour
         // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
 
         ComponentData component = componentItem.GetComponentData();
+
         RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
         componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
@@ -202,18 +207,41 @@ public class BlueprintManager : MonoBehaviour
     {
         for (int j = posY; j < y; j++)
         {
-            if (j >= blueprintInUse.gridHeight)
-                break;
-            if (!grid[posX, j].isUseable)
-                return false;
-        }
-        for (int i = posX; i < x; i++)
-        {
-            if (i >= blueprintInUse.gridWidth)
-                break;
-            if (!grid[i, posY].isUseable)
-                return false;
+            for (int i = posX; i < x; i++)
+            {
+                if (j >= blueprintInUse.gridHeight || i >= blueprintInUse.gridWidth)
+                    break;
+                if (!grid[i, j].isUseable)
+                    return false;
+            }
         }
         return true;
+    }
+    public bool OverlapCheck(int posX, int posY, int width, int height, ref UIComponentItem overlapComponent)
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (posX + i >= blueprintInUse.gridWidth || posY + j >= blueprintInUse.gridHeight)
+                    return false;
+
+                if (grid[posX + i, posY + j].isOccupied)
+                {
+                    Debug.Log($"Found occupied cell at {posX + i}, {posY + j}");
+                    UIComponentItem occupyingComponent = grid[posX + i, posY + j].occupiedBy;
+                    if (overlapComponent == null)
+                    {
+                        overlapComponent = occupyingComponent;
+                    }
+                    else if (overlapComponent != occupyingComponent)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return overlapComponent == null;
+
     }
 }
