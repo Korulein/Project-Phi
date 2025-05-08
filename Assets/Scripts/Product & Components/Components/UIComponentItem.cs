@@ -14,7 +14,6 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private bool isPickedUp = false;
     private ComponentLocation currentLocation;
     [SerializeField] private float ghostAlpha = 0.5f;
-    private UIComponentItem overlapComponent;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -65,28 +64,23 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private void TryToPlaceInBlueprint()
     {
         Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
-        if (BlueprintManager.instance.IsCellUseable(gridPos) && gridPos != null && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
+        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
-            Debug.Log(BlueprintManager.instance.OverlapCheck(
-            gridPos.x,
-            gridPos.y,
-            component.width,
-            component.height,
-            ref overlapComponent));
+            BlueprintCellData[,] occupiedCellGrid = BlueprintManager.instance.GetBlueprintGrid();
 
-            bool noOverlap = BlueprintManager.instance.OverlapCheck(
-            gridPos.x,
-            gridPos.y,
-            component.width,
-            component.height,
-            ref overlapComponent);
-
-            if (overlapComponent != null)
+            for (int i = 0; i < BlueprintManager.instance.blueprintInUse.gridWidth; i++)
             {
-                Debug.Log("Component overlaps with another component! Try to place again.");
-                this.ReturnToStartPosition();
-                return;
+                for (int j = 0; j < BlueprintManager.instance.blueprintInUse.gridHeight; j++)
+                {
+                    if (occupiedCellGrid[i, j].isOccupied && gridPos.x == i && gridPos.y == j)
+                    {
+                        Debug.Log("Component overlaps with another component! Try to place again.");
+                        ReturnToStartPosition();
+                        return;
+                    }
+                }
             }
+
             BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
             isPickedUp = false;
             canvasGroup.blocksRaycasts = false;
@@ -142,10 +136,6 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     public ComponentData GetComponentData()
     {
         return component;
-    }
-    public UIComponentItem GetOverlapComponent()
-    {
-        return overlapComponent;
     }
     private enum ComponentLocation
     {

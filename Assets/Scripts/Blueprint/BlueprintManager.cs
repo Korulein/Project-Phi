@@ -22,6 +22,7 @@ public class BlueprintManager : MonoBehaviour
     private BlueprintCellData[,] grid;
 
     public GameObject blueprintPrefab;
+    public bool callMethod = false;
 
     [Header("Mouse Setup")]
     private Vector2Int tileGridPosition = new Vector2Int();
@@ -47,6 +48,11 @@ public class BlueprintManager : MonoBehaviour
     }
     private void Update()
     {
+        if (callMethod)
+        {
+            callMethod = false;
+            ShowOccupiedCells();
+        }
     }
     public void LoadBlueprint(int blueprintID)
     {
@@ -85,6 +91,7 @@ public class BlueprintManager : MonoBehaviour
 
                 BlueprintCellData currentCell = currentBlueprint.allCells[cellCounter];
                 grid[i, j] = currentCell;
+                grid[i, j].isOccupied = false;
 
                 //instantiating cells
                 GameObject prefabToInstantiate;
@@ -217,31 +224,21 @@ public class BlueprintManager : MonoBehaviour
         }
         return true;
     }
-    public bool OverlapCheck(int posX, int posY, int width, int height, ref UIComponentItem overlapComponent)
+    public void ShowOccupiedCells()
     {
-        for (int i = 0; i < width; i++)
+        bool foundCells = false;
+        for (int i = 0; i < blueprintInUse.gridWidth; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < blueprintInUse.gridHeight; j++)
             {
-                if (posX + i >= blueprintInUse.gridWidth || posY + j >= blueprintInUse.gridHeight)
-                    return false;
-
-                if (grid[posX + i, posY + j].isOccupied)
+                if (grid[i, j].isOccupied && grid[i, j].isUseable)
                 {
-                    Debug.Log($"Found occupied cell at {posX + i}, {posY + j}");
-                    UIComponentItem occupyingComponent = grid[posX + i, posY + j].occupiedBy;
-                    if (overlapComponent == null)
-                    {
-                        overlapComponent = occupyingComponent;
-                    }
-                    else if (overlapComponent != occupyingComponent)
-                    {
-                        return false;
-                    }
+                    foundCells = true;
+                    Debug.Log($"Found occupied cell at: [{i}], [{j}]");
                 }
             }
         }
-        return overlapComponent == null;
-
+        if (!foundCells)
+            Debug.Log("No occupied cells were found");
     }
 }

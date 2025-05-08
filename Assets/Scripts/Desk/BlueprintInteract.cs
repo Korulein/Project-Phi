@@ -48,21 +48,20 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
         {
-            /*
-            overlapComponent = selectedComponent.GetOverlapComponent();
-            bool noOverlap = BlueprintManager.instance.OverlapCheck(
-            cell.x,
-            cell.y,
-            component.width,
-            component.height,
-            ref overlapComponent);
-            if (overlapComponent != null)
+            BlueprintCellData[,] occupiedCellGrid = BlueprintManager.instance.GetBlueprintGrid();
+
+            for (int i = 0; i < BlueprintManager.instance.blueprintInUse.gridWidth; i++)
             {
-                Debug.Log("Component overlaps with another component! Try to place again.");
-                selectedComponent.ReturnToStartPosition();
-                return;
+                for (int j = 0; j < BlueprintManager.instance.blueprintInUse.gridHeight; j++)
+                {
+                    if (occupiedCellGrid[i, j].isOccupied && cell.x == i && cell.y == j)
+                    {
+                        Debug.Log("Component overlaps with another component! Try to place again.");
+                        selectedComponent.ReturnToStartPosition();
+                        return;
+                    }
+                }
             }
-            */
             BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
         }
         else
