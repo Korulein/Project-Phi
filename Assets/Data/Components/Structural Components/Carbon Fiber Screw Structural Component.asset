@@ -28,7 +28,7 @@ MonoBehaviour:
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 0.9
-  avaliblityModifier: 1.1
-  maintainabilityModifier: 1
-  safteyModifier: 1.1
+  reliabilityModifier: 1.2
+  availabilityModifier: 1.4
+  maintainabilityModifier: 0.7
+  safetyModifier: 1.2

@@ -30,6 +30,6 @@ MonoBehaviour:
   safetyRating: 0
   maintainabilityRating: 0
   reliabilityModifier: 0.8
-  avaliblityModifier: 1
+  availabilityModifier: 1
   maintainabilityModifier: 1
-  safteyModifier: 1.2
+  safetyModifier: 1.2
