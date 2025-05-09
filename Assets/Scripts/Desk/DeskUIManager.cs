@@ -11,6 +11,13 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
 
+    [Header("Input")]
+    private bool leftClickConsumed;
+    public bool LeftClickDown { get; private set; }
+    public bool RightClickDown { get; private set; }
+    public bool EscapeDown { get; private set; }
+    public Vector3 MousePosition { get; private set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -22,6 +29,27 @@ public class DeskUIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Update()
+    {
+        MousePosition = Input.mousePosition;
+        LeftClickDown = Input.GetMouseButtonDown(0);
+        RightClickDown = Input.GetMouseButtonDown(1);
+        EscapeDown = Input.GetKeyDown(KeyCode.Escape);
+    }
+    void LateUpdate()
+    {
+        // Reset consumption state
+        leftClickConsumed = false;
+    }
+    public bool TryConsumeLeftClick()
+    {
+        if (LeftClickDown && !leftClickConsumed)
+        {
+            leftClickConsumed = true;
+            return true;
+        }
+        return false;
     }
     public void OpenScreen(int screenIndex)
     {

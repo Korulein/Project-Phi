@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,14 +12,18 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     [Header("Flags")]
     private bool isPointerInside;
+    private bool suppressClickOneFrame = false;
     private void Update()
     {
+        if (suppressClickOneFrame)
+            return;
+
         ComponentIconDrag();
         if (isPointerInside)
         {
             // Checks for player input
-            mousePos = Input.mousePosition;
-            if (Input.GetMouseButtonDown(0))
+            mousePos = DeskUIManager.instance.MousePosition;
+            if (DeskUIManager.instance.LeftClickDown && DeskUIManager.instance.TryConsumeLeftClick())
             {
                 Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
                 if (BlueprintManager.instance.IsCellUseable(cell))
@@ -26,7 +31,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
                     LeftMouseButtonPress(cell);
                 }
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (DeskUIManager.instance.RightClickDown)
             {
                 ReturnComponentToInventory();
             }
@@ -38,6 +43,8 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
+        if (suppressClickOneFrame)
+            return;
         //Picks up or places component
         if (selectedComponent == null)
         {
@@ -111,6 +118,12 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         selectedComponent.ReturnToInventory();
         selectedComponent = null;
         Debug.Log("Returned component to inventory");
+    }
+    public IEnumerator SuppressClickForOneFrame()
+    {
+        suppressClickOneFrame = true;
+        yield return null; // Wait one frame
+        suppressClickOneFrame = false;
     }
 }
 

@@ -238,7 +238,6 @@ public class BlueprintManager : MonoBehaviour
         {
             for (int y = cell.y; y < cell.y + height; y++)
             {
-                Debug.Log($"Checking for :[{x}], [{y}]");
                 if (grid[x, y].isOccupied)
                 {
                     return true;

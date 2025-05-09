@@ -28,13 +28,12 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             return;
 
         // Checks for player input
-        transform.position = Input.mousePosition;
-        mousePos = Input.mousePosition;
-        if (Input.GetMouseButtonDown(0))
+        transform.position = DeskUIManager.instance.MousePosition;
+        if (DeskUIManager.instance.LeftClickDown && DeskUIManager.instance.TryConsumeLeftClick())
         {
             AttemptToPlaceInBlueprint();
         }
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+        if (DeskUIManager.instance.EscapeDown || DeskUIManager.instance.RightClickDown)
         {
             ReturnToStartPosition();
         }
@@ -69,16 +68,19 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private void AttemptToPlaceInBlueprint()
     {
         gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
+        BlueprintInteract blueprintInteract = FindFirstObjectByType<BlueprintInteract>();
         if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
             if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
             {
+                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
             }
             else
             {
+                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 Debug.Log("Component overlap! Try again");
                 ReturnToStartPosition();
             }
