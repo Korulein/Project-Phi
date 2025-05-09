@@ -117,7 +117,6 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             return;
         selectedComponent.ReturnToInventory();
         selectedComponent = null;
-        Debug.Log("Returned component to inventory");
     }
     public IEnumerator SuppressClickForOneFrame()
     {

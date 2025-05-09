@@ -2332,7 +2332,7 @@ MonoBehaviour:
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
   callMethod: 0
-  blueprintID: 1
+  blueprintID: 0
 --- !u!4 &1544329546
 Transform:
   m_ObjectHideFlags: 0

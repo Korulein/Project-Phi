@@ -196,20 +196,52 @@ public class BlueprintManager : MonoBehaviour
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
-
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
         ComponentData component = componentToReturn.GetComponentData();
 
-        // Frees up grid cell values
-        for (int i = posX; i < posX + component.width; i++)
+        Vector2Int origin = FindComponentOrigin(componentToReturn, component.width, component.height);
+        if (origin == Vector2Int.one * -1)
         {
-            for (int j = posY; j < posY + component.height; j++)
+            Debug.Log("Component origin not found");
+            return null;
+        }
+
+        // Frees up grid cell values
+        for (int i = origin.x; i < origin.x + component.width; i++)
+        {
+            for (int j = origin.y; j < origin.y + component.height; j++)
             {
                 grid[i, j].occupiedBy = null;
                 grid[i, j].isOccupied = false;
             }
         }
         return componentToReturn;
+    }
+    private Vector2Int FindComponentOrigin(UIComponentItem component, int width, int height)
+    {
+        for (int x = 0; x <= blueprintInUse.gridWidth - width; x++)
+        {
+            for (int y = 0; y <= blueprintInUse.gridHeight - height; y++)
+            {
+                bool matches = true;
+
+                for (int i = 0; i < width && matches; i++)
+                {
+                    for (int j = 0; j < height && matches; j++)
+                    {
+                        if (grid[x + i, y + j].occupiedBy != component)
+                        {
+                            matches = false;
+                        }
+                    }
+                }
+
+                if (matches)
+                    return new Vector2Int(x, y);
+            }
+        }
+
+        return Vector2Int.one * -1; // not found
     }
     public bool IsCellUseable(Vector2Int cell)
     {
