@@ -11,24 +11,27 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     [Header("Flags")]
     private bool isPointerInside;
-
     private void Update()
     {
         ComponentIconDrag();
-        if (!isPointerInside)
-            return;
-
-        //Checks for player input
-        mousePos = Input.mousePosition;
-        if (Input.GetMouseButtonDown(0))
+        if (isPointerInside)
         {
-            Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
-            if (BlueprintManager.instance.IsCellUseable(cell))
+            // Checks for player input
+            mousePos = Input.mousePosition;
+            if (Input.GetMouseButtonDown(0))
             {
-                LeftMouseButtonPress(cell);
+                Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
+                if (BlueprintManager.instance.IsCellUseable(cell))
+                {
+                    LeftMouseButtonPress(cell);
+                }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                ReturnComponentToInventory();
             }
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (selectedComponent != null && Input.GetMouseButton(0))
         {
             ReturnComponentToInventory();
         }
