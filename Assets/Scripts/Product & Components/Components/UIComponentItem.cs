@@ -14,13 +14,13 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private bool isPickedUp = false;
     private ComponentLocation currentLocation;
     [SerializeField] private float ghostAlpha = 0.5f;
-    private BlueprintInteract blueprint;
+    private Vector2Int gridPos;
+    public Vector2 mousePos;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
-        blueprint = DeskUIManager.instance.blueprintGridContainer.GetComponentInParent<BlueprintInteract>();
     }
     private void Update()
     {
@@ -29,6 +29,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         // Checks for player input
         transform.position = Input.mousePosition;
+        mousePos = Input.mousePosition;
         if (Input.GetMouseButtonDown(0))
         {
             AttemptToPlaceInBlueprint();
@@ -67,7 +68,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     private void AttemptToPlaceInBlueprint()
     {
-        Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
+        gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
         if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
             if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
@@ -132,6 +133,16 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         canvasGroup.blocksRaycasts = true;
 
         Destroy(placeholderCopy);
+    }
+    public void ReturnToInventory()
+    {
+        canvasGroup.blocksRaycasts = true;
+        isPickedUp = false;
+
+        RectTransform rt = GetComponent<RectTransform>();
+        rt.SetParent(DeskUIManager.instance.inventoryContainer, false);
+
+        ReturnToStartPosition();
     }
     public ComponentData GetComponentData()
     {

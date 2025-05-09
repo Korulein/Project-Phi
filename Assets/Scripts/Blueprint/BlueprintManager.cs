@@ -23,6 +23,7 @@ public class BlueprintManager : MonoBehaviour
 
     [Header("Debug")]
     public bool callMethod = false;
+    [SerializeField] public int blueprintID;
 
     [Header("Mouse Setup")]
     private Vector2Int tileGridPosition = new Vector2Int();
@@ -46,7 +47,7 @@ public class BlueprintManager : MonoBehaviour
     private void Start()
     {
         //Loads a blueprint, will be changed in development
-        LoadBlueprint(1);
+        LoadBlueprint(blueprintID);
     }
     private void Update()
     {
@@ -244,6 +245,12 @@ public class BlueprintManager : MonoBehaviour
             }
         }
         return false;
+    }
+    public bool CheckIfInBlueprint(Vector2Int gridPos)
+    {
+        return gridPos.x >= 0 && gridPos.y >= 0 &&
+               gridPos.x < blueprintInUse.gridWidth &&
+               gridPos.y < blueprintInUse.gridHeight;
     }
     public void ShowOccupiedCells()
     {

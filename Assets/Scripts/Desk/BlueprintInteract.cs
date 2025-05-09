@@ -28,6 +28,10 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 LeftMouseButtonPress(cell);
             }
         }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            ReturnComponentToInventory();
+        }
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
@@ -96,6 +100,14 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             componentRectTransform.position = Input.mousePosition;
         }
+    }
+    public void ReturnComponentToInventory()
+    {
+        if (selectedComponent == null)
+            return;
+        selectedComponent.ReturnToInventory();
+        selectedComponent = null;
+        Debug.Log("Returned component to inventory");
     }
 }
 

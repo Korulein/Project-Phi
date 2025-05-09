@@ -2186,12 +2186,14 @@ MonoBehaviour:
   blueprints:
   - {fileID: 11400000, guid: 8e156de38e777a349b074a631c705c3e, type: 2}
   - {fileID: 11400000, guid: 64351f610c72fc647aece906a3204473, type: 2}
+  - {fileID: 11400000, guid: 45276da7b796973419fd2b1711478370, type: 2}
   blueprintInUse: {fileID: 0}
   standardCell: {fileID: 5814630659058377941, guid: 3bf7b8371d2bcb1459b479ab59d3bbf4, type: 3}
   requiredCell: {fileID: 6945278685938391530, guid: 79ee751019b1cd749b55eda6ba7a7520, type: 3}
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
   callMethod: 0
+  blueprintID: 1
 --- !u!4 &1544329546
 Transform:
   m_ObjectHideFlags: 0
