@@ -202,12 +202,12 @@ public class BlueprintManager : MonoBehaviour
         ComponentData component = componentToReturn.GetComponentData();
 
         // Frees up grid cell values
-        for (int i = 0; i < component.width; i++)
+        for (int i = posX; i < posX + component.width; i++)
         {
-            for (int j = 0; j < component.height; j++)
+            for (int j = posY; j < posY + component.height; j++)
             {
-                grid[onGridPositionX + i, onGridPositionY + j].occupiedBy = null;
-                grid[onGridPositionX + i, onGridPositionY + j].isOccupied = false;
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
             }
         }
         return componentToReturn;
@@ -239,7 +239,6 @@ public class BlueprintManager : MonoBehaviour
         {
             for (int y = cell.y; y < cell.y + height; y++)
             {
-                Debug.Log($"Checking for: [{x}]. [{y}]");
                 if (grid[x, y].isOccupied)
                 {
                     return true;

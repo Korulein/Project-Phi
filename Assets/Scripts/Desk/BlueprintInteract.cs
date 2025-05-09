@@ -7,6 +7,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private UIComponentItem selectedComponent;
     private RectTransform componentRectTransform;
     private Vector2 mousePos;
+    private Vector2Int initialGridPos;
 
     [Header("Flags")]
     private bool isPointerInside;
@@ -29,27 +30,20 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
-        Debug.Log($"Grid position: {cell}");
         //Picks up or places component
         if (selectedComponent == null)
         {
             Debug.Log("Picking up component...");
             PickUpComponent(cell);
+            initialGridPos = cell;
+
         }
         else if (selectedComponent != null)
         {
-            ComponentData component = selectedComponent.GetComponentData();
-            if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.width, component.height))
-            {
-                Debug.Log("Placing component...");
-                AttemptToPlaceComponent(cell);
-                selectedComponent = null;
-                componentRectTransform = null;
-            }
-            else
-            {
-                Debug.Log("Cell is already occupied!");
-            }
+            Debug.Log("Placing component...");
+            AttemptToPlaceComponent(cell);
+            selectedComponent = null;
+            componentRectTransform = null;
 
         }
     }
@@ -59,7 +53,15 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         ComponentData component = selectedComponent.GetComponentData();
         if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
         {
-            BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
+            if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.width, component.height))
+            {
+                BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
+            }
+            else
+            {
+                Debug.Log("Component overlap! Try again");
+                BlueprintManager.instance.PlaceComponent(selectedComponent, initialGridPos.x, initialGridPos.y);
+            }
         }
         else
         {
