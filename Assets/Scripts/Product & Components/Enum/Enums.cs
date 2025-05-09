@@ -30,7 +30,7 @@ public enum MaterialTypes
     Copper,
     Brass,
     Tungsten_Carbide, /* Very Hard, Radiation Resistant, Very Heavy, Silver, Earth Material */
-    Lead_Titanium_Alloy, /* Dark Grey, Toxic, Very Heavy, Very Tough, Radiation Resistant (80-90%), */
+    Lead_Titanium_Alloy, /* Dark Grey, Toxic, Very Heavy, Very Tough, Radiation Reistant (80-90%), */
     Lead, /* Very Toxic, Radiation Immune (90-99%), Very Heavy, Brittle */
     Silicone_Carbide,
     Ceramic,
