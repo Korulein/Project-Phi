@@ -14,11 +14,13 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private bool isPickedUp = false;
     private ComponentLocation currentLocation;
     [SerializeField] private float ghostAlpha = 0.5f;
+    private BlueprintInteract blueprint;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
+        blueprint = DeskUIManager.instance.blueprintGridContainer.GetComponentInParent<BlueprintInteract>();
     }
     private void Update()
     {
@@ -68,9 +70,17 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         Vector2Int gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
         if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
         {
-            BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
-            isPickedUp = false;
-            canvasGroup.blocksRaycasts = false;
+            if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
+            {
+                BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
+                isPickedUp = false;
+                canvasGroup.blocksRaycasts = false;
+            }
+            else
+            {
+                Debug.Log("Component overlap! Try again");
+                ReturnToStartPosition();
+            }
         }
         else
         {

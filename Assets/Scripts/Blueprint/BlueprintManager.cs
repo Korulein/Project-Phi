@@ -195,8 +195,6 @@ public class BlueprintManager : MonoBehaviour
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
-        if (!grid[posX, posY].occupiedBy)
-            return null;
 
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
         ComponentData component = componentToReturn.GetComponentData();
@@ -264,5 +262,9 @@ public class BlueprintManager : MonoBehaviour
         }
         if (!foundCells)
             Debug.Log("No occupied cells were found");
+    }
+    public bool HelperCheckCell(int posX, int posY)
+    {
+        return grid[posX, posY].occupiedBy;
     }
 }

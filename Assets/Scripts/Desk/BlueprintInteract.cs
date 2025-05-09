@@ -11,6 +11,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     [Header("Flags")]
     private bool isPointerInside;
+
     private void Update()
     {
         ComponentIconDrag();
@@ -33,14 +34,16 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         //Picks up or places component
         if (selectedComponent == null)
         {
-            Debug.Log("Picking up component...");
+            // Checking if cell is empty and if so, doesn't call PickUpComponent
+            if (!BlueprintManager.instance.HelperCheckCell(cell.x, cell.y))
+                return;
+
             PickUpComponent(cell);
             initialGridPos = cell;
 
         }
         else if (selectedComponent != null)
         {
-            Debug.Log("Placing component...");
             AttemptToPlaceComponent(cell);
             selectedComponent = null;
             componentRectTransform = null;
