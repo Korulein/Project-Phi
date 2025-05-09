@@ -140,7 +140,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             return false;
 
         // Check if all cells in the rectangle are valid
-        if (!BlueprintManager.instance.CheckCell(posX, posY, posX + width, posY + height))
+        if (!BlueprintManager.instance.CheckCellBoundary(posX, posY, posX + width, posY + height))
             return false;
 
         posX += width;

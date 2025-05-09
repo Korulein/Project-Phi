@@ -21,7 +21,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (Input.GetMouseButtonDown(0))
         {
             Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
-            if (BlueprintManager.instance.IsCellUseable(cell) && cell != null)
+            if (BlueprintManager.instance.IsCellUseable(cell))
             {
                 LeftMouseButtonPress(cell);
             }
@@ -29,16 +29,27 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
+        Debug.Log($"Grid position: {cell}");
         //Picks up or places component
         if (selectedComponent == null)
         {
+            Debug.Log("Picking up component...");
             PickUpComponent(cell);
         }
-        else
+        else if (selectedComponent != null)
         {
-            AttemptToPlaceComponent(cell);
-            selectedComponent = null;
-            componentRectTransform = null;
+            ComponentData component = selectedComponent.GetComponentData();
+            if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.width, component.height))
+            {
+                Debug.Log("Placing component...");
+                AttemptToPlaceComponent(cell);
+                selectedComponent = null;
+                componentRectTransform = null;
+            }
+            else
+            {
+                Debug.Log("Cell is already occupied!");
+            }
 
         }
     }

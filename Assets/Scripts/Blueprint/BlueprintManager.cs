@@ -195,7 +195,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
-        if (grid[posX, posY].occupiedBy == false)
+        if (!grid[posX, posY].occupiedBy)
             return null;
 
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
@@ -219,7 +219,7 @@ public class BlueprintManager : MonoBehaviour
                cell.y < blueprintInUse.gridHeight &&
                grid[cell.x, cell.y].isUseable;
     }
-    public bool CheckCell(int posX, int posY, int x, int y)
+    public bool CheckCellBoundary(int posX, int posY, int x, int y)
     {
         for (int j = posY; j < y; j++)
         {
@@ -232,6 +232,21 @@ public class BlueprintManager : MonoBehaviour
             }
         }
         return true;
+    }
+    public bool CheckCellOccupancy(Vector2Int cell, int width, int height)
+    {
+        for (int x = cell.x; x < cell.x + width; x++)
+        {
+            for (int y = cell.y; y < cell.y + height; y++)
+            {
+                Debug.Log($"Checking for: [{x}]. [{y}]");
+                if (grid[x, y].isOccupied)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     public void ShowOccupiedCells()
     {

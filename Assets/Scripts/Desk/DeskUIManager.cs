@@ -10,6 +10,7 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public Transform dragLayer;
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
+
     private void Awake()
     {
         if (instance == null)

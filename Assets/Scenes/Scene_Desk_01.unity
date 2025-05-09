@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8c92c0694a70e4eb989d8d9bc7390d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryContainer: {fileID: 1282554021}
 --- !u!1 &144456540
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,9 +392,9 @@ MonoBehaviour:
   components:
   - {fileID: 11400000, guid: b1a058673df81d3439d4a3568ad0fd40, type: 2}
   - {fileID: 11400000, guid: bbd4403795c5af64bb970d7bee5f704e, type: 2}
-  - {fileID: 11400000, guid: ed101d2bd62bf964ebc9fbdea27e0fe3, type: 2}
   - {fileID: 11400000, guid: 4e0de6ab66c74584ab96ab6a18a47f21, type: 2}
   - {fileID: 11400000, guid: 0b93bacf1e175c44e928a41050d5e292, type: 2}
+  - {fileID: 11400000, guid: 67697e0f8fa28cd43a1aa1312b829f58, type: 2}
 --- !u!4 &319763405
 Transform:
   m_ObjectHideFlags: 0
@@ -2192,7 +2191,7 @@ MonoBehaviour:
   requiredCell: {fileID: 6945278685938391530, guid: 79ee751019b1cd749b55eda6ba7a7520, type: 3}
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  callMethod: 0
 --- !u!4 &1544329546
 Transform:
   m_ObjectHideFlags: 0
