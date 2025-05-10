@@ -18,6 +18,7 @@ public class BlueprintManager : MonoBehaviour
     private float offsetX;
     private float offsetY;
     private BlueprintCellData[,] grid;
+    public Vector2Int lastPickUpOrigin;
 
     [Header("Debug")]
     public bool callMethod = false;
@@ -183,6 +184,10 @@ public class BlueprintManager : MonoBehaviour
 
         return tileGridPosition;
     }
+    public int GetCellSize()
+    {
+        return CELL_PIXEL_SIZE;
+    }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
         // IMPORTANT
@@ -212,7 +217,6 @@ public class BlueprintManager : MonoBehaviour
         ComponentData component = componentToReturn.GetComponentData();
 
         Vector2Int origin = FindComponentOrigin(componentToReturn, component.width, component.height);
-
         //Safety check
         if (origin == Vector2Int.one * -1)
         {
@@ -229,6 +233,7 @@ public class BlueprintManager : MonoBehaviour
                 grid[i, j].isOccupied = false;
             }
         }
+        lastPickUpOrigin = origin;
         return componentToReturn;
     }
     public bool IsCellUseable(Vector2Int cell)

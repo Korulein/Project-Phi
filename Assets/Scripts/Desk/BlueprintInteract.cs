@@ -63,6 +63,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
         else if (selectedComponent != null)
         {
+
             AttemptToPlaceComponent(cell);
             selectedComponent = null;
             componentRectTransform = null;
@@ -82,7 +83,8 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             else
             {
                 Debug.Log("Component overlap! Try again");
-                BlueprintManager.instance.PlaceComponent(selectedComponent, initialGridPos.x, initialGridPos.y);
+                Vector2Int origin = BlueprintManager.instance.lastPickUpOrigin;
+                BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
             }
         }
         else
