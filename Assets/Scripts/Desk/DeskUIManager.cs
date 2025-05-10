@@ -11,7 +11,7 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
 
-    [Header("Input")]
+    [Header("Player Input")]
     private bool leftClickConsumed;
     public bool LeftClickDown { get; private set; }
     public bool RightClickDown { get; private set; }
@@ -59,13 +59,5 @@ public class DeskUIManager : MonoBehaviour
                 tabletScreens[i].SetActive(false);
         }
         tabletScreens[screenIndex].SetActive(true);
-    }
-    public bool IsCursorOverBlueprint(Vector2 mousePosition)
-    {
-        return RectTransformUtility.RectangleContainsScreenPoint(blueprintGridContainer, mousePosition);
-    }
-    public bool IsCursorOverInventory(Vector2 mousePosition)
-    {
-        return RectTransformUtility.RectangleContainsScreenPoint(inventoryContainer, mousePosition);
     }
 }

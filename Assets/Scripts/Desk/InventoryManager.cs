@@ -8,9 +8,6 @@ public class InventoryManager : MonoBehaviour
     {
         PopulateInventory();
     }
-    private void Update()
-    {
-    }
     private void PopulateInventory()
     {
         // destroys previous objects when loading

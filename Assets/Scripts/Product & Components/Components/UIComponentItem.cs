@@ -13,9 +13,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private Vector2 startPosition;
     private bool isPickedUp = false;
     private ComponentLocation currentLocation;
-    [SerializeField] private float ghostAlpha = 0.5f;
     private Vector2Int gridPos;
-    public Vector2 mousePos;
+    [SerializeField] private float ghostAlpha = 0.5f;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -46,8 +45,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         iconImage.sprite = componentData.componentSprite;
         AdjustComponentSize(component);
     }
-    public void AdjustComponentSize(ComponentData componentData)
+    private void AdjustComponentSize(ComponentData componentData)
     {
+        // Adjusts component size, will be changed later in development
         int pixelSize = 90;
         switch (componentData.slotSize)
         {
@@ -63,41 +63,6 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             case SlotSize.Custom:
                 rectTransform.sizeDelta = new Vector2(pixelSize * componentData.width, pixelSize * componentData.height);
                 break;
-        }
-    }
-    private void AttemptToPlaceInBlueprint()
-    {
-        gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
-        BlueprintInteract blueprintInteract = FindFirstObjectByType<BlueprintInteract>();
-        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
-        {
-            if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
-            {
-                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
-                BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
-                isPickedUp = false;
-                canvasGroup.blocksRaycasts = false;
-            }
-            else
-            {
-                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
-                Debug.Log("Component overlap! Try again");
-                ReturnToStartPosition();
-            }
-        }
-        else
-        {
-            Debug.Log("Component was out of bounds!");
-            ReturnToStartPosition();
-        }
-    }
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (isPickedUp)
-            return;
-        if (currentLocation == ComponentLocation.Inventory)
-        {
-            PickUpComponent();
         }
     }
     private void PickUpComponent()
@@ -124,6 +89,36 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         UIComponentItem componentItem = placeholderCopy.GetComponent<UIComponentItem>();
     }
+    private void AttemptToPlaceInBlueprint()
+    {
+        // Converts mouse position to grid position & grabs BlueprintInteract script to call
+        // suppress click coroutine.
+        gridPos = BlueprintManager.instance.GetTileGridPosition(Input.mousePosition);
+        BlueprintInteract blueprintInteract = FindFirstObjectByType<BlueprintInteract>();
+
+        // Checks if cell is useable and within blueprint bounds
+        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
+        {
+            // Checks if cell is empty, otherwise returns component to inventory
+            if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
+            {
+                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
+                BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
+                isPickedUp = false;
+                canvasGroup.blocksRaycasts = false;
+            }
+            else
+            {
+                blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
+                Debug.Log("Component overlap! Try again");
+                ReturnToStartPosition();
+            }
+        }
+        else
+        {
+            ReturnToStartPosition();
+        }
+    }
     public void ReturnToStartPosition()
     {
         // Returns component to initial position in inventory
@@ -138,6 +133,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void ReturnToInventory()
     {
+        // Called from BlueprintInteract, returns component to inventory
         canvasGroup.blocksRaycasts = true;
         isPickedUp = false;
 
@@ -146,15 +142,18 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         ReturnToStartPosition();
     }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isPickedUp)
+            return;
+        if (currentLocation == ComponentLocation.Inventory)
+        {
+            PickUpComponent();
+        }
+    }
     public ComponentData GetComponentData()
     {
         return component;
-    }
-    private enum ComponentLocation
-    {
-        Inventory,
-        Blueprint,
-        DragLayer
     }
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
@@ -175,7 +174,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         return true;
     }
-    bool PositionCheck(int posX, int posY)
+    private bool PositionCheck(int posX, int posY)
     {
         if (posX < 0 || posY < 0)
             return false;
@@ -184,5 +183,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             return false;
 
         return true;
+    }
+    private enum ComponentLocation
+    {
+        Inventory,
+        Blueprint,
+        DragLayer
     }
 }

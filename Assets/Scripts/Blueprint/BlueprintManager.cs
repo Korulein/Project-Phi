@@ -17,16 +17,11 @@ public class BlueprintManager : MonoBehaviour
     private const int CELL_PIXEL_SIZE = 90; //in pixels
     private float offsetX;
     private float offsetY;
-    private int onGridPositionX;
-    private int onGridPositionY;
     private BlueprintCellData[,] grid;
 
     [Header("Debug")]
     public bool callMethod = false;
     [SerializeField] public int blueprintID;
-
-    [Header("Mouse Setup")]
-    private Vector2Int tileGridPosition = new Vector2Int();
     private void Awake()
     {
         // Instance and ID setup
@@ -58,7 +53,7 @@ public class BlueprintManager : MonoBehaviour
             ShowOccupiedCells();
         }
     }
-    public void LoadBlueprint(int blueprintID)
+    private void LoadBlueprint(int blueprintID)
     {
         // Clears grid when loading
         foreach (Transform child in DeskUIManager.instance.blueprintGridContainer)
@@ -131,91 +126,9 @@ public class BlueprintManager : MonoBehaviour
         }
 
     }
-    public BlueprintData GetBlueprintByID(int id)
+    private BlueprintData GetBlueprintByID(int id)
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
-    }
-    public BlueprintCellData[,] GetBlueprintGrid()
-    {
-        return grid;
-    }
-    public int GetCellPixelSize()
-    {
-        return CELL_PIXEL_SIZE;
-    }
-    public Vector2Int GetTileGridPosition(Vector2 mousePosition)
-    {
-        // Converts mouse position to grid position
-        Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            DeskUIManager.instance.blueprintGridContainer,
-            mousePosition,
-            null,
-            out localPoint
-        );
-        // Adds offset
-        localPoint.x -= offsetX;
-        localPoint.y += offsetY;
-
-        tileGridPosition.x = Mathf.FloorToInt(localPoint.x / CELL_PIXEL_SIZE);
-        tileGridPosition.y = Mathf.FloorToInt(-localPoint.y / CELL_PIXEL_SIZE);
-
-        return tileGridPosition;
-    }
-    public Vector2 GetCellCenterPosition(int posX, int posY, ComponentData component)
-    {
-        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.width / 2);
-        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.height / 2));
-
-        return new Vector2(centerX, centerY);
-    }
-    public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
-    {
-        // IMPORTANT
-        // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
-
-        ComponentData component = componentItem.GetComponentData();
-        RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
-        componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
-
-        // Sets the grid cell values to be occupied
-        for (int i = 0; i < component.width; i++)
-        {
-            for (int j = 0; j < component.height; j++)
-            {
-                grid[posX + i, posY + j].occupiedBy = componentItem;
-                grid[posX + i, posY + j].isOccupied = true;
-            }
-        }
-        onGridPositionX = posX;
-        onGridPositionY = posY;
-
-        // Fixes position to cell center
-        Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
-        componentTransform.anchoredPosition = cellCenter;
-    }
-    public UIComponentItem PickUpComponent(int posX, int posY)
-    {
-        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
-        ComponentData component = componentToReturn.GetComponentData();
-
-        Vector2Int origin = FindComponentOrigin(componentToReturn, component.width, component.height);
-        if (origin == Vector2Int.one * -1)
-        {
-            Debug.Log("Component origin not found");
-            return null;
-        }
-
-        // Frees up grid cell values
-        for (int i = origin.x; i < origin.x + component.width; i++)
-        {
-            for (int j = origin.y; j < origin.y + component.height; j++)
-            {
-                grid[i, j].occupiedBy = null;
-                grid[i, j].isOccupied = false;
-            }
-        }
-        return componentToReturn;
     }
     private Vector2Int FindComponentOrigin(UIComponentItem component, int width, int height)
     {
@@ -243,8 +156,84 @@ public class BlueprintManager : MonoBehaviour
 
         return Vector2Int.one * -1; // not found
     }
+    private Vector2 GetCellCenterPosition(int posX, int posY, ComponentData component)
+    {
+        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.width / 2);
+        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.height / 2));
+
+        return new Vector2(centerX, centerY);
+    }
+    public Vector2Int GetTileGridPosition(Vector2 mousePosition)
+    {
+        // Converts mouse position to grid position
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            DeskUIManager.instance.blueprintGridContainer,
+            mousePosition,
+            null,
+            out localPoint
+        );
+        // Adds offset
+        localPoint.x -= offsetX;
+        localPoint.y += offsetY;
+
+        Vector2Int tileGridPosition = new Vector2Int();
+        tileGridPosition.x = Mathf.FloorToInt(localPoint.x / CELL_PIXEL_SIZE);
+        tileGridPosition.y = Mathf.FloorToInt(-localPoint.y / CELL_PIXEL_SIZE);
+
+        return tileGridPosition;
+    }
+    public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
+    {
+        // IMPORTANT
+        // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
+
+        ComponentData component = componentItem.GetComponentData();
+        RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
+        componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
+
+        // Sets the grid cell values to be occupied
+        for (int i = 0; i < component.width; i++)
+        {
+            for (int j = 0; j < component.height; j++)
+            {
+                grid[posX + i, posY + j].occupiedBy = componentItem;
+                grid[posX + i, posY + j].isOccupied = true;
+            }
+        }
+
+        // Fixes position to cell center
+        Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
+        componentTransform.anchoredPosition = cellCenter;
+    }
+    public UIComponentItem PickUpComponent(int posX, int posY)
+    {
+        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
+        ComponentData component = componentToReturn.GetComponentData();
+
+        Vector2Int origin = FindComponentOrigin(componentToReturn, component.width, component.height);
+
+        //Safety check
+        if (origin == Vector2Int.one * -1)
+        {
+            Debug.Log("Component origin not found");
+            return null;
+        }
+
+        // Frees up grid cell values
+        for (int i = origin.x; i < origin.x + component.width; i++)
+        {
+            for (int j = origin.y; j < origin.y + component.height; j++)
+            {
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
+            }
+        }
+        return componentToReturn;
+    }
     public bool IsCellUseable(Vector2Int cell)
     {
+        // Checks if a cell is within grid bounds and is useable
         return cell.x >= 0 && cell.y >= 0 &&
                cell.x < blueprintInUse.gridWidth &&
                cell.y < blueprintInUse.gridHeight &&
@@ -252,6 +241,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public bool CheckCellBoundary(int posX, int posY, int x, int y)
     {
+        // Checks the blueprint boundaries in relation to component placement
         for (int j = posY; j < y; j++)
         {
             for (int i = posX; i < x; i++)
@@ -266,6 +256,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public bool CheckCellOccupancy(Vector2Int cell, int width, int height)
     {
+        // Checks if the cells where the component would be placed are occupied.
         for (int x = cell.x; x < cell.x + width; x++)
         {
             for (int y = cell.y; y < cell.y + height; y++)
@@ -278,15 +269,14 @@ public class BlueprintManager : MonoBehaviour
         }
         return false;
     }
-    public bool CheckIfInBlueprint(Vector2Int gridPos)
+    public bool HelperCheckCell(int posX, int posY)
     {
-        return gridPos.x >= 0 && gridPos.y >= 0 &&
-               gridPos.x < blueprintInUse.gridWidth &&
-               gridPos.y < blueprintInUse.gridHeight;
+        // Only called once when dragging from inventory to blueprint
+        return grid[posX, posY].occupiedBy;
     }
     public void ShowOccupiedCells()
     {
-        // Debug method
+        // Debug method to show all occupied cells
         bool foundCells = false;
         for (int i = 0; i < blueprintInUse.gridWidth; i++)
         {
@@ -301,9 +291,5 @@ public class BlueprintManager : MonoBehaviour
         }
         if (!foundCells)
             Debug.Log("No occupied cells were found");
-    }
-    public bool HelperCheckCell(int posX, int posY)
-    {
-        return grid[posX, posY].occupiedBy;
-    }
+    } // Debug method
 }

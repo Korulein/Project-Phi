@@ -19,12 +19,14 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             return;
 
         ComponentIconDrag();
+        //Checks if mouse is inside blueprint rect transform
         if (isPointerInside)
         {
             // Checks for player input
             mousePos = DeskUIManager.instance.MousePosition;
             if (DeskUIManager.instance.LeftClickDown && DeskUIManager.instance.TryConsumeLeftClick())
             {
+                // Converts mouse position to grid cell & checks for useability
                 Vector2Int cell = BlueprintManager.instance.GetTileGridPosition(mousePos);
                 if (BlueprintManager.instance.IsCellUseable(cell))
                 {
@@ -38,13 +40,16 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
         else if (selectedComponent != null && Input.GetMouseButton(0))
         {
+            // Returns component to inventory if click is pressed outside the blueprint
             ReturnComponentToInventory();
         }
     }
     private void LeftMouseButtonPress(Vector2Int cell)
     {
+        // Checks for click suppression
         if (suppressClickOneFrame)
             return;
+
         //Picks up or places component
         if (selectedComponent == null)
         {
@@ -111,8 +116,9 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             componentRectTransform.position = Input.mousePosition;
         }
     }
-    public void ReturnComponentToInventory()
+    private void ReturnComponentToInventory()
     {
+        // Returns component from blueprint to inventory
         if (selectedComponent == null)
             return;
         selectedComponent.ReturnToInventory();
@@ -120,8 +126,10 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
     public IEnumerator SuppressClickForOneFrame()
     {
+        // Suppresses left click for one frame to prevent methods from different scripts 
+        // triggering at the same time.
         suppressClickOneFrame = true;
-        yield return null; // Wait one frame
+        yield return null; // Waits one frame
         suppressClickOneFrame = false;
     }
 }
