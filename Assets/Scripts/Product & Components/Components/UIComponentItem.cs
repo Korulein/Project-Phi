@@ -12,9 +12,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private ComponentData component;
     private Vector2 startPosition;
     private bool isPickedUp = false;
+    public bool isRotated = false;
     private ComponentLocation currentLocation;
     private Vector2Int gridPos;
     [SerializeField] private float ghostAlpha = 0.5f;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -36,12 +38,18 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         {
             ReturnToStartPosition();
         }
+        if (DeskUIManager.instance.RKeyDown)
+        {
+            Rotate();
+        }
     }
     public void InitializeComponent(ComponentData componentData)
     {
         // Initializes component data and adjusts size
         currentLocation = ComponentLocation.Inventory;
         component = componentData;
+        component.playTimeWidth = component.width;
+        component.playTimeHeight = component.height;
         iconImage.sprite = componentData.componentSprite;
         AdjustComponentSize(component);
     }
@@ -97,10 +105,10 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         BlueprintInteract blueprintInteract = FindFirstObjectByType<BlueprintInteract>();
 
         // Checks if cell is useable and within blueprint bounds
-        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.width, component.height))
+        if (BlueprintManager.instance.IsCellUseable(gridPos) && BoundaryCheck(gridPos.x, gridPos.y, component.playTimeWidth, component.playTimeHeight))
         {
             // Checks if cell is empty, otherwise returns component to inventory
-            if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.width, component.height))
+            if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.playTimeWidth, component.playTimeHeight))
             {
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
@@ -119,9 +127,25 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             ReturnToStartPosition();
         }
     }
+    public void Rotate()
+    {
+        isRotated = !isRotated;
+        SwapDimensions();
+
+        rectTransform = GetComponent<RectTransform>();
+        rectTransform.rotation = Quaternion.Euler(0, 0, isRotated ? 90f : 0f);
+    }
+    private void SwapDimensions()
+    {
+        int aux = component.playTimeHeight;
+        component.playTimeHeight = component.playTimeWidth;
+        component.playTimeWidth = aux;
+    }
     public void ReturnToStartPosition()
     {
         // Returns component to initial position in inventory
+        if (isRotated)
+            Rotate();
         transform.SetParent(originalParent);
         rectTransform.position = startPosition;
         currentLocation = ComponentLocation.Inventory;

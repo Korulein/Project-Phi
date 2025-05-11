@@ -1093,7 +1093,11 @@ MonoBehaviour:
   m_text: 'LEFT CLICK ONCE TO DRAG
 
 
-    RIGHT CLICK IN BLUEPRINT TO RETURN TO INVENTORY'
+    RIGHT CLICK TO RETURN TO INVENTORY
+
+
+    R
+    KEY TO ROTATE COMPONENT'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a253019eb1f999049a6d7f75ff0c8a7a, type: 2}
   m_sharedMaterial: {fileID: 5545205122929023499, guid: a253019eb1f999049a6d7f75ff0c8a7a, type: 2}
@@ -1120,8 +1124,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2331,6 +2335,7 @@ MonoBehaviour:
   requiredCell: {fileID: 6945278685938391530, guid: 79ee751019b1cd749b55eda6ba7a7520, type: 3}
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
+  lastPickUpOrigin: {x: 0, y: 0}
   callMethod: 0
   blueprintID: 0
 --- !u!4 &1544329546

@@ -14,6 +14,8 @@ public class ComponentData : ScriptableObject
     public SlotSize slotSize;
     public int width;
     public int height;
+    [HideInInspector] public int playTimeWidth;
+    [HideInInspector] public int playTimeHeight;
     public string weight;
     public bool requiresPowerInput;
 

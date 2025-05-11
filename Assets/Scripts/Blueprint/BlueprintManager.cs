@@ -159,8 +159,8 @@ public class BlueprintManager : MonoBehaviour
     }
     private Vector2 GetCellCenterPosition(int posX, int posY, ComponentData component)
     {
-        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.width / 2);
-        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.height / 2));
+        float centerX = offsetX + (posX * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.playTimeWidth / 2);
+        float centerY = -(offsetY + (posY * CELL_PIXEL_SIZE + CELL_PIXEL_SIZE * component.playTimeHeight / 2));
 
         return new Vector2(centerX, centerY);
     }
@@ -198,9 +198,9 @@ public class BlueprintManager : MonoBehaviour
         componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
         // Sets the grid cell values to be occupied
-        for (int i = 0; i < component.width; i++)
+        for (int i = 0; i < component.playTimeWidth; i++)
         {
-            for (int j = 0; j < component.height; j++)
+            for (int j = 0; j < component.playTimeHeight; j++)
             {
                 grid[posX + i, posY + j].occupiedBy = componentItem;
                 grid[posX + i, posY + j].isOccupied = true;
@@ -216,7 +216,7 @@ public class BlueprintManager : MonoBehaviour
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
         ComponentData component = componentToReturn.GetComponentData();
 
-        Vector2Int origin = FindComponentOrigin(componentToReturn, component.width, component.height);
+        Vector2Int origin = FindComponentOrigin(componentToReturn, component.playTimeWidth, component.playTimeHeight);
         //Safety check
         if (origin == Vector2Int.one * -1)
         {
@@ -225,9 +225,9 @@ public class BlueprintManager : MonoBehaviour
         }
 
         // Frees up grid cell values
-        for (int i = origin.x; i < origin.x + component.width; i++)
+        for (int i = origin.x; i < origin.x + component.playTimeWidth; i++)
         {
-            for (int j = origin.y; j < origin.y + component.height; j++)
+            for (int j = origin.y; j < origin.y + component.playTimeHeight; j++)
             {
                 grid[i, j].occupiedBy = null;
                 grid[i, j].isOccupied = false;

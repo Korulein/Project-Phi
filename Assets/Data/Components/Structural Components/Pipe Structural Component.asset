@@ -16,7 +16,7 @@ MonoBehaviour:
   componentSprite: {fileID: 1304208510633726333, guid: 3f883da352d93cf40990e30f8789e6fe, type: 3}
   componentDescription: A basic pipe. Provides a small modifier to reliability, if
     used correctly.
-  componentID: 2
+  componentID: 1
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   materialType: 5

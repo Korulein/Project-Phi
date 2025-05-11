@@ -37,6 +37,10 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             {
                 ReturnComponentToInventory();
             }
+            else if (DeskUIManager.instance.RKeyDown)
+            {
+                RotateComponent();
+            }
         }
         else if (selectedComponent != null && Input.GetMouseButton(0))
         {
@@ -74,9 +78,9 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         //Checks if the component can be placed and if so, fills the appropriate cells
         ComponentData component = selectedComponent.GetComponentData();
-        if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.width, component.height))
+        if (selectedComponent.BoundaryCheck(cell.x, cell.y, component.playTimeWidth, component.playTimeHeight))
         {
-            if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.width, component.height))
+            if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.playTimeWidth, component.playTimeHeight))
             {
                 BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
             }
@@ -84,6 +88,8 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             {
                 Debug.Log("Component overlap! Try again");
                 Vector2Int origin = BlueprintManager.instance.lastPickUpOrigin;
+                if (selectedComponent.isRotated)
+                    RotateComponent();
                 BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
             }
         }
@@ -101,6 +107,13 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             componentRectTransform = selectedComponent.GetComponent<RectTransform>();
         }
+    }
+    private void RotateComponent()
+    {
+        // Rotates component
+        if (selectedComponent == null)
+            return;
+        selectedComponent.Rotate();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -123,6 +136,8 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         // Returns component from blueprint to inventory
         if (selectedComponent == null)
             return;
+        if (selectedComponent.isRotated)
+            RotateComponent();
         selectedComponent.ReturnToInventory();
         selectedComponent = null;
     }
