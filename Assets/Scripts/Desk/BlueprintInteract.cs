@@ -86,11 +86,14 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             }
             else
             {
+                if (selectedComponent.currentRotation != selectedComponent.originalRotation)
+                {
+                    RotateComponent();
+                }
                 Debug.Log("Component overlap! Try again");
                 Vector2Int origin = BlueprintManager.instance.lastPickUpOrigin;
-                if (selectedComponent.isRotated)
-                    RotateComponent();
                 BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
+
             }
         }
         else
@@ -105,6 +108,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         selectedComponent = BlueprintManager.instance.PickUpComponent(cell.x, cell.y);
         if (selectedComponent != null)
         {
+            selectedComponent.originalRotation = selectedComponent.currentRotation;
             componentRectTransform = selectedComponent.GetComponent<RectTransform>();
         }
     }

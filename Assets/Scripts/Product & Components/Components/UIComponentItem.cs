@@ -14,6 +14,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private bool isPickedUp = false;
     public bool isRotated = false;
     private ComponentLocation currentLocation;
+    public ComponentRotation currentRotation;
+    public ComponentRotation originalRotation;
     private Vector2Int gridPos;
     [SerializeField] private float ghostAlpha = 0.5f;
 
@@ -47,6 +49,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     {
         // Initializes component data and adjusts size
         currentLocation = ComponentLocation.Inventory;
+        currentRotation = ComponentRotation.NotRotated;
         component = componentData;
         component.playTimeWidth = component.width;
         component.playTimeHeight = component.height;
@@ -129,6 +132,14 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void Rotate()
     {
+        if (currentRotation == ComponentRotation.Rotated)
+        {
+            currentRotation = ComponentRotation.NotRotated;
+        }
+        else
+        {
+            currentRotation = ComponentRotation.Rotated;
+        }
         isRotated = !isRotated;
         SwapDimensions();
 
@@ -213,5 +224,10 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         Inventory,
         Blueprint,
         DragLayer
+    }
+    public enum ComponentRotation
+    {
+        Rotated,
+        NotRotated
     }
 }
