@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ProductManager : MonoBehaviour
 {
+    // Product manager will handle final calculations using the components in the blueprint.
+    // It will calculate RAMS ratings and apply modifiers granted by component compatibility
+    // or incompatibility. These aforementioned checks will be done in the component manager.
     public static ProductManager instance { get; private set; }
+    [Header("References")]
+    private BlueprintCellData[,] currentGrid;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
@@ -25,6 +30,15 @@ public class ProductManager : MonoBehaviour
         {
             products[i].productID = i;
         }
+    }
+    public void AssembleProduct()
+    {
+        // Will use the current grid's cells to add all the components into a list
+        currentGrid = BlueprintManager.instance.GetCurrentGrid();
+    }
+    public void CalculateRAMS()
+    {
+
     }
     public ProductData GetProductByID(int id)
     {

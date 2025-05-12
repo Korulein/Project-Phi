@@ -132,6 +132,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void Rotate()
     {
+        if (component.slotSize == SlotSize.Small || component.slotSize == SlotSize.Medium || component.slotSize == SlotSize.Large)
+            return;
         currentRotation = (currentRotation == ComponentRotation.Rotated) ? ComponentRotation.NotRotated : ComponentRotation.Rotated;
         isRotated = !isRotated;
         SwapDimensions();

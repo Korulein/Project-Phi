@@ -184,9 +184,9 @@ public class BlueprintManager : MonoBehaviour
 
         return tileGridPosition;
     }
-    public int GetCellSize()
+    public BlueprintCellData[,] GetCurrentGrid()
     {
-        return CELL_PIXEL_SIZE;
+        return grid;
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {

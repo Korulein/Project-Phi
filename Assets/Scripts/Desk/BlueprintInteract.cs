@@ -117,6 +117,9 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         // Rotates component
         if (selectedComponent == null)
             return;
+        ComponentData component = selectedComponent.GetComponentData();
+        if (component.slotSize == SlotSize.Small || component.slotSize == SlotSize.Medium || component.slotSize == SlotSize.Large)
+            return;
         selectedComponent.Rotate();
     }
     public void OnPointerEnter(PointerEventData eventData)
