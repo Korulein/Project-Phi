@@ -42,7 +42,8 @@ public enum MaterialTypes
     Plutonium, /* Fuel, Very Radioactive, Enriched, Silvery Grey, Volatile */
     Uranium, /* Fuel, Radioactive, Silvery Grey */
     Thorium, /* Fuel, Less Radioactive, Silvery, Common, Needs Uranium or Plutonium in conjunction to work properly */
-    Tritium /* Fuel, Found on Moon, Grey */
+    Tritium, /* Fuel, Found on Moon, Grey */
+    Lithium
 
 }
 public enum CoolantTypes

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb8d2d88810c9e4684777850e587518, type: 3}
+  m_Name: Advanced Temp Sensor
+  m_EditorClassIdentifier: 
+  componentName: 
+  componentSprite: {fileID: 0}
+  componentDescription: 
+  componentID: 0
+  inventoryPrefab: {fileID: 0}
+  blueprintPrefab: {fileID: 0}
+  materialType: 0
+  slotSize: 0
+  width: 0
+  height: 0
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 
+  requiresPowerInput: 0
+  reliabilityRating: 0
+  availabilityRating: 0
+  safetyRating: 0
+  maintainabilityRating: 0
+  operationalTemperatureMin: 0
+  operationalTemperatureMax: 0
+  operationalCPUUsage: 0

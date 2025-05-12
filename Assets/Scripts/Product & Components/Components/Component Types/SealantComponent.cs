@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class SealantComponent : MonoBehaviour
+[CreateAssetMenu(fileName = "Sealant Component", menuName = "Blueprint/Component/Sealant Component")]
+public class SealantComponent : ComponentData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Sealant Component Data")]
+    public float operationalTemperatureMin;
+    public float operationalTemperatureMax;
 }

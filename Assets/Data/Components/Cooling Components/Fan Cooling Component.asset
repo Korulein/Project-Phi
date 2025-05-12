@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e249c807adf69fe4b9ea79b35f41941d, type: 3}
+  m_Name: Fan Cooling Component
+  m_EditorClassIdentifier: 
+  componentName: Basic Fan
+  componentSprite: {fileID: 6147777685625707044, guid: b86c542143de7e6499760a35d6080708, type: 3}
+  componentDescription: The most basic cooling source on offer.
+  componentID: 10
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  materialType: 0
+  slotSize: 1
+  width: 1
+  height: 1
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 0.14
+  requiresPowerInput: 1
+  reliabilityRating: 30
+  availabilityRating: 70
+  safetyRating: 20
+  maintainabilityRating: 50
+  requiredPower: 4
+  coolantType: 0
+  operationalTemperature: 413

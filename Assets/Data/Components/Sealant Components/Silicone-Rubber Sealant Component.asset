@@ -9,28 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Carbon Fiber Screw Structural Component
+  m_Script: {fileID: 11500000, guid: dc0d594bd90455b43b247b2b7d62ce41, type: 3}
+  m_Name: Silicone-Rubber Sealant Component
   m_EditorClassIdentifier: 
-  componentName: CarbonFiber Screw
-  componentSprite: {fileID: -7426845039530544986, guid: 97e030483f29e9b42bc3e1252ed0851a, type: 3}
-  componentDescription: An advanced screw, that is good at everything.
-  componentID: 104
+  componentName: Silicone-Rubber Seal
+  componentSprite: {fileID: 2596616658445628962, guid: 3ac5d028860732f44879ad6c4b90f794, type: 3}
+  componentDescription: A flexible, chemical resistant sealant good for moving parts.
+  componentID: 20
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 3
+  materialType: 17
   slotSize: 1
   width: 1
   height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 0.01
+  weight: 0.5
   requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  reliabilityModifier: 1.2
-  availabilityModifier: 1.4
-  maintainabilityModifier: 0.7
-  safetyModifier: 1.2
+  reliabilityRating: 55
+  availabilityRating: 40
+  safetyRating: 70
+  maintainabilityRating: 20
+  operationalTemperatureMin: 213
+  operationalTemperatureMax: 503

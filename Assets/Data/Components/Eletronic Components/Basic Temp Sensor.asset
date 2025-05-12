@@ -9,28 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Carbon Fiber Screw Structural Component
+  m_Script: {fileID: 11500000, guid: 6fb8d2d88810c9e4684777850e587518, type: 3}
+  m_Name: Basic Temp Sensor
   m_EditorClassIdentifier: 
-  componentName: CarbonFiber Screw
-  componentSprite: {fileID: -7426845039530544986, guid: 97e030483f29e9b42bc3e1252ed0851a, type: 3}
-  componentDescription: An advanced screw, that is good at everything.
-  componentID: 104
+  componentName: 'Basic Temp Sensor '
+  componentSprite: {fileID: 5736537370511049626, guid: 7cfe233b978895f40b3f837ef57d9b65, type: 3}
+  componentDescription: A basic temperature sensor capable of measuring from -20C
+    to 110C.
+  componentID: 30
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 3
+  materialType: 6
   slotSize: 1
   width: 1
   height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 0.01
+  weight: 0.1
   requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  reliabilityModifier: 1.2
-  availabilityModifier: 1.4
-  maintainabilityModifier: 0.7
-  safetyModifier: 1.2
+  reliabilityRating: 60
+  availabilityRating: 40
+  safetyRating: 60
+  maintainabilityRating: 60
+  operationalTemperature: 2
+  operationalCPUUsage: 0

@@ -10,24 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e249c807adf69fe4b9ea79b35f41941d, type: 3}
-  m_Name: Fan Cooling Component
+  m_Name: Vacuum Fan Cooling Component
   m_EditorClassIdentifier: 
-  componentName: Basic Fan
-  componentSprite: {fileID: 6147777685625707044, guid: b86c542143de7e6499760a35d6080708, type: 3}
-  componentDescription: The most basic cooling source on offer.
-  componentID: 3
+  componentName: Vacuum Fan
+  componentSprite: {fileID: -1700446272265125087, guid: 83481ab64d171614e9fbdfcb7e70773b, type: 3}
+  componentDescription: A more advanced Fan, that uses vacuum sealed metal tubes
+    and plates to disperse heat more efficiently.
+  componentID: 11
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  materialType: 0
+  materialType: 5
   slotSize: 1
   width: 1
   height: 1
-  weight: 0.14
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 0.6
   requiresPowerInput: 1
-  reliabilityRating: 30
-  availabilityRating: 70
-  safetyRating: 20
-  maintainabilityRating: 50
-  requiredPower: 4
+  reliabilityRating: 45
+  availabilityRating: 60
+  safetyRating: 50
+  maintainabilityRating: 35
+  requiredPower: 6
   coolantType: 0
-  operationalTemperature: 413
+  operationalTemperature: 473
