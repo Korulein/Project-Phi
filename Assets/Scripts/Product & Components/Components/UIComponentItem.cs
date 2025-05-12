@@ -16,6 +16,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private ComponentLocation currentLocation;
     public ComponentRotation currentRotation;
     public ComponentRotation originalRotation;
+    public Vector2 originalSizeDelta;
     private Vector2Int gridPos;
     [SerializeField] private float ghostAlpha = 0.5f;
 
@@ -54,11 +55,15 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         component.playTimeWidth = component.width;
         component.playTimeHeight = component.height;
         iconImage.sprite = componentData.componentSprite;
-        AdjustComponentSize(component);
+        //AdjustComponentSize(component);
     }
-    private void AdjustComponentSize(ComponentData componentData)
+    private void IncreaseComponentSize(ComponentData componentData)
     {
         // Adjusts component size, will be changed later in development
+        if (originalSizeDelta == Vector2.zero)
+        {
+            originalSizeDelta = rectTransform.sizeDelta;
+        }
         int pixelSize = 90;
         switch (componentData.slotSize)
         {
@@ -85,6 +90,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
 
         CreatePlaceHolder();
 
+        IncreaseComponentSize(component);
         isPickedUp = true;
         canvasGroup.blocksRaycasts = false;
         currentLocation = ComponentLocation.DragLayer;
@@ -159,6 +165,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         isPickedUp = false;
         canvasGroup.blocksRaycasts = true;
 
+        rectTransform.sizeDelta = originalSizeDelta;
         Destroy(placeholderCopy);
     }
     public void ReturnToInventory()
