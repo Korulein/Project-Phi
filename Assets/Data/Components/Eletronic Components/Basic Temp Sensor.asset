@@ -26,10 +26,12 @@ MonoBehaviour:
   playTimeWidth: 0
   playTimeHeight: 0
   weight: 0.1
-  requiresPowerInput: 0
+  requiresPowerInput: 1
   reliabilityRating: 60
   availabilityRating: 40
   safetyRating: 60
   maintainabilityRating: 60
-  operationalTemperature: 2
-  operationalCPUUsage: 0
+  operationalTemperatureMin: 253
+  operationalTemperatureMax: 373
+  operationalCPUUsage: 0.5
+  requiredPower: 2

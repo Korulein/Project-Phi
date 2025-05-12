@@ -12,23 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582b968f46a2a8d449263aa210ea6dff, type: 3}
   m_Name: Ceramic Heating Component
   m_EditorClassIdentifier: 
-  componentName: 
-  componentSprite: {fileID: 0}
-  componentDescription: 
-  componentID: 0
-  inventoryPrefab: {fileID: 0}
-  blueprintPrefab: {fileID: 0}
-  materialType: 0
-  slotSize: 0
-  width: 0
-  height: 0
+  componentName: Ceramic Heating Element
+  componentSprite: {fileID: -5132930216895827302, guid: c47a31eed91325444a9dbf0b65c3e2e2, type: 3}
+  componentDescription: The average heating element, it's cheap and functions well
+    for most uses.
+  componentID: 51
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  materialType: 12
+  slotSize: 1
+  width: 1
+  height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 
-  requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  requiredPower: 0
-  operationalTemperature: 0
+  weight: 0.5
+  requiresPowerInput: 1
+  reliabilityRating: 60
+  availabilityRating: 50
+  safetyRating: 40
+  maintainabilityRating: 40
+  requiredPower: 40
+  operationalTemperature: 473

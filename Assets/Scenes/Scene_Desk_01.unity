@@ -395,6 +395,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e0de6ab66c74584ab96ab6a18a47f21, type: 2}
   - {fileID: 11400000, guid: 0b93bacf1e175c44e928a41050d5e292, type: 2}
   - {fileID: 11400000, guid: 67697e0f8fa28cd43a1aa1312b829f58, type: 2}
+  structuralComponents: []
+  powerSourceComponents: []
+  coolingComponents: []
+  heatingComponents: []
+  sensorComponents: []
+  sealantComponents: []
+  filterComponents: []
 --- !u!4 &319763405
 Transform:
   m_ObjectHideFlags: 0
