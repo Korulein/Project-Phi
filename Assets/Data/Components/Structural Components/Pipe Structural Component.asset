@@ -23,6 +23,8 @@ MonoBehaviour:
   slotSize: 4
   width: 1
   height: 3
+  playTimeWidth: 1
+  playTimeHeight: 3
   weight: 1
   requiresPowerInput: 0
   reliabilityRating: 0
