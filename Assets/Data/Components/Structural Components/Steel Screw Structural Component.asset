@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Steel Screw Structural Component
   m_EditorClassIdentifier: 
   componentName: Steel Screw
-  componentSprite: {fileID: 2914472732371096961, guid: 294718ab0c9f5a649a7bf76a33fb823f, type: 3}
+  componentSprite: {fileID: 21300000, guid: e939bb56287ad2c4c9d82b26b7c0fd6e, type: 3}
   componentDescription: The most common type of screw found in almost every type
     of Earth bound machine.
   componentID: 102
@@ -23,6 +23,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.1
   requiresPowerInput: 0
   reliabilityRating: 0
