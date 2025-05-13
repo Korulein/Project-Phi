@@ -11,6 +11,9 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
 
+    [Header("Pop-ups")]
+    [SerializeField] GameObject coffeeMachinePopUp;
+
     [Header("Player Input")]
     private bool leftClickConsumed;
     public bool LeftClickDown { get; private set; }
@@ -60,5 +63,13 @@ public class DeskUIManager : MonoBehaviour
                 tabletScreens[i].SetActive(false);
         }
         tabletScreens[screenIndex].SetActive(true);
+    }
+    public void DisplayPopUp()
+    {
+        coffeeMachinePopUp.SetActive(true);
+    }
+    public void ClosePopUp()
+    {
+        coffeeMachinePopUp.SetActive(false);
     }
 }

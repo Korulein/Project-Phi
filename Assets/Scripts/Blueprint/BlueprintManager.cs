@@ -236,6 +236,25 @@ public class BlueprintManager : MonoBehaviour
         lastPickUpOrigin = origin;
         return componentToReturn;
     }
+    public void ClearBlueprint()
+    {
+        HashSet<UIComponentItem> alreadyCleared = new HashSet<UIComponentItem>();
+        for (int i = 0; i < blueprintInUse.gridWidth; i++)
+        {
+            for (int j = 0; j < blueprintInUse.gridHeight; j++)
+            {
+                UIComponentItem componentItem = grid[i, j].occupiedBy;
+                if (componentItem != null && !alreadyCleared.Contains(componentItem))
+                {
+                    // Return to inventory only once
+                    componentItem.ReturnToInventory();
+                    alreadyCleared.Add(componentItem);
+                }
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
+            }
+        }
+    }
     public List<ComponentData> GetAllPlacedComponents()
     {
         // Returns all the components that are placed in the grid

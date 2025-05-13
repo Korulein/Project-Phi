@@ -51,7 +51,7 @@ public class ProductManager : MonoBehaviour
                     }
                 }
             }
-            if (amountOfMandatoryRegularComponents == coffeeMachine.mandatoryRegularComponents.Count())
+            if (amountOfMandatoryRegularComponents == coffeeMachine.mandatoryRegularComponents.Count() && coffeeMachine.mandatoryRegularComponents.Count() != 0)
                 coffeeMachine.hasRegularComponents = true;
             foreach (var componentInBlueprint in componentsInBlueprint)
             {
@@ -64,18 +64,22 @@ public class ProductManager : MonoBehaviour
                     }
                 }
             }
-            Debug.Log($"Regular {amountOfMandatoryRegularComponents}");
-            Debug.Log($"Special {amountOfMandatorySpecialComponents}");
             if (amountOfMandatorySpecialComponents == coffeeMachine.mandatorySpecialComponents.Count())
                 coffeeMachine.hasSpecialComponents = true;
             if (coffeeMachine.hasSpecialComponents && coffeeMachine.hasRegularComponents)
             {
                 Debug.Log("Assembling product...");
                 AssembleProduct();
+                coffeeMachine.hasRegularComponents = false;
+                coffeeMachine.hasSpecialComponents = false;
+                DeskUIManager.instance.DisplayPopUp();
+                BlueprintManager.instance.ClearBlueprint();
             }
             else
             {
                 Debug.Log("Missing required components!");
+                coffeeMachine.hasRegularComponents = false;
+                coffeeMachine.hasSpecialComponents = false;
             }
         }
     }
