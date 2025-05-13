@@ -34,3 +34,4 @@ MonoBehaviour:
   maintainabilityRating: 60
   energyType: 0
   maxPowerOutput: 60
+  producedHeat: 20

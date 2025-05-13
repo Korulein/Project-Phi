@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentName: Coffee cartridge press
   componentSprite: {fileID: 5262810941025598332, guid: e45037ca91d14294ba1961321c9784b6, type: 3}
-  componentDescription: 
+  componentDescription: A press to extract the contents of a coffee capsule.
   componentID: 999
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
@@ -23,13 +23,13 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
-  weight: 
-  requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  requiredPower: 0
-  operationalTemperature: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
+  weight: 0.7
+  requiresPowerInput: 1
+  reliabilityRating: 70
+  availabilityRating: 40
+  safetyRating: 50
+  maintainabilityRating: 65
+  requiredPower: 7
+  operationalTemperature: 373

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d594bd90455b43b247b2b7d62ce41, type: 3}
+  m_Name: Polyurethane Sealant Component
+  m_EditorClassIdentifier: 
+  componentName: Polyurethane Seal
+  componentSprite: {fileID: 6356149769561458859, guid: 84679f229576f964db87e7433bc86009, type: 3}
+  componentDescription: A very flexible foam like sealant that can be sprayed onto
+    areas and also works in extreme temperatures. Great for emergencies.
+  componentID: 21
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 5
+  materialType: 15
+  slotSize: 4
+  width: 1
+  height: 2
+  playTimeWidth: 1
+  playTimeHeight: 2
+  weight: 0.4
+  requiresPowerInput: 0
+  reliabilityRating: 30
+  availabilityRating: 50
+  safetyRating: 20
+  maintainabilityRating: 100
+  operationalTemperatureMin: 211
+  operationalTemperatureMax: 367

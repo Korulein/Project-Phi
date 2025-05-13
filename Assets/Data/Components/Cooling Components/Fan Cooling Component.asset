@@ -34,3 +34,4 @@ MonoBehaviour:
   requiredPower: 4
   coolantType: 0
   operationalTemperature: 413
+  reducedHeat: 15

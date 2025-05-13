@@ -13,26 +13,27 @@ MonoBehaviour:
   m_Name: Advanced Temp Sensor
   m_EditorClassIdentifier: 
   componentName: Advanced Temp Sensor
-  componentSprite: {fileID: -6629978074634843995, guid: f3d4103fdc0b30a46a9465e4d107bfd8, type: 3}
-  componentDescription: A more advanced iteration of a Temperature Sensor. With ranges
-    from -100 C to 300 C, it's hardy and will serve you well.
-  componentID: 31
+  componentSprite: {fileID: 2723441291482892483, guid: 3214faf0f432ddf42ad69c7ac5b1d10c, type: 3}
+  componentDescription: A highly specialised Temperature sensor capable of detecting
+    and accurately measuring extreme temperature ranges
+  componentID: 32
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
-  materialType: 6
+  materialType: 1
   slotSize: 1
   width: 1
   height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 0.2
+  weight: 0.35
   requiresPowerInput: 1
-  reliabilityRating: 70
-  availabilityRating: 30
-  safetyRating: 65
-  maintainabilityRating: 40
-  operationalTemperatureMin: 173
-  operationalTemperatureMax: 573
-  operationalCPUUsage: 1
-  requiredPower: 4
+  reliabilityRating: 65
+  availabilityRating: 10
+  safetyRating: 70
+  maintainabilityRating: 50
+  operationalTemperatureMin: 53
+  operationalTemperatureMax: 5073
+  operationalCPUUsage: 4
+  requiredPower: 15
+  producedHeat: 5

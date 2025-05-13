@@ -14,23 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentName: Water Cooling Fan
   componentSprite: {fileID: 2392241826098057394, guid: a193c3a7a6c5f4547b90ab0587245aa4, type: 3}
-  componentDescription: 
-  componentID: 0
+  componentDescription: A liquid cooling system, capable of drawing away far more
+    heat than normal air powers fans
+  componentID: 12
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 1
-  materialType: 0
+  materialType: 3
   slotSize: 4
   width: 2
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
-  weight: 
-  requiresPowerInput: 0
+  playTimeWidth: 2
+  playTimeHeight: 1
+  weight: 1.4
+  requiresPowerInput: 1
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  requiredPower: 0
+  requiredPower: 25
   coolantType: 1
-  operationalTemperature: 0
+  operationalTemperature: 373
+  reducedHeat: 150

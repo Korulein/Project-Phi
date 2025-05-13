@@ -10,29 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Pipe Structural Component
+  m_Name: Nicket-Chromium L-Pipe  Structural Component
   m_EditorClassIdentifier: 
-  componentName: Basic Pipe
-  componentSprite: {fileID: 1304208510633726333, guid: 3f883da352d93cf40990e30f8789e6fe, type: 3}
-  componentDescription: A basic pipe. Provides a small modifier to reliability, if
-    used correctly.
-  componentID: 1
+  componentName: Nickel-Chromium Pipe
+  componentSprite: {fileID: 2145264916251209589, guid: 7fbe6f4ae381fb549ab46b19a12f7144, type: 3}
+  componentDescription: A very sturdy pipe, strong enough to second as a tank barrel.
+  componentID: 2003
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
-  materialType: 5
+  materialType: 13
   slotSize: 4
   width: 1
   height: 3
   playTimeWidth: 1
   playTimeHeight: 3
-  weight: 1
+  weight: 1.8
   requiresPowerInput: 0
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 1.1
-  availabilityModifier: 1
-  maintainabilityModifier: 1
-  safetyModifier: 1
+  reliabilityModifier: 1.6
+  availabilityModifier: 0.6
+  maintainabilityModifier: 0.4
+  safetyModifier: 1.4

@@ -36,3 +36,4 @@ MonoBehaviour:
   operationalTemperatureMax: 373
   operationalCPUUsage: 0.5
   requiredPower: 2
+  producedHeat: 1

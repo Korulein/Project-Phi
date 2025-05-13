@@ -24,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.6
   requiresPowerInput: 1
   reliabilityRating: 45
@@ -33,5 +33,6 @@ MonoBehaviour:
   safetyRating: 50
   maintainabilityRating: 35
   requiredPower: 6
-  coolantType: 0
+  coolantType: 3
   operationalTemperature: 473
+  reducedHeat: 60

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
+  m_Name: Plastic Pipe Structural Component
+  m_EditorClassIdentifier: 
+  componentName: Plastic Pipe
+  componentSprite: {fileID: -8988513451771169747, guid: 199606c5018221740a17e7c0bd1cbfa7, type: 3}
+  componentDescription: A cheap plastic pipe, good for non critical functions
+  componentID: 2000
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 7
+  materialType: 0
+  slotSize: 4
+  width: 1
+  height: 3
+  playTimeWidth: 1
+  playTimeHeight: 3
+  weight: 0.2
+  requiresPowerInput: 0
+  reliabilityRating: 0
+  availabilityRating: 0
+  safetyRating: 0
+  maintainabilityRating: 0
+  reliabilityModifier: 1.2
+  availabilityModifier: 1.1
+  maintainabilityModifier: 0.9
+  safetyModifier: 0.8
