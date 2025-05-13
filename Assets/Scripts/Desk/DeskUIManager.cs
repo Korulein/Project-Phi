@@ -7,12 +7,14 @@ public class DeskUIManager : MonoBehaviour
 
     [Header("Tablet Screens")]
     [SerializeField] public List<GameObject> tabletScreens = new List<GameObject>();
+    [SerializeField] public List<GameObject> orderScreens = new List<GameObject>();
     [SerializeField] public Transform dragLayer;
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
 
     [Header("Pop-ups")]
     [SerializeField] GameObject coffeeMachinePopUp;
+    [SerializeField] GameObject blurLayer;
 
     [Header("Player Input")]
     private bool leftClickConsumed;
@@ -64,12 +66,21 @@ public class DeskUIManager : MonoBehaviour
         }
         tabletScreens[screenIndex].SetActive(true);
     }
+    public void OpenOrder(int orderIndex)
+    {
+        for (int i = 0; i < orderScreens.Count; i++)
+        {
+            if (i != orderIndex)
+                orderScreens[i].SetActive(false);
+        }
+        orderScreens[orderIndex].SetActive(true);
+    }
     public void DisplayPopUp()
     {
-        coffeeMachinePopUp.SetActive(true);
+        blurLayer.SetActive(true);
     }
     public void ClosePopUp()
     {
-        coffeeMachinePopUp.SetActive(false);
+        blurLayer.SetActive(false);
     }
 }

@@ -255,23 +255,34 @@ public class BlueprintManager : MonoBehaviour
             }
         }
     }
-    public List<ComponentData> GetAllPlacedComponents()
+    public (Dictionary<ComponentData, int>, int) GetAllPlacedComponents()
     {
         // Returns all the components that are placed in the grid
-        HashSet<ComponentData> components = new HashSet<ComponentData>();
+        int numberOfCellsOccupied = 0;
+        Dictionary<ComponentData, int> components = new Dictionary<ComponentData, int>();
+        HashSet<UIComponentItem> seenComponents = new HashSet<UIComponentItem>();
+
         for (int x = 0; x < blueprintInUse.gridWidth; x++)
         {
             for (int y = 0; y < blueprintInUse.gridHeight; y++)
             {
-                if (grid[x, y].isOccupied && grid[x, y].occupiedBy != null)
+                UIComponentItem componentItem = grid[x, y].occupiedBy;
+                if (grid[x, y].isOccupied && componentItem != null && !seenComponents.Contains(componentItem))
                 {
-                    UIComponentItem componentItem = grid[x, y].occupiedBy;
+                    seenComponents.Add(componentItem);
                     ComponentData component = componentItem.GetComponentData();
-                    components.Add(component);
+
+                    int width = component.playTimeWidth;  // or component.width if you don't use runtime rotation
+                    int height = component.playTimeHeight;
+
+                    int cellCount = width * height;
+                    numberOfCellsOccupied += cellCount;
+
+                    components.Add(component, cellCount);
                 }
             }
         }
-        return components.ToList();
+        return (components, numberOfCellsOccupied);
     }
     public bool IsCellUseable(Vector2Int cell)
     {

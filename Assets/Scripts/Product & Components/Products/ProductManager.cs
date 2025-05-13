@@ -9,7 +9,8 @@ public class ProductManager : MonoBehaviour
     // or incompatibility. These aforementioned checks will be done in the component manager.
     public static ProductManager instance { get; private set; }
     [Header("References")]
-    private List<ComponentData> componentsInBlueprint;
+    private Dictionary<ComponentData, int> componentsInBlueprint;
+    private int numberOfCellsOccupied;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
@@ -33,8 +34,8 @@ public class ProductManager : MonoBehaviour
     }
     public void CheckProductAssembly()
     {
-        // can be improved using hashsets, modify later for clarity
-        componentsInBlueprint = BlueprintManager.instance.GetAllPlacedComponents();
+        // can be improved using hashsets, modify later for clarity and performance
+        (componentsInBlueprint, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
         if (BlueprintManager.instance.blueprintInUse.blueprintID == 1)
         {
             ProductData coffeeMachine = products[0];
@@ -42,9 +43,10 @@ public class ProductManager : MonoBehaviour
             int amountOfMandatorySpecialComponents = 0;
             foreach (var componentInBlueprint in componentsInBlueprint)
             {
+                ComponentData component = componentInBlueprint.Key;
                 foreach (var componentToCheck in coffeeMachine.mandatoryRegularComponents)
                 {
-                    if (componentInBlueprint.componentType == componentToCheck.componentType)
+                    if (component.componentType == componentToCheck.componentType)
                     {
                         amountOfMandatoryRegularComponents++;
                         break;
@@ -57,7 +59,8 @@ public class ProductManager : MonoBehaviour
             {
                 foreach (var componentToCheck in coffeeMachine.mandatorySpecialComponents)
                 {
-                    if (componentInBlueprint.componentType == componentToCheck.componentType)
+                    ComponentData component = componentInBlueprint.Key;
+                    if (component.componentType == componentToCheck.componentType)
                     {
                         amountOfMandatorySpecialComponents++;
                         break;
@@ -85,11 +88,43 @@ public class ProductManager : MonoBehaviour
     }
     private void AssembleProduct()
     {
-        return;
+        float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
+        KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
+        Debug.Log($"RAMS ratings: {reliabilityRating}, {availabilityRating}, {maintainabilityRating}, {safetyRating}. ");
     }
-    private void CalculateRAMS()
+    private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {
-
+        float reliabilityProduct = 1, availabilityProduct = 1, maintainabilityProduct = 1, safetyProduct = 1;
+        SetModifiers(ref reliabilityProduct, ref availabilityProduct, ref maintainabilityProduct, ref safetyProduct);
+        foreach (var componentInBlueprint in componentsInBlueprint)
+        {
+            ComponentData component = componentInBlueprint.Key;
+            int cellsOccupied = componentInBlueprint.Value;
+            reliabilityRating += component.reliabilityRating * cellsOccupied;
+            availabilityRating += component.availabilityRating * cellsOccupied;
+            maintainabilityRating += component.maintainabilityRating * cellsOccupied;
+            safetyRating += component.safetyRating * cellsOccupied;
+        }
+        reliabilityRating = (reliabilityRating * reliabilityProduct) / numberOfCellsOccupied;
+        availabilityRating = (availabilityRating * availabilityProduct) / numberOfCellsOccupied;
+        maintainabilityRating = (maintainabilityRating * maintainabilityProduct) / numberOfCellsOccupied;
+        safetyRating = (safetyRating * safetyProduct) / numberOfCellsOccupied;
+        return (reliabilityRating, availabilityRating, maintainabilityRating, safetyRating);
+    }
+    private void SetModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
+    {
+        foreach (var componentInBlueprint in componentsInBlueprint)
+        {
+            ComponentData component = componentInBlueprint.Key;
+            if (component.componentType == ComponentType.Structural)
+            {
+                StructuralComponent structuralComponent = (StructuralComponent)component;
+                reliabilityProduct *= structuralComponent.reliabilityModifier;
+                availabilityProduct *= structuralComponent.availabilityModifier;
+                maintainabilityProduct *= structuralComponent.maintainabilityModifier;
+                safetyProduct *= structuralComponent.safetyModifier;
+            }
+        }
     }
     public ProductData GetProductByID(int id)
     {
