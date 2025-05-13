@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
   m_Name: Steel L-Pipe  Structural Component
   m_EditorClassIdentifier: 
-  componentName: Steel Pipe
-  componentSprite: {fileID: 1304208510633726333, guid: 3f883da352d93cf40990e30f8789e6fe, type: 3}
-  componentDescription: A basic pipe. Provides a small modifier to reliability, if
-    used correctly.
-  componentID: 2001
+  componentName: 'Steel L-Pipe '
+  componentSprite: {fileID: 2273224279935176374, guid: 1c2e09976ce5f4b4dbda9dc0492139a4, type: 3}
+  componentDescription: A basic L-Pipe. Provides a small modifier to reliability,
+    if used correctly.
+  componentID: 2011
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7

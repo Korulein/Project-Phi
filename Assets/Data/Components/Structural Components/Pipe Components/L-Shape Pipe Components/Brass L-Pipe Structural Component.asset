@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
   m_Name: Brass L-Pipe Structural Component
   m_EditorClassIdentifier: 
-  componentName: Brass Pipe
-  componentSprite: {fileID: 3487605230081282101, guid: 02ba9d56f6ef48e45b75eff661c9900c, type: 3}
-  componentDescription: A brass pipe, nice and reliable, though perhaps not as sturdy
-    as steel.
-  componentID: 2002
+  componentName: 'Brass L-Pipe '
+  componentSprite: {fileID: -8446009241442963135, guid: 8bd1b1c182a7a0b449acbf05e61a638c, type: 3}
+  componentDescription: A brass L-Pipe , nice and reliable, though perhaps not as
+    sturdy as steel.
+  componentID: 2012
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7

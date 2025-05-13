@@ -995,14 +995,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5fad92267df5354cafb6b4a5ac30f7c, type: 2}
   - {fileID: 11400000, guid: 67697e0f8fa28cd43a1aa1312b829f58, type: 2}
   - {fileID: 11400000, guid: bbd4403795c5af64bb970d7bee5f704e, type: 2}
+  - {fileID: 11400000, guid: 47d784699fdb08e4ab16421c06d8c4c4, type: 2}
+  - {fileID: 11400000, guid: 333948de6a8af024fb4e2eaf260c0d66, type: 2}
+  - {fileID: 11400000, guid: a001124ad423c6040b7c501665e7baec, type: 2}
+  - {fileID: 11400000, guid: 49546914681b803428dc2e7ebc92c69c, type: 2}
+  - {fileID: 11400000, guid: 343587a724342db4bb25438f34653e6c, type: 2}
+  - {fileID: 11400000, guid: 35e942c030b4d5547a836a3a7d1fd4d4, type: 2}
+  - {fileID: 11400000, guid: 0a724f3974ee0d14fb7c3e08a252ffa6, type: 2}
   powerSourceComponents:
   - {fileID: 11400000, guid: d7b164dfb70773f448a8f42e446c8513, type: 2}
   - {fileID: 11400000, guid: b1a058673df81d3439d4a3568ad0fd40, type: 2}
   - {fileID: 11400000, guid: 4f58316e9b345004bbd2e070b08e0a7f, type: 2}
   electronicComponents:
-  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
   - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
   - {fileID: 11400000, guid: 667a0e8dcd1f5644a89ce053a2cb86ed, type: 2}
+  - {fileID: 11400000, guid: 3ac3213814463fb429618ddbdfcd77e2, type: 2}
+  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
+  - {fileID: 11400000, guid: efc04be386b28dd48a10eaf748cd8725, type: 2}
+  - {fileID: 11400000, guid: 7c6082d375b89f345aa137b6af51a515, type: 2}
   coolingComponents:
   - {fileID: 11400000, guid: 0b93bacf1e175c44e928a41050d5e292, type: 2}
   - {fileID: 11400000, guid: ec251fa850fd8d64a82f58cc7a031388, type: 2}
@@ -1013,6 +1023,7 @@ MonoBehaviour:
   sealantComponents:
   - {fileID: 11400000, guid: 975e6309b8d55814ca42e6a16d2fc015, type: 2}
   - {fileID: 11400000, guid: 273c13c50107c614bb0793d01e44eb53, type: 2}
+  - {fileID: 11400000, guid: 52e4ae7207ca6b64980c8ef98f8e6b13, type: 2}
   filterComponents: []
   specialComponents:
   - {fileID: 11400000, guid: b2df95fa4c4fbf04eb5cdc417d4ba21d, type: 2}
@@ -3523,7 +3534,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1009239064}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.41560334
+  m_Size: 0.4156033
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

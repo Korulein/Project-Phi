@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
   m_Name: Plastic L-Pipe  Structural Component
   m_EditorClassIdentifier: 
-  componentName: Plastic Pipe
-  componentSprite: {fileID: -8988513451771169747, guid: 199606c5018221740a17e7c0bd1cbfa7, type: 3}
-  componentDescription: A cheap plastic pipe, good for non critical functions
-  componentID: 2000
+  componentName: 'Plastic L-Pipe '
+  componentSprite: {fileID: -6942415620539897300, guid: c2884f3c0724e864eb6a79690ae7be3d, type: 3}
+  componentDescription: A cheap plastic L-Pipe, good for non critical functions
+  componentID: 2010
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7

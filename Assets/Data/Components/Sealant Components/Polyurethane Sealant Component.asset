@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Polyurethane Sealant Component
   m_EditorClassIdentifier: 
   componentName: Polyurethane Seal
-  componentSprite: {fileID: 6356149769561458859, guid: 84679f229576f964db87e7433bc86009, type: 3}
+  componentSprite: {fileID: 6285897523072843191, guid: adf93935c52421f44acc9090f55c7279, type: 3}
   componentDescription: A very flexible foam like sealant that can be sprayed onto
     areas and also works in extreme temperatures. Great for emergencies.
   componentID: 21

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
   m_Name: Nicket-Chromium L-Pipe  Structural Component
   m_EditorClassIdentifier: 
-  componentName: Nickel-Chromium Pipe
-  componentSprite: {fileID: 2145264916251209589, guid: 7fbe6f4ae381fb549ab46b19a12f7144, type: 3}
-  componentDescription: A very sturdy pipe, strong enough to second as a tank barrel.
-  componentID: 2003
+  componentName: 'Nickel-Chromium L-Pipe '
+  componentSprite: {fileID: -6393614080615365042, guid: 8cdf1b54350a2c549b12095429d4c866, type: 3}
+  componentDescription: A very sturdy L-Pipe, strong enough to second as a tank barrel.
+  componentID: 2013
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
