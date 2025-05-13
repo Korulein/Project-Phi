@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 83481ab64d171614e9fbdfcb7e70773b
+guid: 7cfe233b978895f40b3f837ef57d9b65
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1700446272265125087
-    second: FanTier2_0
+      213: 5736537370511049626
+    second: TemperatureSensor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FanTier2_0
+      name: TemperatureSensor_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 5
-        width: 102
-        height: 122
+        x: 20
+        y: 3
+        width: 24
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 123000eef1dc668e0800000000000000
-      internalID: -1700446272265125087
+      spriteID: a93801258564c9f40800000000000000
+      internalID: 5736537370511049626
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FanTier2_0: -1700446272265125087
+      TemperatureSensor_0: 5736537370511049626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

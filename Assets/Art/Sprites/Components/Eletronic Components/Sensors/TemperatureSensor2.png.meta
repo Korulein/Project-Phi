@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7cfe233b978895f40b3f837ef57d9b65
+guid: f3d4103fdc0b30a46a9465e4d107bfd8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5736537370511049626
-    second: TemperatureSensor_0
+      213: -6629978074634843995
+    second: TemperatureSensor2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TemperatureSensor_0
+      name: TemperatureSensor2_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 3
-        width: 24
-        height: 51
+        x: 19
+        y: 7
+        width: 25
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a93801258564c9f40800000000000000
-      internalID: 5736537370511049626
+      spriteID: 5a803c871169df3a0800000000000000
+      internalID: -6629978074634843995
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TemperatureSensor_0: 5736537370511049626
+      TemperatureSensor2_0: -6629978074634843995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
