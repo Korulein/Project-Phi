@@ -654,7 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197643415}
   m_Layer: 5
-  m_Name: Sensor Components
+  m_Name: Electronic Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,9 +676,9 @@ RectTransform:
   - {fileID: 934368479}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -723.3097}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &197846478
@@ -867,19 +867,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7b164dfb70773f448a8f42e446c8513, type: 2}
   - {fileID: 11400000, guid: b1a058673df81d3439d4a3568ad0fd40, type: 2}
   - {fileID: 11400000, guid: 4f58316e9b345004bbd2e070b08e0a7f, type: 2}
+  electronicComponents:
+  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
+  - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
+  - {fileID: 11400000, guid: 667a0e8dcd1f5644a89ce053a2cb86ed, type: 2}
   coolingComponents:
   - {fileID: 11400000, guid: 0b93bacf1e175c44e928a41050d5e292, type: 2}
   - {fileID: 11400000, guid: ec251fa850fd8d64a82f58cc7a031388, type: 2}
+  - {fileID: 11400000, guid: 5e4694d9b5ee9e7478e9b538bd06ccdc, type: 2}
   heatingComponents:
   - {fileID: 11400000, guid: 0c56555242fef434580b3e8792beb15f, type: 2}
   - {fileID: 11400000, guid: b6cac7017b711434baf2705ae8505250, type: 2}
-  sensorComponents:
-  - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
-  - {fileID: 11400000, guid: 667a0e8dcd1f5644a89ce053a2cb86ed, type: 2}
   sealantComponents:
   - {fileID: 11400000, guid: 975e6309b8d55814ca42e6a16d2fc015, type: 2}
   - {fileID: 11400000, guid: 273c13c50107c614bb0793d01e44eb53, type: 2}
   filterComponents: []
+  specialComponents:
+  - {fileID: 11400000, guid: b2df95fa4c4fbf04eb5cdc417d4ba21d, type: 2}
+  - {fileID: 11400000, guid: 8c629f5dba2015f458bed6dbfd0d3e79, type: 2}
+  - {fileID: 11400000, guid: db585b5080e6f8649aa5ace7e426ca5e, type: 2}
+  - {fileID: 11400000, guid: 8b7cf40800c755e43b55381b8442cd34, type: 2}
 --- !u!4 &319763405
 Transform:
   m_ObjectHideFlags: 0
@@ -927,9 +934,9 @@ RectTransform:
   - {fileID: 689887839}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -234.43655}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &435407075
@@ -2509,9 +2516,9 @@ RectTransform:
   - {fileID: 292557070}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -397.39426}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &913145492
@@ -2695,7 +2702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sensor Components
+  m_text: Electronic Components
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a253019eb1f999049a6d7f75ff0c8a7a, type: 2}
   m_sharedMaterial: {fileID: 5545205122929023499, guid: a253019eb1f999049a6d7f75ff0c8a7a, type: 2}
@@ -2940,7 +2947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1084900984}
   m_Layer: 5
-  m_Name: Sensor Category Header
+  m_Name: Electronic Category Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3186,9 +3193,9 @@ RectTransform:
   - {fileID: 1842935953}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -71.47885}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1185371144
@@ -3295,9 +3302,9 @@ RectTransform:
   - {fileID: 1822275311}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -1049.2251}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1206272096
@@ -3383,7 +3390,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1009239064}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.48155442
+  m_Size: 0.41560334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3458,9 +3465,9 @@ RectTransform:
   - {fileID: 1176989036}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -886.26733}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1245307417
@@ -3531,10 +3538,10 @@ RectTransform:
   - {fileID: 913145493}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -560.3519}
-  m_SizeDelta: {x: 0, y: 142.9577}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 957, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1282554018
 GameObject:
@@ -3632,9 +3639,10 @@ MonoBehaviour:
   powerSourceComponentContainer: {fileID: 689887839}
   coolingComponentContainer: {fileID: 292557070}
   heatingComponentContainer: {fileID: 913145493}
-  sensorComponentContainer: {fileID: 934368479}
+  electronicComponentContainer: {fileID: 934368479}
   filterComponentContainer: {fileID: 1176989036}
   sealantComponentContainer: {fileID: 1822275311}
+  specialComponentContainer: {fileID: 665709126}
 --- !u!114 &1282554023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4275,8 +4283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -352.75787}
-  m_SizeDelta: {x: 0, y: 705.5156}
+  m_AnchoredPosition: {x: 0, y: -460.73126}
+  m_SizeDelta: {x: 0, y: 921.4623}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722189370
 MonoBehaviour:
@@ -4665,9 +4673,9 @@ RectTransform:
   - {fileID: 665709126}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 478.93, y: -1212.1827}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1776936520
@@ -5223,7 +5231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1939532678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1767610855}
+        m_TargetAssemblyTypeName: ProductManager, Assembly-CSharp
+        m_MethodName: CheckProductAssembly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1939532678
 MonoBehaviour:
   m_ObjectHideFlags: 0

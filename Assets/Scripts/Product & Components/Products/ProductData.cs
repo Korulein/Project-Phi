@@ -7,8 +7,11 @@ public class ProductData : ScriptableObject
     public Sprite productSprite;
     [TextArea] public string productDescription;
     public int productID;
-    public List<ComponentData> requiredComponents;
-    public List<ComponentData> componentsUsed;
+    public List<ComponentData> mandatorySpecialComponents;
+    public List<ComponentData> mandatoryRegularComponents;
+    public List<ComponentData> extraComponents;
+    public bool hasSpecialComponents;
+    public bool hasRegularComponents;
 
     [Header("RAMS ratings")]
     public float reliabilityRating;

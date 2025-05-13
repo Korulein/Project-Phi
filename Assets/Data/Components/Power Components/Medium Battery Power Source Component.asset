@@ -19,6 +19,7 @@ MonoBehaviour:
   componentID: 121
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 4
   materialType: 22
   slotSize: 2
   width: 2

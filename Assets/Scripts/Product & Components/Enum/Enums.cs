@@ -79,3 +79,14 @@ public enum EnergyTypes
     Nuclear,
     Chemical
 }
+public enum ComponentType
+{
+    Heating,
+    Cooling,
+    Chip,
+    Sensor,
+    Power,
+    Sealant,
+    Special,
+    Structural,
+}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Computer Component", menuName = "Blueprint/Component/EletrComputeronic Component")]
+[CreateAssetMenu(fileName = "Computer Component", menuName = "Blueprint/Component/Computer Component")]
 public class ComputerComponent : ComponentData
 {
     [Header("Computer Component Data")]

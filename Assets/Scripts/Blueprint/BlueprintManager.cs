@@ -236,6 +236,24 @@ public class BlueprintManager : MonoBehaviour
         lastPickUpOrigin = origin;
         return componentToReturn;
     }
+    public List<ComponentData> GetAllPlacedComponents()
+    {
+        // Returns all the components that are placed in the grid
+        HashSet<ComponentData> components = new HashSet<ComponentData>();
+        for (int x = 0; x < blueprintInUse.gridWidth; x++)
+        {
+            for (int y = 0; y < blueprintInUse.gridHeight; y++)
+            {
+                if (grid[x, y].isOccupied && grid[x, y].occupiedBy != null)
+                {
+                    UIComponentItem componentItem = grid[x, y].occupiedBy;
+                    ComponentData component = componentItem.GetComponentData();
+                    components.Add(component);
+                }
+            }
+        }
+        return components.ToList();
+    }
     public bool IsCellUseable(Vector2Int cell)
     {
         // Checks if a cell is within grid bounds and is useable

@@ -9,7 +9,7 @@ public class ProductManager : MonoBehaviour
     // or incompatibility. These aforementioned checks will be done in the component manager.
     public static ProductManager instance { get; private set; }
     [Header("References")]
-    private BlueprintCellData[,] currentGrid;
+    private List<ComponentData> componentsInBlueprint;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
@@ -31,12 +31,59 @@ public class ProductManager : MonoBehaviour
             products[i].productID = i;
         }
     }
-    public void AssembleProduct()
+    public void CheckProductAssembly()
     {
-        // Will use the current grid's cells to add all the components into a list
-        currentGrid = BlueprintManager.instance.GetCurrentGrid();
+        // can be improved using hashsets, modify later for clarity
+        componentsInBlueprint = BlueprintManager.instance.GetAllPlacedComponents();
+        if (BlueprintManager.instance.blueprintInUse.blueprintID == 1)
+        {
+            ProductData coffeeMachine = products[0];
+            int amountOfMandatoryRegularComponents = 0;
+            int amountOfMandatorySpecialComponents = 0;
+            foreach (var componentInBlueprint in componentsInBlueprint)
+            {
+                foreach (var componentToCheck in coffeeMachine.mandatoryRegularComponents)
+                {
+                    if (componentInBlueprint.componentType == componentToCheck.componentType)
+                    {
+                        amountOfMandatoryRegularComponents++;
+                        break;
+                    }
+                }
+            }
+            if (amountOfMandatoryRegularComponents == coffeeMachine.mandatoryRegularComponents.Count())
+                coffeeMachine.hasRegularComponents = true;
+            foreach (var componentInBlueprint in componentsInBlueprint)
+            {
+                foreach (var componentToCheck in coffeeMachine.mandatorySpecialComponents)
+                {
+                    if (componentInBlueprint.componentType == componentToCheck.componentType)
+                    {
+                        amountOfMandatorySpecialComponents++;
+                        break;
+                    }
+                }
+            }
+            Debug.Log($"Regular {amountOfMandatoryRegularComponents}");
+            Debug.Log($"Special {amountOfMandatorySpecialComponents}");
+            if (amountOfMandatorySpecialComponents == coffeeMachine.mandatorySpecialComponents.Count())
+                coffeeMachine.hasSpecialComponents = true;
+            if (coffeeMachine.hasSpecialComponents && coffeeMachine.hasRegularComponents)
+            {
+                Debug.Log("Assembling product...");
+                AssembleProduct();
+            }
+            else
+            {
+                Debug.Log("Missing required components!");
+            }
+        }
     }
-    public void CalculateRAMS()
+    private void AssembleProduct()
+    {
+        return;
+    }
+    private void CalculateRAMS()
     {
 
     }

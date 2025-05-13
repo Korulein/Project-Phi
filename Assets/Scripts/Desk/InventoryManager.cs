@@ -7,9 +7,10 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Transform powerSourceComponentContainer;
     [SerializeField] private Transform coolingComponentContainer;
     [SerializeField] private Transform heatingComponentContainer;
-    [SerializeField] private Transform sensorComponentContainer;
+    [SerializeField] private Transform electronicComponentContainer;
     [SerializeField] private Transform filterComponentContainer;
     [SerializeField] private Transform sealantComponentContainer;
+    [SerializeField] private Transform specialComponentContainer;
 
     private void Start()
     {
@@ -45,9 +46,9 @@ public class InventoryManager : MonoBehaviour
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
-        foreach (var componentData in ComponentManager.instance.sensorComponents)
+        foreach (var componentData in ComponentManager.instance.electronicComponents)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, sensorComponentContainer);
+            GameObject component = Instantiate(componentData.inventoryPrefab, electronicComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
@@ -60,6 +61,12 @@ public class InventoryManager : MonoBehaviour
         foreach (var componentData in ComponentManager.instance.sealantComponents)
         {
             GameObject component = Instantiate(componentData.inventoryPrefab, sealantComponentContainer);
+            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
+            uiItem.InitializeComponent(componentData);
+        }
+        foreach (var componentData in ComponentManager.instance.specialComponents)
+        {
+            GameObject component = Instantiate(componentData.inventoryPrefab, specialComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
@@ -82,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in sensorComponentContainer)
+        foreach (Transform child in electronicComponentContainer)
         {
             Destroy(child.gameObject);
         }

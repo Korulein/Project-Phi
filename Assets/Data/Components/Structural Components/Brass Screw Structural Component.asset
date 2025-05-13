@@ -19,10 +19,13 @@ MonoBehaviour:
   componentID: 101
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 7
   materialType: 7
   slotSize: 1
   width: 1
   height: 1
+  playTimeWidth: 0
+  playTimeHeight: 0
   weight: 0.05
   requiresPowerInput: 0
   reliabilityRating: 0

@@ -8,6 +8,7 @@ public class ComponentData : ScriptableObject
     public int componentID;
     public GameObject inventoryPrefab;
     public GameObject blueprintPrefab;
+    public ComponentType componentType;
 
     [Header("Component Specifics")]
     public MaterialTypes materialType;

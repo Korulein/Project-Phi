@@ -9,30 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Pipe Structural Component
+  m_Script: {fileID: 11500000, guid: 9701459f498199143978a5cbd82a38e6, type: 3}
+  m_Name: Basic Computer Chip
   m_EditorClassIdentifier: 
-  componentName: Basic Pipe
-  componentSprite: {fileID: 1304208510633726333, guid: 3f883da352d93cf40990e30f8789e6fe, type: 3}
-  componentDescription: A basic pipe. Provides a small modifier to reliability, if
-    used correctly.
-  componentID: 1
+  componentName: Basic Computer Chip
+  componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
+  componentDescription: 
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  componentType: 7
-  materialType: 5
-  slotSize: 4
+  componentType: 2
+  materialType: 0
+  slotSize: 1
   width: 1
-  height: 3
-  playTimeWidth: 1
-  playTimeHeight: 3
-  weight: 1
+  height: 1
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 
   requiresPowerInput: 0
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 1.1
-  availabilityModifier: 1
-  maintainabilityModifier: 1
-  safetyModifier: 1
+  operationalTemperature: 0
+  operationalCPUCapacity: 0
+  requiredPower: 0

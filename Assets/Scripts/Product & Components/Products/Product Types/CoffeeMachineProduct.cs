@@ -1,15 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "Coffee Machine Product", menuName = "Blueprint/Product/Coffee Machine")]
 public class CoffeeMachineProduct : ProductData
 {
-    [Header("Mandatory Characteristics")]
-    public List<ComponentData> mandatoryComponents;
-    public bool hasPressurisedCoffeeExtractor;
-    public bool hasHeatingElement;
-    public bool hasAutoShutoff;
-    public bool hasSealant;
-
     [Header("Extras")]
     public bool hasModularity;
     public bool hasMultiBeverageMode;

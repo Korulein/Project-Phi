@@ -19,16 +19,22 @@ MonoBehaviour:
     integrated filtration, heat regulation, and cup dispensing modules, Model PI-01
     brews morale as efficiently as it brews espresso.
   productID: 0
-  requiredComponents: []
-  componentsUsed: []
+  mandatorySpecialComponents:
+  - {fileID: 11400000, guid: db585b5080e6f8649aa5ace7e426ca5e, type: 2}
+  - {fileID: 11400000, guid: 8b7cf40800c755e43b55381b8442cd34, type: 2}
+  - {fileID: 11400000, guid: 8c629f5dba2015f458bed6dbfd0d3e79, type: 2}
+  mandatoryRegularComponents:
+  - {fileID: 11400000, guid: 0c56555242fef434580b3e8792beb15f, type: 2}
+  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
+  - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
+  - {fileID: 11400000, guid: 273c13c50107c614bb0793d01e44eb53, type: 2}
+  extraComponents: []
+  hasSpecialComponents: 0
+  hasRegularComponents: 0
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  hasPressurisedCoffeeExtractor: 0
-  hasHeatingElement: 0
-  hasAutoShutoff: 0
-  hasSealant: 0
   hasModularity: 0
   hasMultiBeverageMode: 0
   hasGoodCoffee: 0
