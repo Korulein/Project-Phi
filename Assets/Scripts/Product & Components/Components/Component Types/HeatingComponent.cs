@@ -6,5 +6,6 @@ public class HeatingComponent : ComponentData
     [Header("Heating Component Data")]
     public float requiredPower;
     public float operationalTemperature;
+    public float producedHeat;
 }
 

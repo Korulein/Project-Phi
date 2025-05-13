@@ -7,4 +7,5 @@ public class CoolingComponent : ComponentData
     public float requiredPower;
     public CoolantTypes coolantType;
     public float operationalTemperature;
+    public float reducedHeat;
 }

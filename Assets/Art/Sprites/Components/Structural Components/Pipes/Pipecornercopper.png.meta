@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pipecornercopper_0: -8446009241442963135
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

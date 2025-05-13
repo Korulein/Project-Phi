@@ -8,5 +8,6 @@ public class EletronicComponent : ComponentData
     public float operationalTemperatureMax;
     public float operationalCPUUsage;
     public float requiredPower;
+    public float producedHeat;
 }
 

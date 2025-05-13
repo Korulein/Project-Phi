@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      thermo-sensor-high-detail_0: -1564990110046934478
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

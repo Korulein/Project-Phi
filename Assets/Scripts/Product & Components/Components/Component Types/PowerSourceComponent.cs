@@ -6,4 +6,5 @@ public class PowerSourceComponent : ComponentData
     [Header("Power Source Component Data")]
     public EnergyTypes energyType;
     public float maxPowerOutput; // In Watts
+    public float producedHeat;
 }

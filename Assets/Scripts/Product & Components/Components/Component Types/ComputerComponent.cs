@@ -7,4 +7,5 @@ public class ComputerComponent : ComponentData
     public float operationalTemperature;
     public float operationalCPUCapacity;
     public float requiredPower;
+    public float producedHeat;
 }
