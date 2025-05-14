@@ -181,6 +181,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
         if (isPickedUp)
             return;
         if (currentLocation == ComponentLocation.Inventory)
