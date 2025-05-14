@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class UIComponentItem : MonoBehaviour, IPointerClickHandler
+public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("UI Element Setup")]
     private Image iconImage;
@@ -20,6 +20,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     private Vector2Int gridPos;
     [SerializeField] private float ghostAlpha = 0.5f;
 
+    [Header("Tooltip setup")]
+    private string componentName;
+    private LTDescr delay;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -51,6 +54,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
         // Initializes component data and adjusts size
         currentLocation = ComponentLocation.Inventory;
         currentRotation = ComponentRotation.NotRotated;
+        componentName = componentData.componentName;
         component = componentData;
         component.playTimeWidth = component.width;
         component.playTimeHeight = component.height;
@@ -190,6 +194,18 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
             PickUpComponent();
         }
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        delay = LeanTween.delayedCall(0.3f, () =>
+        {
+            TooltipManager.instance.ShowTooltip(componentName);
+        });
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        LeanTween.cancel(delay.uniqueId);
+        TooltipManager.instance.HideTooltip();
+    }
     public ComponentData GetComponentData()
     {
         return component;
@@ -232,6 +248,6 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler
     public enum ComponentRotation
     {
         Rotated,
-        NotRotated
+        NotRotated,
     }
 }
