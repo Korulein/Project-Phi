@@ -20,12 +20,12 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
-  slotSize: 2
-  width: 2
-  height: 2
+  slotSize: 1
+  width: 1
+  height: 1
   playTimeWidth: 2
   playTimeHeight: 2
-  weight: 5
+  weight: 4
   requiresPowerInput: 0
   reliabilityRating: 80
   availabilityRating: 50

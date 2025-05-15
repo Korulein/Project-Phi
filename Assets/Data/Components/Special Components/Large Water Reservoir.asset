@@ -12,24 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20700148c717644ab2f61b1b81a3b0a, type: 3}
   m_Name: Large Water Reservoir
   m_EditorClassIdentifier: 
-  componentName: 
-  componentSprite: {fileID: 0}
-  componentDescription: 
-  componentID: 0
-  inventoryPrefab: {fileID: 0}
-  blueprintPrefab: {fileID: 0}
-  componentType: 0
+  componentName: Large Water Reservoir
+  componentSprite: {fileID: -7416111074985556640, guid: 6d62021f3154eba47bb828e3dfb8242f, type: 3}
+  componentDescription: A large water reservior to allow for more beverages to be
+    dispensed at once.
+  componentID: 996
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 6
   materialType: 0
-  slotSize: 0
-  width: 0
-  height: 0
+  slotSize: 2
+  width: 2
+  height: 2
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 
-  requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
+  weight: 8
+  requiresPowerInput: 1
+  reliabilityRating: 65
+  availabilityRating: 40
+  safetyRating: 50
+  maintainabilityRating: 50
   requiredPower: 0
-  operationalTemperature: 0
+  operationalTemperature: 383

@@ -12,25 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
   m_Name: Liquid Nozzle
   m_EditorClassIdentifier: 
-  componentName: 
-  componentSprite: {fileID: 0}
-  componentDescription: 
-  componentID: 0
-  inventoryPrefab: {fileID: 0}
-  blueprintPrefab: {fileID: 0}
-  componentType: 0
+  componentName: Liquid Nozzle
+  componentSprite: {fileID: 7641279864279244181, guid: 6012357f85383f84aa6289127edef23d, type: 3}
+  componentDescription: A specialised nozzle to dispense cream and other additives
+    more evenly.
+  componentID: 994
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 6
   materialType: 0
-  slotSize: 0
-  width: 0
-  height: 0
+  slotSize: 4
+  width: 1
+  height: 2
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 
+  weight: 0.7
   requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
+  reliabilityRating: 50
+  availabilityRating: 35
+  safetyRating: 65
+  maintainabilityRating: 55
   reliabilityModifier: 0
   availabilityModifier: 0
   maintainabilityModifier: 0

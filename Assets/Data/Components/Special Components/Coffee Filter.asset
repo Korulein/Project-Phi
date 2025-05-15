@@ -12,24 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20700148c717644ab2f61b1b81a3b0a, type: 3}
   m_Name: Coffee Filter
   m_EditorClassIdentifier: 
-  componentName: 
-  componentSprite: {fileID: 0}
-  componentDescription: 
-  componentID: 0
-  inventoryPrefab: {fileID: 0}
-  blueprintPrefab: {fileID: 0}
+  componentName: Coffee Filter
+  componentSprite: {fileID: 4849833099516549126, guid: 84c9e2b86aec0f243b35c85091784ea2, type: 3}
+  componentDescription: A special coffee filter to improve the taste and quality
+    of the beverages.
+  componentID: 995
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 0
   materialType: 0
-  slotSize: 0
-  width: 0
-  height: 0
+  slotSize: 1
+  width: 1
+  height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 
+  weight: 0.1
   requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
+  reliabilityRating: 50
+  availabilityRating: 70
+  safetyRating: 50
+  maintainabilityRating: 40
   requiredPower: 0
-  operationalTemperature: 0
+  operationalTemperature: 373

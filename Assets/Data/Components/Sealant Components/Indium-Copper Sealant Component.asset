@@ -12,24 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0d594bd90455b43b247b2b7d62ce41, type: 3}
   m_Name: Indium-Copper Sealant Component
   m_EditorClassIdentifier: 
-  componentName: 
-  componentSprite: {fileID: 0}
-  componentDescription: 
-  componentID: 0
-  inventoryPrefab: {fileID: 0}
-  blueprintPrefab: {fileID: 0}
-  componentType: 0
-  materialType: 0
-  slotSize: 0
-  width: 0
-  height: 0
+  componentName: Indium-Copper Sealant
+  componentSprite: {fileID: 6833628603829609448, guid: 5cbb3491b54be594ab150b12991afa53, type: 3}
+  componentDescription: Extremly high durability seal that can be used to atomically
+    fuse metal rings without a need for heat or welding.
+  componentID: 23
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 5
+  materialType: 6
+  slotSize: 1
+  width: 1
+  height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 
+  weight: 4
   requiresPowerInput: 0
-  reliabilityRating: 0
-  availabilityRating: 0
-  safetyRating: 0
-  maintainabilityRating: 0
-  operationalTemperatureMin: 0
-  operationalTemperatureMax: 0
+  reliabilityRating: 85
+  availabilityRating: 35
+  safetyRating: 90
+  maintainabilityRating: 20
+  operationalTemperatureMin: 2
+  operationalTemperatureMax: 673
