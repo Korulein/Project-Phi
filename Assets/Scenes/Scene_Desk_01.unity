@@ -192,6 +192,51 @@ RectTransform:
   m_AnchoredPosition: {x: -201.8, y: -24.999985}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &46439166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46439168}
+  - component: {fileID: 46439169}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46439168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46439166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 193.91212, y: 192.56444, z: -2.0831232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46439169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46439166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f1bc131b3748c478b612d78e191d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
 --- !u!1 &47146690
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,7 +10159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.6413, y: -19.238197}
+  m_AnchoredPosition: {x: -0.6412964, y: -19.238197}
   m_SizeDelta: {x: -47.454, y: -38.4763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009879890
@@ -11534,6 +11579,7 @@ MonoBehaviour:
   inventoryContainer: {fileID: 1282554021}
   coffeeMachinePopUp: {fileID: 285327941}
   blurLayer: {fileID: 1146497127}
+  cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
 --- !u!1 &1146497127
 GameObject:
   m_ObjectHideFlags: 0
@@ -21151,3 +21197,4 @@ SceneRoots:
   - {fileID: 1767610856}
   - {fileID: 319763405}
   - {fileID: 857232407}
+  - {fileID: 46439168}

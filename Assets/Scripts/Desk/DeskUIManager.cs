@@ -23,6 +23,9 @@ public class DeskUIManager : MonoBehaviour
     public bool RKeyDown { get; private set; }
     public bool EscapeDown { get; private set; }
     public Vector3 MousePosition { get; private set; }
+    [Header("Audio")]
+    [HideInInspector] public AudioManager audioManager;
+
     private void Awake()
     {
         if (instance == null)
@@ -34,6 +37,9 @@ public class DeskUIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audioManager = GetComponent<AudioManager>();
+
     }
     private void Update()
     {
@@ -59,6 +65,9 @@ public class DeskUIManager : MonoBehaviour
     }
     public void OpenScreen(int screenIndex)
     {
+
+        audioManager.PlayAudioClip(audioManager.cameraFlash,transform,1f);
+
         for (int i = 0; i < tabletScreens.Count; i++)
         {
             if (i != screenIndex)
