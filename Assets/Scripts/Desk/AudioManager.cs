@@ -4,42 +4,22 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioPrefab;
 
-    [Header("SoundFXClips")]
-    public AudioClip cameraFlash;
-
-    private void Awake()
-    {
-
-    }
+    [Header("SFX Clips")]
+    [SerializeField] public AudioClip cameraFlash;
 
     public void PlayAudioClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
 
-       AudioSource audioSource = Instantiate(audioPrefab, spawnTransform.position, Quaternion.identity);
-
-        // Assign Audio Clip
-
+        // Instantiates Audio Source
+        AudioSource audioSource = Instantiate(audioPrefab, spawnTransform.position, Quaternion.identity);
         audioSource.clip = audioClip;
-        // Assign Volume
-
         audioSource.volume = volume;
-        // Play Sound
         audioSource.Play();
 
         // Get Length of Audio Clip
-        float cliplength = audioSource.clip.length;
+        float clipLength = audioSource.clip.length;
 
         // Destroy Clip Object
-        Destroy(audioSource.gameObject, cliplength);
-
-
-        // Assign to Prefab, specific sound
-    }
-
-    public void AudioList()
-    {
-
-
-
+        Destroy(audioSource.gameObject, clipLength);
     }
 }
