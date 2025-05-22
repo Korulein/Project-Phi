@@ -11549,9 +11549,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
+  bgmSource: {fileID: 0}
   cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
   buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
-  defaultBGM: {fileID: 8300000, guid: 9503fdc8add32274d9bca737d5f13c3e, type: 3}
+  defaultBGM: {fileID: 8300000, guid: 9f8018a3f64800540ad621764a582e3c, type: 3}
   bgmVolume: 1
 --- !u!1 &1146497127
 GameObject:
