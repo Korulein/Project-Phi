@@ -66,7 +66,7 @@ public class DeskUIManager : MonoBehaviour
     public void OpenScreen(int screenIndex)
     {
 
-        audioManager.PlayAudioClip(audioManager.cameraFlash,transform,1f);
+        audioManager.PlayAudioClip(audioManager.buttonPress1,transform,1f);
 
         for (int i = 0; i < tabletScreens.Count; i++)
         {
@@ -77,6 +77,9 @@ public class DeskUIManager : MonoBehaviour
     }
     public void OpenOrder(int orderIndex)
     {
+
+        audioManager.PlayAudioClip(audioManager.buttonPress1, transform, 1f);
+
         for (int i = 0; i < orderScreens.Count; i++)
         {
             if (i != orderIndex)

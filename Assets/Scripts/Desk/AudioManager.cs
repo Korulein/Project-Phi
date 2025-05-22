@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SoundFXClips")]
     public AudioClip cameraFlash;
+    public AudioClip buttonPress1;
 
     private void Awake()
     {
