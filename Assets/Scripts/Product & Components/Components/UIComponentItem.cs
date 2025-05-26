@@ -91,6 +91,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         originalParent = transform.parent;
         startPosition = transform.position;
         transform.SetParent(DeskUIManager.instance.dragLayer);
+        PlayMaterialSoundPickup();
 
         CreatePlaceHolder();
 
@@ -125,6 +126,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             {
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
+                PlayMaterialSoundDrop();
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
             }
@@ -133,11 +135,13 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 Debug.Log("Component overlap! Try again");
                 ReturnToStartPosition();
+                PlayMaterialSoundDrop();
             }
         }
         else
         {
             ReturnToStartPosition();
+            PlayMaterialSoundDrop();
         }
     }
     public void Rotate()
@@ -250,4 +254,35 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         Rotated,
         NotRotated,
     }
+
+    public void PlayMaterialSoundPickup()
+    {
+
+        AudioManager audioManager = DeskUIManager.instance.audioManager;
+    
+        if (component.materialType == MaterialTypes.Steel)
+        {
+
+            audioManager.PlayAudioClip(audioManager.steelPickup, transform, 1f);
+
+
+        }
+    
+    }
+
+    public void PlayMaterialSoundDrop()
+    {
+
+        AudioManager audioManager = DeskUIManager.instance.audioManager;
+
+        if (component.materialType == MaterialTypes.Steel)
+        {
+
+            audioManager.PlayAudioClip(audioManager.steelDrop, transform, 1f);
+
+
+        }
+
+    }
+
 }

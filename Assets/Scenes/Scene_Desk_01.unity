@@ -11552,6 +11552,7 @@ MonoBehaviour:
   bgmSource: {fileID: 0}
   cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
   buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
+  steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
   defaultBGM: {fileID: 8300000, guid: 9f8018a3f64800540ad621764a582e3c, type: 3}
   bgmVolume: 1
 --- !u!1 &1146497127

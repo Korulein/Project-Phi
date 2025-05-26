@@ -83,6 +83,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             if (!BlueprintManager.instance.CheckCellOccupancy(cell, component.playTimeWidth, component.playTimeHeight))
             {
                 BlueprintManager.instance.PlaceComponent(selectedComponent, cell.x, cell.y);
+                selectedComponent.PlayMaterialSoundDrop();
             }
             else
             {
@@ -93,6 +94,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 Debug.Log("Component overlap! Try again");
                 Vector2Int origin = BlueprintManager.instance.lastPickUpOrigin;
                 BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
+                selectedComponent.PlayMaterialSoundDrop();
 
             }
         }
@@ -100,6 +102,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             Debug.Log("Component was out of bounds!");
             selectedComponent.ReturnToStartPosition();
+            selectedComponent.PlayMaterialSoundDrop();
         }
     }
     private void PickUpComponent(Vector2Int cell)
@@ -110,6 +113,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             selectedComponent.originalRotation = selectedComponent.currentRotation;
             componentRectTransform = selectedComponent.GetComponent<RectTransform>();
+            selectedComponent.PlayMaterialSoundPickup();
         }
     }
     private void RotateComponent()
@@ -146,6 +150,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if (selectedComponent.isRotated)
             RotateComponent();
         selectedComponent.ReturnToInventory();
+        selectedComponent.PlayMaterialSoundDrop();
         selectedComponent = null;
     }
     public IEnumerator SuppressClickForOneFrame()

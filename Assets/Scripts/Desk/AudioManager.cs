@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [Header("Sound FX Clips")]
     public AudioClip cameraFlash;
     public AudioClip buttonPress1;
+    public AudioClip steelPickup;
+    public AudioClip steelDrop;
 
     [Header("BGM Settings")]
     [SerializeField] private AudioClip defaultBGM;
