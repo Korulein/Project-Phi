@@ -12,6 +12,16 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonPress1;
     public AudioClip steelPickup;
     public AudioClip steelDrop;
+    public AudioClip plasticPickup;
+    public AudioClip plasticDrop;
+    public AudioClip aerogelPickup;
+    public AudioClip aerogelDrop;
+    public AudioClip carbonfiberPickup;
+    public AudioClip carbonfiberDrop;
+    public AudioClip leadPickup;
+    public AudioClip leadDrop;
+    public AudioClip ceramicPickup;
+    public AudioClip ceramicDrop;
 
     [Header("BGM Settings")]
     [SerializeField] private AudioClip defaultBGM;
