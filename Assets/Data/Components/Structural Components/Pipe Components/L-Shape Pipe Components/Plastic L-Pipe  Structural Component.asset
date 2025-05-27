@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plastic L-Pipe  Structural Component
   m_EditorClassIdentifier: 
   componentName: 'Plastic L-Pipe '
+  categoryName: Pipe
   componentSprite: {fileID: -6942415620539897300, guid: c2884f3c0724e864eb6a79690ae7be3d, type: 3}
   componentDescription: A cheap plastic L-Pipe, good for non critical functions
   componentID: 2010

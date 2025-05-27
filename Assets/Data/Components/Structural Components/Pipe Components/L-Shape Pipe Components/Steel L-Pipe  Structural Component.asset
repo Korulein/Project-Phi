@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Steel L-Pipe  Structural Component
   m_EditorClassIdentifier: 
   componentName: 'Steel L-Pipe '
+  categoryName: Pipe
   componentSprite: {fileID: 2273224279935176374, guid: 1c2e09976ce5f4b4dbda9dc0492139a4, type: 3}
   componentDescription: A basic L-Pipe. Provides a small modifier to reliability,
     if used correctly.

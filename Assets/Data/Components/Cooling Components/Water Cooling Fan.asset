@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water Cooling Fan
   m_EditorClassIdentifier: 
   componentName: Water Cooling Fan
+  categoryName: Fan
   componentSprite: {fileID: 2392241826098057394, guid: a193c3a7a6c5f4547b90ab0587245aa4, type: 3}
   componentDescription: A liquid cooling system, capable of drawing away far more
     heat than normal air powers fans

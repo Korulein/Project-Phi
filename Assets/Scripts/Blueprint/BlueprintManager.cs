@@ -34,16 +34,20 @@ public class BlueprintManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
         for (int i = 0; i < blueprints.Count; i++)
         {
             blueprints[i].blueprintID = i;
         }
+
+        LoadBlueprint(blueprintID);
     }
     private void Start()
     {
         //Loads a blueprint, will be changed in development
-        LoadBlueprint(blueprintID);
+        //LoadBlueprint(blueprintID);
     }
     private void Update()
     {
@@ -164,6 +168,41 @@ public class BlueprintManager : MonoBehaviour
 
         return new Vector2(centerX, centerY);
     }
+
+    public int CountComponentsWithTag(string componentTag)
+    {
+        int count = 0;
+
+        // Iterate over all placed components
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public bool CheckNumericRequirement(string componentTag, int requiredValue)
+    {
+        int currentValue = 0;
+
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                currentValue += components[component];
+            }
+        }
+
+        return currentValue >= requiredValue;
+    }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         // Converts mouse position to grid position
@@ -212,12 +251,34 @@ public class BlueprintManager : MonoBehaviour
         componentTransform.anchoredPosition = cellCenter;
 
         string compName = component.categoryName;
-        if (!RequirementTextUI.instance.playerComponents.Contains(compName))
+        OrderScreenUI.instance.NotifyComponentPlaced(compName);
+
+        float totalHeat = GetTotalProducedHeat();
+
+        foreach (var reqUI in OrderScreenUI.instance.requirementUIs)
         {
-            RequirementTextUI.instance.playerComponents.Add(compName);
-            RequirementTextUI.instance.RefreshRequirements();
+            if (!reqUI.HasData()) continue;
+
+            bool isMet = reqUI.Evaluate(totalHeat);
+            reqUI.SetColor(isMet ? Color.green : Color.red);
         }
     }
+    public float GetTotalProducedHeat()
+    {
+        float totalHeat = 0f;
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            HeatingComponent heatingComp = component as HeatingComponent;
+            if (heatingComp != null)
+            {
+                totalHeat += heatingComp.producedHeat;
+            }
+        }
+        return totalHeat;
+    }
+
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;

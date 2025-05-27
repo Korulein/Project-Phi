@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Brass L-Pipe Structural Component
   m_EditorClassIdentifier: 
   componentName: 'Brass L-Pipe '
+  categoryName: Pipe
   componentSprite: {fileID: -8446009241442963135, guid: 8bd1b1c182a7a0b449acbf05e61a638c, type: 3}
   componentDescription: A brass L-Pipe , nice and reliable, though perhaps not as
     sturdy as steel.

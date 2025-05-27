@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Inconel Screw Structural Component
   m_EditorClassIdentifier: 
   componentName: Inconel Screw
+  categoryName: screw
   componentSprite: {fileID: -8383618866184245018, guid: 68a7acadc96b39744bd4cdd6a307e556, type: 3}
   componentDescription: An indestructable screw, resilient against anything but once
     it's broken it's equally difficult to replace as it was to break.
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.2
   requiresPowerInput: 0
   reliabilityRating: 0
