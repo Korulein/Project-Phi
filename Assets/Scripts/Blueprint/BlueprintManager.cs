@@ -211,12 +211,12 @@ public class BlueprintManager : MonoBehaviour
         Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
         componentTransform.anchoredPosition = cellCenter;
 
-        string compName = component.categoryName;
+       /* string compName = component.categoryName;
         if (!RequirementTextUI.instance.playerComponents.Contains(compName))
         {
             RequirementTextUI.instance.playerComponents.Add(compName);
             RequirementTextUI.instance.RefreshRequirements();
-        }
+        } */
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {

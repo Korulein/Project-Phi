@@ -74,11 +74,11 @@ public class ProductManager : MonoBehaviour
             {
                 Debug.Log("Assembling product...");
                 AssembleProduct();
+                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
                 coffeeMachine.hasRegularComponents = false;
                 coffeeMachine.hasSpecialComponents = false;
                 DeskUIManager.instance.DisplayPopUp();
                 BlueprintManager.instance.ClearBlueprint();
-                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
             }
             else
             {

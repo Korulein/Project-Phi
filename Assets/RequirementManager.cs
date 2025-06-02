@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class RequirementTextUI : MonoBehaviour
 {
-    public TMP_Text requirementsText;
+    /* public TMP_Text requirementsText;
 
     public List<string> requiredComponents;
     public List<string> playerComponents;
@@ -36,5 +36,5 @@ public class RequirementTextUI : MonoBehaviour
         }
 
         requirementsText.text = result;
-    }
+    } */
 }
