@@ -18,15 +18,15 @@ public class OrderScreenUI : MonoBehaviour
 
     public List<RequirementUI> requirementUIs = new List<RequirementUI>();
 
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-    }
+    public int blueprintID;
 
-    private void OnEnable()
+    public void SetMission(Missions mission)
     {
-        if (currentMission == null) return;
+        currentMission = mission;
+
+        BlueprintManager.instance.activeMission = mission;
+        BlueprintManager.instance.activeOrderScreenUI = this;
+
 
         missionTitleText.text = currentMission.missionTitle;
         descriptionText.text = currentMission.description;
@@ -34,8 +34,6 @@ public class OrderScreenUI : MonoBehaviour
 
         ClearRequirementUI();
         CreateRequirementUI();
-
-        CheckRequirements();
     }
 
     private void ClearRequirementUI()
@@ -76,7 +74,7 @@ public class OrderScreenUI : MonoBehaviour
     }
 
 
-    private void CheckRequirements()
+    public void CheckRequirements()
     {
         foreach (var reqUI in requirementUIs)
         {
@@ -95,5 +93,15 @@ public class OrderScreenUI : MonoBehaviour
                 ui.OnComponentPlaced(categoryName);
             }
         }
+    }
+
+    public void EndMission()
+    {
+        Debug.Log("Missie beëindigd.");
+        BlueprintManager.instance.isMissionActive = false;
+        BlueprintManager.instance.activeMission = null;
+        BlueprintManager.instance.activeOrderScreenUI = null;
+
+        //gameObject.SetActive(false);
     }
 }

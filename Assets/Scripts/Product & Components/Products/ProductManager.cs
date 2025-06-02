@@ -27,7 +27,6 @@ public class ProductManager : MonoBehaviour
         }
         else
         {
-            // Controleer of het object dat je probeert te vernietigen een belangrijk onderdeel is
             if (gameObject.name == "Ratings")
             {
                 Debug.LogWarning("Cannot destroy 'Ratings' object. Skipping destruction.");
@@ -88,6 +87,12 @@ public class ProductManager : MonoBehaviour
                 coffeeMachine.hasSpecialComponents = false;
                 DeskUIManager.instance.DisplayPopUp();
                 BlueprintManager.instance.ClearBlueprint();
+
+                BlueprintManager.ClearActiveMission();
+                if (BlueprintManager.instance.activeOrderScreenUI != null)
+                {
+                    BlueprintManager.instance.activeOrderScreenUI.EndMission();
+                }
             }
             else
             {

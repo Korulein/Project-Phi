@@ -37,14 +37,12 @@ public class MissionManager : MonoBehaviour
             return;
         }
 
-        // Deactiveer alle blueprints
         foreach (var mission in missions)
         {
             if (mission.blueprint != null)
                 mission.blueprint.SetActive(false);
         }
 
-        // Activeer de blueprint voor de geselecteerde missie
         currentMission = missions[missionIndex];
         if (currentMission.blueprint != null)
         {

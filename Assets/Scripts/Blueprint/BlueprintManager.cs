@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static MissionManager;
 
 public class BlueprintManager : MonoBehaviour
 {
@@ -19,6 +20,22 @@ public class BlueprintManager : MonoBehaviour
     private float offsetY;
     private BlueprintCellData[,] grid;
     public Vector2Int lastPickUpOrigin;
+
+    public Missions activeMission;
+    public OrderScreenUI activeOrderScreenUI;
+    public bool isMissionActive = false;
+
+    public BlueprintData activeBlueprintData;
+    public int activeBlueprintID;
+    public static bool HasActiveMission()
+    {
+        return BlueprintManager.instance.activeMission != null &&
+               !string.IsNullOrEmpty(BlueprintManager.instance.activeMission.missionTitle);
+    }
+    public static void ClearActiveMission()
+    {
+        BlueprintManager.instance.activeMission = null;
+    }
 
     [Header("Debug")]
     public bool callMethod = false;
@@ -58,6 +75,7 @@ public class BlueprintManager : MonoBehaviour
             ShowOccupiedCells();
         }
     }
+
     private void LoadBlueprint(int blueprintID)
     {
         // Clears grid when loading
@@ -135,6 +153,7 @@ public class BlueprintManager : MonoBehaviour
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
     }
+
     private Vector2Int FindComponentOrigin(UIComponentItem component, int width, int height)
     {
         for (int x = 0; x <= blueprintInUse.gridWidth - width; x++)
@@ -229,38 +248,42 @@ public class BlueprintManager : MonoBehaviour
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
-        // IMPORTANT
-        // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
-
-        ComponentData component = componentItem.GetComponentData();
-        RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
-        componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
-
-        // Sets the grid cell values to be occupied
-        for (int i = 0; i < component.playTimeWidth; i++)
+        if (componentItem.originBlueprintID != BlueprintManager.instance.activeBlueprintID)
         {
-            for (int j = 0; j < component.playTimeHeight; j++)
-            {
-                grid[posX + i, posY + j].occupiedBy = componentItem;
-                grid[posX + i, posY + j].isOccupied = true;
-            }
+            return;
         }
 
-        // Fixes position to cell center
-        Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
-        componentTransform.anchoredPosition = cellCenter;
-
-        string compName = component.categoryName;
-        OrderScreenUI.instance.NotifyComponentPlaced(compName);
-
-        float totalHeat = GetTotalProducedHeat();
-
-        foreach (var reqUI in OrderScreenUI.instance.requirementUIs)
+        if (BlueprintManager.instance.activeMission.missionTitle != null)
         {
-            if (!reqUI.HasData()) continue;
+            ComponentData component = componentItem.GetComponentData();
+            RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
+            componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
-            bool isMet = reqUI.Evaluate(totalHeat);
-            reqUI.SetColor(isMet ? Color.green : Color.red);
+            // Grid update
+            for (int i = 0; i < component.playTimeWidth; i++)
+            {
+                for (int j = 0; j < component.playTimeHeight; j++)
+                {
+                    grid[posX + i, posY + j].occupiedBy = componentItem;
+                    grid[posX + i, posY + j].isOccupied = true;
+                }
+            }
+
+            Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
+            componentTransform.anchoredPosition = cellCenter;
+
+            string compName = component.categoryName;
+            BlueprintManager.instance.activeOrderScreenUI.NotifyComponentPlaced(compName);
+
+            float totalHeat = GetTotalProducedHeat();
+
+            foreach (var reqUI in BlueprintManager.instance.activeOrderScreenUI.requirementUIs)
+            {
+                if (!reqUI.HasData()) continue;
+
+                bool isMet = reqUI.Evaluate(totalHeat);
+                reqUI.SetColor(isMet ? Color.green : Color.red);
+            }
         }
     }
     public float GetTotalProducedHeat()
@@ -302,6 +325,16 @@ public class BlueprintManager : MonoBehaviour
             }
         }
         lastPickUpOrigin = origin;
+
+        if (activeOrderScreenUI != null && activeMission != null)
+        {
+            activeOrderScreenUI.CheckRequirements();
+        }
+        else
+        {
+            Debug.LogWarning("No active mission or OrderScreenUI set. Requirements not updated.");
+        }
+
         return componentToReturn;
     }
     public void ClearBlueprint()

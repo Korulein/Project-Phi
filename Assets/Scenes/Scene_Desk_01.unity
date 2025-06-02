@@ -754,7 +754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a253019eb1f999049a6d7f75ff0c8a7a, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3750,7 +3750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: 0}
+  m_AnchoredPosition: {x: -215, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293695647
@@ -4247,7 +4247,7 @@ GameObject:
   - component: {fileID: 323516012}
   - component: {fileID: 323516011}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Label 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4369,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &323852607
 GameObject:
@@ -6921,7 +6921,6 @@ GameObject:
   - component: {fileID: 616117983}
   - component: {fileID: 616117982}
   - component: {fileID: 616117985}
-  - component: {fileID: 616117986}
   m_Layer: 5
   m_Name: Start Mission Button
   m_TagString: Untagged
@@ -6992,7 +6991,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 616117983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 616117985}
+        m_TargetAssemblyTypeName: MissionSelectButton, Assembly-CSharp
+        m_MethodName: StartMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &616117983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7038,29 +7049,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616117980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f121756e58110044966954decd37d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderScreenUI: {fileID: 1976789556}
-  missionToStart: {fileID: 0}
-  blueprintUIObject: {fileID: 1748240368}
---- !u!114 &616117986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616117980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04449d6d58b680479f5b487b2b8a560, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7e679c6684d8f4d8b70fc38f894b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions:
-  - missionName: Coffee Machine
-    blueprint: {fileID: 1748240368}
+  targetOrderScreenUI: {fileID: 1976789556}
 --- !u!1 &646049905
 GameObject:
   m_ObjectHideFlags: 0
@@ -9061,6 +9055,7 @@ GameObject:
   - component: {fileID: 764684517}
   - component: {fileID: 764684519}
   - component: {fileID: 764684518}
+  - component: {fileID: 764684520}
   m_Layer: 5
   m_Name: Order Screen
   m_TagString: Untagged
@@ -9135,6 +9130,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764684516}
   m_CullTransparentMesh: 1
+--- !u!114 &764684520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764684516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d72a31f3e2fad84999a14246b2edb40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missions:
+  - {fileID: 11400000, guid: 1f51e233f55061848a67d917fd7b8594, type: 2}
+  - {fileID: 11400000, guid: 8f2fb5dccc015fb4b9d61eea3c4b72e4, type: 2}
+  - {fileID: 11400000, guid: de04941b5e0148148b82fd3e46845dfb, type: 2}
+  - {fileID: 11400000, guid: aa77bce187fedec47ad55746e6379a5e, type: 2}
+  - {fileID: 11400000, guid: 37706e9d0219a024798774fb3d864f92, type: 2}
+  - {fileID: 11400000, guid: 1ef0dd4c138750f4383e961c49a2a661, type: 2}
 --- !u!1 &768634254
 GameObject:
   m_ObjectHideFlags: 0
@@ -14810,6 +14824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261472399}
   - component: {fileID: 1261472400}
+  - component: {fileID: 1261472401}
   m_Layer: 5
   m_Name: Emergency Space Suit Repair Kit
   m_TagString: Untagged
@@ -14857,40 +14872,25 @@ MonoBehaviour:
   requirementsIntroText: {fileID: 1416461353}
   requirementsContainer: {fileID: 293695646}
   requirementUIPrefab: {fileID: 1957201689}
-  currentMission:
-    missionTitle: Emergency Space Suit Repair Kit
-    description: In this mission you will be creating a Emergency Space Suit Repair
-      Kit. Uhhhh yess... Goodluck dear traveler!
-    requirementsIntro: 'In order to build the Space Suit, you will require the following
-      components:'
-    requirements:
-    - name: Seal
-      type: 0
-      numericValue: 0
-      componentTag: Seal
-      amount: 2
-    - name: O2 Supply
-      type: 0
-      numericValue: 0
-      componentTag: O2 Supply
-      amount: 1
-    - name: Pressure Stabiliser
-      type: 0
-      numericValue: 0
-      componentTag: Pressure Stabiliser
-      amount: 1
-    - name: Radiation Shielding Patch
-      type: 0
-      numericValue: 0
-      componentTag: Radiation Shielding Patch
-      amount: 1
-    - name: Emergency Beacon Sync
-      type: 0
-      numericValue: 0
-      componentTag: Emergency Beacon Sync
-      amount: 1
-    resultSprite: {fileID: 0}
+  currentMission: {fileID: 11400000, guid: 8f2fb5dccc015fb4b9d61eea3c4b72e4, type: 2}
   requirementUIs: []
+  blueprintID: 3
+--- !u!114 &1261472401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261472398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39712ee0197b8854b815cf53f0245c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainingPanelOrderScreenUI: {fileID: 1976789556}
+  marsPanelOrderScreenUI: {fileID: 1261472400}
+  trainingMission: {fileID: 11400000, guid: 1f51e233f55061848a67d917fd7b8594, type: 2}
+  marsMission: {fileID: 11400000, guid: 8f2fb5dccc015fb4b9d61eea3c4b72e4, type: 2}
 --- !u!1 &1268257511
 GameObject:
   m_ObjectHideFlags: 0
@@ -18299,6 +18299,11 @@ MonoBehaviour:
   specialCell: {fileID: 6788031148191431480, guid: d315505859bd5cb4c9e57b1c0784dd58, type: 3}
   emptyCell: {fileID: 5814630659058377941, guid: 1ae3a9ab9857fb54aae53f9ac0086934, type: 3}
   lastPickUpOrigin: {x: 0, y: 0}
+  activeMission: {fileID: 0}
+  activeOrderScreenUI: {fileID: 0}
+  isMissionActive: 0
+  activeBlueprintData: {fileID: 0}
+  activeBlueprintID: 0
   callMethod: 0
   blueprintID: 1
 --- !u!4 &1544329546
@@ -18971,7 +18976,7 @@ GameObject:
   - component: {fileID: 1621058184}
   - component: {fileID: 1621058183}
   - component: {fileID: 1621058182}
-  - component: {fileID: 1621058181}
+  - component: {fileID: 1621058185}
   m_Layer: 5
   m_Name: Start Mission Button
   m_TagString: Untagged
@@ -18999,21 +19004,6 @@ RectTransform:
   m_AnchoredPosition: {x: -170, y: -190}
   m_SizeDelta: {x: 233.85, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1621058181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621058179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f121756e58110044966954decd37d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderScreenUI: {fileID: 1261472400}
-  missionToStart: {fileID: 0}
-  blueprintUIObject: {fileID: 1748240368}
 --- !u!114 &1621058182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19057,7 +19047,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1621058183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1621058185}
+        m_TargetAssemblyTypeName: MissionSelectButton, Assembly-CSharp
+        m_MethodName: StartMission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1621058183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19096,6 +19098,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621058179}
   m_CullTransparentMesh: 1
+--- !u!114 &1621058185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621058179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7e679c6684d8f4d8b70fc38f894b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetOrderScreenUI: {fileID: 1261472400}
 --- !u!1 &1624796550
 GameObject:
   m_ObjectHideFlags: 0
@@ -22807,6 +22822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976789555}
   - component: {fileID: 1976789556}
+  - component: {fileID: 1976789557}
   m_Layer: 5
   m_Name: Coffee Machine Mission
   m_TagString: Untagged
@@ -22855,58 +22871,25 @@ MonoBehaviour:
   requirementsIntroText: {fileID: 165802572}
   requirementsContainer: {fileID: 61568348}
   requirementUIPrefab: {fileID: 1382016468}
-  currentMission:
-    missionTitle: 'Coffee Machine '
-    description: Welcome to PIMED! For your prelimary training, you are tasked with
-      designing a coffee machine that works outdoors in the vacuum of space to give
-      humanity a way to access much needed caffeine no matter their location. In
-      doing so, you will learn about PIMED's design pinciples and quality standards.
-      You will be guided through it by your assistant who will teach you the basics.
-    requirementsIntro: 'In order to build the coffee machine, you will require the
-      following components:'
-    requirements:
-    - name: Pipe
-      type: 0
-      numericValue: 0
-      componentTag: Pipe
-      amount: 1
-    - name: Sensor
-      type: 0
-      numericValue: 0
-      componentTag: Sensor
-      amount: 1
-    - name: Pump
-      type: 0
-      numericValue: 0
-      componentTag: Pump
-      amount: 1
-    - name: Cartridge Press
-      type: 0
-      numericValue: 0
-      componentTag: Cartridge Press
-      amount: 1
-    - name: Heating Element
-      type: 1
-      numericValue: 500
-      componentTag: Heating Element
-      amount: 1
-    - name: Seal
-      type: 0
-      numericValue: 0
-      componentTag: Seal
-      amount: 1
-    - name: Computer Chip
-      type: 0
-      numericValue: 0
-      componentTag: Computer Chip
-      amount: 1
-    - name: Water Reservoir
-      type: 0
-      numericValue: 0
-      componentTag: Water Reservoir
-      amount: 1
-    resultSprite: {fileID: 0}
+  currentMission: {fileID: 11400000, guid: 1f51e233f55061848a67d917fd7b8594, type: 2}
   requirementUIs: []
+  blueprintID: 1
+--- !u!114 &1976789557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976789554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39712ee0197b8854b815cf53f0245c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainingPanelOrderScreenUI: {fileID: 1976789556}
+  marsPanelOrderScreenUI: {fileID: 1261472400}
+  trainingMission: {fileID: 11400000, guid: 1f51e233f55061848a67d917fd7b8594, type: 2}
+  marsMission: {fileID: 11400000, guid: 8f2fb5dccc015fb4b9d61eea3c4b72e4, type: 2}
 --- !u!1 &2005166748
 GameObject:
   m_ObjectHideFlags: 0
