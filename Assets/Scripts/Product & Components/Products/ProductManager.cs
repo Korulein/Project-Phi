@@ -74,7 +74,7 @@ public class ProductManager : MonoBehaviour
             {
                 Debug.Log("Assembling product...");
                 AssembleProduct();
-                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
+                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.6f);
                 coffeeMachine.hasRegularComponents = false;
                 coffeeMachine.hasSpecialComponents = false;
                 DeskUIManager.instance.DisplayPopUp();
