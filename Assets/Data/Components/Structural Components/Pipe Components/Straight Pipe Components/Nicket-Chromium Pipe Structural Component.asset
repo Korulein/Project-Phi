@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nicket-Chromium Pipe Structural Component
   m_EditorClassIdentifier: 
   componentName: Nickel-Chromium Pipe
+  categoryName: Pipe
   componentSprite: {fileID: 2145264916251209589, guid: 7fbe6f4ae381fb549ab46b19a12f7144, type: 3}
   componentDescription: A very sturdy pipe, strong enough to second as a tank barrel.
   componentID: 2003

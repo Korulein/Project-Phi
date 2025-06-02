@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Brass Screw Structural Component
   m_EditorClassIdentifier: 
   componentName: Brass Screw
+  categoryName: screw
   componentSprite: {fileID: -4516726329402631937, guid: 4607edace1eaecc44a1eb8101476c088, type: 3}
   componentDescription: An uncommon screw type, unremarkable in everything but for
     being inert.
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.05
   requiresPowerInput: 0
   reliabilityRating: 0

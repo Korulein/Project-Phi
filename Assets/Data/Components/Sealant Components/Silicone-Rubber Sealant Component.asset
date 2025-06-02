@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Silicone-Rubber Sealant Component
   m_EditorClassIdentifier: 
   componentName: Silicone-Rubber Seal
+  categoryName: Seal
   componentSprite: {fileID: 2596616658445628962, guid: 3ac5d028860732f44879ad6c4b90f794, type: 3}
   componentDescription: A flexible, chemical resistant sealant good for moving parts.
   componentID: 20
@@ -23,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.5
   requiresPowerInput: 0
   reliabilityRating: 55

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water Reservoir
   m_EditorClassIdentifier: 
   componentName: Water Reservoir
+  categoryName: Water Reservoir
   componentSprite: {fileID: -5788781561503369973, guid: 48ecf1bac5858124d90a2d045e1b9bf3, type: 3}
   componentDescription: A reservoir of water for the coffee machine.
   componentID: 997
@@ -23,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 2
-  playTimeHeight: 2
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 4
   requiresPowerInput: 0
   reliabilityRating: 80

@@ -23,11 +23,14 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     [Header("Tooltip setup")]
     private string componentName;
     private LTDescr delay;
+
+    public int originBlueprintID;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
+        originBlueprintID = BlueprintManager.instance.activeBlueprintID;
     }
     private void Update()
     {
@@ -168,6 +171,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             Rotate();
         transform.SetParent(originalParent);
         rectTransform.position = startPosition;
+        bool wasOnBlueprint = (currentLocation == ComponentLocation.Blueprint);
         currentLocation = ComponentLocation.Inventory;
 
         isPickedUp = false;
@@ -175,6 +179,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         rectTransform.sizeDelta = originalSizeDelta;
         Destroy(placeholderCopy);
+
+        if (wasOnBlueprint && BlueprintManager.instance.activeOrderScreenUI != null && BlueprintManager.instance.activeMission != null)
+        {
+            BlueprintManager.instance.activeOrderScreenUI.CheckRequirements();
+        }
     }
     public void ReturnToInventory()
     {

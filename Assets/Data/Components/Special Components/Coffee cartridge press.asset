@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Coffee cartridge press
   m_EditorClassIdentifier: 
   componentName: Coffee cartridge press
+  categoryName: Cartridge Press
   componentSprite: {fileID: 5262810941025598332, guid: e45037ca91d14294ba1961321c9784b6, type: 3}
   componentDescription: A press to extract the contents of a coffee capsule.
   componentID: 999
