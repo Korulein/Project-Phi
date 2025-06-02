@@ -16,5 +16,35 @@ MonoBehaviour:
   description: In this mission you will be creating a Martian Med Kit.
   requirementsIntro: 'In order to build the Martian Med Kit, you will require the
     following components:'
-  requirements: []
+  requirements:
+  - name: Radiation-Shielded Container
+    type: 0
+    numericValue: 0
+    componentTag: Radiation-Shielded Container
+    amount: 1
+  - name: 'Temperature Regulation System '
+    type: 0
+    numericValue: 0
+    componentTag: 'Temperature Regulation System '
+    amount: 1
+  - name: Anti-Impact Casing
+    type: 0
+    numericValue: 0
+    componentTag: Anti-Impact Casing
+    amount: 1
+  - name: Portable Dispensing Mechanism
+    type: 0
+    numericValue: 0
+    componentTag: Portable Dispensing Mechanism
+    amount: 1
+  - name: Sterility Maintenance
+    type: 0
+    numericValue: 0
+    componentTag: Sterility Maintenance
+    amount: 1
+  - name: Emergency Power Supply
+    type: 0
+    numericValue: 0
+    componentTag: Emergency Power Supply
+    amount: 1
   resultSprite: {fileID: 0}

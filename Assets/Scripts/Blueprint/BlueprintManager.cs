@@ -61,6 +61,18 @@ public class BlueprintManager : MonoBehaviour
 
         LoadBlueprint(blueprintID);
     }
+
+    public void ActivateBlueprint(int blueprintID)
+    {
+        for (int i = 0; i < blueprints.Count; i++)
+        {
+            if (i == blueprintID)
+                LoadBlueprint(blueprintID);
+            else
+                return;
+        }
+    }
+
     private void Start()
     {
         //Loads a blueprint, will be changed in development
