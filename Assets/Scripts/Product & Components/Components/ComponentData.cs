@@ -3,6 +3,7 @@ public class ComponentData : ScriptableObject
 {
     [Header("Component Information")]
     public string componentName;
+    public string categoryName;
     public Sprite componentSprite;
     [TextArea] public string componentDescription;
     public int componentID;

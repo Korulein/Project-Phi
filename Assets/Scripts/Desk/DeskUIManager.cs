@@ -41,6 +41,13 @@ public class DeskUIManager : MonoBehaviour
         audioManager = GetComponent<AudioManager>();
 
     }
+    private void Start()
+    {
+        if (tabletScreens.Count > 0)
+        {
+            OpenOrder(0);
+        }
+    }
     private void Update()
     {
         MousePosition = Input.mousePosition;
