@@ -4,7 +4,6 @@ using UnityEngine;
 public class SuppliersManager : MonoBehaviour
 {
     public static SuppliersManager instance { get; private set; }
-
     [Header("Suppliers")]
     [SerializeField] public List<GameObject> supplierScreens = new List<GameObject>();
     private void Awake()
