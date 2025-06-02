@@ -11552,7 +11552,18 @@ MonoBehaviour:
   bgmSource: {fileID: 0}
   cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
   buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
-  steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
+  steelPickup: {fileID: 8300000, guid: e3d0296bb3021574aa373e784412e1fa, type: 3}
+  steelDrop: {fileID: 8300000, guid: 06ad25fbf70da4646a3dd80b895db139, type: 3}
+  plasticPickup: {fileID: 8300000, guid: d9d3b5a7a0ca3044ab96ec25cff3ff30, type: 3}
+  plasticDrop: {fileID: 8300000, guid: 8318816adbcfe9642ae44cbaea05c6d4, type: 3}
+  aerogelPickup: {fileID: 8300000, guid: 1732a3fa99291df40a79a2531b589312, type: 3}
+  aerogelDrop: {fileID: 8300000, guid: 14721cddcbd137844af206bbe1d46ea1, type: 3}
+  carbonfiberPickup: {fileID: 8300000, guid: 6c3f9a3a4051a7c4fab14ba6d5abfda6, type: 3}
+  carbonfiberDrop: {fileID: 8300000, guid: 3cd1f61f383952847948028429df0a27, type: 3}
+  leadPickup: {fileID: 8300000, guid: 858929f90d5a6ca44a40101e1ac5cf52, type: 3}
+  leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
+  ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
+  ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
   defaultBGM: {fileID: 8300000, guid: 9f8018a3f64800540ad621764a582e3c, type: 3}
   bgmVolume: 1
 --- !u!1 &1146497127
