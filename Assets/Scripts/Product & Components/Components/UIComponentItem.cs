@@ -263,7 +263,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
             || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
         {
-            audioManager.PlayAudioClip(audioManager.steelPickup, transform, 1f);
+            audioManager.PlayAudioClip(audioManager.steelPickup, transform, 0.5f);
 
         }
         if (component.materialType == MaterialTypes.Plastic || component.materialType == MaterialTypes.Silicone
@@ -286,7 +286,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy
             || component.materialType == MaterialTypes.Nickel_Chromium)
         {
-            audioManager.PlayAudioClip(audioManager.leadPickup, transform, 1f);
+            audioManager.PlayAudioClip(audioManager.leadPickup, transform, 0.6f);
 
         }
         if (component.materialType == MaterialTypes.Ceramic)

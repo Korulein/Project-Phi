@@ -31,6 +31,7 @@ public class ProductManager : MonoBehaviour
         {
             products[i].productID = i;
         }
+
     }
     public void CheckProductAssembly()
     {
@@ -77,6 +78,7 @@ public class ProductManager : MonoBehaviour
                 coffeeMachine.hasSpecialComponents = false;
                 DeskUIManager.instance.DisplayPopUp();
                 BlueprintManager.instance.ClearBlueprint();
+                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
             }
             else
             {
@@ -130,4 +132,11 @@ public class ProductManager : MonoBehaviour
     {
         return products.FirstOrDefault(product => product.productID == id);
     }
+
+    public void PlayButtonSFX() {
+
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform,1f);
+
+    }
+
 }

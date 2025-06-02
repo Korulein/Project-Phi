@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip leadDrop;
     public AudioClip ceramicPickup;
     public AudioClip ceramicDrop;
+    public AudioClip completeConstruction;
 
     [Header("BGM Settings")]
     [SerializeField] private AudioClip defaultBGM;
