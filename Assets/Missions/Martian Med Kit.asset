@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aae2e69af2a25e45b56a235575a17eb, type: 3}
+  m_Name: Martian Med Kit
+  m_EditorClassIdentifier: 
+  missionTitle: Martian Med Kit
+  description: In this mission you will be creating a Martian Med Kit.
+  requirementsIntro: 'In order to build the Martian Med Kit, you will require the
+    following components:'
+  requirements:
+  - name: Radiation-Shielded Container
+    type: 0
+    numericValue: 0
+    componentTag: Radiation-Shielded Container
+    amount: 1
+  - name: 'Temperature Regulation System '
+    type: 0
+    numericValue: 0
+    componentTag: 'Temperature Regulation System '
+    amount: 1
+  - name: Anti-Impact Casing
+    type: 0
+    numericValue: 0
+    componentTag: Anti-Impact Casing
+    amount: 1
+  - name: Portable Dispensing Mechanism
+    type: 0
+    numericValue: 0
+    componentTag: Portable Dispensing Mechanism
+    amount: 1
+  - name: Sterility Maintenance
+    type: 0
+    numericValue: 0
+    componentTag: Sterility Maintenance
+    amount: 1
+  - name: Emergency Power Supply
+    type: 0
+    numericValue: 0
+    componentTag: Emergency Power Supply
+    amount: 1
+  resultSprite: {fileID: 0}

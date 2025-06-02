@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plastic Pipe Structural Component
   m_EditorClassIdentifier: 
   componentName: Plastic Pipe
+  categoryName: Pipe
   componentSprite: {fileID: -8988513451771169747, guid: 199606c5018221740a17e7c0bd1cbfa7, type: 3}
   componentDescription: A cheap plastic pipe, good for non critical functions
   componentID: 2000

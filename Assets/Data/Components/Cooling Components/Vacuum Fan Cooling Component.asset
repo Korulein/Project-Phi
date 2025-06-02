@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Vacuum Fan Cooling Component
   m_EditorClassIdentifier: 
   componentName: Vacuum Fan
+  categoryName: Fan
   componentSprite: {fileID: -1700446272265125087, guid: 83481ab64d171614e9fbdfcb7e70773b, type: 3}
   componentDescription: A more advanced Fan, that uses vacuum sealed metal tubes
     and plates to disperse heat more efficiently.

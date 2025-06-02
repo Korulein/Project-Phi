@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ceramic Heating Component
   m_EditorClassIdentifier: 
   componentName: Ceramic Heating Element
+  categoryName: Heating Element
   componentSprite: {fileID: -5132930216895827302, guid: c47a31eed91325444a9dbf0b65c3e2e2, type: 3}
   componentDescription: The average heating element, it's cheap and functions well
     for most uses.
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.5
   requiresPowerInput: 1
   reliabilityRating: 60

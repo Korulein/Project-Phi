@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nickel-Chromium Heating Component
   m_EditorClassIdentifier: 
   componentName: Nickel-Chromium Heating Element
+  categoryName: Heating Element
   componentSprite: {fileID: -2951451814066122553, guid: 1732a93b29c3e3c4bbe5a04df84d2991, type: 3}
   componentDescription: A high capacity heaating element capable of extreme temperatures.
   componentID: 52
@@ -23,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 1
   requiresPowerInput: 1
   reliabilityRating: 70

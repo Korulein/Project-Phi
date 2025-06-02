@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Brass Pipe Structural Component
   m_EditorClassIdentifier: 
   componentName: Brass Pipe
+  categoryName: Pipe
   componentSprite: {fileID: 3487605230081282101, guid: 02ba9d56f6ef48e45b75eff661c9900c, type: 3}
   componentDescription: A brass pipe, nice and reliable, though perhaps not as sturdy
     as steel.

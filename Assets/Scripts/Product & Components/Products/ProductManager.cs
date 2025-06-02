@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using TMPro;
 public class ProductManager : MonoBehaviour
 {
     // Product manager will handle final calculations using the components in the blueprint.
@@ -12,11 +12,14 @@ public class ProductManager : MonoBehaviour
     private Dictionary<ComponentData, int> componentsInBlueprint;
     private int numberOfCellsOccupied;
 
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI ramsText;
+
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
     private void Awake()
     {
-        // instance declaration
+        // Singleton patroon
         if (instance == null)
         {
             instance = this;
@@ -24,9 +27,16 @@ public class ProductManager : MonoBehaviour
         }
         else
         {
+            if (gameObject.name == "Ratings")
+            {
+                Debug.LogWarning("Cannot destroy 'Ratings' object. Skipping destruction.");
+                return;
+            }
+
             Destroy(gameObject);
         }
-        // generate product IDs
+
+        // Genereer product IDs
         for (int i = 0; i < products.Count; i++)
         {
             products[i].productID = i;
@@ -79,6 +89,12 @@ public class ProductManager : MonoBehaviour
                 coffeeMachine.hasSpecialComponents = false;
                 DeskUIManager.instance.DisplayPopUp();
                 BlueprintManager.instance.ClearBlueprint();
+
+                BlueprintManager.ClearActiveMission();
+                if (BlueprintManager.instance.activeOrderScreenUI != null)
+                {
+                    BlueprintManager.instance.activeOrderScreenUI.EndMission();
+                }
             }
             else
             {
@@ -92,7 +108,23 @@ public class ProductManager : MonoBehaviour
     {
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
-        Debug.Log($"RAMS ratings: {reliabilityRating}, {availabilityRating}, {maintainabilityRating}, {safetyRating}. ");
+
+        string ramsSummary = $"RAMS Ratings:\n" +
+                             $"- Reliability: {reliabilityRating:F2}\n" +
+                             $"- Availability: {availabilityRating:F2}\n" +
+                             $"- Maintainability: {maintainabilityRating:F2}\n" +
+                             $"- Safety: {safetyRating:F2}";
+
+        Debug.Log(ramsSummary);
+
+        if (ramsText != null)
+        {
+            ramsText.text = ramsSummary;
+        }
+        else
+        {
+            Debug.LogWarning("RAMS TextMeshPro is not assigned!");
+        }
     }
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {

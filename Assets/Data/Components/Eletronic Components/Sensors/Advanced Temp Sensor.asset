@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Advanced Temp Sensor
   m_EditorClassIdentifier: 
   componentName: Advanced Temp Sensor
+  categoryName: Sensor
   componentSprite: {fileID: 2723441291482892483, guid: 3214faf0f432ddf42ad69c7ac5b1d10c, type: 3}
   componentDescription: A highly specialised Temperature sensor capable of detecting
     and accurately measuring extreme temperature ranges
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.35
   requiresPowerInput: 1
   reliabilityRating: 65
