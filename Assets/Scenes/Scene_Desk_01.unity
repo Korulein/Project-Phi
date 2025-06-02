@@ -14684,7 +14684,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
+  bgmSource: {fileID: 0}
   cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
+  buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
+  steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
+  steelDrop: {fileID: 8300000, guid: e100a9170a3a5fd47bef9b39ca98faa1, type: 3}
+  plasticPickup: {fileID: 8300000, guid: d9d3b5a7a0ca3044ab96ec25cff3ff30, type: 3}
+  plasticDrop: {fileID: 8300000, guid: 79a45ff37ce4c9d4abde51d1cc125608, type: 3}
+  aerogelPickup: {fileID: 8300000, guid: bcfb20415ce0eca4a931ab54d0421c78, type: 3}
+  aerogelDrop: {fileID: 8300000, guid: 14721cddcbd137844af206bbe1d46ea1, type: 3}
+  carbonfiberPickup: {fileID: 8300000, guid: 1b2db470c326a3648b09f7a87940cc67, type: 3}
+  carbonfiberDrop: {fileID: 8300000, guid: b600979beb92c3b4d94af229584ed1ac, type: 3}
+  leadPickup: {fileID: 8300000, guid: 858929f90d5a6ca44a40101e1ac5cf52, type: 3}
+  leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
+  ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
+  ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
+  completeConstruction: {fileID: 8300000, guid: d79c4499a2db2e344816e094d7a68c43, type: 3}
+  defaultBGM: {fileID: 8300000, guid: e3b0a972cd53f2e4c9fd11608ae39d04, type: 3}
+  bgmVolume: 1
 --- !u!1 &1146497127
 GameObject:
   m_ObjectHideFlags: 0
