@@ -2543,9 +2543,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240251988
@@ -3730,9 +3730,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -180}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295031409
@@ -4905,9 +4905,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -570}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413204338
@@ -8042,20 +8042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29aa7435668089a49a6114e5a50d4ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirementsText: {fileID: 1382016470}
-  requiredComponents:
-  - Pump
-  - Cartridge Press
-  - Water Reservoir
-  - Heating Element
-  - Computer Chip
-  - Sensor
-  playerComponents:
-  - Pump
-  - Cartridge Press
-  - Water Reservoir
-  - Heating Element
-  - Computer Chip
 --- !u!1 &737043578
 GameObject:
   m_ObjectHideFlags: 0
@@ -10588,9 +10574,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -700}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930958296
@@ -12913,6 +12899,7 @@ MonoBehaviour:
   leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
   ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
   ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
+  completeConstruction: {fileID: 8300000, guid: d79c4499a2db2e344816e094d7a68c43, type: 3}
   defaultBGM: {fileID: 8300000, guid: 9f8018a3f64800540ad621764a582e3c, type: 3}
   bgmVolume: 1
 --- !u!1 &1146497127
@@ -13895,9 +13882,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -440}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247715127
@@ -14152,9 +14139,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 810055067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.83124, y: -310}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282085841
@@ -21262,6 +21249,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1767610855}
         m_TargetAssemblyTypeName: ProductManager, Assembly-CSharp
         m_MethodName: CheckProductAssembly
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1767610855}
+        m_TargetAssemblyTypeName: ProductManager, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
