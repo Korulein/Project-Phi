@@ -15,6 +15,7 @@ public class DeskUIManager : MonoBehaviour
     [Header("Pop-ups")]
     [SerializeField] GameObject coffeeMachinePopUp;
     [SerializeField] GameObject blurLayer;
+    [SerializeField] GameObject infoPopup;
 
     [Header("Player Input")]
     private bool leftClickConsumed;
@@ -101,5 +102,16 @@ public class DeskUIManager : MonoBehaviour
     public void ClosePopUp()
     {
         blurLayer.SetActive(false);
+    }
+    public void DisplayComponentPopUp()
+    {
+        // Make the entire canvas visible
+        infoPopup.SetActive(true);
+    }
+
+    public void CloseComponentPopUp()
+    {
+        // Hide the entire canvas
+        infoPopup.SetActive(false);
     }
 }

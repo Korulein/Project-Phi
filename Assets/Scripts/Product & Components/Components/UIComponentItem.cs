@@ -31,6 +31,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     }
     private void Update()
     {
+        if (DeskUIManager.instance.RightClickDown)
+        {
+            DeskUIManager.instance.DisplayComponentPopUp();
+        }
+
         if (!isPickedUp)
             return;
 
@@ -40,7 +45,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         {
             AttemptToPlaceInBlueprint();
         }
-        if (DeskUIManager.instance.EscapeDown || DeskUIManager.instance.RightClickDown)
+        if (DeskUIManager.instance.EscapeDown)
         {
             ReturnToStartPosition();
         }
@@ -48,6 +53,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         {
             Rotate();
         }
+
     }
     public void InitializeComponent(ComponentData componentData)
     {
