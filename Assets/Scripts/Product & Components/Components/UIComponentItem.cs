@@ -91,6 +91,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         originalParent = transform.parent;
         startPosition = transform.position;
         transform.SetParent(DeskUIManager.instance.dragLayer);
+        PlayMaterialSoundPickup();
 
         CreatePlaceHolder();
 
@@ -125,6 +126,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             {
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
+                PlayMaterialSoundDrop();
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
             }
@@ -133,11 +135,13 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 Debug.Log("Component overlap! Try again");
                 ReturnToStartPosition();
+                PlayMaterialSoundDrop();
             }
         }
         else
         {
             ReturnToStartPosition();
+            PlayMaterialSoundDrop();
         }
     }
     public void Rotate()
@@ -249,5 +253,88 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         Rotated,
         NotRotated,
+    }
+
+    public void PlayMaterialSoundPickup()
+    {
+
+        AudioManager audioManager = DeskUIManager.instance.audioManager;
+
+        if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
+            || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
+        {
+            audioManager.PlayAudioClip(audioManager.steelPickup, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Plastic || component.materialType == MaterialTypes.Silicone
+            || component.materialType == MaterialTypes.Rubber || component.materialType == MaterialTypes.Lithium)
+        {
+            audioManager.PlayAudioClip(audioManager.plasticPickup, transform, 1f);
+
+        }
+
+        if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
+        {
+            audioManager.PlayAudioClip(audioManager.aerogelPickup, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.CarbonFiber)
+        {
+            audioManager.PlayAudioClip(audioManager.carbonfiberPickup, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy
+            || component.materialType == MaterialTypes.Nickel_Chromium)
+        {
+            audioManager.PlayAudioClip(audioManager.leadPickup, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Ceramic)
+        {
+            audioManager.PlayAudioClip(audioManager.ceramicPickup, transform, 1f);
+
+        }
+
+    }
+
+    public void PlayMaterialSoundDrop()
+    {
+
+        AudioManager audioManager = DeskUIManager.instance.audioManager;
+
+        if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
+            || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
+        {
+            audioManager.PlayAudioClip(audioManager.steelDrop, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Plastic || component.materialType == MaterialTypes.Silicone
+            || component.materialType == MaterialTypes.Rubber || component.materialType == MaterialTypes.Lithium)
+        {
+            audioManager.PlayAudioClip(audioManager.plasticDrop, transform, 1f);
+
+        }
+
+        if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
+        {
+            audioManager.PlayAudioClip(audioManager.aerogelDrop, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.CarbonFiber)
+        {
+            audioManager.PlayAudioClip(audioManager.carbonfiberDrop, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy
+            || component.materialType == MaterialTypes.Nickel_Chromium)
+        {
+            audioManager.PlayAudioClip(audioManager.leadDrop, transform, 1f);
+
+        }
+        if (component.materialType == MaterialTypes.Ceramic)
+        {
+            audioManager.PlayAudioClip(audioManager.ceramicDrop, transform, 1f);
+
+        }
     }
 }
