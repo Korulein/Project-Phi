@@ -70,30 +70,37 @@ public class DisplayInventoryComponents : MonoBehaviour
     {
         foreach (Transform child in structuralComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in powerSourceComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in coolingComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in heatingComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in electronicComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in filterComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
         foreach (Transform child in sealantComponentContainer)
         {
+            if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
     }

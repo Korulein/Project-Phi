@@ -107,6 +107,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         // Creates blurred placeholder at initial position
         placeholderCopy = Instantiate(gameObject, startPosition, Quaternion.identity, originalParent);
+        placeholderCopy.tag = "Placeholder";
         CanvasGroup copyCanvasGroup = placeholderCopy.GetComponent<CanvasGroup>();
 
         copyCanvasGroup.alpha = ghostAlpha;
