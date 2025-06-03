@@ -12,7 +12,6 @@ public class MissionListUI : MonoBehaviour
         for (int i = 0; i < buttons.Length && i < missions.Length; i++)
         {
             buttons[i].Setup(missions[i]);
-            Debug.Log("Setup done for: " + missions[i].missionTitle);
         }
     }
 }
