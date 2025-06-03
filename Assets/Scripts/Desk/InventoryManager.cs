@@ -1,105 +1,245 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [Header("Inventory Setup")]
-    [SerializeField] private Transform structuralComponentContainer;
-    [SerializeField] private Transform powerSourceComponentContainer;
-    [SerializeField] private Transform coolingComponentContainer;
-    [SerializeField] private Transform heatingComponentContainer;
-    [SerializeField] private Transform electronicComponentContainer;
-    [SerializeField] private Transform filterComponentContainer;
-    [SerializeField] private Transform sealantComponentContainer;
-    [SerializeField] private Transform specialComponentContainer;
+    public static InventoryManager instance { get; private set; }
 
+    [Header("Component Lists")]
+    [SerializeField] public List<ComponentData> structuralComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> powerSourceComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> electronicComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> coolingComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> heatingComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> sealantComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> filterComponents = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> specialComponents = new List<ComponentData>();
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
-        PopulateInventory();
-    }
-    private void PopulateInventory()
-    {
-        // destroys previous objects when loading
-        RefreshInventory();
 
-        // instantiates prefab with associated data
-        foreach (var componentData in ComponentManager.instance.structuralComponents)
+    }
+    public void AddOrderedComponentToInventory(ComponentData component)
+    {
+        ComponentType componentType = component.componentType;
+        switch (componentType)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, structuralComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.powerSourceComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, powerSourceComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.coolingComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, coolingComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.heatingComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, heatingComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.electronicComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, electronicComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.filterComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, filterComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.sealantComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, sealantComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
-        }
-        foreach (var componentData in ComponentManager.instance.specialComponents)
-        {
-            GameObject component = Instantiate(componentData.inventoryPrefab, specialComponentContainer);
-            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
-            uiItem.InitializeComponent(componentData);
+            case ComponentType.Structural:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    structuralComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Sealant:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    sealantComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Heating:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    heatingComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Cooling:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    coolingComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Power:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    powerSourceComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Sensor:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    electronicComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Chip:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    electronicComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Special:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    specialComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            case ComponentType.Filter:
+                if (CheckIfComponentIsAlreadyInInventory(component))
+                {
+                    filterComponents.Add(component);
+                }
+                else
+                {
+                    Debug.Log("Component has already been ordered!");
+                }
+                break;
+            default:
+                Debug.Log("Component type not recognized");
+                break;
         }
     }
-    private void RefreshInventory()
+    public bool CheckIfComponentIsAlreadyInInventory(ComponentData componentToCheck)
     {
-        foreach (Transform child in structuralComponentContainer)
+        ComponentType componentType = componentToCheck.componentType;
+        switch (componentType)
         {
-            Destroy(child.gameObject);
+            case ComponentType.Structural:
+                foreach (var component in structuralComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Sealant:
+                foreach (var component in sealantComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Heating:
+                foreach (var component in heatingComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Cooling:
+                foreach (var component in coolingComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Power:
+                foreach (var component in powerSourceComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Sensor:
+                foreach (var component in electronicComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Chip:
+                foreach (var component in electronicComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Special:
+                foreach (var component in specialComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.Filter:
+                foreach (var component in filterComponents)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            default:
+                Debug.Log("Component type not recognized");
+                break;
         }
-        foreach (Transform child in powerSourceComponentContainer)
+        return true;
+    }
+    public List<ComponentData> GetComponentListType(ComponentData component)
+    {
+        ComponentType componentType = component.componentType;
+        switch (componentType)
         {
-            Destroy(child.gameObject);
+            case ComponentType.Structural:
+                return structuralComponents;
+            case ComponentType.Sealant:
+                return sealantComponents;
+            case ComponentType.Heating:
+                return heatingComponents;
+            case ComponentType.Cooling:
+                return coolingComponents;
+            case ComponentType.Power:
+                return powerSourceComponents;
+            case ComponentType.Sensor:
+                return electronicComponents;
+            case ComponentType.Chip:
+                return electronicComponents;
+            case ComponentType.Special:
+                return specialComponents;
+            case ComponentType.Filter:
+                return filterComponents;
+            default:
+                Debug.Log("Component type not recognized");
+                break;
         }
-        foreach (Transform child in coolingComponentContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in heatingComponentContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in electronicComponentContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in filterComponentContainer)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in sealantComponentContainer)
-        {
-            Destroy(child.gameObject);
-        }
+        return null;
+    }
+    public void AddComponentToInventoryList(ComponentData component)
+    {
+
+    }
+    public void RemoveComponentFromInventoryList(ComponentData component)
+    {
+
     }
 }

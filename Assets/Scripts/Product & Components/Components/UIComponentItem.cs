@@ -132,6 +132,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 PlayMaterialSoundDrop();
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
+                InventoryManager.instance.RemoveComponentFromInventoryList(component);
             }
             else
             {

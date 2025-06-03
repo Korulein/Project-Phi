@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using static MissionManager;
 
 public class BlueprintManager : MonoBehaviour
 {
@@ -260,12 +259,12 @@ public class BlueprintManager : MonoBehaviour
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
-        if (componentItem.originBlueprintID != BlueprintManager.instance.activeBlueprintID)
+        if (componentItem.originBlueprintID != activeBlueprintID)
         {
             return;
         }
 
-        if (BlueprintManager.instance.activeMission.missionTitle != null)
+        if (activeMission.missionTitle != null)
         {
             ComponentData component = componentItem.GetComponentData();
             RectTransform componentTransform = componentItem.GetComponent<RectTransform>();

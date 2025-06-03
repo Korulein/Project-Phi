@@ -152,6 +152,7 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
         selectedComponent.ReturnToInventory();
         selectedComponent.PlayMaterialSoundDrop();
         selectedComponent = null;
+        //InventoryManager.instance.AddComponentToInventoryList();
     }
     public IEnumerator SuppressClickForOneFrame()
     {
