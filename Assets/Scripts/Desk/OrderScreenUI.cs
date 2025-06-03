@@ -97,7 +97,6 @@ public class OrderScreenUI : MonoBehaviour
 
     public void EndMission()
     {
-        Debug.Log("Mission finished.");
         BlueprintManager.instance.isMissionActive = false;
         BlueprintManager.instance.activeMission = null;
         BlueprintManager.instance.activeOrderScreenUI = null;

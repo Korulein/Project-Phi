@@ -115,7 +115,6 @@ public class DeskUIManager : MonoBehaviour
 
     public void UpdateEmailButtonVisual()
     {
-        Debug.Log(BlueprintManager.instance.isMissionActive);
         if (BlueprintManager.instance.isMissionActive == false)
         {
             if (blinkCoroutine == null)
