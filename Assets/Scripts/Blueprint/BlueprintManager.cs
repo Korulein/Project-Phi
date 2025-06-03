@@ -64,8 +64,6 @@ public class BlueprintManager : MonoBehaviour
 
     public void ActivateBlueprint(int blueprintID)
     {
-        Debug.Log("Activating blueprint with ID (as index): " + blueprintID);
-
         if (blueprintID >= 0 && blueprintID <= blueprints.Count)
         {
             LoadBlueprint(blueprintID);

@@ -82,7 +82,6 @@ public class ProductManager : MonoBehaviour
                 coffeeMachine.hasSpecialComponents = true;
             if (coffeeMachine.hasSpecialComponents && coffeeMachine.hasRegularComponents)
             {
-                Debug.Log("Assembling product...");
                 AssembleProduct();
                 AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
                 coffeeMachine.hasRegularComponents = false;
@@ -114,8 +113,6 @@ public class ProductManager : MonoBehaviour
                              $"- Availability: {availabilityRating:F2}\n" +
                              $"- Maintainability: {maintainabilityRating:F2}\n" +
                              $"- Safety: {safetyRating:F2}";
-
-        Debug.Log(ramsSummary);
 
         if (ramsText != null)
         {
