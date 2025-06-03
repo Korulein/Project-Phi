@@ -132,7 +132,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 PlayMaterialSoundDrop();
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
-                InventoryManager.instance.RemoveComponentFromInventoryList(component);
+                InventoryManager.instance.RemoveComponentFromInventory(component);
             }
             else
             {
@@ -194,6 +194,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         RectTransform rt = GetComponent<RectTransform>();
         rt.SetParent(DeskUIManager.instance.inventoryContainer, false);
+
+        InventoryManager.instance.AddComponentToInventory(component);
 
         ReturnToStartPosition();
     }

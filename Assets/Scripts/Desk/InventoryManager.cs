@@ -5,15 +5,26 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance { get; private set; }
 
-    [Header("Component Lists")]
-    [SerializeField] public List<ComponentData> structuralComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> powerSourceComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> electronicComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> coolingComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> heatingComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> sealantComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> filterComponents = new List<ComponentData>();
-    [SerializeField] public List<ComponentData> specialComponents = new List<ComponentData>();
+    [Header("Components in Inventory")]
+    [SerializeField] public List<ComponentData> structuralComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> powerSourceComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> electronicComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> coolingComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> heatingComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> sealantComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> filterComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> specialComponentsInInventory = new List<ComponentData>();
+
+    [Header("Components Ordered")]
+    [SerializeField] public List<ComponentData> structuralComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> powerSourceComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> electronicComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> coolingComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> heatingComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> sealantComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> filterComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> specialComponentsOrdered = new List<ComponentData>();
+
 
     private void Awake()
     {
@@ -31,169 +42,183 @@ public class InventoryManager : MonoBehaviour
     {
 
     }
-    public void AddOrderedComponentToInventory(ComponentData component)
+    public void AddComponentToOrderedComponents(ComponentData component)
     {
         ComponentType componentType = component.componentType;
         switch (componentType)
         {
             case ComponentType.Structural:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    structuralComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                structuralComponentsOrdered.Add(component);
                 break;
             case ComponentType.Sealant:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    sealantComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                sealantComponentsOrdered.Add(component);
                 break;
             case ComponentType.Heating:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    heatingComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                heatingComponentsOrdered.Add(component);
                 break;
             case ComponentType.Cooling:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    coolingComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                coolingComponentsOrdered.Add(component);
                 break;
             case ComponentType.Power:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    powerSourceComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                powerSourceComponentsOrdered.Add(component);
                 break;
             case ComponentType.Sensor:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    electronicComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                electronicComponentsOrdered.Add(component);
                 break;
             case ComponentType.Chip:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    electronicComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                electronicComponentsOrdered.Add(component);
                 break;
             case ComponentType.Special:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    specialComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                specialComponentsOrdered.Add(component);
                 break;
             case ComponentType.Filter:
-                if (CheckIfComponentIsAlreadyInInventory(component))
-                {
-                    filterComponents.Add(component);
-                }
-                else
-                {
-                    Debug.Log("Component has already been ordered!");
-                }
+                filterComponentsOrdered.Add(component);
                 break;
             default:
                 Debug.Log("Component type not recognized");
                 break;
         }
     }
-    public bool CheckIfComponentIsAlreadyInInventory(ComponentData componentToCheck)
+    public void AddComponentToInventory(ComponentData component)
+    {
+        ComponentType componentType = component.componentType;
+        switch (componentType)
+        {
+            case ComponentType.Structural:
+                structuralComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Sealant:
+                sealantComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Heating:
+                heatingComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Cooling:
+                coolingComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Power:
+                powerSourceComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Sensor:
+                electronicComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Chip:
+                electronicComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Special:
+                specialComponentsInInventory.Add(component);
+                break;
+            case ComponentType.Filter:
+                filterComponentsInInventory.Add(component);
+                break;
+            default:
+                Debug.Log("Component type not recognized");
+                break;
+        }
+    }
+    public void RemoveComponentFromInventory(ComponentData component)
+    {
+        ComponentType componentType = component.componentType;
+        switch (componentType)
+        {
+            case ComponentType.Structural:
+                structuralComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Sealant:
+                sealantComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Heating:
+                heatingComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Cooling:
+                coolingComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Power:
+                powerSourceComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Sensor:
+                electronicComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Chip:
+                electronicComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Special:
+                specialComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.Filter:
+                filterComponentsInInventory.Remove(component);
+                break;
+            default:
+                Debug.Log("Component type not recognized");
+                break;
+        }
+    }
+    public bool CheckIfComponentIsAlreadyOrdered(ComponentData componentToCheck)
     {
         ComponentType componentType = componentToCheck.componentType;
         switch (componentType)
         {
             case ComponentType.Structural:
-                foreach (var component in structuralComponents)
+                foreach (var component in structuralComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Sealant:
-                foreach (var component in sealantComponents)
+                foreach (var component in sealantComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Heating:
-                foreach (var component in heatingComponents)
+                foreach (var component in heatingComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Cooling:
-                foreach (var component in coolingComponents)
+                foreach (var component in coolingComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Power:
-                foreach (var component in powerSourceComponents)
+                foreach (var component in powerSourceComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Sensor:
-                foreach (var component in electronicComponents)
+                foreach (var component in electronicComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
+                    {
+                        Debug.Log("Component was already there!");
                         return false;
+                    }
                 }
                 break;
             case ComponentType.Chip:
-                foreach (var component in electronicComponents)
+                foreach (var component in electronicComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Special:
-                foreach (var component in specialComponents)
+                foreach (var component in specialComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
                 }
                 break;
             case ComponentType.Filter:
-                foreach (var component in filterComponents)
+                foreach (var component in filterComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;
@@ -211,35 +236,27 @@ public class InventoryManager : MonoBehaviour
         switch (componentType)
         {
             case ComponentType.Structural:
-                return structuralComponents;
+                return structuralComponentsInInventory;
             case ComponentType.Sealant:
-                return sealantComponents;
+                return sealantComponentsInInventory;
             case ComponentType.Heating:
-                return heatingComponents;
+                return heatingComponentsInInventory;
             case ComponentType.Cooling:
-                return coolingComponents;
+                return coolingComponentsInInventory;
             case ComponentType.Power:
-                return powerSourceComponents;
+                return powerSourceComponentsInInventory;
             case ComponentType.Sensor:
-                return electronicComponents;
+                return electronicComponentsInInventory;
             case ComponentType.Chip:
-                return electronicComponents;
+                return electronicComponentsInInventory;
             case ComponentType.Special:
-                return specialComponents;
+                return specialComponentsInInventory;
             case ComponentType.Filter:
-                return filterComponents;
+                return filterComponentsInInventory;
             default:
                 Debug.Log("Component type not recognized");
                 break;
         }
         return null;
-    }
-    public void AddComponentToInventoryList(ComponentData component)
-    {
-
-    }
-    public void RemoveComponentFromInventoryList(ComponentData component)
-    {
-
     }
 }
