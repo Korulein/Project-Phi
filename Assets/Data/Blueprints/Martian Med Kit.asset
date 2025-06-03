@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0ef02f3b175b54ba7985f117b4806f, type: 3}
-  m_Name: Basic Blueprint
+  m_Name: Martian Med Kit
   m_EditorClassIdentifier: 
-  blueprintName: Basic_Blueprint_01
-  blueprintImage: {fileID: 21300000, guid: 83632b905d6664b45bc4d0d259ade890, type: 3}
-  blueprintID: 0
+  blueprintName: Martian_Med_Kit
+  blueprintImage: {fileID: 21300000, guid: 1aec3297c2f02ea4aacbd7663d24f683, type: 3}
+  blueprintID: 4
   gridWidth: 6
   gridHeight: 6
   allCells:
@@ -32,10 +32,16 @@ MonoBehaviour:
     height: 0
   - occupiedBy: {fileID: 0}
     isOccupied: 0
-    isUseable: 0
+    isUseable: 1
     type: 0
-    width: 0
-    height: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 0
@@ -52,8 +58,134 @@ MonoBehaviour:
     isOccupied: 0
     isUseable: 0
     type: 0
-    width: 0
-    height: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 0
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 0
@@ -62,175 +194,43 @@ MonoBehaviour:
     height: 0
   - occupiedBy: {fileID: 0}
     isOccupied: 0
-    isUseable: 0
+    isUseable: 1
     type: 0
-    width: 0
-    height: 0
+    width: 1
+    height: 1
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 0
     type: 0
-    width: 0
-    height: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 0
     type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 0
-    type: 0
-    width: 0
-    height: 0
+    width: 1
+    height: 1

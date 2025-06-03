@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeskUIManager : MonoBehaviour
 {
@@ -25,6 +27,14 @@ public class DeskUIManager : MonoBehaviour
     public Vector3 MousePosition { get; private set; }
     [Header("Audio")]
     [HideInInspector] public AudioManager audioManager;
+
+    [Header("OrderButton")]
+    [SerializeField] private Button orderButton; // Sleep in Inspector
+    [SerializeField] private Color highlightColor = Color.yellow;
+    [SerializeField] private Color defaultColor = Color.white;
+    [SerializeField] private float blinkInterval = 0.5f;
+
+    private Coroutine blinkCoroutine;
 
     private void Awake()
     {
@@ -101,5 +111,48 @@ public class DeskUIManager : MonoBehaviour
     public void ClosePopUp()
     {
         blurLayer.SetActive(false);
+    }
+
+    public void UpdateEmailButtonVisual()
+    {
+        Debug.Log(BlueprintManager.instance.isMissionActive);
+        if (BlueprintManager.instance.isMissionActive == false)
+        {
+            if (blinkCoroutine == null)
+            {
+                blinkCoroutine = StartCoroutine(BlinkEmailButton());
+            }
+        }
+        else
+        {
+            if (blinkCoroutine != null)
+            {
+                StopCoroutine(blinkCoroutine);
+                blinkCoroutine = null;
+                ResetEmailButtonVisual();
+            }
+        }
+    }
+
+    private IEnumerator BlinkEmailButton()
+    {
+        bool highlight = false;
+        while (true)
+        {
+            highlight = !highlight;
+
+            ColorBlock colors = orderButton.colors;
+            colors.normalColor = highlight ? highlightColor : defaultColor;
+            orderButton.colors = colors;
+
+            yield return new WaitForSeconds(blinkInterval);
+        }
+    }
+
+    private void ResetEmailButtonVisual()
+    {
+        ColorBlock colors = orderButton.colors;
+        colors.normalColor = defaultColor;
+        orderButton.colors = colors;
     }
 }

@@ -46,7 +46,7 @@ public class BlueprintManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);  
         }
         else
         {
@@ -59,17 +59,20 @@ public class BlueprintManager : MonoBehaviour
             blueprints[i].blueprintID = i;
         }
 
-        LoadBlueprint(blueprintID);
+        LoadBlueprint(0);
     }
 
     public void ActivateBlueprint(int blueprintID)
     {
-        for (int i = 0; i < blueprints.Count; i++)
+        Debug.Log("Activating blueprint with ID (as index): " + blueprintID);
+
+        if (blueprintID >= 0 && blueprintID <= blueprints.Count)
         {
-            if (i == blueprintID)
-                LoadBlueprint(blueprintID);
-            else
-                return;
+            LoadBlueprint(blueprintID);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid blueprintID: " + blueprintID);
         }
     }
 
@@ -90,6 +93,10 @@ public class BlueprintManager : MonoBehaviour
 
     private void LoadBlueprint(int blueprintID)
     {
+        if (isMissionActive == false)
+        {
+            DeskUIManager.instance.UpdateEmailButtonVisual();
+        }
         // Clears grid when loading
         foreach (Transform child in DeskUIManager.instance.blueprintGridContainer)
         {
@@ -260,12 +267,12 @@ public class BlueprintManager : MonoBehaviour
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
-        if (componentItem.originBlueprintID != BlueprintManager.instance.activeBlueprintID)
+        if (componentItem.originBlueprintID != activeBlueprintID)
         {
             return;
         }
 
-        if (BlueprintManager.instance.activeMission.missionTitle != null)
+        if (activeMission.missionTitle != null)
         {
             ComponentData component = componentItem.GetComponentData();
             RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
@@ -285,11 +292,11 @@ public class BlueprintManager : MonoBehaviour
             componentTransform.anchoredPosition = cellCenter;
 
             string compName = component.categoryName;
-            BlueprintManager.instance.activeOrderScreenUI.NotifyComponentPlaced(compName);
+            activeOrderScreenUI.NotifyComponentPlaced(compName);
 
             float totalHeat = GetTotalProducedHeat();
 
-            foreach (var reqUI in BlueprintManager.instance.activeOrderScreenUI.requirementUIs)
+            foreach (var reqUI in activeOrderScreenUI.requirementUIs)
             {
                 if (!reqUI.HasData()) continue;
 
