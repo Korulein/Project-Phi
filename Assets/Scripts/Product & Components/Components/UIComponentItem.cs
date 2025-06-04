@@ -3,28 +3,36 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    // Based on User feedback, point and click dragging should be changed to regular dragging, where the player has to hold down left click
+
     [Header("UI Element Setup")]
+    private ComponentData component;
     private Image iconImage;
     private CanvasGroup canvasGroup;
     private RectTransform rectTransform;
     private Transform originalParent;
-    private GameObject placeholderCopy;
-    private ComponentData component;
+    private Vector2 originalSizeDelta;
+    public int originBlueprintID;
+
+    [Header("UI Element Position & Rotation")]
     private Vector2 startPosition;
-    private bool isPickedUp = false;
-    public bool isRotated = false;
+    private Vector2Int gridPos;
     private ComponentLocation currentLocation;
     public ComponentRotation currentRotation;
     public ComponentRotation originalRotation;
-    public Vector2 originalSizeDelta;
-    private Vector2Int gridPos;
+
+    [Header("Placeholder Setup")]
     [SerializeField] private float ghostAlpha = 0.5f;
+    private GameObject placeholderCopy;
+
+    [Header("Flags")]
+    private bool isPickedUp = false;
+    public bool isRotated = false;
 
     [Header("Tooltip setup")]
     private string componentName;
     private LTDescr delay;
 
-    public int originBlueprintID;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
