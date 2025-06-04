@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: dd8b6450af378684e919c5b465807865
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 407132367788798454
+    second: Scientist-Shadow_0
+  - first:
+      213: 1099241626853995622
+    second: Scientist-Shadow_1
+  - first:
+      213: -7355043350920876049
+    second: Scientist-Shadow_2
+  - first:
+      213: -3210832668609799857
+    second: Scientist-Shadow_3
+  - first:
+      213: -5069574795209194983
+    second: Scientist-Shadow_4
+  - first:
+      213: 6208656036020326477
+    second: Scientist-Shadow_5
+  - first:
+      213: -2432340818334312962
+    second: Scientist-Shadow_6
+  - first:
+      213: -5986863644501928273
+    second: Scientist-Shadow_7
+  - first:
+      213: 7269898638911906676
+    second: Scientist-Shadow_8
+  - first:
+      213: -3514206205432670111
+    second: Scientist-Shadow_9
+  - first:
+      213: -836629143511622249
+    second: Scientist-Shadow_10
+  - first:
+      213: -6313725480148004063
+    second: Scientist-Shadow_11
+  - first:
+      213: 5331282227174605842
+    second: Scientist-Shadow_12
+  - first:
+      213: 2227101423816434903
+    second: Scientist-Shadow_13
+  - first:
+      213: -2268088198265945071
+    second: Scientist-Shadow_14
+  - first:
+      213: -8665538726868426878
+    second: Scientist-Shadow_15
+  - first:
+      213: 4502613684241476776
+    second: Scientist-Shadow_16
+  - first:
+      213: -1801407205156288975
+    second: Scientist-Shadow_17
+  - first:
+      213: 9024189554415141987
+    second: Scientist-Shadow_18
+  - first:
+      213: 7172882541259203007
+    second: Scientist-Shadow_19
+  - first:
+      213: -5646683588368385996
+    second: Scientist-Shadow_20
+  - first:
+      213: -2666094291370502863
+    second: Scientist-Shadow_21
+  - first:
+      213: -7604111060967112938
+    second: Scientist-Shadow_22
+  - first:
+      213: -7144994915825911575
+    second: Scientist-Shadow_23
+  - first:
+      213: 6704032055484277444
+    second: Scientist-Shadow_24
+  - first:
+      213: 3792150024928512922
+    second: Scientist-Shadow_25
+  - first:
+      213: 1684342674158324479
+    second: Scientist-Shadow_26
+  - first:
+      213: -6348646497512236980
+    second: Scientist-Shadow_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scientist-Static
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1606
+        width: 94
+        height: 307
+      alignment: 9
+      pivot: {x: 0.48822817, y: 0.9433399}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070e40184c9b2964da02538188666f3e
+      internalID: 642063037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1286
+        width: 97
+        height: 307
+      alignment: 9
+      pivot: {x: 0.48859257, y: 0.9451419}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb96dc9aebda8d84698259570d51b84a
+      internalID: 745877091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_2
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1286
+        width: 99
+        height: 307
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9451419}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03147989fde4ae04288a195b1df1f5a0
+      internalID: -717228228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 1285
+        width: 97
+        height: 307
+      alignment: 9
+      pivot: {x: 0.5, y: 0.94694436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00f2b6b9457f434a9ee135717fb3594
+      internalID: -963768509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_4
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1287
+        width: 97
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5114079, y: 0.9447887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0324d75395fefc946931d265f54fd7b5
+      internalID: -1642755592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_5
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1286
+        width: 99
+        height: 307
+      alignment: 9
+      pivot: {x: 0.5055881, y: 0.9451419}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4235f0cb7b82d5e4eb0a5476ae98c71c
+      internalID: 959167119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkFront_6
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1286
+        width: 97
+        height: 307
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9451419}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d1a575bf2282d46a49f1f65d99b0aa
+      internalID: -1796873074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 990
+        width: 139
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5490102, y: 0.95209086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0321d7174edbfdf45b5f4f27b54da0af
+      internalID: -1682146650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_2
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 988
+        width: 104
+        height: 284
+      alignment: 9
+      pivot: {x: 0.56550336, y: 0.9523337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fa27e80d2882843bbf4f22b09a8056
+      internalID: -1991403291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_3
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 990
+        width: 81
+        height: 282
+      alignment: 9
+      pivot: {x: 0.49399218, y: 0.95209086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c575acf3e8e58144b4bde00500f5c5b
+      internalID: -871016473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_4
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 987
+        width: 64
+        height: 285
+      alignment: 9
+      pivot: {x: 0.4999981, y: 0.950747}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7968e6c4768034baa22a7d25f76813
+      internalID: -588444578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_5
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 986
+        width: 78
+        height: 286
+      alignment: 9
+      pivot: {x: 0.4812841, y: 0.94917095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225114e54a67be641a1032b6b1551ff2
+      internalID: -1031707296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_6
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 992
+        width: 136
+        height: 280
+      alignment: 9
+      pivot: {x: 0.55366874, y: 0.9483686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4be3c37c5382d4788e2ede04890a0f
+      internalID: -167116084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkSide_7
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 988
+        width: 104
+        height: 284
+      alignment: 9
+      pivot: {x: 0.56082386, y: 0.9454806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61aebebea947f9246a90035d83f0cc72
+      internalID: 1820623826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkBack_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 653
+        width: 93
+        height: 300
+      alignment: 9
+      pivot: {x: 0.50687957, y: 0.9467794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6bed0935fb33647903c8c481acc0d6
+      internalID: 1006711649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkBack_2
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 653
+        width: 95
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5134698, y: 0.9467794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6506e32a6160ae94ca50f6192c6b44a6
+      internalID: 892955638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkBack_3
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 653
+        width: 93
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5034422, y: 0.9521112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2441f2c0dde5dcd4aa16e3a81c4c102a
+      internalID: 696499580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-WalkBack_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 653
+        width: 96
+        height: 300
+      alignment: 9
+      pivot: {x: 0.493337, y: 0.94891196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a14053281a78c4a8df869a6c033a82
+      internalID: 479376578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 350
+        width: 110
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5424072, y: 0.94001436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ba2c77df535384d8887559cdd95585
+      internalID: -1006288930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 350
+        width: 111
+        height: 282
+      alignment: 9
+      pivot: {x: 0.53782254, y: 0.93505186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3af5153124c62044a74b86c1f1e8184
+      internalID: -1082276350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_3
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 350
+        width: 117
+        height: 282
+      alignment: 9
+      pivot: {x: 0.52790874, y: 0.93836033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8c759ee6e704b489fc47779b15e286
+      internalID: 1307037635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_4
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 350
+        width: 105
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5799677, y: 0.9367061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617152c9ca2d7e14fb387e48f517d517
+      internalID: 1477385710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_5
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 350
+        width: 100
+        height: 282
+      alignment: 9
+      pivot: {x: 0.6212842, y: 0.9367061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a3c57834c758b46b150fc47c599fbe
+      internalID: 57167257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 350
+        width: 110
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5918446, y: 0.9402154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea5c491b0ea89b48b223017a7c1b0d6
+      internalID: 1237472183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Test_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 26
+        width: 93
+        height: 286
+      alignment: 9
+      pivot: {x: 0.51195765, y: 0.9413404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d165a27b2269924e8c5811a0a43c9a7
+      internalID: 398227756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Test_2
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 27
+        width: 94
+        height: 275
+      alignment: 9
+      pivot: {x: 0.5035232, y: 0.9748757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bda0e437b509e84cb752cd32376872b
+      internalID: 991588231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Test_3
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 29
+        width: 95
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5027459, y: 1.1292537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e5c03774de0214cbb3f45ae5977a95
+      internalID: -769441098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist-Test_4
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 29
+        width: 97
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5053774, y: 1.1282972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d971efc69105ed0498505a9f2a1f9fcc
+      internalID: -365095817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c524ba034d4d43a44b202ac2cae9ac7c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scientist-Idle_1: -1006288930
+      Scientist-Idle_2: -1082276350
+      Scientist-Idle_3: 1307037635
+      Scientist-Idle_4: 1477385710
+      Scientist-Idle_5: 57167257
+      Scientist-Idle_6: 1237472183
+      Scientist-Static: 642063037
+      Scientist-Test_1: 398227756
+      Scientist-Test_2: 991588231
+      Scientist-Test_3: -769441098
+      Scientist-Test_4: -365095817
+      Scientist-WalkBack_1: 1006711649
+      Scientist-WalkBack_2: 892955638
+      Scientist-WalkBack_3: 696499580
+      Scientist-WalkBack_4: 479376578
+      Scientist-WalkFront_1: 745877091
+      Scientist-WalkFront_2: -717228228
+      Scientist-WalkFront_3: -963768509
+      Scientist-WalkFront_4: -1642755592
+      Scientist-WalkFront_5: 959167119
+      Scientist-WalkFront_6: -1796873074
+      Scientist-WalkSide_1: -1682146650
+      Scientist-WalkSide_2: -1991403291
+      Scientist-WalkSide_3: -871016473
+      Scientist-WalkSide_4: -588444578
+      Scientist-WalkSide_5: -1031707296
+      Scientist-WalkSide_6: -167116084
+      Scientist-WalkSide_7: 1820623826
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

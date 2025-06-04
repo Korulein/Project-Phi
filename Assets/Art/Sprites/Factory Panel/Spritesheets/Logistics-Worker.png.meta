@@ -1,0 +1,885 @@
+fileFormatVersion: 2
+guid: bd669372de8b02941ba0b8d49e27cc1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2830880113374303128
+    second: Logistics-Worker_0
+  - first:
+      213: -4317396044765237765
+    second: Logistics-Worker_1
+  - first:
+      213: -1832613488043534036
+    second: Logistics-Worker_2
+  - first:
+      213: -1429733311866836316
+    second: Logistics-Worker_3
+  - first:
+      213: 6576314596580174082
+    second: Logistics-Worker_4
+  - first:
+      213: 5883149040009622212
+    second: Logistics-Worker_5
+  - first:
+      213: -652472656074730657
+    second: Logistics-Worker_6
+  - first:
+      213: 2951350219509534821
+    second: Logistics-Worker_7
+  - first:
+      213: -7157893519041342612
+    second: Logistics-Worker_8
+  - first:
+      213: -262809723660461332
+    second: Logistics-Worker_9
+  - first:
+      213: -7233568051750738784
+    second: Logistics-Worker_10
+  - first:
+      213: -7497501448391937013
+    second: Logistics-Worker_11
+  - first:
+      213: 7199764949494703927
+    second: Logistics-Worker_12
+  - first:
+      213: 348001568321573819
+    second: Logistics-Worker_13
+  - first:
+      213: -6389697261675492003
+    second: Logistics-Worker_14
+  - first:
+      213: 7241665473165664660
+    second: Logistics-Worker_15
+  - first:
+      213: 5790204621647660912
+    second: Logistics-Worker_16
+  - first:
+      213: 8083410097915500798
+    second: Logistics-Worker_17
+  - first:
+      213: -287200320622135460
+    second: Logistics-Worker_18
+  - first:
+      213: -902197748939280721
+    second: Logistics-Worker_19
+  - first:
+      213: 5114382617484470356
+    second: Logistics-Worker_20
+  - first:
+      213: 5737788029314622194
+    second: Logistics-Worker_21
+  - first:
+      213: 3386704794383486807
+    second: Logistics-Worker_22
+  - first:
+      213: 1747421254716594377
+    second: Logistics-Worker_23
+  - first:
+      213: -878609278586323955
+    second: Logistics-Worker_24
+  - first:
+      213: 1441873870197523469
+    second: Logistics-Worker_25
+  - first:
+      213: -4261263746215387175
+    second: Logistics-Worker_26
+  - first:
+      213: -3162990035179719803
+    second: Logistics-Worker_27
+  - first:
+      213: -486198206872157669
+    second: Logistics-Worker_28
+  - first:
+      213: 9155526839310612681
+    second: Logistics-Worker_29
+  - first:
+      213: 680797343685703669
+    second: Logistics-Worker_30
+  - first:
+      213: 5151360682862311813
+    second: Logistics-Worker_31
+  - first:
+      213: -5915463705074534655
+    second: Logistics-Worker_32
+  - first:
+      213: 8351965127090774865
+    second: Logistics-Worker_33
+  - first:
+      213: 8229167941051285650
+    second: Logistics-Worker_34
+  - first:
+      213: -5487617709967804886
+    second: Logistics-Worker_35
+  - first:
+      213: 5829259808711526754
+    second: Logistics-Worker_36
+  - first:
+      213: -152681859228156263
+    second: Logistics-Worker_37
+  - first:
+      213: -8435050531770445634
+    second: Logistics-Worker_38
+  - first:
+      213: -387588216058691312
+    second: Logistics-Worker_39
+  - first:
+      213: 2188382659547141456
+    second: Logistics-Worker_40
+  - first:
+      213: -4269578781423683290
+    second: Logistics-Worker_41
+  - first:
+      213: 2777407442727012657
+    second: Logistics-Worker_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Logistics-Static
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1926
+        width: 93
+        height: 311
+      alignment: 9
+      pivot: {x: 0.5053173, y: 0.95154554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d240659ee243bcf45abe4c73c7fec11c
+      internalID: 441919098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1606
+        width: 96
+        height: 312
+      alignment: 9
+      pivot: {x: 0.48725256, y: 0.9510553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b7d63f0620f7a47929b01b38b9ab88
+      internalID: 13594074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1606
+        width: 100
+        height: 312
+      alignment: 9
+      pivot: {x: 0.5061185, y: 0.9510553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ed0ea9b119bc349a1ad04646824eab
+      internalID: -633702135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1606
+        width: 96
+        height: 312
+      alignment: 9
+      pivot: {x: 0.49362627, y: 0.9510553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e1a8c3d85f2f746929e32765ba46ab
+      internalID: -1216535706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_4
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1607
+        width: 98
+        height: 311
+      alignment: 9
+      pivot: {x: 0.50624305, y: 0.950538}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f284f77348dff468c9206bd4c99820
+      internalID: 1899683425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_5
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1606
+        width: 98
+        height: 312
+      alignment: 9
+      pivot: {x: 0.50624305, y: 0.94909394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0225205ead21aa24f9c09c9a95e007a5
+      internalID: 1881668624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkFront_6
+      rect:
+        serializedVersion: 2
+        x: 1707
+        y: 1605
+        width: 98
+        height: 313
+      alignment: 9
+      pivot: {x: 0.51248604, y: 0.94765913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1bbc1bf503069449b2832bcfa5a864
+      internalID: 1890905174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkBack_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1292
+        width: 93
+        height: 307
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.9401764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a2e4c9621eef04481fbc3ab1302b08
+      internalID: -1330725411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkBack_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1292
+        width: 96
+        height: 307
+      alignment: 9
+      pivot: {x: 0.5166254, y: 0.94190925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41e1cf0c8c7d194c85046aa34488be4
+      internalID: -223786833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkBack_3
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 1292
+        width: 93
+        height: 307
+      alignment: 9
+      pivot: {x: 0.49427846, y: 0.9349775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975c6ecf64980b84f835f3203df39dc0
+      internalID: -870247621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkBack_4
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1292
+        width: 96
+        height: 307
+      alignment: 9
+      pivot: {x: 0.48337302, y: 0.9315114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66563e32f1577045a631a9185d5fa40
+      internalID: -686990161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-WalkBack_5
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 1292
+        width: 93
+        height: 307
+      alignment: 9
+      pivot: {x: 0.49427846, y: 0.9332442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094b8fb65797c0144aedc1f658e33a21
+      internalID: 1749670916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Idle_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 999
+        width: 130
+        height: 256
+      alignment: 9
+      pivot: {x: 0.60180336, y: 0.9402995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663237b6019ee2849abea846da33baca
+      internalID: 493927278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Idle_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1000
+        width: 128
+        height: 282
+      alignment: 9
+      pivot: {x: 0.37409282, y: 0.86396563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4cbb4a5a34c134aa05a74ba2fe7670
+      internalID: -1552195582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Idle_3
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1000
+        width: 120
+        height: 283
+      alignment: 9
+      pivot: {x: 0.56982267, y: 0.8452338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0823acaaed765534092c218e6796a40e
+      internalID: 1567187496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Idle_4
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 1000
+        width: 127
+        height: 259
+      alignment: 9
+      pivot: {x: 0.34321558, y: 0.93995976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977db139348c54741bdfe790401031ab
+      internalID: 1222019607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-StandUp_3
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 681
+        width: 93
+        height: 271
+      alignment: 9
+      pivot: {x: 0.50767076, y: 0.9045719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c007eab8195774a8e22c5f577acbf8
+      internalID: -1737603418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-StandUp_4
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 662
+        width: 98
+        height: 286
+      alignment: 9
+      pivot: {x: 0.48180404, y: 0.91692156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97ed8c06d7ae0749b02f30053771ed6
+      internalID: -1634934880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-StandUp_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 681
+        width: 100
+        height: 278
+      alignment: 9
+      pivot: {x: 0.4857338, y: 0.874616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39594226e7f61ff4c9d3af5d1c200c1e
+      internalID: 1468800404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-StandUp_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 681
+        width: 99
+        height: 279
+      alignment: 9
+      pivot: {x: 0.48558983, y: 0.8707166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ddcff5d09df3747b1b6eda308270ed
+      internalID: 1019664127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Deliver_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 325
+        width: 93
+        height: 312
+      alignment: 9
+      pivot: {x: 0.5035878, y: 0.9523744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a5c1f57a5bffb45800499610fa5c34
+      internalID: 1014531461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Deliver_2
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 325
+        width: 93
+        height: 312
+      alignment: 9
+      pivot: {x: 0.50000066, y: 0.94729245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69340c2ef623a024a9555454d51eaacc
+      internalID: 2073328166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Deliver_3
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 325
+        width: 93
+        height: 312
+      alignment: 9
+      pivot: {x: 0.5057504, y: 0.94729245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec6327da9d5fe0448ec2f3215f9eeb6
+      internalID: 1551938545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Deliver_4
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 325
+        width: 114
+        height: 312
+      alignment: 9
+      pivot: {x: 0.59380674, y: 0.94729245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c7692e24e6be341bd0a1febe73dd9b
+      internalID: -1194541656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-Deliver_5
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 325
+        width: 117
+        height: 312
+      alignment: 9
+      pivot: {x: 0.6096817, y: 0.94729245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d041d41ec475afa41a87f52b48473a9c
+      internalID: 273862532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-SitDown_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 41
+        width: 113
+        height: 258
+      alignment: 9
+      pivot: {x: 0.54254663, y: 0.9404577}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be924e0f677f49498cb2d7f31dae2ea
+      internalID: 847584170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logistics-SitDown_2
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 41
+        width: 112
+        height: 258
+      alignment: 9
+      pivot: {x: 0.5429265, y: 0.9421518}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6668f914aa2748949ba37f6d83a1a196
+      internalID: 268453393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 637451913fa689c4b98fc421f1f418d3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Logistics-Deliver_1: 1014531461
+      Logistics-Deliver_2: 2073328166
+      Logistics-Deliver_3: 1551938545
+      Logistics-Deliver_4: -1194541656
+      Logistics-Deliver_5: 273862532
+      Logistics-Idle_1: 493927278
+      Logistics-Idle_2: -1552195582
+      Logistics-Idle_3: 1567187496
+      Logistics-Idle_4: 1222019607
+      Logistics-SitDown_1: 847584170
+      Logistics-SitDown_2: 268453393
+      Logistics-StandUp_1: 1468800404
+      Logistics-StandUp_2: 1019664127
+      Logistics-StandUp_3: -1737603418
+      Logistics-StandUp_4: -1634934880
+      Logistics-Static: 441919098
+      Logistics-WalkBack_1: -1330725411
+      Logistics-WalkBack_2: -223786833
+      Logistics-WalkBack_3: -870247621
+      Logistics-WalkBack_4: -686990161
+      Logistics-WalkBack_5: 1749670916
+      Logistics-WalkFront_1: 13594074
+      Logistics-WalkFront_2: -633702135
+      Logistics-WalkFront_3: -1216535706
+      Logistics-WalkFront_4: 1899683425
+      Logistics-WalkFront_5: 1881668624
+      Logistics-WalkFront_6: 1890905174
+      Logistics-Worker_12: -1997212721
+      Logistics-Worker_13: 1601577388
+      Logistics-Worker_14: -2010926942
+      Logistics-Worker_15: 724802215
+      Logistics-Worker_16: 476877785
+      Logistics-Worker_19: 1847081555
+      Logistics-Worker_20: -1121280977
+      Logistics-Worker_23: -1566761037
+      Logistics-Worker_24: 411459121
+      Logistics-Worker_25: -666998991
+      Logistics-Worker_26: 1936688571
+      Logistics-Worker_27: 263082786
+      Logistics-Worker_28: -1168760527
+      Logistics-Worker_29: -1764112881
+      Logistics-Worker_30: -721093132
+      Logistics-Worker_31: -295388006
+      Logistics-Worker_41: -1109415646
+      Logistics-Worker_43: -1904085827
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
