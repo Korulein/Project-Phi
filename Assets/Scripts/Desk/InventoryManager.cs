@@ -48,6 +48,7 @@ public class InventoryManager : MonoBehaviour
         switch (componentType)
         {
             case ComponentType.Structural:
+                Debug.Log("Adding component");
                 structuralComponentsOrdered.Add(component);
                 break;
             case ComponentType.Sealant:

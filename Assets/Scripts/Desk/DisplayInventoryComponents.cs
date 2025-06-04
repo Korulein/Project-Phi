@@ -103,5 +103,10 @@ public class DisplayInventoryComponents : MonoBehaviour
             if (child.tag == "Placeholder") continue;
             Destroy(child.gameObject);
         }
+        foreach (Transform child in specialComponentContainer)
+        {
+            if (child.tag == "Placeholder") continue;
+            Destroy(child.gameObject);
+        }
     }
 }
