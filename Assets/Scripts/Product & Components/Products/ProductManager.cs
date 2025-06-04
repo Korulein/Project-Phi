@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 public class ProductManager : MonoBehaviour
 {
@@ -9,9 +8,6 @@ public class ProductManager : MonoBehaviour
     [Header("References")]
     private Dictionary<ComponentData, int> componentsInBlueprint;
     private int numberOfCellsOccupied;
-
-    [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI ramsText;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
@@ -124,12 +120,7 @@ public class ProductManager : MonoBehaviour
                              $"- Availability: {availabilityRating}\n" +
                              $"- Maintainability: {maintainabilityRating}\n" +
                              $"- Safety: {safetyRating}";
-
-        if (ramsText != null)
-        {
-            ramsText.text = ramsSummary;
-            Debug.Log(ramsText.text);
-        }
+        DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {

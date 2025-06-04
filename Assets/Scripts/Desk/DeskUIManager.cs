@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class DeskUIManager : MonoBehaviour
     [Header("Pop-ups")]
     [SerializeField] GameObject coffeeMachinePopUp;
     [SerializeField] GameObject blurLayer;
+    [SerializeField] public TextMeshProUGUI RAMSRatings;
 
     [Header("OrderButton")]
     [SerializeField] private Button orderButton; // Sleep in Inspector
@@ -102,6 +104,7 @@ public class DeskUIManager : MonoBehaviour
     public void ClosePopUp()
     {
         blurLayer.SetActive(false);
+        RAMSRatings.text = "";
     }
     public void UpdateEmailButtonVisual()
     {
