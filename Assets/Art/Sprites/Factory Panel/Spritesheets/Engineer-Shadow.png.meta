@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 9697b2199d14a194c85db6c406ae6c3e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6786114452560334111
+    second: Engineer-Shadow_0
+  - first:
+      213: 1395076543586804123
+    second: Engineer-Shadow_1
+  - first:
+      213: 1399240953315318321
+    second: Engineer-Shadow_2
+  - first:
+      213: -8958434483206191889
+    second: Engineer-Shadow_3
+  - first:
+      213: -4981434777318343374
+    second: Engineer-Shadow_4
+  - first:
+      213: 8910125035140592575
+    second: Engineer-Shadow_5
+  - first:
+      213: -6154945499146857276
+    second: Engineer-Shadow_6
+  - first:
+      213: 4166743463533730389
+    second: Engineer-Shadow_7
+  - first:
+      213: 1142644526140159506
+    second: Engineer-Shadow_8
+  - first:
+      213: -2732276983239260257
+    second: Engineer-Shadow_9
+  - first:
+      213: -2622796619151501929
+    second: Engineer-Shadow_10
+  - first:
+      213: -3603429246367207463
+    second: Engineer-Shadow_11
+  - first:
+      213: 6289366534110329829
+    second: Engineer-Shadow_12
+  - first:
+      213: 5481843828901761148
+    second: Engineer-Shadow_13
+  - first:
+      213: 3164568782363869632
+    second: Engineer-Shadow_14
+  - first:
+      213: 1964387301966546845
+    second: Engineer-Shadow_15
+  - first:
+      213: -6967862058635610475
+    second: Engineer-Shadow_16
+  - first:
+      213: -5350405295103529649
+    second: Engineer-Shadow_17
+  - first:
+      213: 5596926944909023789
+    second: Engineer-Shadow_18
+  - first:
+      213: 8804224308831925843
+    second: Engineer-Shadow_19
+  - first:
+      213: -7685283408634576501
+    second: Engineer-Shadow_20
+  - first:
+      213: -822072549395304865
+    second: Engineer-Shadow_21
+  - first:
+      213: 7801424927148869584
+    second: Engineer-Shadow_22
+  - first:
+      213: -6270535006170240964
+    second: Engineer-Shadow_23
+  - first:
+      213: 875274838474303014
+    second: Engineer-Shadow_24
+  - first:
+      213: 7533141798486031735
+    second: Engineer-Shadow_25
+  - first:
+      213: 4818709180924917877
+    second: Engineer-Shadow_26
+  - first:
+      213: 4882657371762097911
+    second: Engineer-Shadow_27
+  - first:
+      213: 7412838067191160595
+    second: Engineer-Shadow_28
+  - first:
+      213: 267678346722238396
+    second: Engineer-Shadow_29
+  - first:
+      213: 7054386175942451766
+    second: Engineer-Shadow_30
+  - first:
+      213: -5915744954796602182
+    second: Engineer-Shadow_31
+  - first:
+      213: -5745204695603513713
+    second: Engineer-Shadow_32
+  - first:
+      213: 8679406192605496094
+    second: Engineer-Shadow_33
+  - first:
+      213: -2124823503675447215
+    second: Engineer-Shadow_34
+  - first:
+      213: 2391655958028889833
+    second: Engineer-Shadow_35
+  - first:
+      213: 4283076631380959875
+    second: Engineer-Shadow_36
+  - first:
+      213: 983289419842365338
+    second: Engineer-Shadow_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Engineer-Shadow_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1606
+        width: 94
+        height: 313
+      alignment: 9
+      pivot: {x: 0.50000095, y: 0.94120187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f144792665653f4faf785e65063005d
+      internalID: 1586714040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1293
+        width: 94
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5039848, y: 0.94211394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cc8b4759dcbfe4da773386bf982ff9
+      internalID: 1293866961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_2
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 1293
+        width: 124
+        height: 306
+      alignment: 9
+      pivot: {x: 0.3838267, y: 0.9413436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f93b0ddd2378c443a34c28beab8ddc5
+      internalID: 1614266172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 1293
+        width: 107
+        height: 306
+      alignment: 9
+      pivot: {x: 0.4551232, y: 0.9374206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25c44d0c52e0fa4e990440abf08e31e
+      internalID: 1727173021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1293
+        width: 122
+        height: 306
+      alignment: 9
+      pivot: {x: 0.39176264, y: 0.9276131}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc2632b9ad822843bab887126e7e1fe
+      internalID: -989727648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_5
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 1293
+        width: 126
+        height: 306
+      alignment: 9
+      pivot: {x: 0.45236254, y: 0.93545914}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fde57e11cbe8ba45a0e2d6bd95cd745
+      internalID: -183884856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 1293
+        width: 120
+        height: 306
+      alignment: 9
+      pivot: {x: 0.530011, y: 0.9315361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2eb63832c44a574b8092c0e5b362f23
+      internalID: 52549935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_7
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 1296
+        width: 109
+        height: 306
+      alignment: 9
+      pivot: {x: 0.57709247, y: 0.91976666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077f036f632c63f42aaa31328a46513b
+      internalID: 973910740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_8
+      rect:
+        serializedVersion: 2
+        x: 2333
+        y: 1293
+        width: 111
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5669825, y: 0.93291837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c453af554900ed4a93a7ce238cfa1b3
+      internalID: -42117516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_9
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 1293
+        width: 111
+        height: 306
+      alignment: 9
+      pivot: {x: 0.56089437, y: 0.93070996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ae46cf97b96c54cb7f2a7429669bf0
+      internalID: -1168247971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_10
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 1293
+        width: 112
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5603485, y: 0.93291837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d4c2bf0347d5549a5b4a383d401ff9
+      internalID: -1755789731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_11
+      rect:
+        serializedVersion: 2
+        x: 3293
+        y: 1293
+        width: 126
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5160939, y: 0.93070954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9534192f08c5948abe66b7bbc068bd
+      internalID: 941858076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Idle_12
+      rect:
+        serializedVersion: 2
+        x: 3622
+        y: 1293
+        width: 108
+        height: 306
+      alignment: 9
+      pivot: {x: 0.512519, y: 0.93291837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95229c2ac495b644b82149b3614cd99
+      internalID: -817181148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 965
+        width: 97
+        height: 315
+      alignment: 9
+      pivot: {x: 0.49294084, y: 0.9391574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79b859ba74f19140927451bb82e3b44
+      internalID: 1961821149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 965
+        width: 101
+        height: 315
+      alignment: 9
+      pivot: {x: 0.49299425, y: 0.9423762}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706c40b067656ac47af37e941f12296c
+      internalID: 1351756775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 965
+        width: 98
+        height: 315
+      alignment: 9
+      pivot: {x: 0.49278104, y: 0.942377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea34432a46388f8448638d0f54dc4cb3
+      internalID: 658717811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_4
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 966
+        width: 97
+        height: 314
+      alignment: 9
+      pivot: {x: 0.49999875, y: 0.93928015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2b71244a2d5b04abd8cd895d8bd33f
+      internalID: -1477425665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_5
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 965
+        width: 101
+        height: 315
+      alignment: 9
+      pivot: {x: 0.49299484, y: 0.942377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447df82378a9c6844988770e10d7b58c
+      internalID: -189175578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkFront_6
+      rect:
+        serializedVersion: 2
+        x: 1707
+        y: 965
+        width: 98
+        height: 315
+      alignment: 9
+      pivot: {x: 0.50640994, y: 0.94670373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb5cf58ea5961c47a0690be3ba2414f
+      internalID: -547958827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 668
+        width: 141
+        height: 293
+      alignment: 9
+      pivot: {x: 0.5641223, y: 0.93421346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd529a13362c4949bf1cbbc909b29b1
+      internalID: -1793850939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_2
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 668
+        width: 107
+        height: 293
+      alignment: 9
+      pivot: {x: 0.60864085, y: 0.9298054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5c36299ab488f4fb826654775a9622
+      internalID: -1856753535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_3
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 668
+        width: 85
+        height: 293
+      alignment: 9
+      pivot: {x: 0.5227934, y: 0.93200934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a97cea9d8e80143aa0f7a0c9e226c1
+      internalID: 153847762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_4
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 667
+        width: 66
+        height: 294
+      alignment: 9
+      pivot: {x: 0.5587103, y: 0.93713003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9924c003be60d614da853a3c448cdf90
+      internalID: -1379954437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_5
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 666
+        width: 81
+        height: 295
+      alignment: 9
+      pivot: {x: 0.531892, y: 0.93345904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04ca82d72baf1840ae312040929a638
+      internalID: -666514764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_6
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 670
+        width: 137
+        height: 291
+      alignment: 9
+      pivot: {x: 0.5659955, y: 0.9261015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c87dd04ffcad9641b9a14144e683331
+      internalID: -241753829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_7
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 668
+        width: 105
+        height: 293
+      alignment: 9
+      pivot: {x: 0.5861096, y: 0.93421346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1705921c32baf24a8b544489b7e21d4
+      internalID: -1978429227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_8
+      rect:
+        serializedVersion: 2
+        x: 2363
+        y: 668
+        width: 83
+        height: 293
+      alignment: 9
+      pivot: {x: 0.51556325, y: 0.93200934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab98d17205b27a40bcc4dc6e0f8b350
+      internalID: -1811675523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_9
+      rect:
+        serializedVersion: 2
+        x: 2692
+        y: 667
+        width: 64
+        height: 294
+      alignment: 9
+      pivot: {x: 0.5403633, y: 0.93054014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fdb963082055144f97c86e1a4f838f2
+      internalID: -748395541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkSide_10
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 666
+        width: 78
+        height: 295
+      alignment: 9
+      pivot: {x: 0.50000626, y: 0.93345904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771f426fc917d6944bd445360b070c19
+      internalID: -2034634077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkBack_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 333
+        width: 94
+        height: 306
+      alignment: 9
+      pivot: {x: 0.49999967, y: 0.935057}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30c9f1c30794d9449b28c10b29320cb
+      internalID: 2049476286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkBack_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 333
+        width: 97
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5178238, y: 0.9294069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f360cda99a85834a9fb120b75f709bc
+      internalID: -217351637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkBack_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 333
+        width: 96
+        height: 306
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9350568}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1140dd5492b1082478a8b6e3870d2aea
+      internalID: -647979009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-WalkBack_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 334
+        width: 97
+        height: 306
+      alignment: 9
+      pivot: {x: 0.48811638, y: 0.9237569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515616491dfe27449b6ad48023849c0d
+      internalID: 373939479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Craft_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 12
+        width: 120
+        height: 308
+      alignment: 9
+      pivot: {x: 0.3921501, y: 0.93531966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5102527a38cf6f24fb1ab382303ca748
+      internalID: 1961398994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Craft_2
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 12
+        width: 126
+        height: 308
+      alignment: 9
+      pivot: {x: 0.38906932, y: 0.93531966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235b49b946f5dba4ca9accbe3d51dae3
+      internalID: 1881013921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Craft_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 12
+        width: 124
+        height: 302
+      alignment: 9
+      pivot: {x: 0.38728037, y: 0.93711185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7dc1a605dc59ce4c935913f109cce19
+      internalID: 1326245390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Craft_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 12
+        width: 105
+        height: 302
+      alignment: 9
+      pivot: {x: 0.4506987, y: 0.93711185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db142c6e3ad74c468fb549c540dcaaa
+      internalID: -145826908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Engineer-Craft_5
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 12
+        width: 102
+        height: 302
+      alignment: 9
+      pivot: {x: 0.4847747, y: 0.93368345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85eabb982e59f094b942be1c386b691d
+      internalID: 1443168438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fb08a66c1a845bb458e69d02cc644f3f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Engineer-Craft_1: 1961398994
+      Engineer-Craft_2: 1881013921
+      Engineer-Craft_3: 1326245390
+      Engineer-Craft_4: -145826908
+      Engineer-Craft_5: 1443168438
+      Engineer-Idle_1: 1293866961
+      Engineer-Idle_10: -1755789731
+      Engineer-Idle_11: 941858076
+      Engineer-Idle_12: -817181148
+      Engineer-Idle_2: 1614266172
+      Engineer-Idle_3: 1727173021
+      Engineer-Idle_4: -989727648
+      Engineer-Idle_5: -183884856
+      Engineer-Idle_6: 52549935
+      Engineer-Idle_7: 973910740
+      Engineer-Idle_8: -42117516
+      Engineer-Idle_9: -1168247971
+      Engineer-Shadow_0: 1586714040
+      Engineer-WalkBack_1: 2049476286
+      Engineer-WalkBack_2: -217351637
+      Engineer-WalkBack_3: -647979009
+      Engineer-WalkBack_4: 373939479
+      Engineer-WalkFront_1: 1961821149
+      Engineer-WalkFront_2: 1351756775
+      Engineer-WalkFront_3: 658717811
+      Engineer-WalkFront_4: -1477425665
+      Engineer-WalkFront_5: -189175578
+      Engineer-WalkFront_6: -547958827
+      Engineer-WalkSide_1: -1793850939
+      Engineer-WalkSide_10: -2034634077
+      Engineer-WalkSide_2: -1856753535
+      Engineer-WalkSide_3: 153847762
+      Engineer-WalkSide_4: -1379954437
+      Engineer-WalkSide_5: -666514764
+      Engineer-WalkSide_6: -241753829
+      Engineer-WalkSide_7: -1978429227
+      Engineer-WalkSide_8: -1811675523
+      Engineer-WalkSide_9: -748395541
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
