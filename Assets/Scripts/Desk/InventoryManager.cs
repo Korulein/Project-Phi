@@ -25,7 +25,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public List<ComponentData> filterComponentsOrdered = new List<ComponentData>();
     [SerializeField] public List<ComponentData> specialComponentsOrdered = new List<ComponentData>();
 
-
     private void Awake()
     {
         if (instance == null)
@@ -38,17 +37,12 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
-    {
-
-    }
     public void AddComponentToOrderedComponents(ComponentData component)
     {
         ComponentType componentType = component.componentType;
         switch (componentType)
         {
             case ComponentType.Structural:
-                Debug.Log("Adding component");
                 structuralComponentsOrdered.Add(component);
                 break;
             case ComponentType.Sealant:
@@ -199,7 +193,6 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (component.componentID == componentToCheck.componentID)
                     {
-                        Debug.Log("Component was already there!");
                         return false;
                     }
                 }
@@ -230,34 +223,5 @@ public class InventoryManager : MonoBehaviour
                 break;
         }
         return true;
-    }
-    public List<ComponentData> GetComponentListType(ComponentData component)
-    {
-        ComponentType componentType = component.componentType;
-        switch (componentType)
-        {
-            case ComponentType.Structural:
-                return structuralComponentsInInventory;
-            case ComponentType.Sealant:
-                return sealantComponentsInInventory;
-            case ComponentType.Heating:
-                return heatingComponentsInInventory;
-            case ComponentType.Cooling:
-                return coolingComponentsInInventory;
-            case ComponentType.Power:
-                return powerSourceComponentsInInventory;
-            case ComponentType.Sensor:
-                return electronicComponentsInInventory;
-            case ComponentType.Chip:
-                return electronicComponentsInInventory;
-            case ComponentType.Special:
-                return specialComponentsInInventory;
-            case ComponentType.Filter:
-                return filterComponentsInInventory;
-            default:
-                Debug.Log("Component type not recognized");
-                break;
-        }
-        return null;
     }
 }

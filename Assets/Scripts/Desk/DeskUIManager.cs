@@ -18,6 +18,13 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] GameObject coffeeMachinePopUp;
     [SerializeField] GameObject blurLayer;
 
+    [Header("OrderButton")]
+    [SerializeField] private Button orderButton; // Sleep in Inspector
+    [SerializeField] private Color highlightColor = Color.yellow;
+    [SerializeField] private Color defaultColor = Color.white;
+    [SerializeField] private float blinkInterval = 0.5f;
+    private Coroutine blinkCoroutine;
+
     [Header("Player Input")]
     private bool leftClickConsumed;
     public bool LeftClickDown { get; private set; }
@@ -25,17 +32,6 @@ public class DeskUIManager : MonoBehaviour
     public bool RKeyDown { get; private set; }
     public bool EscapeDown { get; private set; }
     public Vector3 MousePosition { get; private set; }
-    [Header("Audio")]
-    [HideInInspector] public AudioManager audioManager;
-
-    [Header("OrderButton")]
-    [SerializeField] private Button orderButton; // Sleep in Inspector
-    [SerializeField] private Color highlightColor = Color.yellow;
-    [SerializeField] private Color defaultColor = Color.white;
-    [SerializeField] private float blinkInterval = 0.5f;
-
-    private Coroutine blinkCoroutine;
-
     private void Awake()
     {
         if (instance == null)
@@ -47,9 +43,6 @@ public class DeskUIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        audioManager = GetComponent<AudioManager>();
-
     }
     private void Start()
     {
@@ -82,8 +75,7 @@ public class DeskUIManager : MonoBehaviour
     }
     public void OpenScreen(int screenIndex)
     {
-
-        audioManager.PlayAudioClip(audioManager.buttonPress1,transform,1f);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
         for (int i = 0; i < tabletScreens.Count; i++)
         {
@@ -94,8 +86,7 @@ public class DeskUIManager : MonoBehaviour
     }
     public void OpenOrder(int orderIndex)
     {
-
-        audioManager.PlayAudioClip(audioManager.buttonPress1, transform, 1f);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
         for (int i = 0; i < orderScreens.Count; i++)
         {
@@ -112,7 +103,6 @@ public class DeskUIManager : MonoBehaviour
     {
         blurLayer.SetActive(false);
     }
-
     public void UpdateEmailButtonVisual()
     {
         if (BlueprintManager.instance.isMissionActive == false)
@@ -132,7 +122,6 @@ public class DeskUIManager : MonoBehaviour
             }
         }
     }
-
     private IEnumerator BlinkEmailButton()
     {
         bool highlight = false;
@@ -147,7 +136,6 @@ public class DeskUIManager : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
         }
     }
-
     private void ResetEmailButtonVisual()
     {
         ColorBlock colors = orderButton.colors;

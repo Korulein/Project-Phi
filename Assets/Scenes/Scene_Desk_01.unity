@@ -351,8 +351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1712885009}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -593,8 +593,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1754735775}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -2889,8 +2889,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1844025295}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -3750,14 +3750,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42802644caeb4f40b9a93c774256ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  structuralComponents: []
-  powerSourceComponents: []
-  electronicComponents: []
-  coolingComponents: []
-  heatingComponents: []
-  sealantComponents: []
-  filterComponents: []
-  specialComponents: []
+  structuralComponentsInInventory: []
+  powerSourceComponentsInInventory: []
+  electronicComponentsInInventory: []
+  coolingComponentsInInventory: []
+  heatingComponentsInInventory: []
+  sealantComponentsInInventory: []
+  filterComponentsInInventory: []
+  specialComponentsInInventory: []
+  structuralComponentsOrdered: []
+  powerSourceComponentsOrdered: []
+  electronicComponentsOrdered: []
+  coolingComponentsOrdered: []
+  heatingComponentsOrdered: []
+  sealantComponentsOrdered: []
+  filterComponentsOrdered: []
+  specialComponentsOrdered: []
 --- !u!4 &166190447
 Transform:
   m_ObjectHideFlags: 0
@@ -3767,7 +3775,7 @@ Transform:
   m_GameObject: {fileID: 166190445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 681.0758, y: 599.9584, z: -0.75748676}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4056,9 +4064,9 @@ RectTransform:
   - {fileID: 737043579}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -723.3097}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &197846478
@@ -4132,6 +4140,69 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197846478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &211895108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211895110}
+  - component: {fileID: 211895109}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211895109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211895108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f1bc131b3748c478b612d78e191d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
+  bgmSource: {fileID: 0}
+  cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
+  buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
+  steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
+  steelDrop: {fileID: 8300000, guid: e100a9170a3a5fd47bef9b39ca98faa1, type: 3}
+  plasticPickup: {fileID: 8300000, guid: d9d3b5a7a0ca3044ab96ec25cff3ff30, type: 3}
+  plasticDrop: {fileID: 8300000, guid: 79a45ff37ce4c9d4abde51d1cc125608, type: 3}
+  aerogelPickup: {fileID: 8300000, guid: bcfb20415ce0eca4a931ab54d0421c78, type: 3}
+  aerogelDrop: {fileID: 8300000, guid: 14721cddcbd137844af206bbe1d46ea1, type: 3}
+  carbonFiberPickup: {fileID: 8300000, guid: 1b2db470c326a3648b09f7a87940cc67, type: 3}
+  carbonFiberDrop: {fileID: 8300000, guid: b600979beb92c3b4d94af229584ed1ac, type: 3}
+  leadPickup: {fileID: 8300000, guid: 858929f90d5a6ca44a40101e1ac5cf52, type: 3}
+  leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
+  ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
+  ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
+  completeConstruction: {fileID: 8300000, guid: d79c4499a2db2e344816e094d7a68c43, type: 3}
+  defaultBGM: {fileID: 8300000, guid: e3b0a972cd53f2e4c9fd11608ae39d04, type: 3}
+  bgmVolume: 1
+--- !u!4 &211895110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211895108}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4248,8 +4319,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 878715017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5013749, y: 0}
+  m_AnchorMax: {x: 0.99999994, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7441,8 +7512,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 659864984}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -7591,87 +7662,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319399576}
   m_CullTransparentMesh: 1
---- !u!1 &319763403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 319763405}
-  - component: {fileID: 319763404}
-  m_Layer: 0
-  m_Name: Component Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &319763404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319763403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0dc3f69c5f57ee49b39a1f71be93d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  structuralComponents:
-  - {fileID: 11400000, guid: 2833230319c930240ba958ccdd3b2c4d, type: 2}
-  - {fileID: 11400000, guid: 2384e3aa81af3784881b904aaa4771a7, type: 2}
-  - {fileID: 11400000, guid: b5fad92267df5354cafb6b4a5ac30f7c, type: 2}
-  - {fileID: 11400000, guid: 67697e0f8fa28cd43a1aa1312b829f58, type: 2}
-  - {fileID: 11400000, guid: bbd4403795c5af64bb970d7bee5f704e, type: 2}
-  - {fileID: 11400000, guid: 333948de6a8af024fb4e2eaf260c0d66, type: 2}
-  - {fileID: 11400000, guid: 49546914681b803428dc2e7ebc92c69c, type: 2}
-  - {fileID: 11400000, guid: 35e942c030b4d5547a836a3a7d1fd4d4, type: 2}
-  powerSourceComponents:
-  - {fileID: 11400000, guid: d7b164dfb70773f448a8f42e446c8513, type: 2}
-  - {fileID: 11400000, guid: b1a058673df81d3439d4a3568ad0fd40, type: 2}
-  - {fileID: 11400000, guid: 4f58316e9b345004bbd2e070b08e0a7f, type: 2}
-  electronicComponents:
-  - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
-  - {fileID: 11400000, guid: 667a0e8dcd1f5644a89ce053a2cb86ed, type: 2}
-  - {fileID: 11400000, guid: 3ac3213814463fb429618ddbdfcd77e2, type: 2}
-  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
-  - {fileID: 11400000, guid: efc04be386b28dd48a10eaf748cd8725, type: 2}
-  - {fileID: 11400000, guid: 7c6082d375b89f345aa137b6af51a515, type: 2}
-  coolingComponents:
-  - {fileID: 11400000, guid: 0b93bacf1e175c44e928a41050d5e292, type: 2}
-  - {fileID: 11400000, guid: ec251fa850fd8d64a82f58cc7a031388, type: 2}
-  - {fileID: 11400000, guid: 5e4694d9b5ee9e7478e9b538bd06ccdc, type: 2}
-  heatingComponents:
-  - {fileID: 11400000, guid: 0c56555242fef434580b3e8792beb15f, type: 2}
-  - {fileID: 11400000, guid: b6cac7017b711434baf2705ae8505250, type: 2}
-  sealantComponents:
-  - {fileID: 11400000, guid: 975e6309b8d55814ca42e6a16d2fc015, type: 2}
-  - {fileID: 11400000, guid: 273c13c50107c614bb0793d01e44eb53, type: 2}
-  - {fileID: 11400000, guid: 52e4ae7207ca6b64980c8ef98f8e6b13, type: 2}
-  filterComponents: []
-  specialComponents:
-  - {fileID: 11400000, guid: b2df95fa4c4fbf04eb5cdc417d4ba21d, type: 2}
-  - {fileID: 11400000, guid: 8c629f5dba2015f458bed6dbfd0d3e79, type: 2}
-  - {fileID: 11400000, guid: db585b5080e6f8649aa5ace7e426ca5e, type: 2}
-  - {fileID: 11400000, guid: 8b7cf40800c755e43b55381b8442cd34, type: 2}
---- !u!4 &319763405
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319763403}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &323516010
 GameObject:
   m_ObjectHideFlags: 0
@@ -9502,8 +9492,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 824465777}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -9655,9 +9645,9 @@ RectTransform:
   - {fileID: 2114048318}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -234.43655}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &428460487
@@ -10549,8 +10539,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 561524974}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -11394,8 +11384,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1647648319}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -12036,8 +12026,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1005262872}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -13830,8 +13820,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 939373936}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -15287,8 +15277,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 418387976}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -16559,8 +16549,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1842815644}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -22101,9 +22091,9 @@ RectTransform:
   - {fileID: 2079448256}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -397.39426}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &913123903
@@ -23120,8 +23110,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 120158932}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -23316,8 +23306,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 827220127}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -23807,8 +23797,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 2086191343}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -24024,8 +24014,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1188869101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.6084948}
+  m_AnchorMax: {x: 1, y: 0.9999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24329,8 +24319,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 2075174882}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -24530,8 +24520,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 2060595750}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -27825,7 +27815,6 @@ GameObject:
   - component: {fileID: 1142194637}
   - component: {fileID: 1142194636}
   - component: {fileID: 1142194640}
-  - component: {fileID: 1142194641}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -27950,42 +27939,10 @@ MonoBehaviour:
   inventoryContainer: {fileID: 1282554021}
   coffeeMachinePopUp: {fileID: 285327941}
   blurLayer: {fileID: 1146497127}
-  audioManager: {fileID: 0}
   orderButton: {fileID: 1321412478}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   blinkInterval: 0.5
---- !u!114 &1142194641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142194635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f1bc131b3748c478b612d78e191d4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
-  bgmSource: {fileID: 0}
-  cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
-  buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
-  steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
-  steelDrop: {fileID: 8300000, guid: e100a9170a3a5fd47bef9b39ca98faa1, type: 3}
-  plasticPickup: {fileID: 8300000, guid: d9d3b5a7a0ca3044ab96ec25cff3ff30, type: 3}
-  plasticDrop: {fileID: 8300000, guid: 79a45ff37ce4c9d4abde51d1cc125608, type: 3}
-  aerogelPickup: {fileID: 8300000, guid: bcfb20415ce0eca4a931ab54d0421c78, type: 3}
-  aerogelDrop: {fileID: 8300000, guid: 14721cddcbd137844af206bbe1d46ea1, type: 3}
-  carbonfiberPickup: {fileID: 8300000, guid: 1b2db470c326a3648b09f7a87940cc67, type: 3}
-  carbonfiberDrop: {fileID: 8300000, guid: b600979beb92c3b4d94af229584ed1ac, type: 3}
-  leadPickup: {fileID: 8300000, guid: 858929f90d5a6ca44a40101e1ac5cf52, type: 3}
-  leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
-  ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
-  ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
-  completeConstruction: {fileID: 8300000, guid: d79c4499a2db2e344816e094d7a68c43, type: 3}
-  defaultBGM: {fileID: 8300000, guid: e3b0a972cd53f2e4c9fd11608ae39d04, type: 3}
-  bgmVolume: 1
 --- !u!1 &1142534499
 GameObject:
   m_ObjectHideFlags: 0
@@ -28743,9 +28700,9 @@ RectTransform:
   - {fileID: 564094117}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -71.47885}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1185371144
@@ -29126,9 +29083,9 @@ RectTransform:
   - {fileID: 2020286675}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -1049.2251}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1201364179
@@ -29352,7 +29309,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1009239064}
   m_Direction: 2
   m_Value: 0.99999875
-  m_Size: 0.5445628
+  m_Size: 0.3915044
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29516,8 +29473,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 483238217}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -29860,8 +29817,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1064605981}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -30341,9 +30298,9 @@ RectTransform:
   - {fileID: 1413866602}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -886.26733}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1243028506
@@ -30930,9 +30887,9 @@ RectTransform:
   - {fileID: 1456852037}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.5, y: -560.3519}
   m_SizeDelta: {x: 957, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1282032120
@@ -31029,7 +30986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1282554019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34299,8 +34256,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1494039528}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -36796,7 +36753,7 @@ Transform:
   m_GameObject: {fileID: 1544329544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1448.8528, y: 383.92993, z: 2.032142}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41358,7 +41315,7 @@ Transform:
   m_GameObject: {fileID: 1767610854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1448.8528, y: 383.92993, z: 2.032142}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41779,9 +41736,9 @@ RectTransform:
   - {fileID: 1471226732}
   m_Father: {fileID: 1722189369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 478.93, y: -1212.1827}
   m_SizeDelta: {x: 957.86, y: 142.9577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1776936520
@@ -44475,8 +44432,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1239218617}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -46097,8 +46054,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 1986508897}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -49499,8 +49456,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674848594}
-        m_TargetAssemblyTypeName: SuppliersManager, Assembly-CSharp
+      - m_Target: {fileID: 539571738}
+        m_TargetAssemblyTypeName: SupplierComponentItem, Assembly-CSharp
         m_MethodName: OrderComponent
         m_Mode: 1
         m_Arguments:
@@ -49764,5 +49721,5 @@ SceneRoots:
   - {fileID: 1544329546}
   - {fileID: 166190447}
   - {fileID: 1767610856}
-  - {fileID: 319763405}
+  - {fileID: 211895110}
   - {fileID: 857232407}

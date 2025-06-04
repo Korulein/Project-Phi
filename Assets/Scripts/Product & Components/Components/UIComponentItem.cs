@@ -264,7 +264,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         return true;
     }
-    private enum ComponentLocation
+    public enum ComponentLocation
     {
         Inventory,
         Blueprint,
@@ -275,53 +275,43 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         Rotated,
         NotRotated,
     }
-
     public void PlayMaterialSoundPickup()
     {
-
-        AudioManager audioManager = DeskUIManager.instance.audioManager;
+        AudioManager audioManager = AudioManager.instance;
 
         if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
             || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
         {
             audioManager.PlayAudioClip(audioManager.steelPickup, transform, 0.5f);
-
         }
         if (component.materialType == MaterialTypes.Plastic || component.materialType == MaterialTypes.Silicone
             || component.materialType == MaterialTypes.Rubber || component.materialType == MaterialTypes.Lithium)
         {
             audioManager.PlayAudioClip(audioManager.plasticPickup, transform, 1f);
-
         }
 
         if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
         {
             audioManager.PlayAudioClip(audioManager.aerogelPickup, transform, 1f);
-
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
         {
-            audioManager.PlayAudioClip(audioManager.carbonfiberPickup, transform, 1f);
-
+            audioManager.PlayAudioClip(audioManager.carbonFiberPickup, transform, 1f);
         }
         if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy
             || component.materialType == MaterialTypes.Nickel_Chromium)
         {
             audioManager.PlayAudioClip(audioManager.leadPickup, transform, 0.6f);
-
         }
         if (component.materialType == MaterialTypes.Ceramic)
         {
             audioManager.PlayAudioClip(audioManager.ceramicPickup, transform, 1f);
 
         }
-
     }
-
     public void PlayMaterialSoundDrop()
     {
-
-        AudioManager audioManager = DeskUIManager.instance.audioManager;
+        AudioManager audioManager = AudioManager.instance;
 
         if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
             || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
@@ -343,7 +333,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
         {
-            audioManager.PlayAudioClip(audioManager.carbonfiberDrop, transform, 1f);
+            audioManager.PlayAudioClip(audioManager.carbonFiberDrop, transform, 1f);
 
         }
         if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy

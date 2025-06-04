@@ -15,7 +15,6 @@ public class ProductManager : MonoBehaviour
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
-
     private void Awake()
     {
         // Singleton setup
@@ -121,18 +120,15 @@ public class ProductManager : MonoBehaviour
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
 
         string ramsSummary = $"RAMS Ratings:\n" +
-                             $"- Reliability: {reliabilityRating:F2}\n" +
-                             $"- Availability: {availabilityRating:F2}\n" +
-                             $"- Maintainability: {maintainabilityRating:F2}\n" +
-                             $"- Safety: {safetyRating:F2}";
+                             $"- Reliability: {reliabilityRating}\n" +
+                             $"- Availability: {availabilityRating}\n" +
+                             $"- Maintainability: {maintainabilityRating}\n" +
+                             $"- Safety: {safetyRating}";
 
         if (ramsText != null)
         {
             ramsText.text = ramsSummary;
-        }
-        else
-        {
-            Debug.LogWarning("RAMS TextMeshPro is not assigned!");
+            Debug.Log(ramsText.text);
         }
     }
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
