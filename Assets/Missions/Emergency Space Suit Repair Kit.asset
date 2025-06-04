@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aae2e69af2a25e45b56a235575a17eb, type: 3}
+  m_Name: Emergency Space Suit Repair Kit
+  m_EditorClassIdentifier: 
+  missionTitle: Emergency Space Suit Repair Kit
+  description: In this mission you will be creating a Emergency Space Suit Repair
+    Kit.
+  requirementsIntro: 'In order to build the Emergency Space Suit Repair Kit, you
+    will require the following components:'
+  requirements:
+  - name: Thermal Regulation Layer
+    type: 0
+    numericValue: 0
+    componentTag: Thermal Regulation Layer
+    amount: 1
+  - name: Radiation Shielding
+    type: 0
+    numericValue: 0
+    componentTag: Radiation Shielding
+    amount: 1
+  - name: Pump
+    type: 0
+    numericValue: 0
+    componentTag: Pump
+    amount: 1
+  - name: Seal
+    type: 0
+    numericValue: 0
+    componentTag: Seal
+    amount: 1
+  - name: Life Support Pack
+    type: 0
+    numericValue: 0
+    componentTag: Life Support Pack
+    amount: 1
+  - name: Emergency SOS Beacon
+    type: 0
+    numericValue: 0
+    componentTag: Emergency SOS Beacon
+    amount: 1
+  resultSprite: {fileID: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nicket-Chromium L-Pipe  Structural Component
   m_EditorClassIdentifier: 
   componentName: 'Nickel-Chromium L-Pipe '
+  categoryName: Pipe
   componentSprite: {fileID: -6393614080615365042, guid: 8cdf1b54350a2c549b12095429d4c866, type: 3}
   componentDescription: A very sturdy L-Pipe, strong enough to second as a tank barrel.
   componentID: 2013

@@ -89,4 +89,5 @@ public enum ComponentType
     Sealant,
     Special,
     Structural,
+    Filter,
 }

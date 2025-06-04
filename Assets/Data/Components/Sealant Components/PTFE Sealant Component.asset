@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PTFE Sealant Component
   m_EditorClassIdentifier: 
   componentName: PTFE Seal
+  categoryName: Seal
   componentSprite: {fileID: 6356149769561458859, guid: 84679f229576f964db87e7433bc86009, type: 3}
   componentDescription: A teflon based sealant, good for against dust and sticky
     surfaces.

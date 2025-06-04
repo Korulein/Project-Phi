@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: a8b62423ca6f39549a782c40de812445
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4190136078442766947
+    second: Conveyor-Animated_0
+  - first:
+      213: 3626492471841020320
+    second: Conveyor-Animated_1
+  - first:
+      213: 5522511435745443569
+    second: Conveyor-Animated_2
+  - first:
+      213: -5271643252637681146
+    second: Conveyor-Animated_3
+  - first:
+      213: 6956392914092706371
+    second: Conveyor-Animated_4
+  - first:
+      213: -6657695471467614550
+    second: Conveyor-Animated_5
+  - first:
+      213: 3235099084709913160
+    second: Conveyor-Animated_6
+  - first:
+      213: 7013508554654850199
+    second: Conveyor-Animated_7
+  - first:
+      213: 8867226235032938290
+    second: Conveyor-Animated_8
+  - first:
+      213: -8855891347395348252
+    second: Conveyor-Animated_9
+  - first:
+      213: 3149371092365537933
+    second: Conveyor-Animated_10
+  - first:
+      213: 6213872642675938737
+    second: Conveyor-Animated_11
+  - first:
+      213: -3641604149285252403
+    second: Conveyor-Animated_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Conveyor-Animated_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 429
+        width: 158
+        height: 84
+      alignment: 9
+      pivot: {x: 0.35776162, y: 0.76754653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57fd59eb7ab25841ab8327ad6783856
+      internalID: 1745244725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.3550138, y: 0.51856446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d402a1ea0c5b441acb261ff4235d78
+      internalID: 1585936330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_2
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.35587224, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67d17ce17692ea4f981086cb1444b7f
+      internalID: -1845376930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 112
+        width: 159
+        height: 122
+      alignment: 9
+      pivot: {x: 0.3637104, y: 0.49854442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0da42b420d03a74e9b4d364d6b96e65
+      internalID: 1154529493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_4
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 110
+        width: 157
+        height: 122
+      alignment: 9
+      pivot: {x: 0.35560483, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b95788f80354b44aedb2ff89909cbf
+      internalID: 1694193391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_5
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.35206005, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de46632d1b8a9d8468e74e28ec5ba283
+      internalID: 1407182088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_6
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 110
+        width: 160
+        height: 122
+      alignment: 9
+      pivot: {x: 0.36768645, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98777b33ac305384492ec168857c4af0
+      internalID: 1384122275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_7
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 109
+        width: 157
+        height: 122
+      alignment: 9
+      pivot: {x: 0.34793305, y: 0.5232249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905d0891a1cfa9f42a6fd87f52ba57a5
+      internalID: 1710045352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_8
+      rect:
+        serializedVersion: 2
+        x: 2318
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.3596825, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f577cc63344eca4ba7dc91c7776a1ff
+      internalID: -1801654729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_9
+      rect:
+        serializedVersion: 2
+        x: 2637
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.3596825, y: 0.5133528}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51463e92e145b244ab15b276f84e8433
+      internalID: 1456689962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_10
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.35587052, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b93cde977bb11342b7f64f4f71bf15e
+      internalID: -855723330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_11
+      rect:
+        serializedVersion: 2
+        x: 3278
+        y: 110
+        width: 158
+        height: 122
+      alignment: 9
+      pivot: {x: 0.35206005, y: 0.5182889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e48ea9ee5f5a484fb15053e5fc9ebac
+      internalID: 2014625590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conveyor-Animated_12
+      rect:
+        serializedVersion: 2
+        x: 3597
+        y: 110
+        width: 159
+        height: 122
+      alignment: 9
+      pivot: {x: 0.3637081, y: 0.5133528}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821b6cef55597a9499ef469029b9202d
+      internalID: -1841910862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a03a71cb7a5b3f642831488b1472a86f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Conveyor-Animated_0: 1745244725
+      Conveyor-Animated_1: 1585936330
+      Conveyor-Animated_10: -855723330
+      Conveyor-Animated_11: 2014625590
+      Conveyor-Animated_12: -1841910862
+      Conveyor-Animated_2: -1845376930
+      Conveyor-Animated_3: 1154529493
+      Conveyor-Animated_4: 1694193391
+      Conveyor-Animated_5: 1407182088
+      Conveyor-Animated_6: 1384122275
+      Conveyor-Animated_7: 1710045352
+      Conveyor-Animated_8: -1801654729
+      Conveyor-Animated_9: 1456689962
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

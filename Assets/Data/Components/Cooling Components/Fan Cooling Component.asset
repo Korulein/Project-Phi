@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Fan Cooling Component
   m_EditorClassIdentifier: 
   componentName: Basic Fan
+  categoryName: Fan
   componentSprite: {fileID: 6147777685625707044, guid: b86c542143de7e6499760a35d6080708, type: 3}
   componentDescription: The most basic cooling source on offer.
-  componentID: 10
+  componentID: 3
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 1
@@ -23,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.14
   requiresPowerInput: 1
   reliabilityRating: 30

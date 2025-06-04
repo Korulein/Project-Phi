@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Basic Computer Chip
   m_EditorClassIdentifier: 
   componentName: Basic Chip
+  categoryName: Computer Chip
   componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
   componentDescription: A cheap computer chip found in low end products and scrap
     yards.

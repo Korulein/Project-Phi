@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 public class ProductManager : MonoBehaviour
 {
-    // Product manager will handle final calculations using the components in the blueprint.
-    // It will calculate RAMS ratings and apply modifiers granted by component compatibility
-    // or incompatibility. These aforementioned checks will be done in the component manager.
     public static ProductManager instance { get; private set; }
+
     [Header("References")]
     private Dictionary<ComponentData, int> componentsInBlueprint;
     private int numberOfCellsOccupied;
@@ -16,7 +13,7 @@ public class ProductManager : MonoBehaviour
     [SerializeField] public List<ProductData> products = new List<ProductData>();
     private void Awake()
     {
-        // instance declaration
+        // Singleton setup
         if (instance == null)
         {
             instance = this;
@@ -24,80 +21,113 @@ public class ProductManager : MonoBehaviour
         }
         else
         {
+            if (gameObject.name == "Ratings")
+            {
+                return;
+            }
+
             Destroy(gameObject);
         }
-        // generate product IDs
+
+        // Generate product IDs
         for (int i = 0; i < products.Count; i++)
         {
             products[i].productID = i;
         }
 
     }
+    private ProductData GetProductData(int blueprintID)
+    {
+        // Gets product data by blueprint ID
+        switch (blueprintID)
+        {
+            case 1:
+                return products[0];
+        }
+        return null;
+    }
     public void CheckProductAssembly()
     {
-        // can be improved using hashsets, modify later for clarity and performance
-        (componentsInBlueprint, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
-        if (BlueprintManager.instance.blueprintInUse.blueprintID == 1)
+        // Blueprint references
+        if (BlueprintManager.instance.blueprintInUse.blueprintID == 0)
         {
-            ProductData coffeeMachine = products[0];
-            int amountOfMandatoryRegularComponents = 0;
-            int amountOfMandatorySpecialComponents = 0;
-            foreach (var componentInBlueprint in componentsInBlueprint)
+            Debug.Log("No mission has been started!");
+            return;
+        }
+        var blueprint = BlueprintManager.instance.blueprintInUse;
+        (componentsInBlueprint, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
+
+        // Product references
+        ProductData product = GetProductData(blueprint.blueprintID);
+        int matchedRegularComponents = 0;
+        int matchedSpecialComponents = 0;
+
+        // HashSet declaration
+        var regularSet = new HashSet<ComponentType>(product.mandatoryRegularComponents.Select(c => c.componentType));
+        var specialSet = new HashSet<ComponentType>(product.mandatorySpecialComponents.Select(c => c.componentType));
+
+        // Counts matched component types
+        // Will also need to calculate power wattage, heat output and other factors in the future
+        foreach (var component in componentsInBlueprint)
+        {
+            ComponentType componentType = component.Key.componentType;
+            if (regularSet.Contains(componentType))
             {
-                ComponentData component = componentInBlueprint.Key;
-                foreach (var componentToCheck in coffeeMachine.mandatoryRegularComponents)
-                {
-                    if (component.componentType == componentToCheck.componentType)
-                    {
-                        amountOfMandatoryRegularComponents++;
-                        break;
-                    }
-                }
+                matchedRegularComponents++;
             }
-            if (amountOfMandatoryRegularComponents == coffeeMachine.mandatoryRegularComponents.Count() && coffeeMachine.mandatoryRegularComponents.Count() != 0)
-                coffeeMachine.hasRegularComponents = true;
-            foreach (var componentInBlueprint in componentsInBlueprint)
+            else if (specialSet.Contains(componentType))
             {
-                foreach (var componentToCheck in coffeeMachine.mandatorySpecialComponents)
-                {
-                    ComponentData component = componentInBlueprint.Key;
-                    if (component.componentType == componentToCheck.componentType)
-                    {
-                        amountOfMandatorySpecialComponents++;
-                        break;
-                    }
-                }
-            }
-            if (amountOfMandatorySpecialComponents == coffeeMachine.mandatorySpecialComponents.Count())
-                coffeeMachine.hasSpecialComponents = true;
-            if (coffeeMachine.hasSpecialComponents && coffeeMachine.hasRegularComponents)
-            {
-                Debug.Log("Assembling product...");
-                AssembleProduct();
-                AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.6f);
-                coffeeMachine.hasRegularComponents = false;
-                coffeeMachine.hasSpecialComponents = false;
-                DeskUIManager.instance.DisplayPopUp();
-                BlueprintManager.instance.ClearBlueprint();
-            }
-            else
-            {
-                Debug.Log("Missing required components!");
-                coffeeMachine.hasRegularComponents = false;
-                coffeeMachine.hasSpecialComponents = false;
+                matchedSpecialComponents++;
             }
         }
+
+        // Checks if the amount of components in the blueprint matches the required amount
+        if (matchedRegularComponents >= product.mandatoryRegularComponents.Count)
+            product.hasRegularComponents = true;
+        if (matchedSpecialComponents >= product.mandatorySpecialComponents.Count)
+            product.hasSpecialComponents = true;
+
+        if (product.hasSpecialComponents && product.hasRegularComponents)
+        {
+            AssembleProduct();
+            AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
+            DeskUIManager.instance.DisplayPopUp();
+            BlueprintManager.instance.ClearBlueprint();
+
+            BlueprintManager.ClearActiveMission();
+            if (BlueprintManager.instance.activeOrderScreenUI != null)
+            {
+                BlueprintManager.instance.activeOrderScreenUI.EndMission();
+            }
+        }
+        else
+        {
+            Debug.Log("Missing required components!");
+        }
+
+        // Reset flags
+        product.hasRegularComponents = false;
+        product.hasSpecialComponents = false;
+
     }
     private void AssembleProduct()
     {
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
-        Debug.Log($"RAMS ratings: {reliabilityRating}, {availabilityRating}, {maintainabilityRating}, {safetyRating}. ");
+
+        string ramsSummary = $"RAMS Ratings:\n" +
+                             $"- Reliability: {reliabilityRating}\n" +
+                             $"- Availability: {availabilityRating}\n" +
+                             $"- Maintainability: {maintainabilityRating}\n" +
+                             $"- Safety: {safetyRating}";
+        DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {
-        float reliabilityProduct = 1, availabilityProduct = 1, maintainabilityProduct = 1, safetyProduct = 1;
-        SetModifiers(ref reliabilityProduct, ref availabilityProduct, ref maintainabilityProduct, ref safetyProduct);
+        float reliabilityModifier = 1, availabilityModifier = 1, maintainabilityModifier = 1, safetyModifier = 1;
+        SetModifiers(ref reliabilityModifier, ref availabilityModifier, ref maintainabilityModifier, ref safetyModifier);
+
+        // Sums up the ratings of each product's rating multiplied by the amount of cells it occupies in the blueprint
         foreach (var componentInBlueprint in componentsInBlueprint)
         {
             ComponentData component = componentInBlueprint.Key;
@@ -107,14 +137,18 @@ public class ProductManager : MonoBehaviour
             maintainabilityRating += component.maintainabilityRating * cellsOccupied;
             safetyRating += component.safetyRating * cellsOccupied;
         }
-        reliabilityRating = (reliabilityRating * reliabilityProduct) / numberOfCellsOccupied;
-        availabilityRating = (availabilityRating * availabilityProduct) / numberOfCellsOccupied;
-        maintainabilityRating = (maintainabilityRating * maintainabilityProduct) / numberOfCellsOccupied;
-        safetyRating = (safetyRating * safetyProduct) / numberOfCellsOccupied;
+
+        // Multiplies the final sum by its modifier and divides the product's final rating by the total amount of cells occupied in the blueprint
+        reliabilityRating = (reliabilityRating * reliabilityModifier) / numberOfCellsOccupied;
+        availabilityRating = (availabilityRating * availabilityModifier) / numberOfCellsOccupied;
+        maintainabilityRating = (maintainabilityRating * maintainabilityModifier) / numberOfCellsOccupied;
+        safetyRating = (safetyRating * safetyModifier) / numberOfCellsOccupied;
+
         return (reliabilityRating, availabilityRating, maintainabilityRating, safetyRating);
     }
     private void SetModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
     {
+        // Calculates modifiers based on the structural components placed in the blueprint
         foreach (var componentInBlueprint in componentsInBlueprint)
         {
             ComponentData component = componentInBlueprint.Key;
@@ -128,14 +162,10 @@ public class ProductManager : MonoBehaviour
             }
         }
     }
-    public ProductData GetProductByID(int id)
+    public void PlayButtonSFX()
     {
-        return products.FirstOrDefault(product => product.productID == id);
-    }
 
-    public void PlayButtonSFX() {
-
-        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform,1f);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
     }
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Basic Temp Sensor
   m_EditorClassIdentifier: 
   componentName: 'Basic Temp Sensor '
+  categoryName: Sensor
   componentSprite: {fileID: 5736537370511049626, guid: 7cfe233b978895f40b3f837ef57d9b65, type: 3}
   componentDescription: A basic temperature sensor capable of measuring from -20C
     to 110C.
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.1
   requiresPowerInput: 1
   reliabilityRating: 60

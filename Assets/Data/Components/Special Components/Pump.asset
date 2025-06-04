@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pump
   m_EditorClassIdentifier: 
   componentName: Coffee pump
+  categoryName: Pump
   componentSprite: {fileID: 4262572078881353966, guid: 7e3d50591db294b49a8b54c585ddcf8c, type: 3}
   componentDescription: A basic pump used to push liquid contents through a machine.
   componentID: 998

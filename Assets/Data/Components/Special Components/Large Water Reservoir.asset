@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Large Water Reservoir
   m_EditorClassIdentifier: 
   componentName: Large Water Reservoir
+  categoryName: Water Reservoir
   componentSprite: {fileID: -7416111074985556640, guid: 6d62021f3154eba47bb828e3dfb8242f, type: 3}
   componentDescription: A large water reservior to allow for more beverages to be
     dispensed at once.

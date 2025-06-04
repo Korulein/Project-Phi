@@ -20,6 +20,22 @@ public class BlueprintManager : MonoBehaviour
     private BlueprintCellData[,] grid;
     public Vector2Int lastPickUpOrigin;
 
+    public Missions activeMission;
+    public OrderScreenUI activeOrderScreenUI;
+    public bool isMissionActive = false;
+
+    public BlueprintData activeBlueprintData;
+    public int activeBlueprintID;
+    public static bool HasActiveMission()
+    {
+        return BlueprintManager.instance.activeMission != null &&
+               !string.IsNullOrEmpty(BlueprintManager.instance.activeMission.missionTitle);
+    }
+    public static void ClearActiveMission()
+    {
+        BlueprintManager.instance.activeMission = null;
+    }
+
     [Header("Debug")]
     public bool callMethod = false;
     [SerializeField] public int blueprintID;
@@ -29,21 +45,38 @@ public class BlueprintManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);  
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
+
         for (int i = 0; i < blueprints.Count; i++)
         {
             blueprints[i].blueprintID = i;
         }
+
+        LoadBlueprint(0);
     }
+
+    public void ActivateBlueprint(int blueprintID)
+    {
+        if (blueprintID >= 0 && blueprintID <= blueprints.Count)
+        {
+            LoadBlueprint(blueprintID);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid blueprintID: " + blueprintID);
+        }
+    }
+
     private void Start()
     {
         //Loads a blueprint, will be changed in development
-        LoadBlueprint(blueprintID);
+        //LoadBlueprint(blueprintID);
     }
     private void Update()
     {
@@ -54,8 +87,13 @@ public class BlueprintManager : MonoBehaviour
             ShowOccupiedCells();
         }
     }
+
     private void LoadBlueprint(int blueprintID)
     {
+        if (isMissionActive == false)
+        {
+            DeskUIManager.instance.UpdateEmailButtonVisual();
+        }
         // Clears grid when loading
         foreach (Transform child in DeskUIManager.instance.blueprintGridContainer)
         {
@@ -131,6 +169,7 @@ public class BlueprintManager : MonoBehaviour
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
     }
+
     private Vector2Int FindComponentOrigin(UIComponentItem component, int width, int height)
     {
         for (int x = 0; x <= blueprintInUse.gridWidth - width; x++)
@@ -164,6 +203,41 @@ public class BlueprintManager : MonoBehaviour
 
         return new Vector2(centerX, centerY);
     }
+
+    public int CountComponentsWithTag(string componentTag)
+    {
+        int count = 0;
+
+        // Iterate over all placed components
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public bool CheckNumericRequirement(string componentTag, int requiredValue)
+    {
+        int currentValue = 0;
+
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                currentValue += components[component];
+            }
+        }
+
+        return currentValue >= requiredValue;
+    }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         // Converts mouse position to grid position
@@ -190,34 +264,60 @@ public class BlueprintManager : MonoBehaviour
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
-        // IMPORTANT
-        // MAKE SURE PREFAB MIN, MAX ANCHORS ARE SET TO [0, 1] AND PIVOT to [0.5, 0.5];
-
-        ComponentData component = componentItem.GetComponentData();
-        RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
-        componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
-
-        // Sets the grid cell values to be occupied
-        for (int i = 0; i < component.playTimeWidth; i++)
+        if (componentItem.originBlueprintID != activeBlueprintID)
         {
-            for (int j = 0; j < component.playTimeHeight; j++)
-            {
-                grid[posX + i, posY + j].occupiedBy = componentItem;
-                grid[posX + i, posY + j].isOccupied = true;
-            }
+            return;
         }
 
-        // Fixes position to cell center
-        Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
-        componentTransform.anchoredPosition = cellCenter;
-
-       /* string compName = component.categoryName;
-        if (!RequirementTextUI.instance.playerComponents.Contains(compName))
+        if (activeMission.missionTitle != null)
         {
-            RequirementTextUI.instance.playerComponents.Add(compName);
-            RequirementTextUI.instance.RefreshRequirements();
-        } */
+            ComponentData component = componentItem.GetComponentData();
+            RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
+            componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
+
+            // Grid update
+            for (int i = 0; i < component.playTimeWidth; i++)
+            {
+                for (int j = 0; j < component.playTimeHeight; j++)
+                {
+                    grid[posX + i, posY + j].occupiedBy = componentItem;
+                    grid[posX + i, posY + j].isOccupied = true;
+                }
+            }
+
+            Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
+            componentTransform.anchoredPosition = cellCenter;
+
+            string compName = component.categoryName;
+            activeOrderScreenUI.NotifyComponentPlaced(compName);
+
+            float totalHeat = GetTotalProducedHeat();
+
+            foreach (var reqUI in activeOrderScreenUI.requirementUIs)
+            {
+                if (!reqUI.HasData()) continue;
+
+                bool isMet = reqUI.Evaluate(totalHeat);
+                reqUI.SetColor(isMet ? Color.green : Color.red);
+            }
+        }
     }
+    public float GetTotalProducedHeat()
+    {
+        float totalHeat = 0f;
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            HeatingComponent heatingComp = component as HeatingComponent;
+            if (heatingComp != null)
+            {
+                totalHeat += heatingComp.producedHeat;
+            }
+        }
+        return totalHeat;
+    }
+
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
@@ -241,6 +341,16 @@ public class BlueprintManager : MonoBehaviour
             }
         }
         lastPickUpOrigin = origin;
+
+        if (activeOrderScreenUI != null && activeMission != null)
+        {
+            activeOrderScreenUI.CheckRequirements();
+        }
+        else
+        {
+            Debug.LogWarning("No active mission or OrderScreenUI set. Requirements not updated.");
+        }
+
         return componentToReturn;
     }
     public void ClearBlueprint()

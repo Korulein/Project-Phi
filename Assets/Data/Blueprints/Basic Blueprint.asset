@@ -19,182 +19,218 @@ MonoBehaviour:
   gridHeight: 6
   allCells:
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   - occupiedBy: {fileID: 0}
-    isUseable: 1
+    isOccupied: 0
+    isUseable: 0
     type: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0

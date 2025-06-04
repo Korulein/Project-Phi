@@ -3,31 +3,42 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    // Based on User feedback, point and click dragging should be changed to regular dragging, where the player has to hold down left click
+
     [Header("UI Element Setup")]
+    private ComponentData component;
     private Image iconImage;
     private CanvasGroup canvasGroup;
     private RectTransform rectTransform;
     private Transform originalParent;
-    private GameObject placeholderCopy;
-    private ComponentData component;
+    private Vector2 originalSizeDelta;
+    public int originBlueprintID;
+
+    [Header("UI Element Position & Rotation")]
     private Vector2 startPosition;
-    private bool isPickedUp = false;
-    public bool isRotated = false;
+    private Vector2Int gridPos;
     private ComponentLocation currentLocation;
     public ComponentRotation currentRotation;
     public ComponentRotation originalRotation;
-    public Vector2 originalSizeDelta;
-    private Vector2Int gridPos;
+
+    [Header("Placeholder Setup")]
     [SerializeField] private float ghostAlpha = 0.5f;
+    private GameObject placeholderCopy;
+
+    [Header("Flags")]
+    private bool isPickedUp = false;
+    public bool isRotated = false;
 
     [Header("Tooltip setup")]
     private string componentName;
     private LTDescr delay;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         iconImage = GetComponent<Image>();
+        originBlueprintID = BlueprintManager.instance.activeBlueprintID;
     }
     private void Update()
     {
@@ -110,6 +121,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         // Creates blurred placeholder at initial position
         placeholderCopy = Instantiate(gameObject, startPosition, Quaternion.identity, originalParent);
+        placeholderCopy.tag = "Placeholder";
         CanvasGroup copyCanvasGroup = placeholderCopy.GetComponent<CanvasGroup>();
 
         copyCanvasGroup.alpha = ghostAlpha;
@@ -135,6 +147,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 PlayMaterialSoundDrop();
                 isPickedUp = false;
                 canvasGroup.blocksRaycasts = false;
+                InventoryManager.instance.RemoveComponentFromInventory(component);
             }
             else
             {
@@ -174,6 +187,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             Rotate();
         transform.SetParent(originalParent);
         rectTransform.position = startPosition;
+        bool wasOnBlueprint = (currentLocation == ComponentLocation.Blueprint);
         currentLocation = ComponentLocation.Inventory;
 
         isPickedUp = false;
@@ -181,6 +195,11 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         rectTransform.sizeDelta = originalSizeDelta;
         Destroy(placeholderCopy);
+
+        if (wasOnBlueprint && BlueprintManager.instance.activeOrderScreenUI != null && BlueprintManager.instance.activeMission != null)
+        {
+            BlueprintManager.instance.activeOrderScreenUI.CheckRequirements();
+        }
     }
     public void ReturnToInventory()
     {
@@ -190,6 +209,8 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         RectTransform rt = GetComponent<RectTransform>();
         rt.SetParent(DeskUIManager.instance.inventoryContainer, false);
+
+        InventoryManager.instance.AddComponentToInventory(component);
 
         ReturnToStartPosition();
     }
@@ -249,7 +270,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         return true;
     }
-    private enum ComponentLocation
+    public enum ComponentLocation
     {
         Inventory,
         Blueprint,
@@ -260,53 +281,43 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         Rotated,
         NotRotated,
     }
-
     public void PlayMaterialSoundPickup()
     {
-
-        AudioManager audioManager = DeskUIManager.instance.audioManager;
+        AudioManager audioManager = AudioManager.instance;
 
         if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
             || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
         {
             audioManager.PlayAudioClip(audioManager.steelPickup, transform, 0.5f);
-
         }
         if (component.materialType == MaterialTypes.Plastic || component.materialType == MaterialTypes.Silicone
             || component.materialType == MaterialTypes.Rubber || component.materialType == MaterialTypes.Lithium)
         {
             audioManager.PlayAudioClip(audioManager.plasticPickup, transform, 1f);
-
         }
 
         if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
         {
             audioManager.PlayAudioClip(audioManager.aerogelPickup, transform, 1f);
-
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
         {
-            audioManager.PlayAudioClip(audioManager.carbonfiberPickup, transform, 1f);
-
+            audioManager.PlayAudioClip(audioManager.carbonFiberPickup, transform, 1f);
         }
         if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy
             || component.materialType == MaterialTypes.Nickel_Chromium)
         {
             audioManager.PlayAudioClip(audioManager.leadPickup, transform, 0.6f);
-
         }
         if (component.materialType == MaterialTypes.Ceramic)
         {
             audioManager.PlayAudioClip(audioManager.ceramicPickup, transform, 1f);
 
         }
-
     }
-
     public void PlayMaterialSoundDrop()
     {
-
-        AudioManager audioManager = DeskUIManager.instance.audioManager;
+        AudioManager audioManager = AudioManager.instance;
 
         if (component.materialType == MaterialTypes.Steel || component.materialType == MaterialTypes.Copper
             || component.materialType == MaterialTypes.Aluminum || component.materialType == MaterialTypes.Brass)
@@ -328,7 +339,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
         {
-            audioManager.PlayAudioClip(audioManager.carbonfiberDrop, transform, 1f);
+            audioManager.PlayAudioClip(audioManager.carbonFiberDrop, transform, 1f);
 
         }
         if (component.materialType == MaterialTypes.Lead || component.materialType == MaterialTypes.Lead_Titanium_Alloy

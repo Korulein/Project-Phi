@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Capilliary Cup
   m_EditorClassIdentifier: 
   componentName: Capilliary Cup
+  categoryName: Cup
   componentSprite: {fileID: -4338928236674095663, guid: fa338362c210c1b4886a0c5e96107c16, type: 3}
   componentDescription: A special cup, perfect for 0 G applications.
   componentID: 1000
@@ -23,8 +24,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.3
   requiresPowerInput: 0
   reliabilityRating: 70

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CPU
   m_EditorClassIdentifier: 
   componentName: CPU
+  categoryName: Computer Chip
   componentSprite: {fileID: -185147303114904377, guid: 3a9ffa4d52bf84048ad903ee6916116d, type: 3}
   componentDescription: An extremely fast CPU using 15nm lithography mainly used
     in desktop computers.
@@ -24,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.4
   requiresPowerInput: 1
   reliabilityRating: 80
