@@ -21,9 +21,9 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
-  slotSize: 1
+  slotSize: 4
   width: 1
-  height: 1
+  height: 2
   playTimeWidth: 1
   playTimeHeight: 1
   weight: 4

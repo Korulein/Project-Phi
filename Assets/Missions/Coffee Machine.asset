@@ -17,11 +17,6 @@ MonoBehaviour:
   requirementsIntro: 'In order to build the Coffee Machine, you will require the
     following components:'
   requirements:
-  - name: Pipe
-    type: 0
-    numericValue: 0
-    componentTag: Pipe
-    amount: 1
   - name: Sensor
     type: 0
     numericValue: 0
