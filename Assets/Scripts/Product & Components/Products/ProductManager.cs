@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
+
 public class ProductManager : MonoBehaviour
 {
     public static ProductManager instance { get; private set; }
@@ -8,6 +10,9 @@ public class ProductManager : MonoBehaviour
     [Header("References")]
     private Dictionary<ComponentData, int> componentsInBlueprint;
     private int numberOfCellsOccupied;
+
+    //PlayableDirector for Animation Timeline
+    public PlayableDirector director;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
@@ -89,6 +94,7 @@ public class ProductManager : MonoBehaviour
 
         if (product.hasSpecialComponents && product.hasRegularComponents)
         {
+            PlayTimeline();
             AssembleProduct();
             AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
             DeskUIManager.instance.DisplayPopUp();
@@ -167,6 +173,12 @@ public class ProductManager : MonoBehaviour
 
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
+    }
+
+    public void PlayTimeline()
+    {
+        // Plays the timeline animation for product assembly
+        director.Play();
     }
 
 }
