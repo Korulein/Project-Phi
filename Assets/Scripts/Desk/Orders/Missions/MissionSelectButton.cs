@@ -1,5 +1,4 @@
 using UnityEngine;
-using static MissionManager;
 
 public class MissionSelectButton : MonoBehaviour
 {
@@ -22,6 +21,8 @@ public class MissionSelectButton : MonoBehaviour
         {
             return;
         }
+
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
         targetOrderScreenUI.SetMission(mission);
         targetOrderScreenUI.gameObject.SetActive(true);

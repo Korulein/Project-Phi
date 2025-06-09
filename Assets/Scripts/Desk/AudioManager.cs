@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -7,9 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioPrefab;
     public AudioSource bgmSource;
 
-    [Header("Sound FX Clips")]
-    public AudioClip cameraFlash;
-    public AudioClip buttonPress1;
+    [Header("Component SFX Clips")]
     public AudioClip steelPickup;
     public AudioClip steelDrop;
     public AudioClip plasticPickup;
@@ -22,11 +21,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip leadDrop;
     public AudioClip ceramicPickup;
     public AudioClip ceramicDrop;
+
+    [Header("UI SFX Clips")]
+    public AudioClip buttonPress1;
     public AudioClip completeConstruction;
+    public AudioClip orderComponent;
+    public AudioClip errorSound;
 
     [Header("BGM Settings")]
     [SerializeField] private AudioClip defaultBGM;
     [SerializeField][Range(0, 1)] private float bgmVolume = 1f;
+
+    [Header("Button Press Cooldown")]
+    public bool canPress = true;
+    [SerializeField] private float buttonCooldown = 0.4f;
 
     private void Awake()
     {
@@ -50,6 +58,11 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayAudioClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
+        if (!canPress)
+            return;
+
+        StartCoroutine(OrderComponentCooldown());
+
         AudioSource audioSource = Instantiate(audioPrefab, spawnTransform.position, Quaternion.identity);
         audioSource.clip = audioClip;
         audioSource.volume = volume;
@@ -85,5 +98,11 @@ public class AudioManager : MonoBehaviour
         {
             PlayBGM(newBGM);
         }
+    }
+    public IEnumerator OrderComponentCooldown()
+    {
+        canPress = false;
+        yield return new WaitForSeconds(buttonCooldown);
+        canPress = true;
     }
 }

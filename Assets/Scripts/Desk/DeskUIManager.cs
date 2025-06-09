@@ -97,13 +97,14 @@ public class DeskUIManager : MonoBehaviour
         }
         orderScreens[orderIndex].SetActive(true);
     }
-    public void DisplayPopUp()
+    public void DisplayProductPopup()
     {
         blurLayer.SetActive(true);
     }
-    public void ClosePopUp()
+    public void CloseProductPopup()
     {
         blurLayer.SetActive(false);
+        ProductManager.instance.PlayTimeline();
         RAMSRatings.text = "";
     }
     public void UpdateEmailButtonVisual()

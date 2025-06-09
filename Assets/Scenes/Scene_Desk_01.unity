@@ -4639,8 +4639,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioPrefab: {fileID: 2430797068596328180, guid: e5a62c7d9edb03842b945b2d0d8f8f60, type: 3}
   bgmSource: {fileID: 0}
-  cameraFlash: {fileID: 8300000, guid: d1e2ffcbaefeedb4192360b08288ce19, type: 3}
-  buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
   steelPickup: {fileID: 8300000, guid: f08539b70eb8e1c4aaf759b381b9f104, type: 3}
   steelDrop: {fileID: 8300000, guid: e100a9170a3a5fd47bef9b39ca98faa1, type: 3}
   plasticPickup: {fileID: 8300000, guid: d9d3b5a7a0ca3044ab96ec25cff3ff30, type: 3}
@@ -4653,9 +4651,14 @@ MonoBehaviour:
   leadDrop: {fileID: 8300000, guid: da7ae277166296b45858a75c3094d1d6, type: 3}
   ceramicPickup: {fileID: 8300000, guid: 29c1b409a9b096c43993dfae24905312, type: 3}
   ceramicDrop: {fileID: 8300000, guid: e4e94007a7303694c8a5441f81f65965, type: 3}
+  buttonPress1: {fileID: 8300000, guid: cc3a014ca457e0f42b2927dac8f09b60, type: 3}
   completeConstruction: {fileID: 8300000, guid: d79c4499a2db2e344816e094d7a68c43, type: 3}
+  orderComponent: {fileID: 8300000, guid: 1d6f52199905e454abaf1a736b74666d, type: 3}
+  errorSound: {fileID: 8300000, guid: 82fdcbf33f75b92469f02840cdb002bb, type: 3}
   defaultBGM: {fileID: 8300000, guid: e3b0a972cd53f2e4c9fd11608ae39d04, type: 3}
   bgmVolume: 1
+  canPress: 1
+  buttonCooldown: 0.3
 --- !u!4 &211895110
 Transform:
   m_ObjectHideFlags: 0
@@ -7045,7 +7048,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1142194640}
         m_TargetAssemblyTypeName: DeskUIManager, Assembly-CSharp
-        m_MethodName: ClosePopUp
+        m_MethodName: CloseProductPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -48179,18 +48182,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1767610855}
         m_TargetAssemblyTypeName: ProductManager, Assembly-CSharp
         m_MethodName: CheckProductAssembly
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AnimationSequenceController, Assembly-CSharp
-        m_MethodName: PlayTimeline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

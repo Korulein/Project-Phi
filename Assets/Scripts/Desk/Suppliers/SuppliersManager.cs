@@ -25,5 +25,6 @@ public class SuppliersManager : MonoBehaviour
                 supplierScreens[i].SetActive(false);
         }
         supplierScreens[supplierIndex].SetActive(true);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
     }
 }

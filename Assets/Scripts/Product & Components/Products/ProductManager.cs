@@ -94,10 +94,9 @@ public class ProductManager : MonoBehaviour
 
         if (product.hasSpecialComponents && product.hasRegularComponents)
         {
-            PlayTimeline();
             AssembleProduct();
             AudioManager.instance.PlayAudioClip(AudioManager.instance.completeConstruction, transform, 0.9f);
-            DeskUIManager.instance.DisplayPopUp();
+            DeskUIManager.instance.DisplayProductPopup();
             BlueprintManager.instance.ClearBlueprint();
 
             BlueprintManager.ClearActiveMission();
