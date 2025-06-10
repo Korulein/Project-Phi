@@ -9,29 +9,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6987811dddc50a41a2bc911942fc2b2, type: 3}
-  m_Name: Liquid Nozzle
+  m_Script: {fileID: 11500000, guid: 9168d3bd7d04bc0489da051d65bde9b1, type: 3}
+  m_Name: Coffee Machine Pump
   m_EditorClassIdentifier: 
-  componentName: Liquid Nozzle
-  componentSprite: {fileID: 7641279864279244181, guid: 6012357f85383f84aa6289127edef23d, type: 3}
-  componentDescription: A specialised nozzle to dispense cream and other additives
-    more evenly.
-  componentID: 994
+  componentName: Coffee pump
+  categoryName: Pump
+  componentSprite: {fileID: 4262572078881353966, guid: 7e3d50591db294b49a8b54c585ddcf8c, type: 3}
+  componentDescription: A basic pump used to push liquid contents through a machine.
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
   slotSize: 4
-  width: 1
-  height: 2
+  width: 2
+  height: 1
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 0.7
-  requiresPowerInput: 0
-  reliabilityRating: 50
-  availabilityRating: 35
-  safetyRating: 65
-  maintainabilityRating: 55
+  weight: 1.1
+  requiresPowerInput: 1
+  reliabilityRating: 65
+  availabilityRating: 50
+  safetyRating: 50
+  maintainabilityRating: 45
+  requiredPower: 12
+  hasModifiers: 0
   reliabilityModifier: 0
   availabilityModifier: 0
   maintainabilityModifier: 0

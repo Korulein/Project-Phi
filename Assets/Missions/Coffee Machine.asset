@@ -52,4 +52,9 @@ MonoBehaviour:
     numericValue: 0
     componentTag: Pump
     amount: 1
+  - name: Liquid Nozzle
+    type: 0
+    numericValue: 0
+    componentTag: Liquid Nozzle
+    amount: 1
   resultSprite: {fileID: 21300000, guid: 6753737ea1ccf464d98aed05b8f8c7d8, type: 3}

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//
+// DEPRECATED
+//
 [CreateAssetMenu(fileName = "New Placeholder Component", menuName = "Blueprint/Component/Placeholder Component")]
 public class PlaceholderComponent : ComponentData
 {

@@ -20,9 +20,10 @@ MonoBehaviour:
     brews morale as efficiently as it brews espresso.
   productID: 0
   mandatorySpecialComponents:
-  - {fileID: 11400000, guid: db585b5080e6f8649aa5ace7e426ca5e, type: 2}
-  - {fileID: 11400000, guid: 8b7cf40800c755e43b55381b8442cd34, type: 2}
-  - {fileID: 11400000, guid: 8c629f5dba2015f458bed6dbfd0d3e79, type: 2}
+  - {fileID: 11400000, guid: a3e5011b718b686419917f869342e48d, type: 2}
+  - {fileID: 11400000, guid: d8d0ae6d9b2dc5e478d10d18b4875224, type: 2}
+  - {fileID: 11400000, guid: 35a6d1f58bfc1204b9efc7545e4104bb, type: 2}
+  - {fileID: 11400000, guid: 2d5541f1173d4e84baa3407483a04f65, type: 2}
   mandatoryRegularComponents:
   - {fileID: 11400000, guid: 0c56555242fef434580b3e8792beb15f, type: 2}
   - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}

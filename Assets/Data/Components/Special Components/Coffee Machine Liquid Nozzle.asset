@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20700148c717644ab2f61b1b81a3b0a, type: 3}
-  m_Name: Coffee cartridge press
+  m_Script: {fileID: 11500000, guid: 9168d3bd7d04bc0489da051d65bde9b1, type: 3}
+  m_Name: Coffee Machine Liquid Nozzle
   m_EditorClassIdentifier: 
-  componentName: Coffee cartridge press
-  categoryName: Cartridge Press
-  componentSprite: {fileID: 5262810941025598332, guid: e45037ca91d14294ba1961321c9784b6, type: 3}
-  componentDescription: A press to extract the contents of a coffee capsule.
-  componentID: 999
+  componentName: Liquid Nozzle
+  categoryName: Liquid Nozzle
+  componentSprite: {fileID: 7641279864279244181, guid: 6012357f85383f84aa6289127edef23d, type: 3}
+  componentDescription: A specialised nozzle to dispense cream and other additives
+    more evenly.
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
@@ -24,13 +25,17 @@ MonoBehaviour:
   slotSize: 4
   width: 1
   height: 2
-  playTimeWidth: 1
-  playTimeHeight: 1
+  playTimeWidth: 0
+  playTimeHeight: 0
   weight: 0.7
   requiresPowerInput: 1
   reliabilityRating: 70
   availabilityRating: 40
-  safetyRating: 50
-  maintainabilityRating: 65
-  requiredPower: 7
-  operationalTemperature: 373
+  safetyRating: 65
+  maintainabilityRating: 50
+  requiredPower: 10
+  hasModifiers: 0
+  reliabilityModifier: 0
+  availabilityModifier: 0
+  maintainabilityModifier: 0
+  safetyModifier: 0

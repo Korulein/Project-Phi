@@ -10,30 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9168d3bd7d04bc0489da051d65bde9b1, type: 3}
-  m_Name: Large Water Reservoir
+  m_Name: Coffee Machine Cartridge Press
   m_EditorClassIdentifier: 
-  componentName: Large Water Reservoir
-  categoryName: Water Reservoir
-  componentSprite: {fileID: -7416111074985556640, guid: 6d62021f3154eba47bb828e3dfb8242f, type: 3}
-  componentDescription: A large water reservior to allow for more beverages to be
-    dispensed at once.
+  componentName: Coffee Cartridge Press
+  categoryName: Cartridge Press
+  componentSprite: {fileID: 5262810941025598332, guid: e45037ca91d14294ba1961321c9784b6, type: 3}
+  componentDescription: A press to extract the contents of a coffee capsule.
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
-  slotSize: 2
-  width: 2
+  slotSize: 4
+  width: 1
   height: 2
   playTimeWidth: 0
   playTimeHeight: 0
-  weight: 8
-  requiresPowerInput: 0
-  reliabilityRating: 80
-  availabilityRating: 50
-  safetyRating: 60
-  maintainabilityRating: 55
-  requiredPower: 0
+  weight: 0.7
+  requiresPowerInput: 1
+  reliabilityRating: 70
+  availabilityRating: 40
+  safetyRating: 50
+  maintainabilityRating: 65
+  requiredPower: 7
   hasModifiers: 0
   reliabilityModifier: 0
   availabilityModifier: 0
