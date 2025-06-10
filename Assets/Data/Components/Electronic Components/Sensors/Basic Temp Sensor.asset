@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: 5736537370511049626, guid: 7cfe233b978895f40b3f837ef57d9b65, type: 3}
   componentDescription: A basic temperature sensor capable of measuring from -20C
     to 110C.
-  componentID: 30
+  componentID: 26
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
@@ -35,5 +35,5 @@ MonoBehaviour:
   maintainabilityRating: 60
   operationalTemperature: 100
   operationalCPUSlots: 0
-  requiredPower: 2
+  requiredPower: 15
   producedHeat: 1

@@ -34,6 +34,6 @@ MonoBehaviour:
   safetyRating: 60
   maintainabilityRating: 45
   operationalTemperature: 363
-  operationalCPUSlots: 5
-  requiredPower: 30
+  operationalCPUSlots: 3
+  requiredPower: 50
   producedHeat: 20

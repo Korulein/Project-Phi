@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
   componentDescription: A cheap computer chip found in low end products and scrap
     yards.
-  componentID: 0
+  componentID: 29
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
@@ -25,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.15
   requiresPowerInput: 1
   reliabilityRating: 25
@@ -34,6 +34,6 @@ MonoBehaviour:
   safetyRating: 40
   maintainabilityRating: 50
   operationalTemperature: 353
-  operationalCPUSlots: 2
-  requiredPower: 10
+  operationalCPUSlots: 1
+  requiredPower: 20
   producedHeat: 10

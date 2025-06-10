@@ -21,8 +21,10 @@ public class ProductManager : MonoBehaviour
     [SerializeField] private float heatOutput = 0;
     [SerializeField] private float coolingOutput = 0;
     [SerializeField] private float productHeatThreshold = 0;
+    [SerializeField] private int electronicComponentsInProduct = 0;
     [SerializeField] private int operationalCPUSlots = 0;
-    [SerializeField] private float powerWattage = 0;
+    [SerializeField] private float requiredPowerWattage = 0;
+    [SerializeField] private float powerInProduct = 0;
     private void Awake()
     {
         // Singleton setup
@@ -98,28 +100,32 @@ public class ProductManager : MonoBehaviour
                 matchedSpecialComponents++;
             }
 
-            // Heating output
+            // Heating output && Power
             if (component.Key.componentType == ComponentType.Heating)
             {
                 HeatingComponent heatingComponent = component.Key as HeatingComponent;
                 heatOutput += heatingComponent.producedHeat;
+                requiredPowerWattage += heatingComponent.requiredPower;
             }
             else if (component.Key.componentType == ComponentType.Chip || component.Key.componentType == ComponentType.Sensor)
             {
                 ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
                 heatOutput += electronicComponent.producedHeat;
+                requiredPowerWattage += electronicComponent.requiredPower;
             }
             else if (component.Key.componentType == ComponentType.Power)
             {
                 PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
                 heatOutput += powerComponent.producedHeat;
+                powerInProduct += powerComponent.maxPowerOutput;
             }
 
-            // Cooling output
+            // Cooling output && Power
             if (component.Key.componentType == ComponentType.Cooling)
             {
                 CoolingComponent coolingComponent = component.Key as CoolingComponent;
                 coolingOutput += coolingComponent.reducedHeat;
+                requiredPowerWattage += coolingComponent.requiredPower;
             }
 
             // CPU slots
@@ -128,6 +134,10 @@ public class ProductManager : MonoBehaviour
                 ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
                 operationalCPUSlots += electronicComponent.operationalCPUSlots;
             }
+            else if (component.Key.componentType == ComponentType.Sensor)
+            {
+                electronicComponentsInProduct++;
+            }
         }
 
         // Checks if the product is below the heat threshold
@@ -135,6 +145,20 @@ public class ProductManager : MonoBehaviour
         if (finalHeat > product.maxSustainedHeat)
         {
             Debug.Log("Product is past the heat threshold!");
+            return;
+        }
+
+        float finalPower = powerInProduct - requiredPowerWattage;
+        if (finalPower < 0)
+        {
+            Debug.Log("Product does not have enough power!");
+            return;
+        }
+
+        // Checks electronic component slot availability
+        if (electronicComponentsInProduct > operationalCPUSlots)
+        {
+            Debug.Log("Not enough operational electronic component slots!");
             return;
         }
 
@@ -223,10 +247,12 @@ public class ProductManager : MonoBehaviour
     }
     private void ResetRequirements()
     {
+        electronicComponentsInProduct = 0;
         heatOutput = 0;
         coolingOutput = 0;
         operationalCPUSlots = 0;
-        powerWattage = 0;
+        requiredPowerWattage = 0;
+        powerInProduct = 0;
     }
     public void PlayButtonSFX()
     {

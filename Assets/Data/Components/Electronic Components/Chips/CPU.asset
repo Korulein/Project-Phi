@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: -185147303114904377, guid: 3a9ffa4d52bf84048ad903ee6916116d, type: 3}
   componentDescription: An extremely fast CPU using 15nm lithography mainly used
     in desktop computers.
-  componentID: 0
+  componentID: 30
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
@@ -25,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.4
   requiresPowerInput: 1
   reliabilityRating: 80
@@ -34,6 +34,6 @@ MonoBehaviour:
   safetyRating: 60
   maintainabilityRating: 25
   operationalTemperature: 378
-  operationalCPUSlots: 10
+  operationalCPUSlots: 5
   requiredPower: 85
   producedHeat: 40

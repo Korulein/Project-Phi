@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: 2723441291482892483, guid: 3214faf0f432ddf42ad69c7ac5b1d10c, type: 3}
   componentDescription: A highly specialised Temperature sensor capable of detecting
     and accurately measuring extreme temperature ranges
-  componentID: 32
+  componentID: 25
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
@@ -35,5 +35,5 @@ MonoBehaviour:
   maintainabilityRating: 50
   operationalTemperature: 100
   operationalCPUSlots: 0
-  requiredPower: 15
+  requiredPower: 50
   producedHeat: 5

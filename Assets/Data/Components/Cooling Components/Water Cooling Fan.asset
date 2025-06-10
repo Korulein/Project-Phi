@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: 2392241826098057394, guid: a193c3a7a6c5f4547b90ab0587245aa4, type: 3}
   componentDescription: A liquid cooling system, capable of drawing away far more
     heat than normal air powers fans
-  componentID: 12
+  componentID: 33
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 1
@@ -33,7 +33,7 @@ MonoBehaviour:
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  requiredPower: 25
+  requiredPower: 45
   coolantType: 1
   operationalTemperature: 373
   reducedHeat: 150
