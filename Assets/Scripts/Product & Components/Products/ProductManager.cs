@@ -11,11 +11,17 @@ public class ProductManager : MonoBehaviour
     private Dictionary<ComponentData, int> componentsInBlueprint;
     private int numberOfCellsOccupied;
 
-    //PlayableDirector for Animation Timeline
+    [Header("Animator Director")]
     public PlayableDirector director;
 
     [Header("Products")]
     [SerializeField] public List<ProductData> products = new List<ProductData>();
+
+    [Header("Product Requirements")]
+    [SerializeField] private float heatOutput = 0;
+    [SerializeField] private float coolingOutput = 0;
+    [SerializeField] private int operationalCPUSlots = 0;
+    [SerializeField] private float powerWattage = 0;
     private void Awake()
     {
         // Singleton setup
@@ -76,6 +82,8 @@ public class ProductManager : MonoBehaviour
         foreach (var component in componentsInBlueprint)
         {
             ComponentType componentType = component.Key.componentType;
+
+            // Matching components
             if (regularSet.Contains(componentType))
             {
                 matchedRegularComponents++;
@@ -84,6 +92,49 @@ public class ProductManager : MonoBehaviour
             {
                 matchedSpecialComponents++;
             }
+
+            // Heating output
+            if (component.Key.componentType == ComponentType.Heating)
+            {
+                HeatingComponent heatingComponent = component.Key as HeatingComponent;
+                heatOutput += heatingComponent.producedHeat;
+            }
+            else if (component.Key.componentType == ComponentType.Chip || component.Key.componentType == ComponentType.Sensor)
+            {
+                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
+                heatOutput += electronicComponent.producedHeat;
+            }
+            else if (component.Key.componentType == ComponentType.Power)
+            {
+                PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
+                heatOutput += powerComponent.producedHeat;
+            }
+
+            // Cooling output
+            if (component.Key.componentType == ComponentType.Cooling)
+            {
+                CoolingComponent coolingComponent = component.Key as CoolingComponent;
+                coolingOutput += coolingComponent.reducedHeat;
+            }
+
+            // CPU slots
+            if (component.Key.componentType == ComponentType.Chip)
+            {
+                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
+                operationalCPUSlots += electronicComponent.operationalCPUSlots;
+            }
+        }
+
+        // Checks if the product is below the heat threshold
+        float finalHeat = heatOutput - coolingOutput;
+        Debug.Log(finalHeat);
+        if (finalHeat <= product.maxSustainedHeat)
+            product.hasSufficientCooling = true;
+        Debug.Log(product.maxSustainedHeat);
+        if (!product.hasSufficientCooling)
+        {
+            Debug.Log("Product is past the heat threshold!");
+            return;
         }
 
         // Checks if the amount of components in the blueprint matches the required amount
@@ -104,6 +155,7 @@ public class ProductManager : MonoBehaviour
             {
                 BlueprintManager.instance.activeOrderScreenUI.EndMission();
             }
+            ResetRequirements();
         }
         else
         {
@@ -111,9 +163,7 @@ public class ProductManager : MonoBehaviour
         }
 
         // Reset flags
-        product.hasRegularComponents = false;
-        product.hasSpecialComponents = false;
-
+        ResetFlags(ref product);
     }
     private void AssembleProduct()
     {
@@ -166,6 +216,18 @@ public class ProductManager : MonoBehaviour
                 safetyProduct *= structuralComponent.safetyModifier;
             }
         }
+    }
+    private void ResetFlags(ref ProductData product)
+    {
+        product.hasRegularComponents = false;
+        product.hasSpecialComponents = false;
+    }
+    private void ResetRequirements()
+    {
+        heatOutput = 0;
+        coolingOutput = 0;
+        operationalCPUSlots = 0;
+        powerWattage = 0;
     }
     public void PlayButtonSFX()
     {

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb8d2d88810c9e4684777850e587518, type: 3}
+  m_Name: Temp Sensor
+  m_EditorClassIdentifier: 
+  componentName: Temp Sensor
+  categoryName: Sensor
+  componentSprite: {fileID: -6629978074634843995, guid: f3d4103fdc0b30a46a9465e4d107bfd8, type: 3}
+  componentDescription: A more advanced iteration of a Temperature Sensor. With ranges
+    from -100 C to 300 C, it's hardy and will serve you well.
+  componentID: 31
+  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
+  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentType: 3
+  materialType: 6
+  slotSize: 1
+  width: 1
+  height: 1
+  playTimeWidth: 1
+  playTimeHeight: 1
+  weight: 0.2
+  requiresPowerInput: 1
+  reliabilityRating: 70
+  availabilityRating: 30
+  safetyRating: 65
+  maintainabilityRating: 40
+  operationalTemperature: 100
+  operationalCPUSlots: 0
+  requiredPower: 4
+  producedHeat: 3

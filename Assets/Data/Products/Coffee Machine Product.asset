@@ -32,6 +32,8 @@ MonoBehaviour:
   extraComponents: []
   hasSpecialComponents: 0
   hasRegularComponents: 0
+  hasSufficientCooling: 0
+  maxSustainedHeat: 30
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0

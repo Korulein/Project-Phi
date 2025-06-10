@@ -1,12 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Eletronic Component", menuName = "Blueprint/Component/Eletronic Component")]
-public class EletronicComponent : ComponentData
+[CreateAssetMenu(fileName = "Electronic Component", menuName = "Blueprint/Component/Electronic Component")]
+public class ElectronicComponent : ComponentData
 {
-    [Header("Eletronic Component Data")]
-    public float operationalTemperatureMin;
-    public float operationalTemperatureMax;
-    public float operationalCPUUsage;
+    [Header("Electronic Component Data")]
+    public float operationalTemperature;
+    public int operationalCPUSlots;
     public float requiredPower;
     public float producedHeat;
 }

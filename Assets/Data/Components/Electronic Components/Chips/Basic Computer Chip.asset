@@ -10,31 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fb8d2d88810c9e4684777850e587518, type: 3}
-  m_Name: Advanced Temp Sensor
+  m_Name: Basic Computer Chip
   m_EditorClassIdentifier: 
-  componentName: Advanced Temp Sensor
-  categoryName: Sensor
-  componentSprite: {fileID: 2723441291482892483, guid: 3214faf0f432ddf42ad69c7ac5b1d10c, type: 3}
-  componentDescription: A highly specialised Temperature sensor capable of detecting
-    and accurately measuring extreme temperature ranges
-  componentID: 32
+  componentName: Basic Chip
+  categoryName: Computer Chip
+  componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
+  componentDescription: A cheap computer chip found in low end products and scrap
+    yards.
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  componentType: 3
+  componentType: 2
   materialType: 1
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 1
-  playTimeHeight: 1
-  weight: 0.35
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 0.15
   requiresPowerInput: 1
-  reliabilityRating: 65
-  availabilityRating: 10
-  safetyRating: 70
+  reliabilityRating: 25
+  availabilityRating: 80
+  safetyRating: 40
   maintainabilityRating: 50
-  operationalTemperatureMin: 53
-  operationalTemperatureMax: 5073
-  operationalCPUUsage: 4
-  requiredPower: 15
-  producedHeat: 5
+  operationalTemperature: 353
+  operationalCPUSlots: 2
+  requiredPower: 10
+  producedHeat: 10

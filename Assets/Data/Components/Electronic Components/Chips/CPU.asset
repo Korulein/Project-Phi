@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9701459f498199143978a5cbd82a38e6, type: 3}
-  m_Name: Basic Computer Chip
+  m_Script: {fileID: 11500000, guid: 6fb8d2d88810c9e4684777850e587518, type: 3}
+  m_Name: CPU
   m_EditorClassIdentifier: 
-  componentName: Basic Chip
+  componentName: CPU
   categoryName: Computer Chip
-  componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
-  componentDescription: A cheap computer chip found in low end products and scrap
-    yards.
-  componentID: 1100
+  componentSprite: {fileID: -185147303114904377, guid: 3a9ffa4d52bf84048ad903ee6916116d, type: 3}
+  componentDescription: An extremely fast CPU using 15nm lithography mainly used
+    in desktop computers.
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
@@ -25,15 +25,15 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 1
-  playTimeHeight: 1
-  weight: 0.15
+  playTimeWidth: 0
+  playTimeHeight: 0
+  weight: 0.4
   requiresPowerInput: 1
-  reliabilityRating: 25
-  availabilityRating: 70
-  safetyRating: 50
-  maintainabilityRating: 40
-  operationalTemperature: 353
-  operationalCPUCapacity: 2
-  requiredPower: 10
-  producedHeat: 5
+  reliabilityRating: 80
+  availabilityRating: 30
+  safetyRating: 60
+  maintainabilityRating: 25
+  operationalTemperature: 378
+  operationalCPUSlots: 10
+  requiredPower: 85
+  producedHeat: 40
