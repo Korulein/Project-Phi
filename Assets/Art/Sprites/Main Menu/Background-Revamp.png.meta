@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cba47c0b45979494094565d40845a1a8
+guid: ceede86c21e094f4ab2fe9ff54ee8245
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7477667370986392143
-    second: company_logo_02_0
+      213: 1595440934752082176
+    second: Background-Revamp_0
+  - first:
+      213: -6713890584886661905
+    second: Background-Revamp_1
+  - first:
+      213: 8995420246198188196
+    second: Background-Revamp_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +102,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: company_logo_02_0
+      name: Background-Revamp_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 1256
+        width: 1920
+        height: 1080
       alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7633c1ca76a1344b5f14f44f414290
+      internalID: 1033865383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background-Revamp_1
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 0
+        width: 1918
+        height: 1080
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1b5b3dbf42df93890800000000000000
-      internalID: -7477667370986392143
+      spriteID: f0430e8517a5c5a428da7e9f12fcc783
+      internalID: -1460864951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background-Revamp_2
+      rect:
+        serializedVersion: 2
+        x: 3862
+        y: 0
+        width: 1918
+        height: 1080
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638bf15c9576f204ea9392c7f531ae3c
+      internalID: 1539388750
       vertices: []
       indices: 
       edges: []
@@ -138,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2b8fa4bee7cdf734b891c6d91f86b0e0
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      company_logo_02_0: -7477667370986392143
+      Background-Revamp_0: 1033865383
+      Background-Revamp_1: -1460864951
+      Background-Revamp_2: 1539388750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
