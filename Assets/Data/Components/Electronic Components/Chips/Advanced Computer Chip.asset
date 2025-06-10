@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: 4256779236760994902, guid: dca2c7ce28075ba429a77b32560b8fe6, type: 3}
   componentDescription: A more advanced computer chip used to inflexibly process
     certain calcuations.
-  componentID: 0
+  componentID: 28
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
@@ -25,8 +25,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 0.2
   requiresPowerInput: 1
   reliabilityRating: 50
@@ -36,4 +36,4 @@ MonoBehaviour:
   operationalTemperature: 363
   operationalCPUSlots: 5
   requiredPower: 30
-  producedHeat: 15
+  producedHeat: 20

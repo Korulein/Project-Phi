@@ -20,6 +20,7 @@ public class ProductManager : MonoBehaviour
     [Header("Product Requirements")]
     [SerializeField] private float heatOutput = 0;
     [SerializeField] private float coolingOutput = 0;
+    [SerializeField] private float productHeatThreshold = 0;
     [SerializeField] private int operationalCPUSlots = 0;
     [SerializeField] private float powerWattage = 0;
     private void Awake()
@@ -72,6 +73,10 @@ public class ProductManager : MonoBehaviour
         ProductData product = GetProductData(blueprint.blueprintID);
         int matchedRegularComponents = 0;
         int matchedSpecialComponents = 0;
+        productHeatThreshold = product.maxSustainedHeat;
+
+        ResetRequirements();
+        ResetFlags(ref product);
 
         // HashSet declaration
         var regularSet = new HashSet<ComponentType>(product.mandatoryRegularComponents.Select(c => c.componentType));
@@ -127,11 +132,7 @@ public class ProductManager : MonoBehaviour
 
         // Checks if the product is below the heat threshold
         float finalHeat = heatOutput - coolingOutput;
-        Debug.Log(finalHeat);
-        if (finalHeat <= product.maxSustainedHeat)
-            product.hasSufficientCooling = true;
-        Debug.Log(product.maxSustainedHeat);
-        if (!product.hasSufficientCooling)
+        if (finalHeat > product.maxSustainedHeat)
         {
             Debug.Log("Product is past the heat threshold!");
             return;
@@ -156,14 +157,12 @@ public class ProductManager : MonoBehaviour
                 BlueprintManager.instance.activeOrderScreenUI.EndMission();
             }
             ResetRequirements();
+            ResetFlags(ref product);
         }
         else
         {
             Debug.Log("Missing required components!");
         }
-
-        // Reset flags
-        ResetFlags(ref product);
     }
     private void AssembleProduct()
     {

@@ -16,7 +16,7 @@ MonoBehaviour:
   categoryName: Heating Element
   componentSprite: {fileID: -2951451814066122553, guid: 1732a93b29c3e3c4bbe5a04df84d2991, type: 3}
   componentDescription: A high capacity heaating element capable of extreme temperatures.
-  componentID: 52
+  componentID: 24
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 0
@@ -34,4 +34,4 @@ MonoBehaviour:
   maintainabilityRating: 30
   requiredPower: 100
   operationalTemperature: 1573
-  producedHeat: 1300
+  producedHeat: 80

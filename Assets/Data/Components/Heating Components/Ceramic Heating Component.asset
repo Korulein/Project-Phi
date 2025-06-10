@@ -17,7 +17,7 @@ MonoBehaviour:
   componentSprite: {fileID: -5132930216895827302, guid: c47a31eed91325444a9dbf0b65c3e2e2, type: 3}
   componentDescription: The average heating element, it's cheap and functions well
     for most uses.
-  componentID: 51
+  componentID: 23
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 0
@@ -35,4 +35,4 @@ MonoBehaviour:
   maintainabilityRating: 40
   requiredPower: 40
   operationalTemperature: 473
-  producedHeat: 200
+  producedHeat: 50
