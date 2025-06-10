@@ -77,7 +77,8 @@ public enum EnergyTypes
     Solar,
     Fusion,
     Nuclear,
-    Chemical
+    Chemical,
+    WallOutlet,
 }
 public enum ComponentType
 {

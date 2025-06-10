@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Medium Battery Power Source Component
   m_EditorClassIdentifier: 
   componentName: Medium  Battery
-  categoryName: Battery
+  categoryName: Power Source
   componentSprite: {fileID: -3017979480325208809, guid: 009e3703217493f4fafe8a58f4ff7401, type: 3}
   componentDescription: A medium sized 10V battery capable of discharging 50 Watts
     over a few hours.
-  componentID: 0
+  componentID: 21
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 4

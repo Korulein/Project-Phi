@@ -85,7 +85,7 @@ public class ProductManager : MonoBehaviour
         var specialSet = new HashSet<ComponentType>(product.mandatorySpecialComponents.Select(c => c.componentType));
 
         // Counts matched component types
-        // Will also need to calculate power wattage, heat output and other factors in the future
+        // Calculates power wattage, heat output and operational electronic component slots
         foreach (var component in componentsInBlueprint)
         {
             ComponentType componentType = component.Key.componentType;
