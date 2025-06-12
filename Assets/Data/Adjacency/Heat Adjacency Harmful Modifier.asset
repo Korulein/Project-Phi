@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b9cfa9cbbde424e83ba39e6b268378, type: 3}
   m_Name: Heat Adjacency Harmful Modifier
   m_EditorClassIdentifier: 
-  modifierName: Heat Adjacency Harmul Modifier
+  modifierName: Heat Adjacency Harmful Modifier
   modifierDescription: A harmful modifier caused by placing a heating component near
     a electronic component.
   reliabilityModifier: 0.9
