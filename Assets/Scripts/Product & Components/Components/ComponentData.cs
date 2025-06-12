@@ -23,6 +23,11 @@ public class ComponentData : ScriptableObject
     public string weight;
     public bool requiresPowerInput;
 
+    [Header("Adjacency")]
+    public int adjacencyRange;
+    public HeatTolerance heatTolerance;
+    public HeatResistance heatResistance;
+
     [Header("RAMS Ratings")]
     public float reliabilityRating;
     public float availabilityRating;

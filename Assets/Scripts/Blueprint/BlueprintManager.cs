@@ -10,6 +10,7 @@ public class BlueprintManager : MonoBehaviour
     [Header("Blueprint Setup")]
     [SerializeField] public List<BlueprintData> blueprints;
     [HideInInspector] public BlueprintData blueprintInUse;
+    [SerializeField] public int blueprintID;
     [SerializeField] private GameObject standardCell;
     [SerializeField] private GameObject requiredCell;
     [SerializeField] private GameObject specialCell;
@@ -20,25 +21,19 @@ public class BlueprintManager : MonoBehaviour
     private BlueprintCellData[,] grid;
     public Vector2Int lastPickUpOrigin;
 
+    [Header("Adjacency")]
+    [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
+    [SerializeField] private List<AdjacencyModifier> modifiersToBeApplied = new List<AdjacencyModifier>();
+
+    [Header("Missions")]
     public Missions activeMission;
     public OrderScreenUI activeOrderScreenUI;
     public bool isMissionActive = false;
-
     public BlueprintData activeBlueprintData;
     public int activeBlueprintID;
-    public static bool HasActiveMission()
-    {
-        return BlueprintManager.instance.activeMission != null &&
-               !string.IsNullOrEmpty(BlueprintManager.instance.activeMission.missionTitle);
-    }
-    public static void ClearActiveMission()
-    {
-        BlueprintManager.instance.activeMission = null;
-    }
 
     [Header("Debug")]
     public bool callMethod = false;
-    [SerializeField] public int blueprintID;
     private void Awake()
     {
         // Instance and ID setup
@@ -60,18 +55,6 @@ public class BlueprintManager : MonoBehaviour
 
         LoadBlueprint(0);
     }
-    public void ActivateBlueprint(int blueprintID)
-    {
-        if (blueprintID >= 0 && blueprintID <= blueprints.Count)
-        {
-            LoadBlueprint(blueprintID);
-        }
-        else
-        {
-            Debug.LogWarning("Invalid blueprintID: " + blueprintID);
-        }
-    }
-
     private void Start()
     {
         //Loads a blueprint, will be changed in development
@@ -86,7 +69,26 @@ public class BlueprintManager : MonoBehaviour
             ShowOccupiedCells();
         }
     }
-
+    public static bool HasActiveMission()
+    {
+        return BlueprintManager.instance.activeMission != null &&
+               !string.IsNullOrEmpty(BlueprintManager.instance.activeMission.missionTitle);
+    }
+    public static void ClearActiveMission()
+    {
+        BlueprintManager.instance.activeMission = null;
+    }
+    public void ActivateBlueprint(int blueprintID)
+    {
+        if (blueprintID >= 0 && blueprintID <= blueprints.Count)
+        {
+            LoadBlueprint(blueprintID);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid blueprintID: " + blueprintID);
+        }
+    }
     private void LoadBlueprint(int blueprintID)
     {
         if (isMissionActive == false)
@@ -168,7 +170,6 @@ public class BlueprintManager : MonoBehaviour
     {
         return blueprints.FirstOrDefault(blueprint => blueprint.blueprintID == id);
     }
-
     private Vector2Int FindComponentOrigin(UIComponentItem component, int width, int height)
     {
         for (int x = 0; x <= blueprintInUse.gridWidth - width; x++)
@@ -202,7 +203,6 @@ public class BlueprintManager : MonoBehaviour
 
         return new Vector2(centerX, centerY);
     }
-
     public int CountComponentsWithTag(string componentTag)
     {
         int count = 0;
@@ -220,7 +220,6 @@ public class BlueprintManager : MonoBehaviour
 
         return count;
     }
-
     public bool CheckNumericRequirement(string componentTag, int requiredValue)
     {
         int currentValue = 0;
@@ -300,6 +299,29 @@ public class BlueprintManager : MonoBehaviour
                 reqUI.SetColor(isMet ? Color.green : Color.red);
             }
         }
+        UpdateAdjacencyEffects(componentItem, posX, posY);
+    }
+    private void UpdateAdjacencyEffects(UIComponentItem componentItem, int posX, int posY)
+    {
+        ComponentData component = componentItem.GetComponentData();
+        Vector2Int cellPosition = new Vector2Int(posX, posY);
+
+        // Checks all positions within adjacency range
+        for (int x = posX - component.adjacencyRange; x <= posX + component.adjacencyRange; x++)
+        {
+            for (int y = posY - component.adjacencyRange; y <= posY + component.adjacencyRange; y++)
+            {
+                if (IsCellUseable(cellPosition) && grid[x, y].isOccupied)
+                {
+                    UIComponentItem neighborComponent = grid[x, y].occupiedBy;
+
+                }
+            }
+        }
+    }
+    public List<AdjacencyModifier> GetModifiers()
+    {
+        return modifiersToBeApplied;
     }
     public float GetTotalProducedHeat()
     {
@@ -316,7 +338,6 @@ public class BlueprintManager : MonoBehaviour
         }
         return totalHeat;
     }
-
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
         UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
