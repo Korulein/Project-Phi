@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Advanced Chip
   categoryName: Computer Chip
   componentSprite: {fileID: 4256779236760994902, guid: dca2c7ce28075ba429a77b32560b8fe6, type: 3}
+  companyLogo: {fileID: 21300000, guid: 732371340d835e847bc105bbf5f22b0d, type: 3}
   componentDescription: A more advanced computer chip used to inflexibly process
     certain calcuations.
   componentID: 28
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
   materialType: 1
+  componentRating: 1
   slotSize: 1
   width: 1
   height: 1

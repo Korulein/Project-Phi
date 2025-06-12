@@ -45,7 +45,7 @@ public class BlueprintManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -60,7 +60,6 @@ public class BlueprintManager : MonoBehaviour
 
         LoadBlueprint(0);
     }
-
     public void ActivateBlueprint(int blueprintID)
     {
         if (blueprintID >= 0 && blueprintID <= blueprints.Count)

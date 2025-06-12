@@ -19,6 +19,14 @@ public enum SensorTypes
     Humidity,
     Radiation
 }
+public enum Ratings
+{
+    D,
+    C,
+    B,
+    A,
+    S,
+}
 public enum MaterialTypes
 {
     Plastic,

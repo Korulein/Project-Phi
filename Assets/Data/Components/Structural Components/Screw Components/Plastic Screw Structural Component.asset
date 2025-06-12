@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Plastic_crew
   categoryName: screw
   componentSprite: {fileID: 21300000, guid: e939bb56287ad2c4c9d82b26b7c0fd6e, type: 3}
+  companyLogo: {fileID: 21300000, guid: 035e13c64551ff6409643e8aea690173, type: 3}
   componentDescription: A rudimentary plastic screw, good for only non critical functions.
     Easy to replace and manufacture just about anywhere.
   componentID: 100
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
   materialType: 0
+  componentRating: 0
   slotSize: 1
   width: 1
   height: 1

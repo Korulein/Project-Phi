@@ -15,12 +15,23 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public RectTransform blueprintGridContainer;
     [SerializeField] public RectTransform inventoryContainer;
 
-    [Header("Pop-ups")]
-    [SerializeField] GameObject coffeeMachinePopUp;
+    [Header("Product Popup")]
+    [SerializeField] GameObject productPopup;
     [SerializeField] GameObject blurLayer;
     [SerializeField] public TextMeshProUGUI RAMSRatings;
 
-    [Header("OrderButton")]
+    [Header("Supplier Component Information Popup")]
+    [SerializeField] public GameObject basicComponentInformationPopup;
+    [SerializeField] public Image companyLogo;
+    [SerializeField] public Image componentIcon;
+    [SerializeField] public Button closePopupButton;
+    [SerializeField] public Button orderFromPopupButton;
+    [SerializeField] public TextMeshProUGUI componentName;
+    [SerializeField] public TextMeshProUGUI componentRating;
+    [SerializeField] public TextMeshProUGUI componentSlotType;
+
+
+    [Header("Order Button")]
     [SerializeField] private Button orderButton; // Sleep in Inspector
     [SerializeField] private Color highlightColor = Color.yellow;
     [SerializeField] private Color defaultColor = Color.white;
@@ -106,6 +117,36 @@ public class DeskUIManager : MonoBehaviour
         blurLayer.SetActive(false);
         ProductManager.instance.PlayTimeline();
         RAMSRatings.text = "";
+    }
+    public void InitializeSupplierComponentInformation(ComponentData component)
+    {
+        companyLogo.sprite = component.companyLogo;
+        componentIcon.sprite = component.componentSprite;
+        componentName.text = component.componentName;
+        componentRating.text = component.componentRating.ToString();
+        switch (component.slotSize)
+        {
+            case SlotSize.Small:
+                componentSlotType.text = "Small (1x1)";
+                break;
+            case SlotSize.Medium:
+                componentSlotType.text = "Medium (2x2)";
+                break;
+            case SlotSize.Large:
+                componentSlotType.text = "Large (3x3)";
+                break;
+            case SlotSize.Custom:
+                componentSlotType.text = $"Custom: ({component.width}x{component.height})";
+                break;
+        }
+    }
+    public void DisplaySupplierComponentInformationPopup()
+    {
+        basicComponentInformationPopup.SetActive(true);
+    }
+    public void CloseSupplierComponentInformationPopup()
+    {
+        basicComponentInformationPopup.SetActive(false);
     }
     public void UpdateEmailButtonVisual()
     {

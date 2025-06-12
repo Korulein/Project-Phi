@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Coffee Filter
   categoryName: Coffee Filter
   componentSprite: {fileID: 4849833099516549126, guid: 84c9e2b86aec0f243b35c85091784ea2, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A special coffee filter to improve the taste and quality
     of the beverages.
   componentID: 0
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
+  componentRating: 0
   slotSize: 1
   width: 1
   height: 1

@@ -5,6 +5,7 @@ public class ComponentData : ScriptableObject
     public string componentName;
     public string categoryName;
     public Sprite componentSprite;
+    public Sprite companyLogo;
     [TextArea] public string componentDescription;
     public int componentID;
     public GameObject inventoryPrefab;
@@ -13,6 +14,7 @@ public class ComponentData : ScriptableObject
 
     [Header("Component Specifics")]
     public MaterialTypes materialType;
+    public Ratings componentRating;
     public SlotSize slotSize;
     public int width;
     public int height;

@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Temp Sensor
   categoryName: Sensor
   componentSprite: {fileID: -6629978074634843995, guid: f3d4103fdc0b30a46a9465e4d107bfd8, type: 3}
+  companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
   componentDescription: A more advanced iteration of a Temperature Sensor. With ranges
     from -100 C to 300 C, it's hardy and will serve you well.
   componentID: 27
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
   materialType: 6
+  componentRating: 1
   slotSize: 1
   width: 1
   height: 1

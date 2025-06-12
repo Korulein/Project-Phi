@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: CPU
   categoryName: Computer Chip
   componentSprite: {fileID: -185147303114904377, guid: 3a9ffa4d52bf84048ad903ee6916116d, type: 3}
+  companyLogo: {fileID: 21300000, guid: 732371340d835e847bc105bbf5f22b0d, type: 3}
   componentDescription: An extremely fast CPU using 15nm lithography mainly used
     in desktop computers.
   componentID: 30
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
   materialType: 1
+  componentRating: 3
   slotSize: 1
   width: 1
   height: 1

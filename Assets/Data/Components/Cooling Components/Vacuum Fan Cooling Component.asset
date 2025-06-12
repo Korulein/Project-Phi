@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Vacuum Fan
   categoryName: Fan
   componentSprite: {fileID: -1700446272265125087, guid: 83481ab64d171614e9fbdfcb7e70773b, type: 3}
+  companyLogo: {fileID: 21300000, guid: ac8c68a589ca7bd43acfba750cb84f7e, type: 3}
   componentDescription: A more advanced Fan, that uses vacuum sealed metal tubes
     and plates to disperse heat more efficiently.
   componentID: 32
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 1
   materialType: 5
+  componentRating: 2
   slotSize: 1
   width: 1
   height: 1
