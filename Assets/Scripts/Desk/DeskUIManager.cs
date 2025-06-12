@@ -178,6 +178,56 @@ public class DeskUIManager : MonoBehaviour
     {
         RAMSModifierPanel.SetActive(true);
     }
+    public void ChangeUIRAMSText(float reliability, float availability, float maintainability, float safety)
+    {
+        // Reliability
+        if (reliability > 1)
+        {
+            reliabilityModifier.text = $"+{100 * reliability - 100}%";
+            // call method to change color
+        }
+        else if (reliability < 1)
+        {
+            reliabilityModifier.text = $"-{100 - reliability * 100}";
+            // call method to change color
+        }
+
+        // Availability
+        if (availability > 1)
+        {
+            availabilityModifier.text = $"+{100 * availability - 100}%";
+            // call method to change color
+        }
+        else if (availability < 1)
+        {
+            availabilityModifier.text = $"-{100 - availability * 100}";
+            // call method to change color
+        }
+
+        // Maintainability
+        if (maintainability > 1)
+        {
+            maintainabilityModifier.text = $"+{100 * maintainability - 100}%";
+            // call method to change color
+        }
+        else if (maintainability < 1)
+        {
+            maintainabilityModifier.text = $"-{100 - maintainability * 100}";
+            // call method to change color
+        }
+
+        // Safety
+        if (safety > 1)
+        {
+            safetyModifier.text = $"+{100 * safety - 100}%";
+            // call method to change color
+        }
+        else if (safety < 1)
+        {
+            safetyModifier.text = $"-{100 - safety * 100}";
+            // call method to change color
+        }
+    }
     private IEnumerator BlinkEmailButton()
     {
         bool highlight = false;

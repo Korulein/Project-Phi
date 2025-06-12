@@ -24,6 +24,11 @@ public class BlueprintManager : MonoBehaviour
     [Header("Adjacency")]
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
     [SerializeField] private List<AdjacencyModifier> modifiersToBeApplied = new List<AdjacencyModifier>();
+    [SerializeField] public float finalReliabilityModifier = 0f;
+    [SerializeField] public float finalAvailabilityModifier = 0f;
+    [SerializeField] public float finalMaintainabilityModifier = 0f;
+    [SerializeField] public float finalSafetyModifier = 0f;
+    private int numberOfHarmfulHeatModifiers = 0;
 
     [Header("Missions")]
     public Missions activeMission;
@@ -285,6 +290,7 @@ public class BlueprintManager : MonoBehaviour
 
             Vector2 cellCenter = GetCellCenterPosition(posX, posY, component);
             componentTransform.anchoredPosition = cellCenter;
+            ProductManager.instance.componentsInBlueprintAtRuntime.Add(component);
 
             string compName = component.categoryName;
             activeOrderScreenUI.NotifyComponentPlaced(compName);
@@ -299,7 +305,16 @@ public class BlueprintManager : MonoBehaviour
                 reqUI.SetColor(isMet ? Color.green : Color.red);
             }
         }
+
         UpdateAdjacencyEffects(componentItem, posX, posY);
+        ProductManager.instance.UpdateModifiers(ref finalReliabilityModifier, ref finalAvailabilityModifier, ref finalMaintainabilityModifier, ref finalSafetyModifier);
+        // UI update
+        DeskUIManager.instance.ChangeUIRAMSText(
+            finalReliabilityModifier,
+            finalAvailabilityModifier,
+            finalMaintainabilityModifier,
+            finalSafetyModifier
+        );
     }
     private void UpdateAdjacencyEffects(UIComponentItem componentItem, int posX, int posY)
     {
@@ -311,13 +326,59 @@ public class BlueprintManager : MonoBehaviour
         {
             for (int y = posY - component.adjacencyRange; y <= posY + component.adjacencyRange; y++)
             {
+                // Skips the component's own cells
+                if (x >= posX && x < posX + component.playTimeWidth &&
+                y >= posY && y < posY + component.playTimeHeight)
+                    continue;
                 if (IsCellUseable(cellPosition) && grid[x, y].isOccupied)
                 {
+                    Debug.Log($"Checking adjacency at ({x}, {y})");
                     UIComponentItem neighborComponent = grid[x, y].occupiedBy;
-
+                    DetermineAdjacencyEffect(componentItem, neighborComponent);
+                    DetermineAdjacencyEffect(neighborComponent, componentItem);
                 }
             }
         }
+    }
+    private void DetermineAdjacencyEffect(UIComponentItem sourceComponent, UIComponentItem targetComponent)
+    {
+        ComponentData sourceComponentData = sourceComponent.GetComponentData();
+        ComponentData targetComponentData = targetComponent.GetComponentData();
+
+        // Skips logic if component doesn't apply modifiers
+        if (sourceComponentData.componentType != ComponentType.Heating || sourceComponentData.componentType != ComponentType.Cooling)
+            return;
+
+        // Heat Adjacency Harmful Modifier
+        if (sourceComponentData.componentType == ComponentType.Heating)
+        {
+            HeatingComponent heatSourceComponent = sourceComponentData as HeatingComponent;
+            if (ShouldApplyHeatModifier(heatSourceComponent.producedHeat, targetComponentData.heatTolerance))
+            {
+                AdjacencyModifier modifier = adjacencyModifiers.FirstOrDefault(m => m.modifierName == "Heat Adjacency Harmful Modifier");
+                if (modifier != null)
+                {
+                    modifiersToBeApplied.Add(modifier);
+                    Debug.Log("Found modifier!");
+                }
+            }
+        }
+        if (sourceComponentData.componentType == ComponentType.Cooling)
+        {
+            // Add for cooling in the future
+        }
+    }
+    private bool ShouldApplyHeatModifier(float producedHeat, HeatTolerance tolerance)
+    {
+        return producedHeat switch
+        {
+            <= 50 => tolerance == HeatTolerance.VeryLow,
+            <= 200 => tolerance <= HeatTolerance.Low,
+            <= 450 => tolerance <= HeatTolerance.Medium,
+            <= 1000 => tolerance <= HeatTolerance.High,
+            <= 5000 => tolerance <= HeatTolerance.VeryHigh,
+            _ => true
+        };
     }
     public List<AdjacencyModifier> GetModifiers()
     {
@@ -361,6 +422,7 @@ public class BlueprintManager : MonoBehaviour
             }
         }
         lastPickUpOrigin = origin;
+        ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
 
         if (activeOrderScreenUI != null && activeMission != null)
         {
