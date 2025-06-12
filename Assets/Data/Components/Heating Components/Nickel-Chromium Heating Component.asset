@@ -37,3 +37,6 @@ MonoBehaviour:
   requiredPower: 100
   operationalTemperature: 1573
   producedHeat: 80
+  beneficialNeighbors: 
+  harmfulNeighbors: 0200000003000000
+  adjacencyRange: 1

@@ -30,13 +30,20 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI componentRating;
     [SerializeField] public TextMeshProUGUI componentSlotType;
 
-
     [Header("Order Button")]
     [SerializeField] private Button orderButton; // Sleep in Inspector
     [SerializeField] private Color highlightColor = Color.yellow;
     [SerializeField] private Color defaultColor = Color.white;
     [SerializeField] private float blinkInterval = 0.5f;
     private Coroutine blinkCoroutine;
+
+    [Header("Blueprint Visual Elements")]
+    [SerializeField] public GameObject RAMSModifierPanel;
+    [SerializeField] public TextMeshProUGUI reliabilityModifier;
+    [SerializeField] public TextMeshProUGUI availabilityModifier;
+    [SerializeField] public TextMeshProUGUI maintainabilityModifier;
+    [SerializeField] public TextMeshProUGUI safetyModifier;
+
 
     [Header("Player Input")]
     private bool leftClickConsumed;
@@ -166,6 +173,10 @@ public class DeskUIManager : MonoBehaviour
                 ResetEmailButtonVisual();
             }
         }
+    }
+    public void DisplayRAMSModifiersPanel()
+    {
+        RAMSModifierPanel.SetActive(true);
     }
     private IEnumerator BlinkEmailButton()
     {
