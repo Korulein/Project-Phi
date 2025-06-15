@@ -84,15 +84,8 @@ public class DeskUIManager : MonoBehaviour
         // Reset consumption state
         leftClickConsumed = false;
     }
-    public bool TryConsumeLeftClick()
-    {
-        if (LeftClickDown && !leftClickConsumed)
-        {
-            leftClickConsumed = true;
-            return true;
-        }
-        return false;
-    }
+
+    #region Enable / Disable UI
     public void OpenScreen(int screenIndex)
     {
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
@@ -125,6 +118,21 @@ public class DeskUIManager : MonoBehaviour
         ProductManager.instance.PlayTimeline();
         RAMSRatings.text = "";
     }
+    public void DisplaySupplierComponentInformationPopup()
+    {
+        basicComponentInformationPopup.SetActive(true);
+    }
+    public void CloseSupplierComponentInformationPopup()
+    {
+        basicComponentInformationPopup.SetActive(false);
+    }
+    public void DisplayRAMSModifiersPanel()
+    {
+        RAMSModifierPanel.SetActive(true);
+    }
+    #endregion
+
+    #region UI Update
     public void InitializeSupplierComponentInformation(ComponentData component)
     {
         companyLogo.sprite = component.companyLogo;
@@ -146,37 +154,6 @@ public class DeskUIManager : MonoBehaviour
                 componentSlotType.text = $"Custom: ({component.width}x{component.height})";
                 break;
         }
-    }
-    public void DisplaySupplierComponentInformationPopup()
-    {
-        basicComponentInformationPopup.SetActive(true);
-    }
-    public void CloseSupplierComponentInformationPopup()
-    {
-        basicComponentInformationPopup.SetActive(false);
-    }
-    public void UpdateEmailButtonVisual()
-    {
-        if (BlueprintManager.instance.isMissionActive == false)
-        {
-            if (blinkCoroutine == null)
-            {
-                blinkCoroutine = StartCoroutine(BlinkEmailButton());
-            }
-        }
-        else
-        {
-            if (blinkCoroutine != null)
-            {
-                StopCoroutine(blinkCoroutine);
-                blinkCoroutine = null;
-                ResetEmailButtonVisual();
-            }
-        }
-    }
-    public void DisplayRAMSModifiersPanel()
-    {
-        RAMSModifierPanel.SetActive(true);
     }
     public void ChangeUIRAMSText(float reliability, float availability, float maintainability, float safety)
     {
@@ -244,6 +221,28 @@ public class DeskUIManager : MonoBehaviour
             safetyModifier.text = $"0%";
         }
     }
+    #endregion
+
+    #region Email Button Visuals
+    public void UpdateEmailButtonVisual()
+    {
+        if (BlueprintManager.instance.isMissionActive == false)
+        {
+            if (blinkCoroutine == null)
+            {
+                blinkCoroutine = StartCoroutine(BlinkEmailButton());
+            }
+        }
+        else
+        {
+            if (blinkCoroutine != null)
+            {
+                StopCoroutine(blinkCoroutine);
+                blinkCoroutine = null;
+                ResetEmailButtonVisual();
+            }
+        }
+    }
     private IEnumerator BlinkEmailButton()
     {
         bool highlight = false;
@@ -264,4 +263,17 @@ public class DeskUIManager : MonoBehaviour
         colors.normalColor = defaultColor;
         orderButton.colors = colors;
     }
+    #endregion
+
+    #region Helper method
+    public bool TryConsumeLeftClick()
+    {
+        if (LeftClickDown && !leftClickConsumed)
+        {
+            leftClickConsumed = true;
+            return true;
+        }
+        return false;
+    }
+    #endregion
 }
