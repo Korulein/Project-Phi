@@ -24,10 +24,10 @@ public class BlueprintManager : MonoBehaviour
     [Header("Adjacency")]
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
     [SerializeField] private List<AdjacencyModifier> modifiersToBeApplied = new List<AdjacencyModifier>();
-    [SerializeField] public float finalReliabilityModifier = 0f;
-    [SerializeField] public float finalAvailabilityModifier = 0f;
-    [SerializeField] public float finalMaintainabilityModifier = 0f;
-    [SerializeField] public float finalSafetyModifier = 0f;
+    [SerializeField] public float finalReliabilityModifier = 1f;
+    [SerializeField] public float finalAvailabilityModifier = 1f;
+    [SerializeField] public float finalMaintainabilityModifier = 1f;
+    [SerializeField] public float finalSafetyModifier = 1f;
     private int numberOfHarmfulHeatModifiers = 0;
 
     [Header("Missions")]
@@ -319,38 +319,72 @@ public class BlueprintManager : MonoBehaviour
             }
         }
 
-        UpdateAdjacencyEffects(componentItem, posX, posY);
-        ProductManager.instance.UpdateModifiers(ref finalReliabilityModifier, ref finalAvailabilityModifier, ref finalMaintainabilityModifier, ref finalSafetyModifier);
-        // UI update
-        DeskUIManager.instance.ChangeUIRAMSText(
-            finalReliabilityModifier,
-            finalAvailabilityModifier,
-            finalMaintainabilityModifier,
-            finalSafetyModifier
-        );
+        RecalculateAllAdjacencyEffects();
+        UpdateUIWithFinalModifiers();
+    }
+    private void RecalculateAllAdjacencyEffects()
+    {
+        modifiersToBeApplied.Clear();
+
+        HashSet<UIComponentItem> processedComponents = new HashSet<UIComponentItem>();
+        for (int x = 0; x < blueprintInUse.gridWidth; x++)
+        {
+            for (int y = 0; y < blueprintInUse.gridHeight; y++)
+            {
+                if (grid[x, y].isOccupied && grid[x, y].occupiedBy != null)
+                {
+                    UIComponentItem component = grid[x, y].occupiedBy;
+                    if (!processedComponents.Contains(component))
+                    {
+                        processedComponents.Add(component);
+
+                        Vector2Int origin = FindComponentOrigin(component,
+                            component.GetComponentData().playTimeWidth,
+                            component.GetComponentData().playTimeHeight);
+
+                        // Safety check
+                        if (origin != Vector2Int.one * -1)
+                        {
+                            UpdateAdjacencyEffects(component, origin.x, origin.y);
+                        }
+                    }
+                }
+            }
+        }
     }
     private void UpdateAdjacencyEffects(UIComponentItem componentItem, int posX, int posY)
     {
         ComponentData component = componentItem.GetComponentData();
         Vector2Int cellPosition = new Vector2Int(posX, posY);
+        bool modifierIdentified = false;
 
         // Checks all positions within adjacency range
         for (int x = posX - component.adjacencyRange; x <= posX + component.adjacencyRange; x++)
         {
             for (int y = posY - component.adjacencyRange; y <= posY + component.adjacencyRange; y++)
             {
-                // Skips the component's own cells
+                // Skips the component's own cells and out of bounds
+                if (x < 0 || x >= blueprintInUse.gridWidth || y < 0 || y >= blueprintInUse.gridHeight)
+                    continue;
                 if (x >= posX && x < posX + component.playTimeWidth &&
                 y >= posY && y < posY + component.playTimeHeight)
                     continue;
-                if (IsCellUseable(cellPosition) && grid[x, y].isOccupied)
+
+                // Checks for each nearby cell 
+                if (grid[x, y].isOccupied)
                 {
-                    Debug.Log($"Checking adjacency at ({x}, {y})");
                     UIComponentItem neighborComponent = grid[x, y].occupiedBy;
-                    DetermineAdjacencyEffect(componentItem, neighborComponent);
                     DetermineAdjacencyEffect(neighborComponent, componentItem);
+                    modifierIdentified = true;
                 }
             }
+        }
+        if (!modifierIdentified)
+        {
+            finalReliabilityModifier = 1;
+            finalAvailabilityModifier = 1;
+            finalMaintainabilityModifier = 1;
+            finalSafetyModifier = 1;
         }
     }
     private void DetermineAdjacencyEffect(UIComponentItem sourceComponent, UIComponentItem targetComponent)
@@ -359,8 +393,8 @@ public class BlueprintManager : MonoBehaviour
         ComponentData targetComponentData = targetComponent.GetComponentData();
 
         // Skips logic if component doesn't apply modifiers
-        if (sourceComponentData.componentType != ComponentType.Heating || sourceComponentData.componentType != ComponentType.Cooling)
-            return;
+        //if (sourceComponentData.componentType != ComponentType.Heating || sourceComponentData.componentType != ComponentType.Cooling)
+        //return;
 
         // Heat Adjacency Harmful Modifier
         if (sourceComponentData.componentType == ComponentType.Heating)
@@ -372,7 +406,6 @@ public class BlueprintManager : MonoBehaviour
                 if (modifier != null)
                 {
                     modifiersToBeApplied.Add(modifier);
-                    Debug.Log("Found modifier!");
                 }
             }
         }
@@ -392,6 +425,21 @@ public class BlueprintManager : MonoBehaviour
             <= 5000 => tolerance <= HeatTolerance.VeryHigh,
             _ => true
         };
+    }
+    private void UpdateUIWithFinalModifiers()
+    {
+        ProductManager.instance.UpdateModifiers(
+        ref finalReliabilityModifier,
+        ref finalAvailabilityModifier,
+        ref finalMaintainabilityModifier,
+        ref finalSafetyModifier
+        );
+        DeskUIManager.instance.ChangeUIRAMSText(
+        finalReliabilityModifier,
+        finalAvailabilityModifier,
+        finalMaintainabilityModifier,
+        finalSafetyModifier
+        );
     }
     public List<AdjacencyModifier> GetModifiers()
     {
@@ -436,6 +484,9 @@ public class BlueprintManager : MonoBehaviour
         }
         lastPickUpOrigin = origin;
         ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
+
+        RecalculateAllAdjacencyEffects();
+        UpdateUIWithFinalModifiers();
 
         if (activeOrderScreenUI != null && activeMission != null)
         {

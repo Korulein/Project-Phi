@@ -188,8 +188,12 @@ public class DeskUIManager : MonoBehaviour
         }
         else if (reliability < 1)
         {
-            reliabilityModifier.text = $"-{100 - reliability * 100}";
+            reliabilityModifier.text = $"-{100 - reliability * 100}%";
             // call method to change color
+        }
+        else
+        {
+            reliabilityModifier.text = $"0%";
         }
 
         // Availability
@@ -200,8 +204,12 @@ public class DeskUIManager : MonoBehaviour
         }
         else if (availability < 1)
         {
-            availabilityModifier.text = $"-{100 - availability * 100}";
+            availabilityModifier.text = $"-{100 - availability * 100}%";
             // call method to change color
+        }
+        else
+        {
+            availabilityModifier.text = $"0%";
         }
 
         // Maintainability
@@ -212,8 +220,12 @@ public class DeskUIManager : MonoBehaviour
         }
         else if (maintainability < 1)
         {
-            maintainabilityModifier.text = $"-{100 - maintainability * 100}";
+            maintainabilityModifier.text = $"-{100 - maintainability * 100}%";
             // call method to change color
+        }
+        else
+        {
+            maintainabilityModifier.text = $"0%";
         }
 
         // Safety
@@ -224,8 +236,12 @@ public class DeskUIManager : MonoBehaviour
         }
         else if (safety < 1)
         {
-            safetyModifier.text = $"-{100 - safety * 100}";
+            safetyModifier.text = $"-{100 - safety * 100}%";
             // call method to change color
+        }
+        else
+        {
+            safetyModifier.text = $"0%";
         }
     }
     private IEnumerator BlinkEmailButton()
