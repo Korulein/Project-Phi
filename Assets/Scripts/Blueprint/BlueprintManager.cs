@@ -21,9 +21,10 @@ public class BlueprintManager : MonoBehaviour
     private BlueprintCellData[,] grid;
     public Vector2Int lastPickUpOrigin;
 
-    [Header("Adjacency")]
+    [Header("Modifiers")]
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
-    [SerializeField] private List<AdjacencyModifier> modifiersToBeApplied = new List<AdjacencyModifier>();
+    [SerializeField] private List<AdjacencyModifier> adjacencyModifiersToBeApplied = new List<AdjacencyModifier>();
+    [SerializeField] private List<StructuralComponent> structuralComponents = new List<StructuralComponent>();
     [SerializeField] public float finalReliabilityModifier = 1f;
     [SerializeField] public float finalAvailabilityModifier = 1f;
     [SerializeField] public float finalMaintainabilityModifier = 1f;
@@ -294,6 +295,12 @@ public class BlueprintManager : MonoBehaviour
             RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
             componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
+            if (component.componentType == ComponentType.Structural)
+            {
+                StructuralComponent structuralComponent = (StructuralComponent)component;
+                structuralComponents.Add(structuralComponent);
+            }
+
             // Grid update
             for (int i = 0; i < component.playTimeWidth; i++)
             {
@@ -322,8 +329,8 @@ public class BlueprintManager : MonoBehaviour
             }
         }
 
-        RecalculateAllAdjacencyEffects();
-        UpdateUIWithFinalModifiers();
+        RecalculateAllModifiers();
+        UpdateFinalModifiers();
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
     {
@@ -350,8 +357,12 @@ public class BlueprintManager : MonoBehaviour
         lastPickUpOrigin = origin;
         ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
 
-        RecalculateAllAdjacencyEffects();
-        UpdateUIWithFinalModifiers();
+        RecalculateAllModifiers();
+        if (component.componentType == ComponentType.Structural)
+        {
+            UpdateStructuralModifiersOnPickup(componentToReturn);
+        }
+        UpdateFinalModifiers();
 
         if (activeOrderScreenUI != null && activeMission != null)
         {
@@ -415,9 +426,9 @@ public class BlueprintManager : MonoBehaviour
     #endregion
 
     #region Adjacency Modifiers
-    private void RecalculateAllAdjacencyEffects()
+    private void RecalculateAllModifiers()
     {
-        modifiersToBeApplied.Clear();
+        adjacencyModifiersToBeApplied.Clear();
 
         HashSet<UIComponentItem> processedComponents = new HashSet<UIComponentItem>();
         for (int x = 0; x < blueprintInUse.gridWidth; x++)
@@ -438,14 +449,26 @@ public class BlueprintManager : MonoBehaviour
                         // Safety check
                         if (origin != Vector2Int.one * -1)
                         {
-                            UpdateAdjacencyEffects(component, origin.x, origin.y);
+                            UpdateAdjacencyModifiers(component, origin.x, origin.y);
                         }
                     }
                 }
             }
         }
     }
-    private void UpdateAdjacencyEffects(UIComponentItem componentItem, int posX, int posY)
+    private void UpdateStructuralModifiersOnPickup(UIComponentItem componentItem)
+    {
+        ComponentData component = componentItem.GetComponentData();
+        StructuralComponent structuralComponent = (StructuralComponent)component;
+
+        finalReliabilityModifier /= structuralComponent.reliabilityModifier;
+        finalAvailabilityModifier /= structuralComponent.availabilityModifier;
+        finalMaintainabilityModifier /= structuralComponent.maintainabilityModifier;
+        finalSafetyModifier /= structuralComponent.safetyModifier;
+
+        structuralComponents.Remove(structuralComponent);
+    }
+    private void UpdateAdjacencyModifiers(UIComponentItem componentItem, int posX, int posY)
     {
         ComponentData component = componentItem.GetComponentData();
         Vector2Int cellPosition = new Vector2Int(posX, posY);
@@ -467,7 +490,7 @@ public class BlueprintManager : MonoBehaviour
                 if (grid[x, y].isOccupied)
                 {
                     UIComponentItem neighborComponent = grid[x, y].occupiedBy;
-                    DetermineAdjacencyEffect(neighborComponent, componentItem);
+                    DetermineAdjacencyModifier(neighborComponent, componentItem);
                     modifierIdentified = true;
                 }
             }
@@ -480,14 +503,10 @@ public class BlueprintManager : MonoBehaviour
             finalSafetyModifier = 1;
         }
     }
-    private void DetermineAdjacencyEffect(UIComponentItem sourceComponent, UIComponentItem targetComponent)
+    private void DetermineAdjacencyModifier(UIComponentItem sourceComponent, UIComponentItem targetComponent)
     {
         ComponentData sourceComponentData = sourceComponent.GetComponentData();
         ComponentData targetComponentData = targetComponent.GetComponentData();
-
-        // Skips logic if component doesn't apply modifiers
-        //if (sourceComponentData.componentType != ComponentType.Heating || sourceComponentData.componentType != ComponentType.Cooling)
-        //return;
 
         // Heat Adjacency Harmful Modifier
         if (sourceComponentData.componentType == ComponentType.Heating)
@@ -498,7 +517,7 @@ public class BlueprintManager : MonoBehaviour
                 AdjacencyModifier modifier = adjacencyModifiers.FirstOrDefault(m => m.modifierName == "Heat Adjacency Harmful Modifier");
                 if (modifier != null)
                 {
-                    modifiersToBeApplied.Add(modifier);
+                    adjacencyModifiersToBeApplied.Add(modifier);
                 }
             }
         }
@@ -519,7 +538,7 @@ public class BlueprintManager : MonoBehaviour
             _ => true
         };
     }
-    private void UpdateUIWithFinalModifiers()
+    private void UpdateFinalModifiers()
     {
         ProductManager.instance.UpdateModifiers(
         ref finalReliabilityModifier,
@@ -536,7 +555,7 @@ public class BlueprintManager : MonoBehaviour
     }
     public List<AdjacencyModifier> GetModifiers()
     {
-        return modifiersToBeApplied;
+        return adjacencyModifiersToBeApplied;
     }
     #endregion
 
