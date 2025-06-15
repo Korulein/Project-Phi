@@ -51,6 +51,8 @@ public class ProductManager : MonoBehaviour
         }
 
     }
+
+    #region Assemble Product
     private ProductData GetProductData(int blueprintID)
     {
         // Gets product data by blueprint ID
@@ -201,6 +203,9 @@ public class ProductManager : MonoBehaviour
                              $"- Safety: {safetyRating}";
         DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
+    #endregion
+
+    #region Calculations
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {
         float reliabilityModifier = BlueprintManager.instance.finalReliabilityModifier;
@@ -252,6 +257,9 @@ public class ProductManager : MonoBehaviour
             safetyProduct *= modifier.safetyModifier;
         }
     }
+    #endregion
+
+    #region Resets
     private void ResetFlags(ref ProductData product)
     {
         product.hasRegularComponents = false;
@@ -266,17 +274,23 @@ public class ProductManager : MonoBehaviour
         requiredPowerWattage = 0;
         powerInProduct = 0;
     }
+    #endregion
+
+    #region SFX
     public void PlayButtonSFX()
     {
 
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
     }
+    #endregion
 
+    #region Animator
     public void PlayTimeline()
     {
         // Plays the timeline animation for product assembly
         director.Play();
     }
+    #endregion
 
 }

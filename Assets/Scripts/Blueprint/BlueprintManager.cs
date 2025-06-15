@@ -74,6 +74,8 @@ public class BlueprintManager : MonoBehaviour
             ShowOccupiedCells();
         }
     }
+
+    #region Mission methods
     public static bool HasActiveMission()
     {
         return BlueprintManager.instance.activeMission != null &&
@@ -94,6 +96,57 @@ public class BlueprintManager : MonoBehaviour
             Debug.LogWarning("Invalid blueprintID: " + blueprintID);
         }
     }
+    public int CountComponentsWithTag(string componentTag)
+    {
+        int count = 0;
+
+        // Iterate over all placed components
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    public bool CheckNumericRequirement(string componentTag, int requiredValue)
+    {
+        int currentValue = 0;
+
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            if (component.categoryName == componentTag)
+            {
+                currentValue += components[component];
+            }
+        }
+
+        return currentValue >= requiredValue;
+    }
+    public float GetTotalProducedHeat()
+    {
+        float totalHeat = 0f;
+        var (components, _) = GetAllPlacedComponents();
+
+        foreach (var component in components.Keys)
+        {
+            HeatingComponent heatingComp = component as HeatingComponent;
+            if (heatingComp != null)
+            {
+                totalHeat += heatingComp.producedHeat;
+            }
+        }
+        return totalHeat;
+    }
+    #endregion
+
+    #region Blueprint methods
     private void LoadBlueprint(int blueprintID)
     {
         if (isMissionActive == false)
@@ -208,39 +261,6 @@ public class BlueprintManager : MonoBehaviour
 
         return new Vector2(centerX, centerY);
     }
-    public int CountComponentsWithTag(string componentTag)
-    {
-        int count = 0;
-
-        // Iterate over all placed components
-        var (components, _) = GetAllPlacedComponents();
-
-        foreach (var component in components.Keys)
-        {
-            if (component.categoryName == componentTag)
-            {
-                count++;
-            }
-        }
-
-        return count;
-    }
-    public bool CheckNumericRequirement(string componentTag, int requiredValue)
-    {
-        int currentValue = 0;
-
-        var (components, _) = GetAllPlacedComponents();
-
-        foreach (var component in components.Keys)
-        {
-            if (component.categoryName == componentTag)
-            {
-                currentValue += components[component];
-            }
-        }
-
-        return currentValue >= requiredValue;
-    }
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         // Converts mouse position to grid position
@@ -260,10 +280,6 @@ public class BlueprintManager : MonoBehaviour
         tileGridPosition.y = Mathf.FloorToInt(-localPoint.y / CELL_PIXEL_SIZE);
 
         return tileGridPosition;
-    }
-    public BlueprintCellData[,] GetCurrentGrid()
-    {
-        return grid;
     }
     public void PlaceComponent(UIComponentItem componentItem, int posX, int posY)
     {
@@ -309,6 +325,96 @@ public class BlueprintManager : MonoBehaviour
         RecalculateAllAdjacencyEffects();
         UpdateUIWithFinalModifiers();
     }
+    public UIComponentItem PickUpComponent(int posX, int posY)
+    {
+        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
+        ComponentData component = componentToReturn.GetComponentData();
+
+        Vector2Int origin = FindComponentOrigin(componentToReturn, component.playTimeWidth, component.playTimeHeight);
+        //Safety check
+        if (origin == Vector2Int.one * -1)
+        {
+            Debug.Log("Component origin not found");
+            return null;
+        }
+
+        // Frees up grid cell values
+        for (int i = origin.x; i < origin.x + component.playTimeWidth; i++)
+        {
+            for (int j = origin.y; j < origin.y + component.playTimeHeight; j++)
+            {
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
+            }
+        }
+        lastPickUpOrigin = origin;
+        ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
+
+        RecalculateAllAdjacencyEffects();
+        UpdateUIWithFinalModifiers();
+
+        if (activeOrderScreenUI != null && activeMission != null)
+        {
+            activeOrderScreenUI.CheckRequirements();
+        }
+        else
+        {
+            Debug.LogWarning("No active mission or OrderScreenUI set. Requirements not updated.");
+        }
+
+        return componentToReturn;
+    }
+    public (Dictionary<ComponentData, int>, int) GetAllPlacedComponents()
+    {
+        // Returns all the components that are placed in the grid
+        int numberOfCellsOccupied = 0;
+        Dictionary<ComponentData, int> components = new Dictionary<ComponentData, int>();
+        HashSet<UIComponentItem> seenComponents = new HashSet<UIComponentItem>();
+
+        for (int x = 0; x < blueprintInUse.gridWidth; x++)
+        {
+            for (int y = 0; y < blueprintInUse.gridHeight; y++)
+            {
+                UIComponentItem componentItem = grid[x, y].occupiedBy;
+                if (grid[x, y].isOccupied && componentItem != null && !seenComponents.Contains(componentItem))
+                {
+                    seenComponents.Add(componentItem);
+                    ComponentData component = componentItem.GetComponentData();
+
+                    int width = component.playTimeWidth;  // or component.width if you don't use runtime rotation
+                    int height = component.playTimeHeight;
+
+                    int cellCount = width * height;
+                    numberOfCellsOccupied += cellCount;
+
+                    components.Add(component, cellCount);
+                }
+            }
+        }
+        return (components, numberOfCellsOccupied);
+    }
+    public void ClearBlueprint()
+    {
+        HashSet<UIComponentItem> alreadyCleared = new HashSet<UIComponentItem>();
+        for (int i = 0; i < blueprintInUse.gridWidth; i++)
+        {
+            for (int j = 0; j < blueprintInUse.gridHeight; j++)
+            {
+                UIComponentItem componentItem = grid[i, j].occupiedBy;
+                if (componentItem != null && !alreadyCleared.Contains(componentItem))
+                {
+                    // Return to inventory only once
+                    componentItem.ReturnToInventory();
+                    alreadyCleared.Add(componentItem);
+                }
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
+            }
+        }
+    }
+    #endregion
+
+    #region Adjacency Modifiers
     private void RecalculateAllAdjacencyEffects()
     {
         modifiersToBeApplied.Clear();
@@ -432,108 +538,9 @@ public class BlueprintManager : MonoBehaviour
     {
         return modifiersToBeApplied;
     }
-    public float GetTotalProducedHeat()
-    {
-        float totalHeat = 0f;
-        var (components, _) = GetAllPlacedComponents();
+    #endregion
 
-        foreach (var component in components.Keys)
-        {
-            HeatingComponent heatingComp = component as HeatingComponent;
-            if (heatingComp != null)
-            {
-                totalHeat += heatingComp.producedHeat;
-            }
-        }
-        return totalHeat;
-    }
-    public UIComponentItem PickUpComponent(int posX, int posY)
-    {
-        UIComponentItem componentToReturn = grid[posX, posY].occupiedBy;
-        ComponentData component = componentToReturn.GetComponentData();
-
-        Vector2Int origin = FindComponentOrigin(componentToReturn, component.playTimeWidth, component.playTimeHeight);
-        //Safety check
-        if (origin == Vector2Int.one * -1)
-        {
-            Debug.Log("Component origin not found");
-            return null;
-        }
-
-        // Frees up grid cell values
-        for (int i = origin.x; i < origin.x + component.playTimeWidth; i++)
-        {
-            for (int j = origin.y; j < origin.y + component.playTimeHeight; j++)
-            {
-                grid[i, j].occupiedBy = null;
-                grid[i, j].isOccupied = false;
-            }
-        }
-        lastPickUpOrigin = origin;
-        ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
-
-        RecalculateAllAdjacencyEffects();
-        UpdateUIWithFinalModifiers();
-
-        if (activeOrderScreenUI != null && activeMission != null)
-        {
-            activeOrderScreenUI.CheckRequirements();
-        }
-        else
-        {
-            Debug.LogWarning("No active mission or OrderScreenUI set. Requirements not updated.");
-        }
-
-        return componentToReturn;
-    }
-    public void ClearBlueprint()
-    {
-        HashSet<UIComponentItem> alreadyCleared = new HashSet<UIComponentItem>();
-        for (int i = 0; i < blueprintInUse.gridWidth; i++)
-        {
-            for (int j = 0; j < blueprintInUse.gridHeight; j++)
-            {
-                UIComponentItem componentItem = grid[i, j].occupiedBy;
-                if (componentItem != null && !alreadyCleared.Contains(componentItem))
-                {
-                    // Return to inventory only once
-                    componentItem.ReturnToInventory();
-                    alreadyCleared.Add(componentItem);
-                }
-                grid[i, j].occupiedBy = null;
-                grid[i, j].isOccupied = false;
-            }
-        }
-    }
-    public (Dictionary<ComponentData, int>, int) GetAllPlacedComponents()
-    {
-        // Returns all the components that are placed in the grid
-        int numberOfCellsOccupied = 0;
-        Dictionary<ComponentData, int> components = new Dictionary<ComponentData, int>();
-        HashSet<UIComponentItem> seenComponents = new HashSet<UIComponentItem>();
-
-        for (int x = 0; x < blueprintInUse.gridWidth; x++)
-        {
-            for (int y = 0; y < blueprintInUse.gridHeight; y++)
-            {
-                UIComponentItem componentItem = grid[x, y].occupiedBy;
-                if (grid[x, y].isOccupied && componentItem != null && !seenComponents.Contains(componentItem))
-                {
-                    seenComponents.Add(componentItem);
-                    ComponentData component = componentItem.GetComponentData();
-
-                    int width = component.playTimeWidth;  // or component.width if you don't use runtime rotation
-                    int height = component.playTimeHeight;
-
-                    int cellCount = width * height;
-                    numberOfCellsOccupied += cellCount;
-
-                    components.Add(component, cellCount);
-                }
-            }
-        }
-        return (components, numberOfCellsOccupied);
-    }
+    #region Blueprint cell checks
     public bool IsCellUseable(Vector2Int cell)
     {
         // Checks if a cell is within grid bounds and is useable
@@ -577,6 +584,9 @@ public class BlueprintManager : MonoBehaviour
         // Only called once when dragging from inventory to blueprint
         return grid[posX, posY].occupiedBy;
     }
+    #endregion
+
+    #region Debug Methods
     public void ShowOccupiedCells()
     {
         // Debug method to show all occupied cells
@@ -595,4 +605,5 @@ public class BlueprintManager : MonoBehaviour
         if (!foundCells)
             Debug.Log("No occupied cells were found");
     } // Debug method
+    #endregion
 }
