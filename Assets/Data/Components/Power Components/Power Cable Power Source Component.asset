@@ -10,31 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de85ca2df16b02c4287c434e5b99c9ab, type: 3}
-  m_Name: Large Battery Power Source Component
+  m_Name: Power Cable Power Source Component
   m_EditorClassIdentifier: 
-  componentName: Large Battery
+  componentName: Power Cable
   categoryName: Power Source
-  componentSprite: {fileID: 4459765203176289917, guid: 3e7a7099b2bd884408b8810f6380bc4b, type: 3}
+  componentSprite: {fileID: 4135321429369839004, guid: f492c5146dcb5004d86a84ba82f8637d, type: 3}
   companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
-  componentDescription: A large 14V battery capable of powering 100 Watts worth of
-    power over several hours.
-  componentID: 20
+  componentDescription: A basic power cable, used mainly for household appliances
+  componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 4
-  materialType: 22
+  materialType: 0
   componentRating: 2
-  slotSize: 4
-  width: 3
-  height: 2
-  playTimeWidth: 3
-  playTimeHeight: 2
-  weight: 0.7
+  slotSize: 1
+  width: 1
+  height: 1
+  playTimeWidth: 1
+  playTimeHeight: 1
+  weight: 0.5
   requiresPowerInput: 0
-  reliabilityRating: 60
-  availabilityRating: 60
-  safetyRating: 40
-  maintainabilityRating: 60
-  energyType: 0
-  maxPowerOutput: 60
-  producedHeat: 20
+  reliabilityRating: 50
+  availabilityRating: 70
+  safetyRating: 45
+  maintainabilityRating: 40
+  energyType: 5
+  maxPowerOutput: 100
+  producedHeat: 0

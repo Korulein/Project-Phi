@@ -33,8 +33,8 @@ MonoBehaviour:
     componentTag: Computer Chip
     amount: 1
   - name: Heating Element
-    type: 1
-    numericValue: 500
+    type: 0
+    numericValue: 0
     componentTag: Heating Element
     amount: 1
   - name: Water Reservoir

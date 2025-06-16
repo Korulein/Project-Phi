@@ -26,14 +26,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2d5541f1173d4e84baa3407483a04f65, type: 2}
   mandatoryRegularComponents:
   - {fileID: 11400000, guid: 0c56555242fef434580b3e8792beb15f, type: 2}
-  - {fileID: 11400000, guid: d57203a3cee14ac448dadf330b56359f, type: 2}
+  - {fileID: 11400000, guid: 861c957f86adc124aa780e7c4d7cbda5, type: 2}
   - {fileID: 11400000, guid: 39452135345c397448ea91edc17547b6, type: 2}
   - {fileID: 11400000, guid: 273c13c50107c614bb0793d01e44eb53, type: 2}
   extraComponents: []
   hasSpecialComponents: 0
   hasRegularComponents: 0
-  hasSufficientCooling: 0
-  maxSustainedHeat: 30
+  maxSustainedHeat: 100
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0

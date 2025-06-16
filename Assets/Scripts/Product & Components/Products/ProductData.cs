@@ -12,7 +12,6 @@ public class ProductData : ScriptableObject
     public List<ComponentData> extraComponents;
     public bool hasSpecialComponents;
     public bool hasRegularComponents;
-    public bool hasSufficientCooling = false;
     public float maxSustainedHeat;
 
     [Header("RAMS ratings")]

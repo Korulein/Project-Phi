@@ -15,13 +15,15 @@ MonoBehaviour:
   componentName: 'Basic Temp Sensor '
   categoryName: Sensor
   componentSprite: {fileID: 5736537370511049626, guid: 7cfe233b978895f40b3f837ef57d9b65, type: 3}
+  companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
   componentDescription: A basic temperature sensor capable of measuring from -20C
     to 110C.
-  componentID: 30
+  componentID: 26
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
   materialType: 6
+  componentRating: 0
   slotSize: 1
   width: 1
   height: 1
@@ -29,11 +31,14 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.1
   requiresPowerInput: 1
+  adjacencyRange: 1
+  heatTolerance: 0
+  heatResistance: 0
   reliabilityRating: 60
   availabilityRating: 40
   safetyRating: 60
   maintainabilityRating: 60
   operationalTemperature: 100
   operationalCPUSlots: 0
-  requiredPower: 2
+  requiredPower: 15
   producedHeat: 1

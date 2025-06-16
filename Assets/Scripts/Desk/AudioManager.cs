@@ -35,7 +35,6 @@ public class AudioManager : MonoBehaviour
     [Header("Button Press Cooldown")]
     public bool canPress = true;
     [SerializeField] private float buttonCooldown = 0.4f;
-
     private void Awake()
     {
         // Singleton 
@@ -56,6 +55,8 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    #region Play SFX
     public void PlayAudioClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
         if (!canPress)
@@ -69,6 +70,9 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         Destroy(audioSource.gameObject, audioSource.clip.length);
     }
+    #endregion
+
+    #region BGM
     public void PlayBGM(AudioClip bgmClip)
     {
         if (bgmSource.isPlaying) bgmSource.Stop();
@@ -99,10 +103,14 @@ public class AudioManager : MonoBehaviour
             PlayBGM(newBGM);
         }
     }
+    #endregion
+
+    #region Helper method
     public IEnumerator OrderComponentCooldown()
     {
         canPress = false;
         yield return new WaitForSeconds(buttonCooldown);
         canPress = true;
     }
+    #endregion
 }

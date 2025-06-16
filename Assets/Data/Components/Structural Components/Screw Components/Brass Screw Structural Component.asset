@@ -15,13 +15,15 @@ MonoBehaviour:
   componentName: Brass Screw
   categoryName: screw
   componentSprite: {fileID: -4516726329402631937, guid: 4607edace1eaecc44a1eb8101476c088, type: 3}
+  companyLogo: {fileID: 21300000, guid: 035e13c64551ff6409643e8aea690173, type: 3}
   componentDescription: An uncommon screw type, unremarkable in everything but for
     being inert.
-  componentID: 101
+  componentID: 11
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
   materialType: 7
+  componentRating: 1
   slotSize: 1
   width: 1
   height: 1
@@ -29,11 +31,15 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.05
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 0
+  heatResistance: 0
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
-  reliabilityModifier: 0.8
+  structuralSubtype: 1
+  reliabilityModifier: 0.9
   availabilityModifier: 1
   maintainabilityModifier: 1
-  safetyModifier: 1.2
+  safetyModifier: 1.1

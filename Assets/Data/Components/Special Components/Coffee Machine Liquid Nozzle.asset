@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Liquid Nozzle
   categoryName: Liquid Nozzle
   componentSprite: {fileID: 7641279864279244181, guid: 6012357f85383f84aa6289127edef23d, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A specialised nozzle to dispense cream and other additives
     more evenly.
   componentID: 0
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
+  componentRating: 1
   slotSize: 4
   width: 1
   height: 2

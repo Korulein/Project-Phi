@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class ProductManager : MonoBehaviour
     public static ProductManager instance { get; private set; }
 
     [Header("References")]
-    private Dictionary<ComponentData, int> componentsInBlueprint;
+    private Dictionary<ComponentData, int> componentsInBlueprintAtAssemblyTime;
+    public List<ComponentData> componentsInBlueprintAtRuntime;
     private int numberOfCellsOccupied;
 
     [Header("Animator Director")]
@@ -20,8 +22,11 @@ public class ProductManager : MonoBehaviour
     [Header("Product Requirements")]
     [SerializeField] private float heatOutput = 0;
     [SerializeField] private float coolingOutput = 0;
+    [SerializeField] private float productHeatThreshold = 0;
+    [SerializeField] private int electronicComponentsInProduct = 0;
     [SerializeField] private int operationalCPUSlots = 0;
-    [SerializeField] private float powerWattage = 0;
+    [SerializeField] private float requiredPowerWattage = 0;
+    [SerializeField] private float powerInProduct = 0;
     private void Awake()
     {
         // Singleton setup
@@ -47,6 +52,8 @@ public class ProductManager : MonoBehaviour
         }
 
     }
+
+    #region Assemble Product
     private ProductData GetProductData(int blueprintID)
     {
         // Gets product data by blueprint ID
@@ -66,20 +73,24 @@ public class ProductManager : MonoBehaviour
             return;
         }
         var blueprint = BlueprintManager.instance.blueprintInUse;
-        (componentsInBlueprint, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
+        (componentsInBlueprintAtAssemblyTime, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
 
         // Product references
         ProductData product = GetProductData(blueprint.blueprintID);
         int matchedRegularComponents = 0;
         int matchedSpecialComponents = 0;
+        productHeatThreshold = product.maxSustainedHeat;
+
+        ResetRequirements();
+        ResetFlags(ref product);
 
         // HashSet declaration
         var regularSet = new HashSet<ComponentType>(product.mandatoryRegularComponents.Select(c => c.componentType));
         var specialSet = new HashSet<ComponentType>(product.mandatorySpecialComponents.Select(c => c.componentType));
 
         // Counts matched component types
-        // Will also need to calculate power wattage, heat output and other factors in the future
-        foreach (var component in componentsInBlueprint)
+        // Calculates power wattage, heat output and operational electronic component slots
+        foreach (var component in componentsInBlueprintAtAssemblyTime)
         {
             ComponentType componentType = component.Key.componentType;
 
@@ -93,28 +104,32 @@ public class ProductManager : MonoBehaviour
                 matchedSpecialComponents++;
             }
 
-            // Heating output
+            // Heating output && Power
             if (component.Key.componentType == ComponentType.Heating)
             {
                 HeatingComponent heatingComponent = component.Key as HeatingComponent;
                 heatOutput += heatingComponent.producedHeat;
+                requiredPowerWattage += heatingComponent.requiredPower;
             }
             else if (component.Key.componentType == ComponentType.Chip || component.Key.componentType == ComponentType.Sensor)
             {
                 ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
                 heatOutput += electronicComponent.producedHeat;
+                requiredPowerWattage += electronicComponent.requiredPower;
             }
             else if (component.Key.componentType == ComponentType.Power)
             {
                 PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
                 heatOutput += powerComponent.producedHeat;
+                powerInProduct += powerComponent.maxPowerOutput;
             }
 
-            // Cooling output
+            // Cooling output && Power
             if (component.Key.componentType == ComponentType.Cooling)
             {
                 CoolingComponent coolingComponent = component.Key as CoolingComponent;
                 coolingOutput += coolingComponent.reducedHeat;
+                requiredPowerWattage += coolingComponent.requiredPower;
             }
 
             // CPU slots
@@ -123,17 +138,31 @@ public class ProductManager : MonoBehaviour
                 ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
                 operationalCPUSlots += electronicComponent.operationalCPUSlots;
             }
+            else if (component.Key.componentType == ComponentType.Sensor)
+            {
+                electronicComponentsInProduct++;
+            }
         }
 
         // Checks if the product is below the heat threshold
         float finalHeat = heatOutput - coolingOutput;
-        Debug.Log(finalHeat);
-        if (finalHeat <= product.maxSustainedHeat)
-            product.hasSufficientCooling = true;
-        Debug.Log(product.maxSustainedHeat);
-        if (!product.hasSufficientCooling)
+        if (finalHeat > product.maxSustainedHeat)
         {
             Debug.Log("Product is past the heat threshold!");
+            return;
+        }
+
+        float finalPower = powerInProduct - requiredPowerWattage;
+        if (finalPower < 0)
+        {
+            Debug.Log("Product does not have enough power!");
+            return;
+        }
+
+        // Checks electronic component slot availability
+        if (electronicComponentsInProduct > operationalCPUSlots)
+        {
+            Debug.Log("Not enough operational electronic component slots!");
             return;
         }
 
@@ -156,20 +185,18 @@ public class ProductManager : MonoBehaviour
                 BlueprintManager.instance.activeOrderScreenUI.EndMission();
             }
             ResetRequirements();
+            ResetFlags(ref product);
         }
         else
         {
             Debug.Log("Missing required components!");
         }
-
-        // Reset flags
-        ResetFlags(ref product);
     }
     private void AssembleProduct()
     {
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
-
+        RoundFloatsToOneDecimal(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
         string ramsSummary = $"RAMS Ratings:\n" +
                              $"- Reliability: {reliabilityRating}\n" +
                              $"- Availability: {availabilityRating}\n" +
@@ -177,13 +204,18 @@ public class ProductManager : MonoBehaviour
                              $"- Safety: {safetyRating}";
         DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
+    #endregion
+
+    #region Calculations
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {
-        float reliabilityModifier = 1, availabilityModifier = 1, maintainabilityModifier = 1, safetyModifier = 1;
-        SetModifiers(ref reliabilityModifier, ref availabilityModifier, ref maintainabilityModifier, ref safetyModifier);
+        float reliabilityModifier = BlueprintManager.instance.finalReliabilityModifier;
+        float availabilityModifier = BlueprintManager.instance.finalAvailabilityModifier;
+        float maintainabilityModifier = BlueprintManager.instance.finalMaintainabilityModifier;
+        float safetyModifier = BlueprintManager.instance.finalSafetyModifier;
 
         // Sums up the ratings of each product's rating multiplied by the amount of cells it occupies in the blueprint
-        foreach (var componentInBlueprint in componentsInBlueprint)
+        foreach (var componentInBlueprint in componentsInBlueprintAtAssemblyTime)
         {
             ComponentData component = componentInBlueprint.Key;
             int cellsOccupied = componentInBlueprint.Value;
@@ -201,22 +233,58 @@ public class ProductManager : MonoBehaviour
 
         return (reliabilityRating, availabilityRating, maintainabilityRating, safetyRating);
     }
-    private void SetModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
+    public void UpdateModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
     {
         // Calculates modifiers based on the structural components placed in the blueprint
-        foreach (var componentInBlueprint in componentsInBlueprint)
+        foreach (var componentInBlueprint in BlueprintManager.instance.structuralComponentsInBlueprint)
         {
-            ComponentData component = componentInBlueprint.Key;
-            if (component.componentType == ComponentType.Structural)
-            {
-                StructuralComponent structuralComponent = (StructuralComponent)component;
-                reliabilityProduct *= structuralComponent.reliabilityModifier;
-                availabilityProduct *= structuralComponent.availabilityModifier;
-                maintainabilityProduct *= structuralComponent.maintainabilityModifier;
-                safetyProduct *= structuralComponent.safetyModifier;
-            }
+            ComponentData component = componentInBlueprint;
+            StructuralComponent structuralComponent = (StructuralComponent)component;
+
+            reliabilityProduct *= structuralComponent.reliabilityModifier;
+            availabilityProduct *= structuralComponent.availabilityModifier;
+            maintainabilityProduct *= structuralComponent.maintainabilityModifier;
+            safetyProduct *= structuralComponent.safetyModifier;
+
+        }
+
+        // Calculates modifiers based on component adjacency
+        List<AdjacencyModifier> modifiers = BlueprintManager.instance.GetModifiers();
+        foreach (var modifier in modifiers)
+        {
+            reliabilityProduct *= modifier.reliabilityModifier;
+            availabilityProduct *= modifier.availabilityModifier;
+            maintainabilityProduct *= modifier.maintainabilityModifier;
+            safetyProduct *= modifier.safetyModifier;
         }
     }
+    public void RoundFloatsToInt(ref float reliability, ref float availability, ref float maintainability, ref float safety)
+    {
+        int roundedReliability = (int)Math.Round(reliability, 0);
+        int roundedAvailability = (int)Math.Round(availability, 0);
+        int roundedMaintainability = (int)Math.Round(maintainability, 0);
+        int roundedSafety = (int)Math.Round(safety, 0);
+
+        reliability = roundedReliability;
+        availability = roundedAvailability;
+        maintainability = roundedMaintainability;
+        safety = roundedSafety;
+    }
+    public void RoundFloatsToOneDecimal(ref float reliability, ref float availability, ref float maintainability, ref float safety)
+    {
+        float roundedReliability = (float)Math.Round(reliability, 1);
+        float roundedAvailability = (float)Math.Round(availability, 1);
+        float roundedMaintainability = (float)Math.Round(maintainability, 1);
+        float roundedSafety = (float)Math.Round(safety, 1);
+
+        reliability = roundedReliability;
+        availability = roundedAvailability;
+        maintainability = roundedMaintainability;
+        safety = roundedSafety;
+    }
+    #endregion
+
+    #region Resets
     private void ResetFlags(ref ProductData product)
     {
         product.hasRegularComponents = false;
@@ -224,22 +292,30 @@ public class ProductManager : MonoBehaviour
     }
     private void ResetRequirements()
     {
+        electronicComponentsInProduct = 0;
         heatOutput = 0;
         coolingOutput = 0;
         operationalCPUSlots = 0;
-        powerWattage = 0;
+        requiredPowerWattage = 0;
+        powerInProduct = 0;
     }
+    #endregion
+
+    #region SFX
     public void PlayButtonSFX()
     {
 
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
     }
+    #endregion
 
+    #region Animator
     public void PlayTimeline()
     {
         // Plays the timeline animation for product assembly
         director.Play();
     }
+    #endregion
 
 }
