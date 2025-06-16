@@ -131,7 +131,6 @@ public class DeskUIManager : MonoBehaviour
         RAMSModifierPanel.SetActive(true);
     }
     #endregion
-
     #region UI Update
     public void InitializeSupplierComponentInformation(ComponentData component)
     {
@@ -158,67 +157,73 @@ public class DeskUIManager : MonoBehaviour
     public void ChangeUIRAMSText(float reliability, float availability, float maintainability, float safety)
     {
         // Reliability
+        ProductManager.instance.RoundFloatsToOneDecimal(ref reliability, ref availability, ref maintainability, ref safety);
+
         if (reliability > 1)
         {
-            reliabilityModifier.text = $"+{100 * reliability - 100}%";
-            // call method to change color
+            reliabilityModifier.text = $"+{(100 * reliability - 100):F0}%";
+            reliabilityModifier.color = new Color(101f / 255f, 191f / 255f, 53f / 255f, 1f);
         }
         else if (reliability < 1)
         {
-            reliabilityModifier.text = $"-{100 - reliability * 100}%";
-            // call method to change color
+            reliabilityModifier.text = $"-{(100 - reliability * 100):F0}%";
+            reliabilityModifier.color = new Color(127f / 255f, 2f / 255f, 5f / 255f, 1f);
         }
         else
         {
             reliabilityModifier.text = $"0%";
+            reliabilityModifier.color = new Color(238f / 255f, 226f / 255f, 226f / 255f, 1f);
         }
 
         // Availability
         if (availability > 1)
         {
-            availabilityModifier.text = $"+{100 * availability - 100}%";
-            // call method to change color
+            availabilityModifier.text = $"+{(100 * availability - 100):F0}%";
+            availabilityModifier.color = new Color(101f / 255f, 191f / 255f, 53f / 255f, 1f);
         }
         else if (availability < 1)
         {
-            availabilityModifier.text = $"-{100 - availability * 100}%";
-            // call method to change color
+            availabilityModifier.text = $"-{(100 - availability * 100):F0}%";
+            availabilityModifier.color = new Color(127f / 255f, 2f / 255f, 5f / 255f, 1f);
         }
         else
         {
             availabilityModifier.text = $"0%";
+            availabilityModifier.color = new Color(238f / 255f, 226f / 255f, 226f / 255f, 1f);
         }
 
         // Maintainability
         if (maintainability > 1)
         {
-            maintainabilityModifier.text = $"+{100 * maintainability - 100}%";
-            // call method to change color
+            maintainabilityModifier.text = $"+{(100 * maintainability - 100):F0}%";
+            maintainabilityModifier.color = new Color(101f / 255f, 191f / 255f, 53f / 255f, 1f);
         }
         else if (maintainability < 1)
         {
-            maintainabilityModifier.text = $"-{100 - maintainability * 100}%";
-            // call method to change color
+            maintainabilityModifier.text = $"-{(100 - maintainability * 100):F0}%";
+            maintainabilityModifier.color = new Color(127f / 255f, 2f / 255f, 5f / 255f, 1f);
         }
         else
         {
             maintainabilityModifier.text = $"0%";
+            maintainabilityModifier.color = new Color(238f / 255f, 226f / 255f, 226f / 255f, 1f);
         }
 
         // Safety
         if (safety > 1)
         {
-            safetyModifier.text = $"+{100 * safety - 100}%";
-            // call method to change color
+            safetyModifier.text = $"+{(100 * safety - 100):F0}%";
+            safetyModifier.color = new Color(101f / 255f, 191f / 255f, 53f / 255f, 1f);
         }
         else if (safety < 1)
         {
-            safetyModifier.text = $"-{100 - safety * 100}%";
-            // call method to change color
+            safetyModifier.text = $"-{(100 - safety * 100):F0}%";
+            safetyModifier.color = new Color(127f / 255f, 2f / 255f, 5f / 255f, 1f);
         }
         else
         {
             safetyModifier.text = $"0%";
+            safetyModifier.color = new Color(238f / 255f, 226f / 255f, 226f / 255f, 1f);
         }
     }
     #endregion
