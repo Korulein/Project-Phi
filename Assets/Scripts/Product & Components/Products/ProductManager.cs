@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -195,7 +196,7 @@ public class ProductManager : MonoBehaviour
     {
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
-
+        RoundFloatsToOneDecimal(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
         string ramsSummary = $"RAMS Ratings:\n" +
                              $"- Reliability: {reliabilityRating}\n" +
                              $"- Availability: {availabilityRating}\n" +
@@ -271,18 +272,18 @@ public class ProductManager : MonoBehaviour
     public void UpdateModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
     {
         // Calculates modifiers based on the structural components placed in the blueprint
-        foreach (var componentInBlueprint in componentsInBlueprintAtRuntime)
+        foreach (var componentInBlueprint in BlueprintManager.instance.structuralComponentsInBlueprint)
         {
             ComponentData component = componentInBlueprint;
-            if (component.componentType == ComponentType.Structural)
-            {
-                StructuralComponent structuralComponent = (StructuralComponent)component;
-                reliabilityProduct *= structuralComponent.reliabilityModifier;
-                availabilityProduct *= structuralComponent.availabilityModifier;
-                maintainabilityProduct *= structuralComponent.maintainabilityModifier;
-                safetyProduct *= structuralComponent.safetyModifier;
-            }
+            StructuralComponent structuralComponent = (StructuralComponent)component;
+
+            reliabilityProduct *= structuralComponent.reliabilityModifier;
+            availabilityProduct *= structuralComponent.availabilityModifier;
+            maintainabilityProduct *= structuralComponent.maintainabilityModifier;
+            safetyProduct *= structuralComponent.safetyModifier;
+
         }
+
         // Calculates modifiers based on component adjacency
         List<AdjacencyModifier> modifiers = BlueprintManager.instance.GetModifiers();
         foreach (var modifier in modifiers)
@@ -292,6 +293,30 @@ public class ProductManager : MonoBehaviour
             maintainabilityProduct *= modifier.maintainabilityModifier;
             safetyProduct *= modifier.safetyModifier;
         }
+    }
+    public void RoundFloatsToInt(ref float reliability, ref float availability, ref float maintainability, ref float safety)
+    {
+        int roundedReliability = (int)Math.Round(reliability, 0);
+        int roundedAvailability = (int)Math.Round(availability, 0);
+        int roundedMaintainability = (int)Math.Round(maintainability, 0);
+        int roundedSafety = (int)Math.Round(safety, 0);
+
+        reliability = roundedReliability;
+        availability = roundedAvailability;
+        maintainability = roundedMaintainability;
+        safety = roundedSafety;
+    }
+    public void RoundFloatsToOneDecimal(ref float reliability, ref float availability, ref float maintainability, ref float safety)
+    {
+        float roundedReliability = (float)Math.Round(reliability, 1);
+        float roundedAvailability = (float)Math.Round(availability, 1);
+        float roundedMaintainability = (float)Math.Round(maintainability, 1);
+        float roundedSafety = (float)Math.Round(safety, 1);
+
+        reliability = roundedReliability;
+        availability = roundedAvailability;
+        maintainability = roundedMaintainability;
+        safety = roundedSafety;
     }
     #endregion
 

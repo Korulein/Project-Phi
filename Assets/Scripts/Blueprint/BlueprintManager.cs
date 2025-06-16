@@ -24,7 +24,7 @@ public class BlueprintManager : MonoBehaviour
     [Header("Modifiers")]
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiersToBeApplied = new List<AdjacencyModifier>();
-    [SerializeField] private List<StructuralComponent> structuralComponents = new List<StructuralComponent>();
+    [SerializeField] public List<StructuralComponent> structuralComponentsInBlueprint = new List<StructuralComponent>();
     [SerializeField] public float finalReliabilityModifier = 1f;
     [SerializeField] public float finalAvailabilityModifier = 1f;
     [SerializeField] public float finalMaintainabilityModifier = 1f;
@@ -296,12 +296,6 @@ public class BlueprintManager : MonoBehaviour
             RectTransform componentTransform = componentItem.GetComponent<RectTransform>();
             componentTransform.SetParent(DeskUIManager.instance.blueprintGridContainer, false);
 
-            if (component.componentType == ComponentType.Structural)
-            {
-                StructuralComponent structuralComponent = (StructuralComponent)component;
-                structuralComponents.Add(structuralComponent);
-            }
-
             // Grid update
             for (int i = 0; i < component.playTimeWidth; i++)
             {
@@ -341,8 +335,9 @@ public class BlueprintManager : MonoBehaviour
                 }
             }
         }
-
-        RecalculateAllModifiers();
+        if (componentItem.GetComponentData().componentType == ComponentType.Structural)
+            AddStructuralComponent(componentItem);
+        RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
     }
     public UIComponentItem PickUpComponent(int posX, int posY)
@@ -370,11 +365,11 @@ public class BlueprintManager : MonoBehaviour
         lastPickUpOrigin = origin;
         ProductManager.instance.componentsInBlueprintAtRuntime.Remove(component);
 
-        RecalculateAllModifiers();
         if (component.componentType == ComponentType.Structural)
         {
-            UpdateStructuralModifiersOnPickup(componentToReturn);
+            structuralComponentsInBlueprint.Remove((StructuralComponent)component);
         }
+        RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
 
         if (activeOrderScreenUI != null && activeMission != null)
@@ -438,8 +433,8 @@ public class BlueprintManager : MonoBehaviour
     }
     #endregion
 
-    #region Adjacency Modifiers
-    private void RecalculateAllModifiers()
+    #region Modifiers
+    private void RecalculateAllAdjacencyModifiers()
     {
         adjacencyModifiersToBeApplied.Clear();
 
@@ -469,23 +464,10 @@ public class BlueprintManager : MonoBehaviour
             }
         }
     }
-    private void UpdateStructuralModifiersOnPickup(UIComponentItem componentItem)
-    {
-        ComponentData component = componentItem.GetComponentData();
-        StructuralComponent structuralComponent = (StructuralComponent)component;
-
-        finalReliabilityModifier /= structuralComponent.reliabilityModifier;
-        finalAvailabilityModifier /= structuralComponent.availabilityModifier;
-        finalMaintainabilityModifier /= structuralComponent.maintainabilityModifier;
-        finalSafetyModifier /= structuralComponent.safetyModifier;
-
-        structuralComponents.Remove(structuralComponent);
-    }
     private void UpdateAdjacencyModifiers(UIComponentItem componentItem, int posX, int posY)
     {
         ComponentData component = componentItem.GetComponentData();
         Vector2Int cellPosition = new Vector2Int(posX, posY);
-        bool modifierIdentified = false;
 
         // Checks all positions within adjacency range
         for (int x = posX - component.adjacencyRange; x <= posX + component.adjacencyRange; x++)
@@ -504,16 +486,8 @@ public class BlueprintManager : MonoBehaviour
                 {
                     UIComponentItem neighborComponent = grid[x, y].occupiedBy;
                     DetermineAdjacencyModifier(neighborComponent, componentItem);
-                    modifierIdentified = true;
                 }
             }
-        }
-        if (!modifierIdentified)
-        {
-            finalReliabilityModifier = 1;
-            finalAvailabilityModifier = 1;
-            finalMaintainabilityModifier = 1;
-            finalSafetyModifier = 1;
         }
     }
     private void DetermineAdjacencyModifier(UIComponentItem sourceComponent, UIComponentItem targetComponent)
@@ -525,6 +499,8 @@ public class BlueprintManager : MonoBehaviour
         if (sourceComponentData.componentType == ComponentType.Heating)
         {
             HeatingComponent heatSourceComponent = sourceComponentData as HeatingComponent;
+            if (targetComponentData.componentType != ComponentType.Chip && targetComponentData.componentType != ComponentType.Sensor)
+                return;
             if (ShouldApplyHeatModifier(heatSourceComponent.producedHeat, targetComponentData.heatTolerance))
             {
                 AdjacencyModifier modifier = adjacencyModifiers.FirstOrDefault(m => m.modifierName == "Heat Adjacency Harmful Modifier");
@@ -553,6 +529,7 @@ public class BlueprintManager : MonoBehaviour
     }
     private void UpdateFinalModifiers()
     {
+        ResetModifiers();
         ProductManager.instance.UpdateModifiers(
         ref finalReliabilityModifier,
         ref finalAvailabilityModifier,
@@ -569,6 +546,39 @@ public class BlueprintManager : MonoBehaviour
     public List<AdjacencyModifier> GetModifiers()
     {
         return adjacencyModifiersToBeApplied;
+    }
+    public bool AddStructuralComponent(UIComponentItem componentItem)
+    {
+        ComponentData component = componentItem.GetComponentData();
+        StructuralComponent structuralComponent = (StructuralComponent)component;
+
+        if (structuralComponent.structuralSubtype == StructuralSubtype.Pipe)
+        {
+            bool hasPipe = structuralComponentsInBlueprint.Any(c => c.structuralSubtype == StructuralSubtype.Pipe);
+            if (!hasPipe)
+            {
+                structuralComponentsInBlueprint.Add(structuralComponent);
+                return false;
+            }
+        }
+        else if (structuralComponent.structuralSubtype == StructuralSubtype.Screw)
+        {
+            bool hasScrew = structuralComponentsInBlueprint.Any(c => c.structuralSubtype == StructuralSubtype.Screw);
+            if (!hasScrew)
+            {
+                structuralComponentsInBlueprint.Add(structuralComponent);
+                return false;
+            }
+        }
+        return true;
+    }
+    public void ResetModifiers()
+    {
+        finalReliabilityModifier = 1;
+        finalAvailabilityModifier = 1;
+        finalMaintainabilityModifier = 1;
+        finalSafetyModifier = 1;
+
     }
     #endregion
 

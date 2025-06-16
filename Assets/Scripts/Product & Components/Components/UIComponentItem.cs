@@ -121,6 +121,19 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             // Checks if cell is empty, otherwise returns component to inventory
             if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.playTimeWidth, component.playTimeHeight))
             {
+
+                if (component.componentType == ComponentType.Structural)
+                {
+                    bool alreadyHadStructuralComponent = BlueprintManager.instance.AddStructuralComponent(this);
+                    if (alreadyHadStructuralComponent)
+                    {
+                        blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
+                        ReturnToStartPosition();
+                        PlayMaterialSoundDrop();
+                        return;
+                    }
+                }
+
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
                 PlayMaterialSoundDrop();

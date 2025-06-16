@@ -27,6 +27,11 @@ public enum Ratings
     A,
     S,
 }
+public enum StructuralSubtype
+{
+    Pipe,
+    Screw,
+}
 public enum MaterialTypes
 {
     Plastic,
