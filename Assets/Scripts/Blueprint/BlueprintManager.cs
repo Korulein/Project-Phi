@@ -453,10 +453,20 @@ public class BlueprintManager : MonoBehaviour
         ComponentData component = componentItem.GetComponentData();
         Vector2Int cellPosition = new Vector2Int(posX, posY);
 
-        // Checks all positions within adjacency range
-        for (int x = posX - component.adjacencyRange; x <= posX + component.adjacencyRange; x++)
+        int offsetX = 0, offsetY = 0;
+        if (component.width > 1)
         {
-            for (int y = posY - component.adjacencyRange; y <= posY + component.adjacencyRange; y++)
+            offsetX = component.width - component.adjacencyRange;
+        }
+        if (component.height > 1)
+        {
+            offsetY = component.height - component.adjacencyRange;
+        }
+
+        // Checks all positions within adjacency range
+        for (int x = posX - component.adjacencyRange; x <= posX + component.adjacencyRange + offsetX; x++)
+        {
+            for (int y = posY - component.adjacencyRange; y <= posY + component.adjacencyRange + offsetY; y++)
             {
                 // Skips the component's own cells and out of bounds
                 if (x < 0 || x >= blueprintInUse.gridWidth || y < 0 || y >= blueprintInUse.gridHeight)
