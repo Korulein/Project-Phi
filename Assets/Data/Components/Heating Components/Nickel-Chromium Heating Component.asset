@@ -32,6 +32,6 @@ MonoBehaviour:
   availabilityRating: 30
   safetyRating: 50
   maintainabilityRating: 30
-  requiredPower: 100
+  requiredPower: 255
   operationalTemperature: 1573
-  producedHeat: 80
+  producedHeat: 600

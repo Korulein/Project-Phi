@@ -33,5 +33,5 @@ MonoBehaviour:
   safetyRating: 45
   maintainabilityRating: 40
   energyType: 5
-  maxPowerOutput: 100
-  producedHeat: 0
+  maxPowerOutput: 400
+  producedHeat: 5

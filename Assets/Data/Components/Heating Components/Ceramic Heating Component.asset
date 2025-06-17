@@ -35,4 +35,4 @@ MonoBehaviour:
   maintainabilityRating: 40
   requiredPower: 40
   operationalTemperature: 473
-  producedHeat: 50
+  producedHeat: 100
