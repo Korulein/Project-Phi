@@ -125,3 +125,11 @@ public enum HeatResistance
     VeryHigh,
     FullResistance
 }
+public enum CompoundingType
+{
+    None,
+    Linear,
+    Diminishing,
+    Exponential,
+    Logarithmic,
+}

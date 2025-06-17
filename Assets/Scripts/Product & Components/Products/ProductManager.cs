@@ -288,10 +288,28 @@ public class ProductManager : MonoBehaviour
         List<AdjacencyModifier> modifiers = BlueprintManager.instance.GetModifiers();
         foreach (var modifier in modifiers)
         {
-            reliabilityProduct *= modifier.reliabilityModifier;
-            availabilityProduct *= modifier.availabilityModifier;
-            maintainabilityProduct *= modifier.maintainabilityModifier;
-            safetyProduct *= modifier.safetyModifier;
+            GetCompoundedValues(ref reliabilityProduct, ref availabilityProduct, ref maintainabilityProduct, ref safetyProduct, modifier);
+        }
+    }
+    private void GetCompoundedValues(ref float reliability, ref float availability, ref float maintainability, ref float safety, AdjacencyModifier modifier)
+    {
+        switch (modifier.compoundingType)
+        {
+            case CompoundingType.Linear:
+                reliability *= modifier.reliabilityModifier;
+                availability *= modifier.availabilityModifier;
+                maintainability *= modifier.maintainabilityModifier;
+                safety *= modifier.safetyModifier;
+                break;
+            case CompoundingType.Diminishing:
+                reliability *= (1f - Mathf.Pow(0.8f, modifier.reliabilityModifier));
+                break;
+            case CompoundingType.Exponential:
+                reliability *= Mathf.Pow(1.2f, modifier.reliabilityModifier - 1);
+                break;
+            case CompoundingType.Logarithmic:
+                reliability *= Mathf.Log(modifier.reliabilityModifier + 1);
+                break;
         }
     }
     public void RoundFloatsToOneDecimal(ref float reliability, ref float availability, ref float maintainability, ref float safety)

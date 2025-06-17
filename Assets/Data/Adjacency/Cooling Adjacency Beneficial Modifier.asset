@@ -15,6 +15,7 @@ MonoBehaviour:
   modifierName: Cooling Adjacency Beneficial Modifier
   modifierDescription: A beneficial modifier caused by placing a cooling component
     next to a chip or heating component.
+  compoundingType: 2
   reliabilityModifier: 1.1
   availabilityModifier: 1
   maintainabilityModifier: 1.2
