@@ -5,6 +5,7 @@ public class AdjacencyModifier : ScriptableObject
     [Header("Modifier Info")]
     public string modifierName;
     public string modifierDescription;
+    public CompoundingType compoundingType;
 
     [Header("Modifiers")]
     public float reliabilityModifier;
