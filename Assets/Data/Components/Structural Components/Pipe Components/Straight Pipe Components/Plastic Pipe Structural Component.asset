@@ -15,12 +15,14 @@ MonoBehaviour:
   componentName: Plastic Pipe
   categoryName: Pipe
   componentSprite: {fileID: -8988513451771169747, guid: 199606c5018221740a17e7c0bd1cbfa7, type: 3}
+  companyLogo: {fileID: 21300000, guid: 035e13c64551ff6409643e8aea690173, type: 3}
   componentDescription: A cheap plastic pipe, good for non critical functions
   componentID: 2000
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
   materialType: 0
+  componentRating: 0
   slotSize: 4
   width: 1
   height: 3
@@ -28,10 +30,14 @@ MonoBehaviour:
   playTimeHeight: 3
   weight: 0.2
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
+  structuralSubtype: 0
   reliabilityModifier: 1.2
   availabilityModifier: 1.1
   maintainabilityModifier: 0.9

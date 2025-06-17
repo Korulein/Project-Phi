@@ -60,6 +60,12 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             Rotate();
         }
     }
+
+    #region Component Data
+    public ComponentData GetComponentData()
+    {
+        return component;
+    }
     public void InitializeComponent(ComponentData componentData)
     {
         // Initializes component data and adjusts size
@@ -72,30 +78,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         iconImage.sprite = componentData.componentSprite;
         //AdjustComponentSize(component);
     }
-    private void IncreaseComponentSize(ComponentData componentData)
-    {
-        // Adjusts component size, will be changed later in development
-        if (originalSizeDelta == Vector2.zero)
-        {
-            originalSizeDelta = rectTransform.sizeDelta;
-        }
-        int pixelSize = 90;
-        switch (componentData.slotSize)
-        {
-            case SlotSize.Small:
-                rectTransform.sizeDelta = new Vector2(pixelSize, pixelSize);
-                break;
-            case SlotSize.Medium:
-                rectTransform.sizeDelta = new Vector2(pixelSize * 2, pixelSize * 2);
-                break;
-            case SlotSize.Large:
-                rectTransform.sizeDelta = new Vector2(pixelSize * 3, pixelSize * 3);
-                break;
-            case SlotSize.Custom:
-                rectTransform.sizeDelta = new Vector2(pixelSize * componentData.width, pixelSize * componentData.height);
-                break;
-        }
-    }
+    #endregion
+
+    #region UI Component Manipulation
     private void PickUpComponent()
     {
         // Picking up component from inventory
@@ -136,6 +121,19 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
             // Checks if cell is empty, otherwise returns component to inventory
             if (!BlueprintManager.instance.CheckCellOccupancy(gridPos, component.playTimeWidth, component.playTimeHeight))
             {
+
+                if (component.componentType == ComponentType.Structural)
+                {
+                    bool alreadyHadStructuralComponent = BlueprintManager.instance.AddStructuralComponent(this);
+                    if (alreadyHadStructuralComponent)
+                    {
+                        blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
+                        ReturnToStartPosition();
+                        PlayMaterialSoundDrop();
+                        return;
+                    }
+                }
+
                 blueprintInteract.StartCoroutine(blueprintInteract.SuppressClickForOneFrame());
                 BlueprintManager.instance.PlaceComponent(this, gridPos.x, gridPos.y);
                 PlayMaterialSoundDrop();
@@ -167,6 +165,30 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         rectTransform = GetComponent<RectTransform>();
         rectTransform.rotation = Quaternion.Euler(0, 0, isRotated ? 90f : 0f);
+    }
+    private void IncreaseComponentSize(ComponentData componentData)
+    {
+        // Adjusts component size, will be changed later in development
+        if (originalSizeDelta == Vector2.zero)
+        {
+            originalSizeDelta = rectTransform.sizeDelta;
+        }
+        int pixelSize = 90;
+        switch (componentData.slotSize)
+        {
+            case SlotSize.Small:
+                rectTransform.sizeDelta = new Vector2(pixelSize, pixelSize);
+                break;
+            case SlotSize.Medium:
+                rectTransform.sizeDelta = new Vector2(pixelSize * 2, pixelSize * 2);
+                break;
+            case SlotSize.Large:
+                rectTransform.sizeDelta = new Vector2(pixelSize * 3, pixelSize * 3);
+                break;
+            case SlotSize.Custom:
+                rectTransform.sizeDelta = new Vector2(pixelSize * componentData.width, pixelSize * componentData.height);
+                break;
+        }
     }
     private void SwapDimensions()
     {
@@ -208,6 +230,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         ReturnToStartPosition();
     }
+    #endregion
+
+    #region Pointer events
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left)
@@ -231,10 +256,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         LeanTween.cancel(delay.uniqueId);
         TooltipManager.instance.HideTooltip();
     }
-    public ComponentData GetComponentData()
-    {
-        return component;
-    }
+    #endregion
+
+    #region Position checks
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
         // Check if the starting position is valid
@@ -264,6 +288,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         return true;
     }
+    #endregion
+
+    #region Enums
     public enum ComponentLocation
     {
         Inventory,
@@ -275,6 +302,9 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         Rotated,
         NotRotated,
     }
+    #endregion
+
+    #region SFX
     public void PlayMaterialSoundPickup()
     {
         AudioManager audioManager = AudioManager.instance;
@@ -348,4 +378,5 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         }
     }
+    #endregion
 }

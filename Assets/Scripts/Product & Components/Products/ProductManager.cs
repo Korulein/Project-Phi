@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class ProductManager : MonoBehaviour
     public static ProductManager instance { get; private set; }
 
     [Header("References")]
-    private Dictionary<ComponentData, int> componentsInBlueprint;
+    private Dictionary<ComponentData, int> componentsInBlueprintAtAssemblyTime;
+    public List<ComponentData> componentsInBlueprintAtRuntime;
     private int numberOfCellsOccupied;
 
     [Header("Animator Director")]
@@ -50,6 +52,8 @@ public class ProductManager : MonoBehaviour
         }
 
     }
+
+    #region Assemble Product
     private ProductData GetProductData(int blueprintID)
     {
         // Gets product data by blueprint ID
@@ -69,7 +73,7 @@ public class ProductManager : MonoBehaviour
             return;
         }
         var blueprint = BlueprintManager.instance.blueprintInUse;
-        (componentsInBlueprint, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
+        (componentsInBlueprintAtAssemblyTime, numberOfCellsOccupied) = BlueprintManager.instance.GetAllPlacedComponents();
 
         // Product references
         ProductData product = GetProductData(blueprint.blueprintID);
@@ -86,7 +90,7 @@ public class ProductManager : MonoBehaviour
 
         // Counts matched component types
         // Calculates power wattage, heat output and operational electronic component slots
-        foreach (var component in componentsInBlueprint)
+        foreach (var component in componentsInBlueprintAtAssemblyTime)
         {
             ComponentType componentType = component.Key.componentType;
 
@@ -192,7 +196,7 @@ public class ProductManager : MonoBehaviour
     {
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
-
+        RoundFloatsToOneDecimal(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
         string ramsSummary = $"RAMS Ratings:\n" +
                              $"- Reliability: {reliabilityRating}\n" +
                              $"- Availability: {availabilityRating}\n" +
@@ -200,13 +204,18 @@ public class ProductManager : MonoBehaviour
                              $"- Safety: {safetyRating}";
         DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
+    #endregion
+
+    #region Calculations
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)
     {
-        float reliabilityModifier = 1, availabilityModifier = 1, maintainabilityModifier = 1, safetyModifier = 1;
-        SetModifiers(ref reliabilityModifier, ref availabilityModifier, ref maintainabilityModifier, ref safetyModifier);
+        float reliabilityModifier = BlueprintManager.instance.finalReliabilityModifier;
+        float availabilityModifier = BlueprintManager.instance.finalAvailabilityModifier;
+        float maintainabilityModifier = BlueprintManager.instance.finalMaintainabilityModifier;
+        float safetyModifier = BlueprintManager.instance.finalSafetyModifier;
 
         // Sums up the ratings of each product's rating multiplied by the amount of cells it occupies in the blueprint
-        foreach (var componentInBlueprint in componentsInBlueprint)
+        foreach (var componentInBlueprint in componentsInBlueprintAtAssemblyTime)
         {
             ComponentData component = componentInBlueprint.Key;
             int cellsOccupied = componentInBlueprint.Value;
@@ -224,22 +233,64 @@ public class ProductManager : MonoBehaviour
 
         return (reliabilityRating, availabilityRating, maintainabilityRating, safetyRating);
     }
-    private void SetModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
+    public void UpdateModifiers(ref float reliabilityProduct, ref float availabilityProduct, ref float maintainabilityProduct, ref float safetyProduct)
     {
         // Calculates modifiers based on the structural components placed in the blueprint
-        foreach (var componentInBlueprint in componentsInBlueprint)
+        foreach (var componentInBlueprint in BlueprintManager.instance.structuralComponentsInBlueprint)
         {
-            ComponentData component = componentInBlueprint.Key;
-            if (component.componentType == ComponentType.Structural)
-            {
-                StructuralComponent structuralComponent = (StructuralComponent)component;
-                reliabilityProduct *= structuralComponent.reliabilityModifier;
-                availabilityProduct *= structuralComponent.availabilityModifier;
-                maintainabilityProduct *= structuralComponent.maintainabilityModifier;
-                safetyProduct *= structuralComponent.safetyModifier;
-            }
+            ComponentData component = componentInBlueprint;
+            StructuralComponent structuralComponent = (StructuralComponent)component;
+
+            reliabilityProduct *= structuralComponent.reliabilityModifier;
+            availabilityProduct *= structuralComponent.availabilityModifier;
+            maintainabilityProduct *= structuralComponent.maintainabilityModifier;
+            safetyProduct *= structuralComponent.safetyModifier;
+
+        }
+
+        // Calculates modifiers based on component adjacency
+        List<AdjacencyModifier> modifiers = BlueprintManager.instance.GetModifiers();
+        foreach (var modifier in modifiers)
+        {
+            GetCompoundedValues(ref reliabilityProduct, ref availabilityProduct, ref maintainabilityProduct, ref safetyProduct, modifier);
         }
     }
+    private void GetCompoundedValues(ref float reliability, ref float availability, ref float maintainability, ref float safety, AdjacencyModifier modifier)
+    {
+        switch (modifier.compoundingType)
+        {
+            case CompoundingType.Linear:
+                reliability *= modifier.reliabilityModifier;
+                availability *= modifier.availabilityModifier;
+                maintainability *= modifier.maintainabilityModifier;
+                safety *= modifier.safetyModifier;
+                break;
+            case CompoundingType.Diminishing:
+                reliability *= (1f - Mathf.Pow(0.8f, modifier.reliabilityModifier));
+                break;
+            case CompoundingType.Exponential:
+                reliability *= Mathf.Pow(1.2f, modifier.reliabilityModifier - 1);
+                break;
+            case CompoundingType.Logarithmic:
+                reliability *= Mathf.Log(modifier.reliabilityModifier + 1);
+                break;
+        }
+    }
+    public void RoundFloatsToOneDecimal(ref float reliability, ref float availability, ref float maintainability, ref float safety)
+    {
+        float roundedReliability = (float)Math.Round(reliability, 1);
+        float roundedAvailability = (float)Math.Round(availability, 1);
+        float roundedMaintainability = (float)Math.Round(maintainability, 1);
+        float roundedSafety = (float)Math.Round(safety, 1);
+
+        reliability = roundedReliability;
+        availability = roundedAvailability;
+        maintainability = roundedMaintainability;
+        safety = roundedSafety;
+    }
+    #endregion
+
+    #region Resets
     private void ResetFlags(ref ProductData product)
     {
         product.hasRegularComponents = false;
@@ -254,17 +305,23 @@ public class ProductManager : MonoBehaviour
         requiredPowerWattage = 0;
         powerInProduct = 0;
     }
+    #endregion
+
+    #region SFX
     public void PlayButtonSFX()
     {
 
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
 
     }
+    #endregion
 
+    #region Animator
     public void PlayTimeline()
     {
         // Plays the timeline animation for product assembly
         director.Play();
     }
+    #endregion
 
 }

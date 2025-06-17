@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Large Water Reservoir
   categoryName: Water Reservoir
   componentSprite: {fileID: -7416111074985556640, guid: 6d62021f3154eba47bb828e3dfb8242f, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A large water reservior to allow for more beverages to be
     dispensed at once.
   componentID: 0
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
+  componentRating: 2
   slotSize: 2
   width: 2
   height: 2
@@ -29,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 0
   weight: 8
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 4
+  heatResistance: 4
   reliabilityRating: 80
   availabilityRating: 50
   safetyRating: 60

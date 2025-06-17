@@ -15,12 +15,14 @@ MonoBehaviour:
   componentName: Coffee pump
   categoryName: Pump
   componentSprite: {fileID: 4262572078881353966, guid: 7e3d50591db294b49a8b54c585ddcf8c, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A basic pump used to push liquid contents through a machine.
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
+  componentRating: 1
   slotSize: 4
   width: 2
   height: 1
@@ -28,6 +30,9 @@ MonoBehaviour:
   playTimeHeight: 0
   weight: 1.1
   requiresPowerInput: 1
+  adjacencyRange: 0
+  heatTolerance: 3
+  heatResistance: 3
   reliabilityRating: 65
   availabilityRating: 50
   safetyRating: 50

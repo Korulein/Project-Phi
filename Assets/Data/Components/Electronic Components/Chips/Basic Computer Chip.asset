@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Basic Chip
   categoryName: Computer Chip
   componentSprite: {fileID: -4275362010395490054, guid: 4f3f35e23ee9e39489f1d3d136d4eeea, type: 3}
+  companyLogo: {fileID: 21300000, guid: 732371340d835e847bc105bbf5f22b0d, type: 3}
   componentDescription: A cheap computer chip found in low end products and scrap
     yards.
   componentID: 29
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 2
   materialType: 1
+  componentRating: 0
   slotSize: 1
   width: 1
   height: 1
@@ -29,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.15
   requiresPowerInput: 1
+  adjacencyRange: 1
+  heatTolerance: 0
+  heatResistance: 0
   reliabilityRating: 25
   availabilityRating: 80
   safetyRating: 40

@@ -15,12 +15,14 @@ MonoBehaviour:
   componentName: Water Reservoir
   categoryName: Water Reservoir
   componentSprite: {fileID: -5788781561503369973, guid: 48ecf1bac5858124d90a2d045e1b9bf3, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A reservoir of water for the coffee machine.
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 6
   materialType: 0
+  componentRating: 1
   slotSize: 4
   width: 1
   height: 2
@@ -28,6 +30,9 @@ MonoBehaviour:
   playTimeHeight: 0
   weight: 4
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 4
+  heatResistance: 4
   reliabilityRating: 65
   availabilityRating: 60
   safetyRating: 60

@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Small Battery
   categoryName: Power Source
   componentSprite: {fileID: -5081854558607106021, guid: 0bc3aa0334896b4409ffb9ec5ccfc34d, type: 3}
+  companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
   componentDescription: A small 6V batter that can only output a 25 Watts amount
     of power over several hours.
   componentID: 22
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 4
   materialType: 22
+  componentRating: 0
   slotSize: 4
   width: 1
   height: 2
@@ -29,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 2
   weight: 0.14
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 4
+  heatResistance: 4
   reliabilityRating: 50
   availabilityRating: 90
   safetyRating: 55

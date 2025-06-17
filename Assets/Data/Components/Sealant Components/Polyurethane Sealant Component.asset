@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Polyurethane Seal
   categoryName: Seal
   componentSprite: {fileID: 6285897523072843191, guid: adf93935c52421f44acc9090f55c7279, type: 3}
+  companyLogo: {fileID: 21300000, guid: 9201c2a18087f70499450b3eb31ebed3, type: 3}
   componentDescription: A very flexible foam like sealant that can be sprayed onto
     areas and also works in extreme temperatures. Great for emergencies.
   componentID: 21
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 5
   materialType: 15
+  componentRating: 2
   slotSize: 4
   width: 1
   height: 2
@@ -29,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 2
   weight: 0.4
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 30
   availabilityRating: 50
   safetyRating: 20

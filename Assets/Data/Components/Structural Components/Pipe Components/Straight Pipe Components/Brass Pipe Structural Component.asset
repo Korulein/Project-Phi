@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Brass Pipe
   categoryName: Pipe
   componentSprite: {fileID: 3487605230081282101, guid: 02ba9d56f6ef48e45b75eff661c9900c, type: 3}
+  companyLogo: {fileID: 21300000, guid: 035e13c64551ff6409643e8aea690173, type: 3}
   componentDescription: A brass pipe, nice and reliable, though perhaps not as sturdy
     as steel.
   componentID: 2002
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 7
   materialType: 7
+  componentRating: 1
   slotSize: 4
   width: 1
   height: 3
@@ -29,10 +31,14 @@ MonoBehaviour:
   playTimeHeight: 3
   weight: 0.8
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 0
   availabilityRating: 0
   safetyRating: 0
   maintainabilityRating: 0
+  structuralSubtype: 0
   reliabilityModifier: 1.1
   availabilityModifier: 0.9
   maintainabilityModifier: 1.2

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b9cfa9cbbde424e83ba39e6b268378, type: 3}
+  m_Name: Cooling Adjacency Beneficial Modifier
+  m_EditorClassIdentifier: 
+  modifierName: Cooling Adjacency Beneficial Modifier
+  modifierDescription: A beneficial modifier caused by placing a cooling component
+    next to a chip or heating component.
+  compoundingType: 2
+  reliabilityModifier: 1.1
+  availabilityModifier: 1
+  maintainabilityModifier: 1.2
+  safetyModifier: 1.25

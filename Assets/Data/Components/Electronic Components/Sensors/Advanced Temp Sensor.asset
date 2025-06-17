@@ -15,6 +15,7 @@ MonoBehaviour:
   componentName: Advanced Temp Sensor
   categoryName: Sensor
   componentSprite: {fileID: 2723441291482892483, guid: 3214faf0f432ddf42ad69c7ac5b1d10c, type: 3}
+  companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
   componentDescription: A highly specialised Temperature sensor capable of detecting
     and accurately measuring extreme temperature ranges
   componentID: 25
@@ -22,6 +23,7 @@ MonoBehaviour:
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 3
   materialType: 1
+  componentRating: 3
   slotSize: 1
   width: 1
   height: 1
@@ -29,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.35
   requiresPowerInput: 1
+  adjacencyRange: 1
+  heatTolerance: 1
+  heatResistance: 1
   reliabilityRating: 65
   availabilityRating: 10
   safetyRating: 70

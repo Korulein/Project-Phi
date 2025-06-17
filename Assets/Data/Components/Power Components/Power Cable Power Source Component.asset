@@ -15,12 +15,14 @@ MonoBehaviour:
   componentName: Power Cable
   categoryName: Power Source
   componentSprite: {fileID: 4135321429369839004, guid: f492c5146dcb5004d86a84ba82f8637d, type: 3}
+  companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
   componentDescription: A basic power cable, used mainly for household appliances
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
   componentType: 4
   materialType: 0
+  componentRating: 2
   slotSize: 1
   width: 1
   height: 1
@@ -28,6 +30,9 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.5
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 50
   availabilityRating: 70
   safetyRating: 45
