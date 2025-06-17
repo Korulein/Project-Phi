@@ -113,6 +113,7 @@ public enum HeatTolerance
     Medium,
     High,
     VeryHigh,
+    FullTolerance
 }
 public enum HeatResistance
 {
@@ -122,4 +123,5 @@ public enum HeatResistance
     Medium,
     High,
     VeryHigh,
+    FullResistance
 }

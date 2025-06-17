@@ -31,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 0
   weight: 0.2
   requiresPowerInput: 1
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 40
   availabilityRating: 90
   safetyRating: 40
@@ -38,3 +41,5 @@ MonoBehaviour:
   requiredPower: 135
   operationalTemperature: 573
   producedHeat: 500
+  beneficialNeighbors: 
+  harmfulNeighbors: 

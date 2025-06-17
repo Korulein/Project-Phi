@@ -31,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 2
   weight: 0.7
   requiresPowerInput: 0
+  adjacencyRange: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 60
   availabilityRating: 60
   safetyRating: 40

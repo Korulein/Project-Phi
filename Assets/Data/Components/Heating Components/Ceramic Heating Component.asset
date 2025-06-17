@@ -32,8 +32,8 @@ MonoBehaviour:
   weight: 0.5
   requiresPowerInput: 1
   adjacencyRange: 1
-  heatTolerance: 0
-  heatResistance: 0
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 60
   availabilityRating: 50
   safetyRating: 40

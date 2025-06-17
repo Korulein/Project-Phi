@@ -31,6 +31,9 @@ MonoBehaviour:
   playTimeHeight: 1
   weight: 0.6
   requiresPowerInput: 1
+  adjacencyRange: 1
+  heatTolerance: 5
+  heatResistance: 5
   reliabilityRating: 45
   availabilityRating: 60
   safetyRating: 50
@@ -39,3 +42,5 @@ MonoBehaviour:
   coolantType: 3
   operationalTemperature: 473
   reducedHeat: 60
+  beneficialNeighbors: 0200000000000000
+  harmfulNeighbors: 

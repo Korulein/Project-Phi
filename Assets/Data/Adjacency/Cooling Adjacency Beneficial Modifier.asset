@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4b9cfa9cbbde424e83ba39e6b268378, type: 3}
-  m_Name: Heat Adjacency Harmful Modifier
+  m_Name: Cooling Adjacency Beneficial Modifier
   m_EditorClassIdentifier: 
-  modifierName: Heat Adjacency Harmful Modifier
-  modifierDescription: A harmful modifier caused by placing a heating component near
-    a electronic component.
-  reliabilityModifier: 0.8
+  modifierName: Cooling Adjacency Beneficial Modifier
+  modifierDescription: A beneficial modifier caused by placing a cooling component
+    next to a chip or heating component.
+  reliabilityModifier: 1.1
   availabilityModifier: 1
-  maintainabilityModifier: 0.7
-  safetyModifier: 0.75
+  maintainabilityModifier: 1.2
+  safetyModifier: 1.25
