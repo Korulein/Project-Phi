@@ -294,18 +294,6 @@ public class ProductManager : MonoBehaviour
             safetyProduct *= modifier.safetyModifier;
         }
     }
-    public void RoundFloatsToInt(ref float reliability, ref float availability, ref float maintainability, ref float safety)
-    {
-        int roundedReliability = (int)Math.Round(reliability, 0);
-        int roundedAvailability = (int)Math.Round(availability, 0);
-        int roundedMaintainability = (int)Math.Round(maintainability, 0);
-        int roundedSafety = (int)Math.Round(safety, 0);
-
-        reliability = roundedReliability;
-        availability = roundedAvailability;
-        maintainability = roundedMaintainability;
-        safety = roundedSafety;
-    }
     public void RoundFloatsToOneDecimal(ref float reliability, ref float availability, ref float maintainability, ref float safety)
     {
         float roundedReliability = (float)Math.Round(reliability, 1);

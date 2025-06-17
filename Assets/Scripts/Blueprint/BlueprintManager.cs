@@ -437,7 +437,6 @@ public class BlueprintManager : MonoBehaviour
     private void RecalculateAllAdjacencyModifiers()
     {
         adjacencyModifiersToBeApplied.Clear();
-
         HashSet<UIComponentItem> processedComponents = new HashSet<UIComponentItem>();
         for (int x = 0; x < blueprintInUse.gridWidth; x++)
         {
@@ -449,11 +448,9 @@ public class BlueprintManager : MonoBehaviour
                     if (!processedComponents.Contains(component))
                     {
                         processedComponents.Add(component);
-
                         Vector2Int origin = FindComponentOrigin(component,
                             component.GetComponentData().playTimeWidth,
                             component.GetComponentData().playTimeHeight);
-
                         // Safety check
                         if (origin != Vector2Int.one * -1)
                         {
@@ -485,7 +482,7 @@ public class BlueprintManager : MonoBehaviour
                 if (grid[x, y].isOccupied)
                 {
                     UIComponentItem neighborComponent = grid[x, y].occupiedBy;
-                    DetermineAdjacencyModifier(neighborComponent, componentItem);
+                    DetermineAdjacencyModifier(componentItem, neighborComponent);
                 }
             }
         }
@@ -512,7 +509,14 @@ public class BlueprintManager : MonoBehaviour
         }
         if (sourceComponentData.componentType == ComponentType.Cooling)
         {
-            // Add for cooling in the future
+            CoolingComponent coolingComponent = sourceComponentData as CoolingComponent;
+            if (targetComponentData.componentType != ComponentType.Chip && targetComponentData.componentType != ComponentType.Heating)
+                return;
+            AdjacencyModifier modifier = adjacencyModifiers.FirstOrDefault(m => m.modifierName == "Cooling Adjacency Beneficial Modifier");
+            if (modifier != null)
+            {
+                adjacencyModifiersToBeApplied.Add(modifier);
+            }
         }
     }
     private bool ShouldApplyHeatModifier(float producedHeat, HeatTolerance tolerance)
