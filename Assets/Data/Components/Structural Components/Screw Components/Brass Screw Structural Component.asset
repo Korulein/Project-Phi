@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: An uncommon screw type, unremarkable in everything but for
     being inert.
   componentID: 11
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 8
   materialType: 7
   componentRating: 1

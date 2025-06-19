@@ -19,55 +19,55 @@ public class DisplayInventoryComponents : MonoBehaviour
         // instantiates prefab with associated data
         foreach (var componentData in InventoryManager.instance.structuralComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, structuralComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, structuralComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.powerSourceComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, powerSourceComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, powerSourceComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.powerTransformerComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, powerSourceComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, powerSourceComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.coolingComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, coolingComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, coolingComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.heatingComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, heatingComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, heatingComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.electronicComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, electronicComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, electronicComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.filterComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, filterComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, filterComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.sealantComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, sealantComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, sealantComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
         foreach (var componentData in InventoryManager.instance.specialComponentsInInventory)
         {
-            GameObject component = Instantiate(componentData.inventoryPrefab, specialComponentContainer);
+            GameObject component = Instantiate(componentData.componentPrefab, specialComponentContainer);
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }

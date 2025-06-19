@@ -30,7 +30,6 @@ public class BlueprintManager : MonoBehaviour
     [SerializeField] public float finalAvailabilityModifier = 1f;
     [SerializeField] public float finalMaintainabilityModifier = 1f;
     [SerializeField] public float finalSafetyModifier = 1f;
-    private int numberOfHarmfulHeatModifiers = 0;
 
     [Header("Missions")]
     public Missions activeMission;
@@ -428,6 +427,13 @@ public class BlueprintManager : MonoBehaviour
         }
         structuralComponentsInBlueprint.Clear();
         powerTransformersInBlueprint.Clear();
+        adjacencyModifiersToBeApplied.Clear();
+        ResetModifiers();
+        DeskUIManager.instance.ChangeUIRAMSText(finalReliabilityModifier,
+        finalAvailabilityModifier,
+        finalMaintainabilityModifier,
+        finalSafetyModifier
+        );
     }
     #endregion
 

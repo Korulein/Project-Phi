@@ -8,8 +8,7 @@ public class ComponentData : ScriptableObject
     public Sprite companyLogo;
     [TextArea] public string componentDescription;
     public int componentID;
-    public GameObject inventoryPrefab;
-    public GameObject blueprintPrefab;
+    public GameObject componentPrefab;
     public ComponentType componentType;
 
     [Header("Component Specifics")]

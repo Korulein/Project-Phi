@@ -18,8 +18,7 @@ MonoBehaviour:
   companyLogo: {fileID: 21300000, guid: 9201c2a18087f70499450b3eb31ebed3, type: 3}
   componentDescription: A flexible, chemical resistant sealant good for moving parts.
   componentID: 19
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 6
   materialType: 17
   componentRating: 2

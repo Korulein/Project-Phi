@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: An indestructable screw, resilient against anything but once
     it's broken it's equally difficult to replace as it was to break.
   componentID: 13
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 8
   materialType: 13
   componentRating: 3
