@@ -156,8 +156,6 @@ public class ProductManager : MonoBehaviour
         if (finalHeat > product.maxSustainedHeat)
         {
             Debug.Log("Product is past the heat threshold!");
-            ResetRequirements();
-            ResetFlags(ref product);
             return;
         }
 
@@ -165,8 +163,6 @@ public class ProductManager : MonoBehaviour
         if (finalPower < 0)
         {
             Debug.Log("Product does not have enough power!");
-            ResetRequirements();
-            ResetFlags(ref product);
             return;
         }
 
@@ -174,8 +170,6 @@ public class ProductManager : MonoBehaviour
         if (electronicComponentsInProduct > operationalCPUSlots)
         {
             Debug.Log("Not enough operational electronic component slots!");
-            ResetRequirements();
-            ResetFlags(ref product);
             return;
         }
 
@@ -210,6 +204,11 @@ public class ProductManager : MonoBehaviour
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
         RoundFloatsToOneDecimal(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
+        reliabilityRating = reliabilityRating > 100 ? 100 : reliabilityRating;
+        availabilityRating = availabilityRating > 100 ? 100 : availabilityRating;
+        maintainabilityRating = maintainabilityRating > 100 ? 100 : maintainabilityRating;
+        safetyRating = safetyRating > 100 ? 100 : safetyRating;
+
         string ramsSummary = $"RAMS Ratings:\n" +
                              $"- Reliability: {reliabilityRating}\n" +
                              $"- Availability: {availabilityRating}\n" +
