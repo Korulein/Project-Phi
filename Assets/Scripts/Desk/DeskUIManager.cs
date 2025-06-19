@@ -17,7 +17,7 @@ public class DeskUIManager : MonoBehaviour
 
     [Header("Product Popup")]
     [SerializeField] GameObject productPopup;
-    [SerializeField] GameObject blurLayer;
+    [SerializeField] GameObject deskBlurLayer;
     [SerializeField] public TextMeshProUGUI RAMSRatings;
 
     [Header("Supplier Component Information Popup")]
@@ -44,6 +44,16 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI maintainabilityModifier;
     [SerializeField] public TextMeshProUGUI safetyModifier;
 
+    [Header("Blueprint Data Elements")]
+    [SerializeField] public GameObject blueprintDataPopup;
+    [SerializeField] public GameObject blueprintBlurLayer;
+    [SerializeField] public TextMeshProUGUI producedHeat;
+    [SerializeField] public TextMeshProUGUI heatThreshold;
+    [SerializeField] public TextMeshProUGUI effectiveCooling;
+    [SerializeField] public TextMeshProUGUI powerNeeded;
+    [SerializeField] public TextMeshProUGUI powerInBlueprint;
+    [SerializeField] public TextMeshProUGUI electronicComponentsInBlueprint;
+    [SerializeField] public TextMeshProUGUI CPUSlots;
 
     [Header("Player Input")]
     private bool leftClickConsumed;
@@ -110,11 +120,11 @@ public class DeskUIManager : MonoBehaviour
     }
     public void DisplayProductPopup()
     {
-        blurLayer.SetActive(true);
+        deskBlurLayer.SetActive(true);
     }
     public void CloseProductPopup()
     {
-        blurLayer.SetActive(false);
+        deskBlurLayer.SetActive(false);
         ProductManager.instance.PlayTimeline();
         RAMSRatings.text = "";
     }
@@ -126,6 +136,18 @@ public class DeskUIManager : MonoBehaviour
     public void CloseSupplierComponentInformationPopup()
     {
         basicComponentInformationPopup.SetActive(false);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
+    }
+    public void DisplayBlueprintDataPopup()
+    {
+        blueprintDataPopup.SetActive(true);
+        blueprintBlurLayer.SetActive(true);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
+    }
+    public void CloseBlueprintDataPopup()
+    {
+        blueprintDataPopup.SetActive(false);
+        blueprintBlurLayer.SetActive(false);
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
     }
     public void DisplayRAMSModifiersPanel()

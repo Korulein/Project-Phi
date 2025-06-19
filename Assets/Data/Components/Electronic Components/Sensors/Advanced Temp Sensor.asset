@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: A highly specialised Temperature sensor capable of detecting
     and accurately measuring extreme temperature ranges
   componentID: 25
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 3
   materialType: 1
   componentRating: 3

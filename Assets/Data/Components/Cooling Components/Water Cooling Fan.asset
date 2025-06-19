@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: A liquid cooling system, capable of drawing away far more
     heat than normal air powered fans.
   componentID: 33
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 1
   materialType: 3
   componentRating: 2

@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: A more advanced iteration of a Temperature Sensor. With ranges
     from -100 C to 300 C, it's hardy and will serve you well.
   componentID: 27
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 3
   materialType: 6
   componentRating: 1

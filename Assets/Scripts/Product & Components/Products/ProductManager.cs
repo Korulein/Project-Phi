@@ -148,7 +148,6 @@ public class ProductManager : MonoBehaviour
         foreach (var powerTransformer in BlueprintManager.instance.powerTransformersInBlueprint)
         {
             powerInProduct = powerInProduct * powerTransformer.powerMultiplier;
-            Debug.Log(powerInProduct);
         }
 
         // Checks if the product is below the heat threshold

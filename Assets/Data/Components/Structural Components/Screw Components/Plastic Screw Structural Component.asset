@@ -19,8 +19,7 @@ MonoBehaviour:
   componentDescription: A rudimentary plastic screw, good for only non critical functions.
     Easy to replace and manufacture just about anywhere.
   componentID: 14
-  inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
-  blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
+  componentPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   componentType: 8
   materialType: 0
   componentRating: 0
