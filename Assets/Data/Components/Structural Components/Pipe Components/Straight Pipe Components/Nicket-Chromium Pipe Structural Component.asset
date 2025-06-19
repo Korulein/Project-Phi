@@ -17,10 +17,10 @@ MonoBehaviour:
   componentSprite: {fileID: 2145264916251209589, guid: 7fbe6f4ae381fb549ab46b19a12f7144, type: 3}
   companyLogo: {fileID: 21300000, guid: 035e13c64551ff6409643e8aea690173, type: 3}
   componentDescription: A very sturdy pipe, strong enough to second as a tank barrel.
-  componentID: 2003
+  componentID: 8
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  componentType: 7
+  componentType: 8
   materialType: 13
   componentRating: 3
   slotSize: 4

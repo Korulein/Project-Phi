@@ -17,10 +17,10 @@ MonoBehaviour:
   componentSprite: {fileID: -4338928236674095663, guid: fa338362c210c1b4886a0c5e96107c16, type: 3}
   companyLogo: {fileID: 21300000, guid: 9be5e47babb40b441a5fb5283478c68d, type: 3}
   componentDescription: A special cup, perfect for 0 G applications.
-  componentID: 0
+  componentID: 1
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  componentType: 6
+  componentType: 7
   materialType: 0
   componentRating: 0
   slotSize: 1
