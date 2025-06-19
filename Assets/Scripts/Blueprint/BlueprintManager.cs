@@ -439,6 +439,8 @@ public class BlueprintManager : MonoBehaviour
                 grid[i, j].isOccupied = false;
             }
         }
+        structuralComponentsInBlueprint.Clear();
+        powerTransformersInBlueprint.Clear();
     }
     #endregion
 
