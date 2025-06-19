@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     [Header("Components in Inventory")]
     [SerializeField] public List<ComponentData> structuralComponentsInInventory = new List<ComponentData>();
     [SerializeField] public List<ComponentData> powerSourceComponentsInInventory = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> powerTransformerComponentsInInventory = new List<ComponentData>();
     [SerializeField] public List<ComponentData> electronicComponentsInInventory = new List<ComponentData>();
     [SerializeField] public List<ComponentData> coolingComponentsInInventory = new List<ComponentData>();
     [SerializeField] public List<ComponentData> heatingComponentsInInventory = new List<ComponentData>();
@@ -18,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     [Header("Components Ordered")]
     [SerializeField] public List<ComponentData> structuralComponentsOrdered = new List<ComponentData>();
     [SerializeField] public List<ComponentData> powerSourceComponentsOrdered = new List<ComponentData>();
+    [SerializeField] public List<ComponentData> powerTransformerComponentsOrdered = new List<ComponentData>();
     [SerializeField] public List<ComponentData> electronicComponentsOrdered = new List<ComponentData>();
     [SerializeField] public List<ComponentData> coolingComponentsOrdered = new List<ComponentData>();
     [SerializeField] public List<ComponentData> heatingComponentsOrdered = new List<ComponentData>();
@@ -69,6 +71,9 @@ public class InventoryManager : MonoBehaviour
             case ComponentType.Filter:
                 filterComponentsOrdered.Add(component);
                 break;
+            case ComponentType.PowerTransformer:
+                powerTransformerComponentsOrdered.Add(component);
+                break;
             default:
                 Debug.Log("Component type not recognized");
                 break;
@@ -106,6 +111,9 @@ public class InventoryManager : MonoBehaviour
             case ComponentType.Filter:
                 filterComponentsInInventory.Add(component);
                 break;
+            case ComponentType.PowerTransformer:
+                powerSourceComponentsInInventory.Add(component);
+                break;
             default:
                 Debug.Log("Component type not recognized");
                 break;
@@ -142,6 +150,9 @@ public class InventoryManager : MonoBehaviour
                 break;
             case ComponentType.Filter:
                 filterComponentsInInventory.Remove(component);
+                break;
+            case ComponentType.PowerTransformer:
+                powerSourceComponentsInInventory.Remove(component);
                 break;
             default:
                 Debug.Log("Component type not recognized");
@@ -183,6 +194,13 @@ public class InventoryManager : MonoBehaviour
                 break;
             case ComponentType.Power:
                 foreach (var component in powerSourceComponentsOrdered)
+                {
+                    if (component.componentID == componentToCheck.componentID)
+                        return false;
+                }
+                break;
+            case ComponentType.PowerTransformer:
+                foreach (var component in powerTransformerComponentsOrdered)
                 {
                     if (component.componentID == componentToCheck.componentID)
                         return false;

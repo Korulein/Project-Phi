@@ -29,6 +29,12 @@ public class DisplayInventoryComponents : MonoBehaviour
             UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
             uiItem.InitializeComponent(componentData);
         }
+        foreach (var componentData in InventoryManager.instance.powerTransformerComponentsInInventory)
+        {
+            GameObject component = Instantiate(componentData.inventoryPrefab, powerSourceComponentContainer);
+            UIComponentItem uiItem = component.GetComponent<UIComponentItem>();
+            uiItem.InitializeComponent(componentData);
+        }
         foreach (var componentData in InventoryManager.instance.coolingComponentsInInventory)
         {
             GameObject component = Instantiate(componentData.inventoryPrefab, coolingComponentContainer);

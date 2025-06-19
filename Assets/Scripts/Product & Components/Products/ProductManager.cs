@@ -117,7 +117,7 @@ public class ProductManager : MonoBehaviour
                 heatOutput += electronicComponent.producedHeat;
                 requiredPowerWattage += electronicComponent.requiredPower;
             }
-            else if (component.Key.componentType == ComponentType.Power)
+            else if (component.Key.componentType == ComponentType.Power || component.Key.componentType == ComponentType.PowerTransformer)
             {
                 PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
                 heatOutput += powerComponent.producedHeat;
@@ -144,11 +144,20 @@ public class ProductManager : MonoBehaviour
             }
         }
 
+        // Power Multiplier
+        foreach (var powerTransformer in BlueprintManager.instance.powerTransformersInBlueprint)
+        {
+            powerInProduct = powerInProduct * powerTransformer.powerMultiplier;
+            Debug.Log(powerInProduct);
+        }
+
         // Checks if the product is below the heat threshold
         float finalHeat = heatOutput - coolingOutput;
         if (finalHeat > product.maxSustainedHeat)
         {
             Debug.Log("Product is past the heat threshold!");
+            ResetRequirements();
+            ResetFlags(ref product);
             return;
         }
 
@@ -156,6 +165,8 @@ public class ProductManager : MonoBehaviour
         if (finalPower < 0)
         {
             Debug.Log("Product does not have enough power!");
+            ResetRequirements();
+            ResetFlags(ref product);
             return;
         }
 
@@ -163,6 +174,8 @@ public class ProductManager : MonoBehaviour
         if (electronicComponentsInProduct > operationalCPUSlots)
         {
             Debug.Log("Not enough operational electronic component slots!");
+            ResetRequirements();
+            ResetFlags(ref product);
             return;
         }
 
