@@ -100,6 +100,7 @@ public enum ComponentType
     Chip,
     Sensor,
     Power,
+    PowerTransformer,
     Sealant,
     Special,
     Structural,

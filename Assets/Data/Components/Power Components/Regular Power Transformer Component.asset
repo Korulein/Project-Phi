@@ -9,34 +9,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de85ca2df16b02c4287c434e5b99c9ab, type: 3}
-  m_Name: Power Cable Power Source Component
+  m_Script: {fileID: 11500000, guid: aae526745c068054b8d622ce327b5c2d, type: 3}
+  m_Name: Regular Power Transformer Component
   m_EditorClassIdentifier: 
-  componentName: Power Cable
-  categoryName: Power Source
-  componentSprite: {fileID: 4135321429369839004, guid: f492c5146dcb5004d86a84ba82f8637d, type: 3}
+  componentName: Power Transformer
+  categoryName: Power Transformer
+  componentSprite: {fileID: -4764168156354529785, guid: cdda689d3ed1d14448eba07f3dd944ca, type: 3}
   companyLogo: {fileID: 21300000, guid: 8f26f858061d848409d72ac2f4a039cb, type: 3}
-  componentDescription: A basic power cable, used mainly for household appliances
+  componentDescription: 
   componentID: 0
   inventoryPrefab: {fileID: 6951259558759640855, guid: dc717092e6cea0b449de1a8898162e32, type: 3}
   blueprintPrefab: {fileID: 6951259558759640855, guid: 57e3b32ed3d2cb74892aba324d825c71, type: 3}
-  componentType: 4
-  materialType: 0
-  componentRating: 2
-  slotSize: 1
-  width: 1
+  componentType: 5
+  materialType: 1
+  componentRating: 0
+  slotSize: 4
+  width: 2
   height: 1
-  playTimeWidth: 1
+  playTimeWidth: 2
   playTimeHeight: 1
-  weight: 0.5
+  weight: 
   requiresPowerInput: 0
-  adjacencyRange: 0
+  adjacencyRange: 1
   heatTolerance: 5
   heatResistance: 5
-  reliabilityRating: 50
-  availabilityRating: 70
-  safetyRating: 45
-  maintainabilityRating: 40
+  reliabilityRating: 1
+  availabilityRating: 1
+  safetyRating: 1
+  maintainabilityRating: 1
   energyType: 5
-  maxPowerOutput: 100
-  producedHeat: 5
+  maxPowerOutput: 0
+  producedHeat: 25
+  powerMultiplier: 1.3

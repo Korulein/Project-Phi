@@ -121,10 +121,12 @@ public class DeskUIManager : MonoBehaviour
     public void DisplaySupplierComponentInformationPopup()
     {
         basicComponentInformationPopup.SetActive(true);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
     }
     public void CloseSupplierComponentInformationPopup()
     {
         basicComponentInformationPopup.SetActive(false);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
     }
     public void DisplayRAMSModifiersPanel()
     {

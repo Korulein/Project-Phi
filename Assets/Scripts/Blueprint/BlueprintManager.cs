@@ -25,6 +25,7 @@ public class BlueprintManager : MonoBehaviour
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiersToBeApplied = new List<AdjacencyModifier>();
     [SerializeField] public List<StructuralComponent> structuralComponentsInBlueprint = new List<StructuralComponent>();
+    [SerializeField] public List<PowerTransformerComponent> powerTransformersInBlueprint = new List<PowerTransformerComponent>();
     [SerializeField] public float finalReliabilityModifier = 1f;
     [SerializeField] public float finalAvailabilityModifier = 1f;
     [SerializeField] public float finalMaintainabilityModifier = 1f;
@@ -324,6 +325,10 @@ public class BlueprintManager : MonoBehaviour
         }
         if (componentItem.GetComponentData().componentType == ComponentType.Structural)
             AddStructuralComponent(componentItem);
+        if (componentItem.GetComponentData().componentType == ComponentType.PowerTransformer)
+        {
+            powerTransformersInBlueprint.Add((PowerTransformerComponent)componentItem.GetComponentData());
+        }
         RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
     }
@@ -356,6 +361,10 @@ public class BlueprintManager : MonoBehaviour
         {
             structuralComponentsInBlueprint.Remove((StructuralComponent)component);
         }
+        if (component.componentType == ComponentType.PowerTransformer)
+        {
+            powerTransformersInBlueprint.Remove((PowerTransformerComponent)component);
+        }
         RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
 
@@ -387,7 +396,7 @@ public class BlueprintManager : MonoBehaviour
                     seenComponents.Add(componentItem);
                     ComponentData component = componentItem.GetComponentData();
 
-                    int width = component.playTimeWidth;  // or component.width if you don't use runtime rotation
+                    int width = component.playTimeWidth;
                     int height = component.playTimeHeight;
 
                     int cellCount = width * height;
@@ -417,6 +426,8 @@ public class BlueprintManager : MonoBehaviour
                 grid[i, j].isOccupied = false;
             }
         }
+        structuralComponentsInBlueprint.Clear();
+        powerTransformersInBlueprint.Clear();
     }
     #endregion
 

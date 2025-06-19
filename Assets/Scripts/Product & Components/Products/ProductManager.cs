@@ -117,7 +117,7 @@ public class ProductManager : MonoBehaviour
                 heatOutput += electronicComponent.producedHeat;
                 requiredPowerWattage += electronicComponent.requiredPower;
             }
-            else if (component.Key.componentType == ComponentType.Power)
+            else if (component.Key.componentType == ComponentType.Power || component.Key.componentType == ComponentType.PowerTransformer)
             {
                 PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
                 heatOutput += powerComponent.producedHeat;
@@ -142,6 +142,13 @@ public class ProductManager : MonoBehaviour
             {
                 electronicComponentsInProduct++;
             }
+        }
+
+        // Power Multiplier
+        foreach (var powerTransformer in BlueprintManager.instance.powerTransformersInBlueprint)
+        {
+            powerInProduct = powerInProduct * powerTransformer.powerMultiplier;
+            Debug.Log(powerInProduct);
         }
 
         // Checks if the product is below the heat threshold
@@ -197,6 +204,11 @@ public class ProductManager : MonoBehaviour
         float reliabilityRating = 0, availabilityRating = 0, maintainabilityRating = 0, safetyRating = 0;
         KoruFormula(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
         RoundFloatsToOneDecimal(ref reliabilityRating, ref availabilityRating, ref maintainabilityRating, ref safetyRating);
+        reliabilityRating = reliabilityRating > 100 ? 100 : reliabilityRating;
+        availabilityRating = availabilityRating > 100 ? 100 : availabilityRating;
+        maintainabilityRating = maintainabilityRating > 100 ? 100 : maintainabilityRating;
+        safetyRating = safetyRating > 100 ? 100 : safetyRating;
+
         string ramsSummary = $"RAMS Ratings:\n" +
                              $"- Reliability: {reliabilityRating}\n" +
                              $"- Availability: {availabilityRating}\n" +
