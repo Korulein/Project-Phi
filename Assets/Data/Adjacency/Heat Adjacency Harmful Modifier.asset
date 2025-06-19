@@ -15,7 +15,7 @@ MonoBehaviour:
   modifierName: Heat Adjacency Harmful Modifier
   modifierDescription: A harmful modifier caused by placing a heating component near
     a electronic component.
-  compoundingType: 2
+  compoundingType: 1
   reliabilityModifier: 0.8
   availabilityModifier: 1
   maintainabilityModifier: 0.7
