@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprintName: Coffee_Machine_Blueprint_01
   blueprintImage: {fileID: 21300000, guid: 19063f63ca7a923428a481cc537a045f, type: 3}
-  blueprintID: 1
+  blueprintID: 0
   gridWidth: 6
   gridHeight: 6
   allCells:

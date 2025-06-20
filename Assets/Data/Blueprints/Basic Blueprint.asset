@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprintName: Basic_Blueprint_01
   blueprintImage: {fileID: 21300000, guid: 83632b905d6664b45bc4d0d259ade890, type: 3}
-  blueprintID: 0
+  blueprintID: 1
   gridWidth: 6
   gridHeight: 6
   allCells:
