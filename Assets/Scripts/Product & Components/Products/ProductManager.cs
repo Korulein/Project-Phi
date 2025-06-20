@@ -20,13 +20,13 @@ public class ProductManager : MonoBehaviour
     [SerializeField] public List<ProductData> products = new List<ProductData>();
 
     [Header("Product Requirements")]
-    [SerializeField] private float heatOutput = 0;
-    [SerializeField] private float coolingOutput = 0;
+    [SerializeField] public float heatOutput = 0;
+    [SerializeField] public float coolingOutput = 0;
     [SerializeField] private float productHeatThreshold = 0;
-    [SerializeField] private int electronicComponentsInProduct = 0;
-    [SerializeField] private int operationalCPUSlots = 0;
-    [SerializeField] private float requiredPowerWattage = 0;
-    [SerializeField] private float powerInProduct = 0;
+    [SerializeField] public int electronicComponentsInProduct = 0;
+    [SerializeField] public int operationalCPUSlots = 0;
+    [SerializeField] public float requiredPowerWattage = 0;
+    [SerializeField] public float powerInProduct = 0;
     private void Awake()
     {
         // Singleton setup
@@ -54,7 +54,7 @@ public class ProductManager : MonoBehaviour
     }
 
     #region Assemble Product
-    private ProductData GetProductData(int blueprintID)
+    public ProductData GetProductData(int blueprintID)
     {
         // Gets product data by blueprint ID
         switch (blueprintID)
@@ -103,53 +103,7 @@ public class ProductManager : MonoBehaviour
             {
                 matchedSpecialComponents++;
             }
-
-            // Heating output && Power
-            if (component.Key.componentType == ComponentType.Heating)
-            {
-                HeatingComponent heatingComponent = component.Key as HeatingComponent;
-                heatOutput += heatingComponent.producedHeat;
-                requiredPowerWattage += heatingComponent.requiredPower;
-            }
-            else if (component.Key.componentType == ComponentType.Chip || component.Key.componentType == ComponentType.Sensor)
-            {
-                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
-                heatOutput += electronicComponent.producedHeat;
-                requiredPowerWattage += electronicComponent.requiredPower;
-            }
-            else if (component.Key.componentType == ComponentType.Power || component.Key.componentType == ComponentType.PowerTransformer)
-            {
-                PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
-                heatOutput += powerComponent.producedHeat;
-                powerInProduct += powerComponent.maxPowerOutput;
-            }
-
-            // Cooling output && Power
-            if (component.Key.componentType == ComponentType.Cooling)
-            {
-                CoolingComponent coolingComponent = component.Key as CoolingComponent;
-                coolingOutput += coolingComponent.reducedHeat;
-                requiredPowerWattage += coolingComponent.requiredPower;
-            }
-
-            // CPU slots
-            if (component.Key.componentType == ComponentType.Chip)
-            {
-                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
-                operationalCPUSlots += electronicComponent.operationalCPUSlots;
-            }
-            else if (component.Key.componentType == ComponentType.Sensor)
-            {
-                electronicComponentsInProduct++;
-            }
         }
-
-        // Power Multiplier
-        foreach (var powerTransformer in BlueprintManager.instance.powerTransformersInBlueprint)
-        {
-            powerInProduct = powerInProduct * powerTransformer.powerMultiplier;
-        }
-
         // Checks if the product is below the heat threshold
         float finalHeat = heatOutput - coolingOutput;
         if (finalHeat > product.maxSustainedHeat)
@@ -298,6 +252,57 @@ public class ProductManager : MonoBehaviour
         availability = roundedAvailability;
         maintainability = roundedMaintainability;
         safety = roundedSafety;
+    }
+    public void CalculateProductRequirements(ref float heatOutput, ref float coolingOutput, ref int electronicComponents, ref int CPUSlots, ref float requiredPower, ref float powerInProduct)
+    {
+        var (components, _) = BlueprintManager.instance.GetAllPlacedComponents();
+        heatOutput = 0; coolingOutput = 0; electronicComponents = 0; CPUSlots = 0; requiredPower = 0; powerInProduct = 0;
+
+        foreach (var component in components)
+        {
+            // Heating output && Power
+            if (component.Key.componentType == ComponentType.Heating)
+            {
+                HeatingComponent heatingComponent = component.Key as HeatingComponent;
+                heatOutput += heatingComponent.producedHeat;
+                requiredPower += heatingComponent.requiredPower;
+            }
+            else if (component.Key.componentType == ComponentType.Chip || component.Key.componentType == ComponentType.Sensor)
+            {
+                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
+                heatOutput += electronicComponent.producedHeat;
+                requiredPower += electronicComponent.requiredPower;
+            }
+            else if (component.Key.componentType == ComponentType.Power || component.Key.componentType == ComponentType.PowerTransformer)
+            {
+                PowerSourceComponent powerComponent = component.Key as PowerSourceComponent;
+                heatOutput += powerComponent.producedHeat;
+                powerInProduct += powerComponent.maxPowerOutput;
+            }
+
+            // Cooling output && Power
+            if (component.Key.componentType == ComponentType.Cooling)
+            {
+                CoolingComponent coolingComponent = component.Key as CoolingComponent;
+                coolingOutput += coolingComponent.reducedHeat;
+                requiredPower += coolingComponent.requiredPower;
+            }
+
+            // CPU slots
+            if (component.Key.componentType == ComponentType.Chip)
+            {
+                ElectronicComponent electronicComponent = component.Key as ElectronicComponent;
+                CPUSlots += electronicComponent.operationalCPUSlots;
+            }
+            else if (component.Key.componentType == ComponentType.Sensor)
+            {
+                electronicComponents++;
+            }
+        }
+        foreach (var powerTransformer in BlueprintManager.instance.powerTransformersInBlueprint)
+        {
+            powerInProduct = powerInProduct * powerTransformer.powerMultiplier;
+        }
     }
     #endregion
 

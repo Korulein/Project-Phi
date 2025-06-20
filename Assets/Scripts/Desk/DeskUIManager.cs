@@ -250,6 +250,26 @@ public class DeskUIManager : MonoBehaviour
             safetyModifier.color = new Color(238f / 255f, 226f / 255f, 226f / 255f, 1f);
         }
     }
+    public void UpdateBlueprintDataPopup(float heatOutput, float coolingOutput, int electronicComponents, int operationalCPUSlots, float requiredPower, float powerInProduct)
+    {
+        producedHeat.text = heatOutput.ToString();
+        heatThreshold.text = BlueprintManager.instance.currentProduct.maxSustainedHeat.ToString();
+        effectiveCooling.text = coolingOutput.ToString();
+        powerNeeded.text = requiredPower.ToString();
+        powerInBlueprint.text = powerInProduct.ToString();
+        electronicComponentsInBlueprint.text = electronicComponents.ToString();
+        CPUSlots.text = operationalCPUSlots.ToString();
+    }
+    public void ClearBlueprintData()
+    {
+        producedHeat.text = "0";
+        heatThreshold.text = BlueprintManager.instance.currentProduct.maxSustainedHeat.ToString();
+        effectiveCooling.text = "0";
+        powerNeeded.text = "0";
+        powerInBlueprint.text = "0";
+        electronicComponentsInBlueprint.text = "0";
+        CPUSlots.text = "0";
+    }
     #endregion
 
     #region Email Button Visuals

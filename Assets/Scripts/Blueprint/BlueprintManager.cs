@@ -20,6 +20,7 @@ public class BlueprintManager : MonoBehaviour
     private float offsetY;
     private BlueprintCellData[,] grid;
     public Vector2Int lastPickUpOrigin;
+    public ProductData currentProduct;
 
     [Header("Modifiers")]
     [SerializeField] private List<AdjacencyModifier> adjacencyModifiers = new List<AdjacencyModifier>();
@@ -165,6 +166,10 @@ public class BlueprintManager : MonoBehaviour
 
         // Gets blueprint and initializes grid
         BlueprintData currentBlueprint = GetBlueprintByID(blueprintID);
+        if (blueprintID == 1)
+        {
+            currentProduct = ProductManager.instance.GetProductData(blueprintID);
+        }
         blueprintInUse = currentBlueprint;
         grid = new BlueprintCellData[currentBlueprint.gridWidth, currentBlueprint.gridHeight];
 
@@ -328,6 +333,23 @@ public class BlueprintManager : MonoBehaviour
         {
             powerTransformersInBlueprint.Add((PowerTransformerComponent)componentItem.GetComponentData());
         }
+
+        ProductManager.instance.CalculateProductRequirements(
+            ref ProductManager.instance.heatOutput,
+            ref ProductManager.instance.coolingOutput,
+            ref ProductManager.instance.electronicComponentsInProduct,
+            ref ProductManager.instance.operationalCPUSlots,
+            ref ProductManager.instance.requiredPowerWattage,
+            ref ProductManager.instance.powerInProduct);
+
+        DeskUIManager.instance.UpdateBlueprintDataPopup(
+            ProductManager.instance.heatOutput,
+            ProductManager.instance.coolingOutput,
+            ProductManager.instance.electronicComponentsInProduct,
+            ProductManager.instance.operationalCPUSlots,
+            ProductManager.instance.requiredPowerWattage,
+            ProductManager.instance.powerInProduct);
+
         RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
     }
@@ -364,6 +386,23 @@ public class BlueprintManager : MonoBehaviour
         {
             powerTransformersInBlueprint.Remove((PowerTransformerComponent)component);
         }
+
+        ProductManager.instance.CalculateProductRequirements(
+            ref ProductManager.instance.heatOutput,
+            ref ProductManager.instance.coolingOutput,
+            ref ProductManager.instance.electronicComponentsInProduct,
+            ref ProductManager.instance.operationalCPUSlots,
+            ref ProductManager.instance.requiredPowerWattage,
+            ref ProductManager.instance.powerInProduct);
+
+        DeskUIManager.instance.UpdateBlueprintDataPopup(
+            ProductManager.instance.heatOutput,
+            ProductManager.instance.coolingOutput,
+            ProductManager.instance.electronicComponentsInProduct,
+            ProductManager.instance.operationalCPUSlots,
+            ProductManager.instance.requiredPowerWattage,
+            ProductManager.instance.powerInProduct);
+
         RecalculateAllAdjacencyModifiers();
         UpdateFinalModifiers();
 
@@ -429,6 +468,7 @@ public class BlueprintManager : MonoBehaviour
         powerTransformersInBlueprint.Clear();
         adjacencyModifiersToBeApplied.Clear();
         ResetModifiers();
+        DeskUIManager.instance.ClearBlueprintData();
         DeskUIManager.instance.ChangeUIRAMSText(finalReliabilityModifier,
         finalAvailabilityModifier,
         finalMaintainabilityModifier,
