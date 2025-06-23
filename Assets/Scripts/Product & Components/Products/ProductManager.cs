@@ -202,7 +202,7 @@ public class ProductManager : MonoBehaviour
 
         float averageRAMS = (reliabilityRating + availabilityRating + maintainabilityRating + safetyRating) / 4f;
 
-        bool hasCupComponent = componentsInBlueprint.Keys.Any(c => c.componentName.ToLower().Contains("cup"));
+        bool hasCupComponent = componentsInBlueprintAtAssemblyTime.Keys.Any(c => c.componentName.ToLower().Contains("cup"));
         if (hasCupComponent)
         {
             Debug.Log("Special component 'Cup' found: increasing RAMS score.");
