@@ -198,6 +198,42 @@ public class ProductManager : MonoBehaviour
                              $"- Availability: {availabilityRating}\n" +
                              $"- Maintainability: {maintainabilityRating}\n" +
                              $"- Safety: {safetyRating}";
+
+        float averageRAMS = (reliabilityRating + availabilityRating + maintainabilityRating + safetyRating) / 4f;
+
+        bool hasCupComponent = componentsInBlueprint.Keys.Any(c => c.componentName.ToLower().Contains("cup"));
+        if (hasCupComponent)
+        {
+            Debug.Log("Special component 'Cup' found: increasing RAMS score.");
+            averageRAMS += 5f;
+        }
+
+        System.Random rand = new System.Random();
+        float randomOffset = (float)(rand.NextDouble() * 4 - 2); // between -2 +2
+        float fieldRAMS = averageRAMS + randomOffset;
+        fieldRAMS = Mathf.Clamp(fieldRAMS, 0f, 100f); // always between 0–100
+
+        // Classify RAMS-score
+        string classification = "";
+        if (fieldRAMS >= 80)
+        {
+            classification = "Excellent";
+        }
+        else if (fieldRAMS >= 70)
+        {
+            classification = "Acceptable";
+        }
+        else if (fieldRAMS >= 65)
+        {
+            classification = "Within Field Tolerance";
+        }
+        else
+        {
+            classification = "Below Standard";
+        }
+
+        ramsSummary += $"\n\nField RAMS: {fieldRAMS:F1} ({classification})";
+
         DeskUIManager.instance.RAMSRatings.text = ramsSummary;
     }
     private (float, float, float, float) KoruFormula(ref float reliabilityRating, ref float availabilityRating, ref float maintainabilityRating, ref float safetyRating)

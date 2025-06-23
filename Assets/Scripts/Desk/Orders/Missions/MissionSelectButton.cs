@@ -34,5 +34,11 @@ public class MissionSelectButton : MonoBehaviour
         DeskUIManager.instance.UpdateEmailButtonVisual();
 
         BlueprintManager.instance.ActivateBlueprint(targetOrderScreenUI.blueprintID);
+
+        RequirementUIManager reqManager = FindAnyObjectByType<RequirementUIManager>();
+        if (reqManager != null)
+        {
+            reqManager.activeOrderScreenUI = targetOrderScreenUI;
+        }
     }
 }
