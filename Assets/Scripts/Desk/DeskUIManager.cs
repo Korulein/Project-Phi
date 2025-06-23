@@ -24,8 +24,6 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] public GameObject basicComponentInformationPopup;
     [SerializeField] public Image companyLogo;
     [SerializeField] public Image componentIcon;
-    [SerializeField] public Button closePopupButton;
-    [SerializeField] public Button orderFromPopupButton;
     [SerializeField] public TextMeshProUGUI componentName;
     [SerializeField] public TextMeshProUGUI componentRating;
     [SerializeField] public TextMeshProUGUI componentSlotType;

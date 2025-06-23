@@ -35,8 +35,8 @@ MonoBehaviour:
   heatResistance: 0
   reliabilityRating: 60
   availabilityRating: 40
-  safetyRating: 60
-  maintainabilityRating: 60
+  safetyRating: 35
+  maintainabilityRating: 50
   operationalTemperature: 100
   operationalCPUSlots: 0
   requiredPower: 15
