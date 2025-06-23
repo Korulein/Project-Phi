@@ -518,6 +518,58 @@ public class BlueprintManager : MonoBehaviour
             }
         }
     }
+    public void ClearBlueprint()
+    {
+        HashSet<UIComponentItem> alreadyCleared = new HashSet<UIComponentItem>();
+        for (int i = 0; i < blueprintInUse.gridWidth; i++)
+        {
+            for (int j = 0; j < blueprintInUse.gridHeight; j++)
+            {
+                UIComponentItem componentItem = grid[i, j].occupiedBy;
+                if (componentItem != null && !alreadyCleared.Contains(componentItem))
+                {
+                    // Return to inventory only once
+                    componentItem.ReturnToInventory();
+                    alreadyCleared.Add(componentItem);
+                }
+                grid[i, j].occupiedBy = null;
+                grid[i, j].isOccupied = false;
+            }
+        }
+    }
+    #endregion
+
+    #region Modifiers
+    private void RecalculateAllAdjacencyModifiers()
+    {
+        adjacencyModifiersToBeApplied.Clear();
+
+        HashSet<UIComponentItem> processedComponents = new HashSet<UIComponentItem>();
+        for (int x = 0; x < blueprintInUse.gridWidth; x++)
+        {
+            for (int y = 0; y < blueprintInUse.gridHeight; y++)
+            {
+                if (grid[x, y].isOccupied && grid[x, y].occupiedBy != null)
+                {
+                    UIComponentItem component = grid[x, y].occupiedBy;
+                    if (!processedComponents.Contains(component))
+                    {
+                        processedComponents.Add(component);
+
+                        Vector2Int origin = FindComponentOrigin(component,
+                            component.GetComponentData().playTimeWidth,
+                            component.GetComponentData().playTimeHeight);
+
+                        // Safety check
+                        if (origin != Vector2Int.one * -1)
+                        {
+                            UpdateAdjacencyModifiers(component, origin.x, origin.y);
+                        }
+                    }
+                }
+            }
+        }
+    }
     private void UpdateAdjacencyModifiers(UIComponentItem componentItem, int posX, int posY)
     {
         ComponentData component = componentItem.GetComponentData();

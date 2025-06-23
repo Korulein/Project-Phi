@@ -6,7 +6,7 @@ public class TitleScreenManager : MonoBehaviour
 {
     public static TitleScreenManager instance { get; private set; }
     [Header("Scene Indexes")]
-    [SerializeField] int deskSceneIndex = 1;
+    [SerializeField] int tutorialSceneIndex = 1;
     private void Awake()
     {
         if (instance == null)
@@ -28,7 +28,7 @@ public class TitleScreenManager : MonoBehaviour
     }
     public IEnumerator LoadDeskScene()
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(deskSceneIndex);
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(tutorialSceneIndex);
         yield return null;
     }
 }
