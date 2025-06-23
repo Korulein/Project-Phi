@@ -28,6 +28,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
     [Header("Flags")]
     private bool isPickedUp = false;
     public bool isRotated = false;
+    public bool wasReturnedFromBlueprint = false;
 
     [Header("Tooltip setup")]
     private string componentName;
@@ -76,7 +77,22 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         component.playTimeWidth = component.width;
         component.playTimeHeight = component.height;
         iconImage.sprite = componentData.componentSprite;
-        //AdjustComponentSize(component);
+        if (component.slotSize == SlotSize.Custom)
+            AdjustComponentSize();
+    }
+    public void AdjustComponentSize()
+    {
+        float unitWidth1 = 180f;
+        float unitWidth2 = 80f;
+        float unitHeight = 93.314f;
+        if (component.width == 2 && component.height == 1)
+        {
+            rectTransform.sizeDelta = new Vector2(unitWidth1, unitHeight);
+        }
+        else if (component.width == 1 && component.height == 2)
+        {
+            rectTransform.sizeDelta = new Vector2(unitWidth2, unitHeight);
+        }
     }
     #endregion
 
@@ -208,6 +224,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         isPickedUp = false;
         canvasGroup.blocksRaycasts = true;
+        wasReturnedFromBlueprint = false;
 
         rectTransform.sizeDelta = originalSizeDelta;
         Destroy(placeholderCopy);
@@ -222,6 +239,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
         // Called from BlueprintInteract, returns component to inventory
         canvasGroup.blocksRaycasts = true;
         isPickedUp = false;
+        wasReturnedFromBlueprint = false;
 
         RectTransform rt = GetComponent<RectTransform>();
         rt.SetParent(DeskUIManager.instance.inventoryContainer, false);
@@ -322,7 +340,7 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
         {
-            audioManager.PlayAudioClip(audioManager.aerogelPickup, transform, 1f);
+            audioManager.PlayAudioClip(audioManager.plasticPickup, transform, 1f);
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
         {
@@ -358,7 +376,15 @@ public class UIComponentItem : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         if (component.materialType == MaterialTypes.Aerogel || component.materialType == MaterialTypes.Self_Healing_Polymer)
         {
-            audioManager.PlayAudioClip(audioManager.aerogelDrop, transform, 1f);
+            if (!wasReturnedFromBlueprint)
+            {
+                audioManager.PlayAudioClip(audioManager.aerogelDrop, transform, 1f);
+            }
+            else
+            {
+                audioManager.PlayAudioClip(audioManager.plasticDrop, transform, 1f);
+            }
+
 
         }
         if (component.materialType == MaterialTypes.CarbonFiber)
