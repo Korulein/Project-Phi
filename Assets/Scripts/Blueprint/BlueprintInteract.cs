@@ -93,16 +93,17 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 }
                 Debug.Log("Component overlap! Try again");
                 Vector2Int origin = BlueprintManager.instance.lastPickUpOrigin;
-                BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
                 selectedComponent.PlayMaterialSoundDrop();
+                BlueprintManager.instance.PlaceComponent(selectedComponent, origin.x, origin.y);
 
             }
         }
         else
         {
             Debug.Log("Component was out of bounds!");
-            selectedComponent.ReturnToStartPosition();
+            selectedComponent.wasReturnedFromBlueprint = true;
             selectedComponent.PlayMaterialSoundDrop();
+            selectedComponent.ReturnToStartPosition();
         }
     }
     private void PickUpComponent(Vector2Int cell)
@@ -149,8 +150,9 @@ public class BlueprintInteract : MonoBehaviour, IPointerEnterHandler, IPointerEx
             return;
         if (selectedComponent.isRotated)
             RotateComponent();
-        selectedComponent.ReturnToInventory();
+        selectedComponent.wasReturnedFromBlueprint = true;
         selectedComponent.PlayMaterialSoundDrop();
+        selectedComponent.ReturnToInventory();
         selectedComponent = null;
     }
     public IEnumerator SuppressClickForOneFrame()
