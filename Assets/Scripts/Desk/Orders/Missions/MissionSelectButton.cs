@@ -35,5 +35,11 @@ public class MissionSelectButton : MonoBehaviour
         DeskUIManager.instance.DisplayRAMSModifiersPanel();
 
         BlueprintManager.instance.ActivateBlueprint(targetOrderScreenUI.blueprintID);
+
+        RequirementUIManager reqManager = FindAnyObjectByType<RequirementUIManager>();
+        if (reqManager != null)
+        {
+            reqManager.activeOrderScreenUI = targetOrderScreenUI;
+        }
     }
 }

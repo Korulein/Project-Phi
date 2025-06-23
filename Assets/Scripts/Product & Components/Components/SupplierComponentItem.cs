@@ -9,11 +9,12 @@ public class SupplierComponentItem : MonoBehaviour
     {
         if (InventoryManager.instance.CheckIfComponentIsAlreadyOrdered(componentData))
         {
-
             InventoryManager.instance.AddComponentToOrderedComponents(componentData);
             InventoryManager.instance.AddComponentToInventory(componentData);
             AudioManager.instance.PlayAudioClip(AudioManager.instance.orderComponent, transform, 0.3f);
-            Debug.Log($"Ordered {componentData.componentName} successfully!");
+
+            var uiManager = FindAnyObjectByType<RequirementUIManager>();
+            uiManager?.RefreshRequirementColors(componentData);
         }
         else
         {
