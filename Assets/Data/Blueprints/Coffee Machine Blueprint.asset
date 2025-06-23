@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprintName: Coffee_Machine_Blueprint_01
   blueprintImage: {fileID: 21300000, guid: 19063f63ca7a923428a481cc537a045f, type: 3}
-  blueprintID: 0
+  blueprintID: 1
   gridWidth: 6
   gridHeight: 6
   allCells:
@@ -93,25 +93,7 @@ MonoBehaviour:
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
-    width: 1
-    height: 1
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 1
     type: 0
-    width: 1
-    height: 1
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 1
-    type: 0
-    width: 1
-    height: 1
-  - occupiedBy: {fileID: 0}
-    isOccupied: 0
-    isUseable: 1
-    type: 1
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
@@ -129,7 +111,7 @@ MonoBehaviour:
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
+    type: 0
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
@@ -165,7 +147,25 @@ MonoBehaviour:
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
+    width: 1
+    height: 1
+  - occupiedBy: {fileID: 0}
+    isOccupied: 0
+    isUseable: 1
+    type: 0
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
+    type: 0
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
@@ -213,13 +213,13 @@ MonoBehaviour:
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
+    type: 0
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
     isOccupied: 0
     isUseable: 1
-    type: 1
+    type: 0
     width: 1
     height: 1
   - occupiedBy: {fileID: 0}
