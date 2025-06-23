@@ -1,18 +1,19 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TutorialScreenManager : MonoBehaviour
 {
-    public GameObject[] tutorialTextBoxes; // Assign your text box GameObjects in the Inspector
-    public GameObject inputFieldObject;    // Assign your TMP_InputField GameObject in the Inspector
-    public int inputFieldDialogueIndex = 1; // The index at which the input field should appear (set in Inspector)
-    public TMP_Text nameDisplayText;       // Assign your TextMeshPro text field in the Inspector
-    public float typeSpeed = 0.03f;        // Time between letters
+    public GameObject[] tutorialTextBoxes; // List of all dialogue boxes
+    public GameObject inputFieldObject; // Input for name under contract
+    public int inputFieldDialogueIndex = 1; //Dialogue index where input should appear
+    public TMP_Text nameDisplayText; // Text display of name under contract
+    public float typeSpeed = 0.03f;
 
-    public GameObject bgObjectToEnable;   // Background object to enable
-    public GameObject bgObjectToDisable;  // Background object to disable
-    public int switchBackGroundDialogue; // The dialogue index to switch objects at
+    public GameObject bgObjectToEnable; // Second background, for slideshow
+    public GameObject bgObjectToDisable; //First background, for introduction
+    public int switchBackGroundDialogue; //Dialogue index on where to switch backgrounds
 
     private int currentIndex = 0;
     private TMP_InputField inputField;
@@ -61,17 +62,26 @@ public class TutorialScreenManager : MonoBehaviour
         {
             if (advancePressed)
             {
+                //Disable the previous dialogue box before advancing
                 if (currentIndex < tutorialTextBoxes.Length)
                     tutorialTextBoxes[currentIndex].SetActive(false);
 
                 currentIndex++;
 
+                //Enable the next dialogue box
                 if (currentIndex < tutorialTextBoxes.Length)
                 {
                     ShowDialogue(currentIndex);
 
                     if (currentIndex == inputFieldDialogueIndex && inputFieldObject != null)
                         inputFieldObject.SetActive(true);
+                }
+
+                // If you reach the end of the tutorial, change scene
+                if (currentIndex >= tutorialTextBoxes.Length)
+                {
+                    // After all dialogue, load the how-to-play 
+                    SceneManager.LoadScene("Scene_How_To_Play_01");
                 }
             }
         }
@@ -111,6 +121,7 @@ public class TutorialScreenManager : MonoBehaviour
             }
             ShowDialogue(currentIndex);
         }
+        
     }
 
     private void ShowDialogue(int index)
