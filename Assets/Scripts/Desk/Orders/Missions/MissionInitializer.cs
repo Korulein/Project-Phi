@@ -1,28 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class MissionUIEntry
+{
+    public Missions mission;
+    public OrderScreenUI orderScreenUI;
+}
 
 public class MissionInitializer : MonoBehaviour
 {
-    public OrderScreenUI trainingPanelOrderScreenUI;
-    public OrderScreenUI marsPanelOrderScreenUI;
-    public OrderScreenUI moonPanelOrderScreenUI;
-    // Copy previous and change name for new mission
-
-    public Missions trainingMission;
-    public Missions marsMission;
-    public Missions moonMission;
-    // Copy previous and change name for new mission
+    public List<MissionUIEntry> missionUIEntries = new List<MissionUIEntry>();
 
     private void Start()
     {
-        if (trainingMission == null) Debug.LogError("trainingMission is NULL");
-        if (marsMission == null) Debug.LogError("marsMission is NULL");
-        if (moonMission == null) Debug.LogError("marsMission is NULL");
-        if (trainingPanelOrderScreenUI == null) Debug.LogError("trainingPanelOrderScreenUI is NULL");
-        if (marsPanelOrderScreenUI == null) Debug.LogError("marsPanelOrderScreenUI is NULL");
-        if (moonPanelOrderScreenUI == null) Debug.LogError("marsPanelOrderScreenUI is NULL");
+        foreach (var entry in missionUIEntries)
+        {
+            if (entry.mission == null)
+                Debug.LogError("Mission is NULL in one of the entries");
 
-        trainingPanelOrderScreenUI.SetMission(trainingMission);
-        marsPanelOrderScreenUI.SetMission(marsMission);
-        moonPanelOrderScreenUI.SetMission(moonMission);
+            if (entry.orderScreenUI == null)
+                Debug.LogError("OrderScreenUI is NULL in one of the entries");
+
+            if (entry.mission != null && entry.orderScreenUI != null)
+                entry.orderScreenUI.SetMission(entry.mission);
+        }
     }
 }

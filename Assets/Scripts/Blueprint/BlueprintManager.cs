@@ -36,6 +36,7 @@ public class BlueprintManager : MonoBehaviour
     public Missions activeMission;
     public OrderScreenUI activeOrderScreenUI;
     public bool isMissionActive = false;
+    public bool isComponentAddedToInventory = false;
     public BlueprintData activeBlueprintData;
     public int activeBlueprintID;
 
@@ -324,7 +325,19 @@ public class BlueprintManager : MonoBehaviour
                 if (!reqUI.HasData()) continue;
 
                 bool isMet = reqUI.Evaluate(totalHeat);
-                reqUI.SetColor(isMet ? Color.green : Color.red);
+
+                if (isMet)
+                {
+                    reqUI.SetColor(Color.green);
+                }
+                else if (reqUI.isPurchased)
+                {
+                    reqUI.SetColor(Color.yellow);
+                }
+                else
+                {
+                    reqUI.SetColor(Color.red);
+                }
             }
         }
         if (componentItem.GetComponentData().componentType == ComponentType.Structural)

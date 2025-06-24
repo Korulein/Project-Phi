@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Indium-Copper Sealant Component
   m_EditorClassIdentifier: 
   componentName: Indium-Copper Sealant
-  categoryName: 
+  categoryName: Seal
   componentSprite: {fileID: 6833628603829609448, guid: 5cbb3491b54be594ab150b12991afa53, type: 3}
   companyLogo: {fileID: 21300000, guid: 9201c2a18087f70499450b3eb31ebed3, type: 3}
   componentDescription: Extremly high durability seal that can be used to atomically
@@ -26,8 +26,8 @@ MonoBehaviour:
   slotSize: 1
   width: 1
   height: 1
-  playTimeWidth: 0
-  playTimeHeight: 0
+  playTimeWidth: 1
+  playTimeHeight: 1
   weight: 4
   requiresPowerInput: 0
   adjacencyRange: 0

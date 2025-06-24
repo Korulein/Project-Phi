@@ -76,7 +76,6 @@ public class TutorialScreenManager : MonoBehaviour
                     if (currentIndex == inputFieldDialogueIndex && inputFieldObject != null)
                         inputFieldObject.SetActive(true);
                 }
-
                 // If you reach the end of the tutorial, change scene
                 if (currentIndex >= tutorialTextBoxes.Length)
                 {
@@ -121,7 +120,7 @@ public class TutorialScreenManager : MonoBehaviour
             }
             ShowDialogue(currentIndex);
         }
-        
+       
     }
 
     private void ShowDialogue(int index)

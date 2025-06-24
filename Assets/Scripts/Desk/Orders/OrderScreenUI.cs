@@ -79,7 +79,18 @@ public class OrderScreenUI : MonoBehaviour
         foreach (var reqUI in requirementUIs)
         {
             bool isMet = reqUI.Evaluate();
-            reqUI.SetColor(isMet ? Color.green : Color.red);
+            if (isMet)
+            {
+                reqUI.SetColor(Color.green);
+            }
+            else if (reqUI.isPurchased)
+            {
+                reqUI.SetColor(Color.yellow);
+            }
+            else
+            {
+                reqUI.SetColor(Color.red);
+            }
         }
     }
 
@@ -91,6 +102,30 @@ public class OrderScreenUI : MonoBehaviour
             if (ui != null && ui.HasData())
             {
                 ui.OnComponentPlaced(categoryName);
+            }
+        }
+    }
+
+    public void NotifyComponentPurchased(string categoryName)
+    {
+        foreach (Transform child in requirementsContainer)
+        {
+            RequirementUI ui = child.GetComponent<RequirementUI>();
+            if (ui != null && ui.HasData())
+            {
+                ui.OnComponentPurchased(categoryName);
+            }
+        }
+    }
+
+    public void NotifyComponentRemoved(string categoryName)
+    {
+        foreach (Transform child in requirementsContainer)
+        {
+            RequirementUI ui = child.GetComponent<RequirementUI>();
+            if (ui != null && ui.HasData())
+            {
+                ui.OnComponentRemoved(categoryName);
             }
         }
     }
