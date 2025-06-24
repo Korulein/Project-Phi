@@ -13,6 +13,7 @@ public class HowToPlayManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
     [SerializeField] int loadSceneIndex = 1;
+    private TMP_Text currentTypingText;
 
     void Start()
     {
@@ -28,22 +29,38 @@ public class HowToPlayManager : MonoBehaviour
 
     void Update()
     {
-        if (!isTyping &&
-            currentIndex < dialogueBoxes.Length &&
-            (advanceButtons == null || currentIndex >= advanceButtons.Length || advanceButtons[currentIndex] == null) &&
-            Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentIndex < dialogueBoxes.Length)
         {
-            EnableNextDialogueBox();
+            // If currently typing, skip to the end of the typing animation
+            if (isTyping)
+            {
+                if (currentIndex == 0)
+                    return; 
+
+                if (typingCoroutine != null)
+                    StopCoroutine(typingCoroutine);
+                typingCoroutine = null;
+                if (currentTypingText != null)
+                    currentTypingText.maxVisibleCharacters = currentTypingText.text.Length;
+                isTyping = false;
+                return;
+            }
+
+            // Only advance on click if there is no specific advance button for this dialogue
+            if (advanceButtons == null || currentIndex >= advanceButtons.Length || advanceButtons[currentIndex] == null)
+            {
+                EnableNextDialogueBox();
+            }
         }
     }
 
     public void EnableNextDialogueBox()
     {
-        // If dialogue is still being typed out, disable advancing with click
+        // Only advance if not typing
         if (isTyping)
             return;
 
-        // In order to make sure every button works once, remove all listeners before advancing
+        // Remove listener from the current button so it can't advance again
         if (advanceButtons != null && currentIndex < advanceButtons.Length && advanceButtons[currentIndex] != null)
         {
             advanceButtons[currentIndex].onClick.RemoveListener(EnableNextDialogueBox);
@@ -64,7 +81,7 @@ public class HowToPlayManager : MonoBehaviour
         // If all dialogues are finished, load the next scene
         if (currentIndex >= dialogueBoxes.Length)
         {
-            StartGame(); // Replace with your actual scene name
+            StartGame();
             return;
         }
 
@@ -92,6 +109,7 @@ public class HowToPlayManager : MonoBehaviour
         {
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
+            currentTypingText = tmp;
             typingCoroutine = StartCoroutine(TypeText(tmp, tmp.text));
         }
     }

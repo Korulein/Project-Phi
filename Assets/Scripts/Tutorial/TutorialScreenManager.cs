@@ -42,17 +42,33 @@ public class TutorialScreenManager : MonoBehaviour
 
     void Update()
     {
-        bool advancePressed = Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
+        bool advancePressed = Input.GetMouseButtonDown(0);
 
-        if (isTyping)
+        // --- Skip typing animation if in progress ---
+        if (advancePressed && isTyping)
+        {
+            if (typingCoroutine != null)
+                StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+
+            // Reveal all text in the current dialogue box
+            if (currentIndex < tutorialTextBoxes.Length)
+            {
+                var tmp = tutorialTextBoxes[currentIndex].GetComponentInChildren<TMP_Text>();
+                if (tmp != null)
+                    tmp.maxVisibleCharacters = tmp.text.Length;
+            }
+            isTyping = false;
             return;
+        }
 
+        // --- Normal advance logic ---
         if (currentIndex == inputFieldDialogueIndex)
         {
             if (inputFieldObject != null)
                 inputFieldObject.SetActive(true);
 
-            // Mouse click or spacebar advance (only if input is filled)
+            // Mouse click advance (only if input is filled)
             if (advancePressed && inputField != null && !string.IsNullOrWhiteSpace(inputField.text))
             {
                 AdvanceFromInputField();
