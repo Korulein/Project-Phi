@@ -40,5 +40,5 @@ MonoBehaviour:
   structuralSubtype: 1
   reliabilityModifier: 0.9
   availabilityModifier: 1
-  maintainabilityModifier: 1
+  maintainabilityModifier: 1.2
   safetyModifier: 1.1
