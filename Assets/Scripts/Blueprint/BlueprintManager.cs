@@ -494,7 +494,6 @@ public class BlueprintManager : MonoBehaviour
     private void RecalculateAllAdjacencyModifiers()
     {
         adjacencyModifiersToBeApplied.Clear();
-
         HashSet<UIComponentItem> processedComponents = new HashSet<UIComponentItem>();
         for (int x = 0; x < blueprintInUse.gridWidth; x++)
         {
@@ -506,11 +505,9 @@ public class BlueprintManager : MonoBehaviour
                     if (!processedComponents.Contains(component))
                     {
                         processedComponents.Add(component);
-
                         Vector2Int origin = FindComponentOrigin(component,
                             component.GetComponentData().playTimeWidth,
                             component.GetComponentData().playTimeHeight);
-
                         // Safety check
                         if (origin != Vector2Int.one * -1)
                         {

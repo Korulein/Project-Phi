@@ -20,6 +20,8 @@ public class DeskUIManager : MonoBehaviour
     [SerializeField] GameObject deskBlurLayer;
     [SerializeField] public TextMeshProUGUI RAMSRatings;
 
+    [SerializeField] private GameObject controlData;
+
     [Header("Supplier Component Information Popup")]
     [SerializeField] public GameObject basicComponentInformationPopup;
     [SerializeField] public Image companyLogo;
@@ -146,6 +148,18 @@ public class DeskUIManager : MonoBehaviour
     public void CloseBlueprintDataPopup()
     {
         blueprintDataPopup.SetActive(false);
+        blueprintBlurLayer.SetActive(false);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
+    }
+    public void DisplayControlDataPopup()
+    {
+        controlData.SetActive(true);
+        blueprintBlurLayer.SetActive(true);
+        AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
+    }
+    public void CloseControlDataPopup()
+    {
+        controlData.SetActive(false);
         blueprintBlurLayer.SetActive(false);
         AudioManager.instance.PlayAudioClip(AudioManager.instance.buttonPress1, transform, 1f);
     }
