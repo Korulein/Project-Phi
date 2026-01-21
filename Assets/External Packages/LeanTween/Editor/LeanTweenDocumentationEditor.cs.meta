@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Editor/LeanTweenDocumentationEditor.cs
+  assetPath: Assets/External Packages/LeanTween/Editor/LeanTweenDocumentationEditor.cs
   uploadId: 469983

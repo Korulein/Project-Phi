@@ -16,5 +16,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Scripts/TestingZLegacyExt.cs
+  assetPath: Assets/External Packages/LeanTween/Examples/Scripts/TestingZLegacyExt.cs
   uploadId: 469983

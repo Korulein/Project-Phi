@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Testing/TestingRotate.cs
+  assetPath: Assets/External Packages/LeanTween/Testing/TestingRotate.cs
   uploadId: 469983

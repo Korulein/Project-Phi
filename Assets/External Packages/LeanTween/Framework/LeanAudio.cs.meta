@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Framework/LeanAudio.cs
+  assetPath: Assets/External Packages/LeanTween/Framework/LeanAudio.cs
   uploadId: 469983

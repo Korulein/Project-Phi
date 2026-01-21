@@ -58,5 +58,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Models/CurvePathsText.fbx
+  assetPath: Assets/External Packages/LeanTween/Examples/Models/CurvePathsText.fbx
   uploadId: 469983

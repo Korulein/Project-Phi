@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c2a31a2a91e134e8f88e4cc14b7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSceneIndex: 2
+  tutorialSceneIndex: 1
 --- !u!114 &1632661300
 MonoBehaviour:
   m_ObjectHideFlags: 0

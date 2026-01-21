@@ -58,5 +58,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Models/CameraShakeText.fbx
+  assetPath: Assets/External Packages/LeanTween/Examples/Models/CameraShakeText.fbx
   uploadId: 469983

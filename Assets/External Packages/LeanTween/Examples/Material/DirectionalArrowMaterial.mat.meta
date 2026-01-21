@@ -13,5 +13,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Material/DirectionalArrowMaterial.mat
+  assetPath: Assets/External Packages/LeanTween/Examples/Material/DirectionalArrowMaterial.mat
   uploadId: 469983

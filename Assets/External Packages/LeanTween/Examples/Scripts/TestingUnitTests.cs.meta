@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Scripts/TestingUnitTests.cs
+  assetPath: Assets/External Packages/LeanTween/Examples/Scripts/TestingUnitTests.cs
   uploadId: 469983

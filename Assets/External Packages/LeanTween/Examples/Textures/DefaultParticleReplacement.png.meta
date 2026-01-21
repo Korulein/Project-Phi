@@ -126,5 +126,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Textures/DefaultParticleReplacement.png
+  assetPath: Assets/External Packages/LeanTween/Examples/Textures/DefaultParticleReplacement.png
   uploadId: 469983

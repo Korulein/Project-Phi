@@ -16,5 +16,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Testing/TestingOptionalCancel.cs
+  assetPath: Assets/External Packages/LeanTween/Testing/TestingOptionalCancel.cs
   uploadId: 469983

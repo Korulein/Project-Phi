@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Scripts/PathBezier2d.cs
+  assetPath: Assets/External Packages/LeanTween/Examples/Scripts/PathBezier2d.cs
   uploadId: 469983

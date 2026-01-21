@@ -315,5 +315,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Examples/Models/SimpleAvatarPieces.fbx
+  assetPath: Assets/External Packages/LeanTween/Examples/Models/SimpleAvatarPieces.fbx
   uploadId: 469983

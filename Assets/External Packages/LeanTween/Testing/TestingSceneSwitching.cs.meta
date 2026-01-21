@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 3595
   packageName: LeanTween
   packageVersion: 2.51
-  assetPath: Assets/LeanTween/Testing/TestingSceneSwitching.cs
+  assetPath: Assets/External Packages/LeanTween/Testing/TestingSceneSwitching.cs
   uploadId: 469983
